@@ -8,15 +8,29 @@
     </head>
     <body>
       <div class="container-fluid">
-        <div class="main">
+        <div class="intro">
           <div class="form-group">
-            <h3 id="questions"> Hello! What is your name?</h3>
+            <h3 id="questions">Hello! What is your name?</h3>
             <input type="text" class="form-control" id="name" /> <br />
-            <button type="button" id="next-button" class="btn btn-default" onclick="start()">Next</button>
-            <button type="buttom" id="main" class="btn btn-primary" onclick="main_menu()">Start!</button>
-            <div id="greeting"></div>
+            <button type="button" id="next-button" class="btn btn-default" onclick="info()">Next</button>
+            <button type="buttom" id="skip-button" class="btn btn-info" onclick="main_menu()">Skip</button>
             </div>
           </div>
+          <div class="greeting">
+            <h3 id="hello"></h3><br />
+            <h3>You Currently have <span id="taskscount>" style="color:blue">0</span> tasks.</h3>
+            <hr />
+          </div>
+          <ul>
+            <li>
+              Things like add task here.
+            </li>
+          </ul>
+          <ul>
+            <li id="right">
+              Tasks can go here
+            </li>
+          </ul>
         </div>
       </div>
       <script type='text/javascript' src='src/main.js'></script>

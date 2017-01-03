@@ -1,8 +1,8 @@
-.main {
+.intro {
 
 
   margin-top: 100px;
-  margin-left: 220px;
+
 
 
 }
@@ -10,4 +10,15 @@
 #name {
 
   width: 450px;
+}
+
+li {
+
+
+  list-style-type: none;
+}
+
+#right {
+
+  float: right;
 }

@@ -1,63 +1,84 @@
 $(document).ready(function() {
 
+  $('.greeting').hide();
 
-      $("#name").keyup(function(event) {
 
-          if (event.keyCode == 13) {
+    $("#name").keyup(function(event) {
+
+        if (event.keyCode == 13) {
 
             $('#next-button').click();
 
-          }
+        }
 
-      });
-
-      $('#main').hide();
+    });
 
 });
 
 var personDetails = {
 
-  name : "",
-  usage : ""
+    name: "",
+    usage: ""
 
 
 };
 
+function info() {
 
-function start () {
+    if (personDetails.name == "") {
+
+        var name = $('#name').val();
+        personDetails.name = name;
+        document.getElementById('name').value = "";
+
+    }
+
+    if (personDetails.name) {
+
+        var usage = $('#name').val();
+
+        document.getElementById('questions').innerHTML = "And what is this task about?";
+        $('#name').attr('placeholder', 'i.e. Shopping, Homework');
+        personDetails.usage = usage;
+
+    }
+
+    if (personDetails.name && personDetails.usage) {
+
+        $('.intro').remove();
+        main_menu();
+
+    }
 
 
-  var name = $('#name').val();
+}
 
-  document.getElementById('questions').innerHTML = "And what is this used for?";
-  personDetails.name = name;
-  start_two();
+function greeting() {
+
+  var rand = Math.floor((Math.random() * 3) + 1);
+  var greeting = ["Hello", "Hey", "Hi", "How are you"];
+
+  document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + "."
+
+}
+
+
+function main_menu() {
+
+    greeting();
+    $('.greeting').show("slow");
+
 
 
 
 }
 
-function start_two() {
-
-  document.getElementById('name').value = "";
-
-  var usage = $('#name').val();
-  personDetails.usage = usage;
-  $('#main').show("fast");
-  $('#next-button').hide();
-
-
-
-}
-
-function main_menu () {
-
-  $('.main').remove();
 
 
 
 
-}
+// SUGGESTIONS
+//==========================================
 // what is this used for? Icons like a shopping cart, a paper and pencil, homework, etc
 
 
@@ -85,3 +106,5 @@ function main_menu () {
 // Hello John. It is (date) and you have 5 tasks
 
 // go back button
+
+// error input for empty fields
