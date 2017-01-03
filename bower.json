@@ -1,0 +1,27 @@
+{
+  "name": "Colorful",
+  "authors": [
+    "Amanguchi <johncorderox@gmail.com>"
+  ],
+  "description": "A web application made with JS and AJAX",
+  "main": "index.html",
+  "keywords": [
+    "html",
+    "js",
+    "css",
+    "color",
+    "background"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
