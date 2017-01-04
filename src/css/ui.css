@@ -7,18 +7,34 @@
 
 }
 
-#name {
+.form-group {
 
   width: 450px;
 }
 
-li {
 
-
-  list-style-type: none;
-}
 
 #right {
 
   float: right;
+}
+
+.button-cp {
+
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  font-size: 20px;
+
+}
+.button-cp:hover {
+
+  color: blue;
+
+
+}
+
+.button-cp:active {
+
+  opacity: 0;
 }

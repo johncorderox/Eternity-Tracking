@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('.greeting').hide();
+    $('.greeting').hide();
 
 
     $("#name").keyup(function(event) {
@@ -23,7 +23,19 @@ var personDetails = {
 
 };
 
+var taskDetails = {
+
+    title: "",
+    content: ""
+
+
+
+
+};
+
 function info() {
+
+    $('#skip-button').hide();
 
     if (personDetails.name == "") {
 
@@ -53,21 +65,38 @@ function info() {
 
 }
 
-function greeting() {
+function greeting(num) {
 
-  var rand = Math.floor((Math.random() * 3) + 1);
-  var greeting = ["Hello", "Hey", "Hi", "How are you"];
+    var rand = Math.floor((Math.random() * 3) + 1);
+    var greeting = ["Hello", "Hey", "Hi", "How are you"];
 
-  document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + "."
+
+    if (num != 0) {
+
+        document.getElementById('hello').innerHTML = greeting[rand] + "!";
+
+    } else
+
+        document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
 
 }
 
 
-function main_menu() {
+function main_menu(num) {
 
+    if (num === 0) {
+
+        greeting(0);
+
+    }
     greeting();
     $('.greeting').show("slow");
 
+
+}
+
+
+function addTask() {
 
 
 
