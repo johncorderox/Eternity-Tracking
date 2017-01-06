@@ -13,6 +13,17 @@ $(document).ready(function() {
 
     });
 
+    $('#title').keyup(function(event) {
+
+
+      if(event.keyCode == 13) {
+
+        $('#message').focus();
+
+      }
+
+    })
+
 });
 
 var personDetails = {
@@ -29,68 +40,80 @@ var taskDetails = {
     content: ""
 
 
-
-
 };
+
+var infoCount = 0;
 
 function info() {
 
-    $('#skip-button').hide();
 
-    if (personDetails.name == "") {
+  switch (infoCount) {
+    case 0:
+            var name = $('#name').val();
 
-        var name = $('#name').val();
-        personDetails.name = name;
-        document.getElementById('name').value = "";
+            if(name == '') {
+              alert("no new name");
+              var name_color = document.getElementById('questions').innerHTML;
+              var new_name_color = name_color.search("name");
+              $(new_name_color).css("color", "red");
 
-    }
+            }
+            //working on changing name to red when empty field.
+            // case 1 is not eing called.
 
-    if (personDetails.name) {
+            personDetails.name = name;
+            document.getElementById('name').value = "";
+            infoCount+1;
+            document.getElementById('questions').innerHTML = "And what is this task about?";
+            $('#name').attr('placeholder', 'i.e. Shopping, Homework');
+            break;
 
-        var usage = $('#name').val();
+    case 1:
 
-        document.getElementById('questions').innerHTML = "And what is this task about?";
-        $('#name').attr('placeholder', 'i.e. Shopping, Homework');
-        personDetails.usage = usage;
+            var usage = $('#name').val();
+            personDetails.usage = usage;
+            $('.intro').remove();
+            main_menu();
+            break;
 
-    }
 
-    if (personDetails.name && personDetails.usage) {
+    default:
 
-        $('.intro').remove();
-        main_menu();
+            console.log("There was an error in the info function when asking for a name or task subject.")
 
-    }
+  }
+
+}
+
+
+function greeting() {
+
+
+
+  var rand = Math.floor((Math.random() * 3) + 1);
+   var greeting = ["Hello", "Hey", "Hi", "How are you"];
+
+
+
+     document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
+
+
 
 
 }
 
-function greeting(num) {
-
-    var rand = Math.floor((Math.random() * 3) + 1);
-    var greeting = ["Hello", "Hey", "Hi", "How are you"];
 
 
-    if (num != 0) {
 
-        document.getElementById('hello').innerHTML = greeting[rand] + "!";
-
-    } else
-
-        document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
-
-}
 
 
 function main_menu(num) {
 
-    if (num === 0) {
 
-        greeting(0);
+      greeting();
+      $('.greeting').show("slow");
 
-    }
-    greeting();
-    $('.greeting').show("slow");
+
 
 
 }
@@ -99,9 +122,24 @@ function main_menu(num) {
 function addTask() {
 
 
+  $('.add-task .form-control').each(function() {
+
+      if($(this).val() === '') {
+
+        $(this).addClass('error-output');
+      }
+
+  });
 
 }
 
+function clearTaskFields() {
+
+
+
+
+
+}
 
 
 
@@ -137,3 +175,6 @@ function addTask() {
 // go back button
 
 // error input for empty fields
+
+
+//grid system for bottom half of application

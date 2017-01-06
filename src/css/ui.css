@@ -11,6 +11,10 @@
 
   width: 450px;
 }
+#message {
+
+  height: 150px;
+}
 
 
 
@@ -37,4 +41,10 @@
 .button-cp:active {
 
   opacity: 0;
+}
+
+.error-output {
+
+
+  border-color: red;
 }
