@@ -38,6 +38,19 @@
 
 }
 
+.btn  {
+
+width: 100px;
+
+
+}
+
+#next-button {
+
+  width: 70px;
+}
+
+
 .button-cp:active {
 
   opacity: 0;

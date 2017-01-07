@@ -88,9 +88,7 @@ function greeting() {
 
 
   var rand = Math.floor((Math.random() * 3) + 1);
-   var greeting = ["Hello", "Hey", "Hi", "How are you"];
-
-
+  var greeting = ["Hello", "Hey", "Hi", "How are you"];
 
      document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
 
@@ -119,6 +117,8 @@ function addTask() {
       if($(this).val() === '') {
 
         $(this).addClass('error-output');
+
+        return
       }
 
   });
@@ -127,6 +127,10 @@ function addTask() {
 
 function clearTaskFields() {
 
+
+
+  $('#title').val('');
+  $('#message').val('');
 
 
 
@@ -138,8 +142,6 @@ function clearTaskFields() {
 
 // SUGGESTIONS
 //==========================================
-// what is this used for? Icons like a shopping cart, a paper and pencil, homework, etc
-
 
 // have colors at almost every text
 
