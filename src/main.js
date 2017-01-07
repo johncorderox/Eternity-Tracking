@@ -52,18 +52,15 @@ function info() {
             var name = $('#name').val();
 
             if(name == '') {
-              alert("no new name");
-              var name_color = document.getElementById('questions').innerHTML;
-              var new_name_color = name_color.search("name");
-              $(new_name_color).css("color", "red");
+
+              $('#name-span').css("color","red");
+              return;
 
             }
-            //working on changing name to red when empty field.
-            // case 1 is not eing called.
 
             personDetails.name = name;
             document.getElementById('name').value = "";
-            infoCount+1;
+            infoCount = 1;
             document.getElementById('questions').innerHTML = "And what is this task about?";
             $('#name').attr('placeholder', 'i.e. Shopping, Homework');
             break;
@@ -97,12 +94,7 @@ function greeting() {
 
      document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
 
-
-
-
 }
-
-
 
 
 
