@@ -13,25 +13,28 @@
             <h3 id="questions">Hello! What is your  <span id="name-span">name</span>?</h3>
             <input type="text" class="form-control" id="name" /> <br />
             <button type="button" id="next-button" class="btn btn-default" onclick="info()">Next</button>
-            </div>
           </div>
-          <div class="greeting">
-            <h3 id="hello"></h3><br />
-            <h4>You Currently have <span id="taskscount>" style="color:blue">0</span> tasks.</h4>
-            <hr />
+        </div>
+    <div class="greeting">
+      <h3 id="hello"></h3><br />
+      <h4>You Currently have <span id="taskscount>" style="color:blue">0</span> tasks.</h4>
+      <hr />
+    </div>
+    </div>
+    <div class="left-module">
+      <button class="button-cp" id="add-button" onclick="showTask()">Add Task</button>
+    </div>
+      <div class="task-cp">
+           <div class="add-task">
+              <div class="form-group">
+                <input type="text" class="form-control" id="title" placeholder="Title *" />
+                <textarea rows = "5" class="form-control" id="message" placeholder="Contents *"></textarea>
+                <button onclick="addTask()" class="btn btn-primary" id="submit-button">Submit</button>
+                <button onclick="clearTaskFields()" class="btn btn-primary" id="clear-button">Clear</button>
+              </div>
           </div>
-          <div class="task-cp">
-            <button class="button-cp" onclick="addTask()">Add Task</button>
-          </div>
-                 <div class="add-task">
-                   <div class="form-group">
-                     <input type="text" class="form-control" id="title" placeholder="Title *" />
-                     <textarea rows = "5" class="form-control" id="message" placeholder="Contents *"></textarea>
-                     <button onclick="addTask()" class="btn btn-primary">Submit</button>
-                     <button onclick="clearTaskFields()" class="btn btn-primary">Clear</button>
-                   </div>
-                 </div>
-               </div>
-      <script type='text/javascript' src='src/main.js'></script>
-    </body>
+      </div>
+      <div class="test"></div>
+  <script type='text/javascript' src='src/main.js'></script>
+  </body>
   </html>
