@@ -16,13 +16,24 @@ $(document).ready(function() {
     $('#title').keyup(function(event) {
 
 
-      if(event.keyCode == 13) {
+        if (event.keyCode == 13) {
 
-        $('#message').focus();
+            $('#message').focus();
 
-      }
+        }
 
-    })
+    });
+
+    $('#message').keyup(function(event) {
+
+
+        if (event.keyCode == 13) {
+
+            $('#submit-button').click();
+
+        }
+
+    });
 
 });
 
@@ -34,27 +45,19 @@ var personDetails = {
 
 };
 
-var taskDetails = {
-
-    title: "",
-    content: ""
-
-
-};
-
 var infoCount = 0;
 
 function info() {
 
 
-  switch (infoCount) {
-    case 0:
+    switch (infoCount) {
+        case 0:
             var name = $('#name').val();
 
-            if(name == '') {
+            if (name == '') {
 
-              $('#name-span').css("color","red");
-              return;
+                $('#name-span').css("color", "red");
+                return;
 
             }
 
@@ -65,7 +68,7 @@ function info() {
             $('#name').attr('placeholder', 'i.e. Shopping, Homework');
             break;
 
-    case 1:
+        case 1:
 
             var usage = $('#name').val();
             personDetails.usage = usage;
@@ -74,11 +77,11 @@ function info() {
             break;
 
 
-    default:
+        default:
 
             console.log("There was an error in the info function when asking for a name or task subject.")
 
-  }
+    }
 
 }
 
@@ -87,10 +90,10 @@ function greeting() {
 
 
 
-  var rand = Math.floor((Math.random() * 3) + 1);
-  var greeting = ["Hello", "Hey", "Hi", "How are you"];
+    var rand = Math.floor((Math.random() * 3) + 1);
+    var greeting = ["Hello", "Hey", "Hi", "How are you"];
 
-     document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
+    document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
 
 }
 
@@ -100,28 +103,33 @@ function greeting() {
 function main_menu(num) {
 
 
-      greeting();
-      $('.greeting').show("slow");
+    greeting();
+    $('.greeting, .left-module').show("slow");
 
 
 
 
 }
 
+function showTask() {
+
+    $('.task-cp').show();
+}
+
 
 function addTask() {
 
+ // removing for bad errors
 
-  $('.add-task .form-control').each(function() {
 
-      if($(this).val() === '') {
 
-        $(this).addClass('error-output');
+        var template = "<h3>Title:" + title + "<br> </h3>" + "<p>Message: " + message + "</p><br>";
 
-        return
-      }
+        $('.test').append(template);
+        clearTaskFields();
 
-  });
+
+
 
 }
 
@@ -129,10 +137,11 @@ function clearTaskFields() {
 
 
 
-  $('#title').val('');
-  $('#message').val('');
+    $('#title').val('');
+    $('#message').val('');
 
 
+    $('#title, #message').removeClass('error-output');
 
 
 }
@@ -142,33 +151,16 @@ function clearTaskFields() {
 
 // SUGGESTIONS
 //==========================================
-
-// have colors at almost every text
-
-//show me how?
+/*
+<div class="panel panel-default">
+  <div class="panel-heading">Panel Heading</div>
+  <div class="panel-body">Panel Content</div>
+</div>
+*/
 
 // timer that adds a value in the input field so it shows that it changes the color for them
 
 //ajax request to show colors when being typed.
 
 
-// add english and spanish translation || japanese
-
-
-// COLORFUL task list-unstyled
-
-// shows your tasks with random colors.
-
 //ajax comon things like names/ shopping/ to do
-
-
-// counter for tasks.
-
-// Hello John. It is (date) and you have 5 tasks
-
-// go back button
-
-// error input for empty fields
-
-
-//grid system for bottom half of application
