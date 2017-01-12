@@ -93,7 +93,7 @@ function greeting() {
     var rand = Math.floor((Math.random() * 3) + 1);
     var greeting = ["Hello", "Hey", "Hi", "How are you"];
 
-    document.getElementById('hello').innerHTML = greeting[rand] + ", " + personDetails.name + ".";
+    document.getElementById('hello').innerHTML =` ${greeting[rand]}, ${ personDetails.name}! `;
 
 }
 
@@ -117,21 +117,10 @@ function showTask() {
 }
 
 
-function addTask() {
-
- // removing for bad errors
-
-
-
-        var template = "<h3>Title:" + title + "<br> </h3>" + "<p>Message: " + message + "</p><br>";
-
-        $('.test').append(template);
-        clearTaskFields();
 
 
 
 
-}
 
 function clearTaskFields() {
 
