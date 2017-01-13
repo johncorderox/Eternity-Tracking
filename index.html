@@ -22,19 +22,24 @@
     </div>
     </div>
     <div class="left-module">
-      <button class="button-cp" id="add-button" onclick="showTask()">Add Task</button>
+      <button class="button-cp" id="add-button" onclick="showTask()">Add Task</button><br />
+      <button class="button-cp" id="reminder-button" >Add Reminder</button>
     </div>
       <div class="task-cp">
            <div class="add-task">
+             <form id="form">
               <div class="form-group">
                 <input type="text" class="form-control" id="title" placeholder="Title *" />
                 <textarea rows = "5" class="form-control" id="message" placeholder="Contents *"></textarea>
-                <button onclick="addTask()" class="btn btn-primary" id="submit-button">Submit</button>
+                <button class="btn btn-primary" id="submit-button" type="submit">Submit</button>
                 <button onclick="clearTaskFields()" class="btn btn-primary" id="clear-button">Clear</button>
               </div>
+              </form>
           </div>
       </div>
-      <div class="test"></div>
+  <ul id="test">
+
+  </ul>
   <script type='text/javascript' src='src/main.js'></script>
   </body>
   </html>

@@ -8,16 +8,14 @@
 
 .task-cp {
 
+  margin-left: 25px;
   margin-right: 25px;
   height: 450px;
   float: left;
 
 }
 
-hr {
 
-
-}
 
 .left-module {
 
@@ -55,7 +53,12 @@ hr {
   color: blue;
 }
 
-#add-button:hover {
+#reminder-button {
+
+  color: green;
+}
+
+#add-button:hover, #reminder-button:hover {
 
   color: black;
 
