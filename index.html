@@ -27,19 +27,18 @@
     </div>
       <div class="task-cp">
            <div class="add-task">
-             <form id="form">
               <div class="form-group">
                 <input type="text" class="form-control" id="title" placeholder="Title *" />
                 <textarea rows = "5" class="form-control" id="message" placeholder="Contents *"></textarea>
-                <button class="btn btn-primary" id="submit-button" type="submit">Submit</button>
+                <button class="btn btn-primary" id="submit-button" onclick="addTask()">Submit</button>
                 <button onclick="clearTaskFields()" class="btn btn-primary" id="clear-button">Clear</button>
               </div>
-              </form>
           </div>
       </div>
+<div class="right-side">
   <ul id="test">
-
   </ul>
+</div>
   <script type='text/javascript' src='src/main.js'></script>
   </body>
   </html>

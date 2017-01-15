@@ -1,3 +1,6 @@
+'use strict';
+
+
 $(document).ready(function() {
 
     $('.greeting').hide();
@@ -117,6 +120,21 @@ function showTask() {
 }
 
 
+function addTask() {
+
+  var title = $('#title').val();
+  var contents = $('#message').val();
+
+  var li = document.createElement('li');
+  
+  li.text = `<h2>Title: ${title} </h2> <br>
+                <p>Task: ${contents}</p> <br>`;
+
+$('#test').append(li);
+
+
+
+}
 
 
 
