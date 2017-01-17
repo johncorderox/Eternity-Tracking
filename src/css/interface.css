@@ -1,0 +1,19 @@
+@font-face {
+
+    font-family: 'Lato-Thin';
+      src: url('src/css/fonts/Lato-Thin');
+}
+
+
+h2 {
+
+
+  font-family: Lato-Thin;
+  font-size: 40px;
+}
+
+input {
+
+  padding: 10px;
+  width: 500px;
+}
