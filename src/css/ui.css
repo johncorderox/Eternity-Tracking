@@ -28,11 +28,6 @@ height: 800px;
   margin-top: 50px;
 }
 
-#message {
-    height: 150px;
-    margin-top: 15px;
-    margin-bottom: 25px;
-}
 
 #submit-button {
 
@@ -40,11 +35,6 @@ height: 800px;
   float: left;
 }
 
-#clear-button {
-
-  float: right;
-  margin-right: 40px;
-}
 
 .button-cp {
     border: 0;

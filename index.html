@@ -4,41 +4,10 @@
       <meta charset="UTF-8">
       <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <link href="src/css/ui.css" rel="stylesheet" />
+      <link href="src/css/interface.css" rel="stylesheet" />
     </head>
-    <body>
-      <div class="container-fluid">
-        <div class="intro">
-          <div class="form-group">
-            <h3 id="questions">Hello! What is your  <span id="name-span">name</span>?</h3>
-            <input type="text" class="form-control" id="name" /> <br />
-            <button type="button" id="next-button" class="btn btn-default" onclick="info()">Next</button>
-          </div>
-        </div>
-    <div class="greeting">
-      <h3 id="hello"></h3><br />
-      <h4>You Currently have <span id="taskscount>" style="color:blue">0</span> tasks.</h4>
-      <hr />
-    </div>
-    </div>
-    <div class="left-module">
-      <button class="button-cp" id="add-button" onclick="showTask()">Add Task</button><br />
-      <button class="button-cp" id="reminder-button" >Add Reminder</button>
-    </div>
-      <div class="task-cp">
-           <div class="add-task">
-              <div class="form-group">
-                <input type="text" class="form-control" id="title" placeholder="Title *" />
-                <textarea rows = "5" class="form-control" id="message" placeholder="Contents *"></textarea>
-                <button class="btn btn-primary" id="submit-button" onclick="addTask()">Submit</button>
-                <button onclick="clearTaskFields()" class="btn btn-primary" id="clear-button">Clear</button>
-              </div>
-          </div>
-      </div>
-<div class="right-side">
-  <ul id="test">
-  </ul>
-</div>
+  <body>
+
   <script type='text/javascript' src='src/main.js'></script>
   </body>
   </html>
