@@ -1,1 +1,1 @@
-# Colorful-Tasks
+# splash page template
