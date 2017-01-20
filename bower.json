@@ -1,19 +1,12 @@
 {
-  "name": "Colorful",
+  "name": "Eternity Tracking-MASTER",
+  "homepage": "https://github.com/johncorderox/Eternity-Tracking",
   "authors": [
     "Amanguchi <johncorderox@gmail.com>"
   ],
-  "description": "A web application made with JS and AJAX",
-  "main": "index.html",
-  "keywords": [
-    "html",
-    "js",
-    "css",
-    "color",
-    "background"
-  ],
+  "description": "",
+  "main": "",
   "license": "MIT",
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -21,7 +14,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "bootstrap": "^3.3.7"
   }
 }
