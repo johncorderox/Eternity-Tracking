@@ -8,16 +8,11 @@
     </head>
   <body>
 
-  <h2>Welcome.</h2>
-
-    <form action="index.php" method="POST">
-    <input type="text" placeholder="Username *" name="username"/><br />
-    <input type="password" placeholder="Password *" name="password" /><br />
-    <button>Login</button>
-  </form>
-
-
-
-  <script type='text/javascript' src='src/main.js'></script>
-  </body>
-  </html>
+<div class="welcome">
+   <h2>Welcome.</h2>
+     <form action="index.php" method="POST">
+     <input type="text" placeholder="Username *" name="username"/><br />
+     <input type="password" placeholder="Password *" name="password" /><br />
+     <button id="login-button">Login</button><br />
+   </form>
+</div>
