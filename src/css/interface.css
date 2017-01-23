@@ -1,89 +1,64 @@
 @font-face {
-
     font-family: 'Lato-Thin';
-      src: url('src/css/fonts/Lato-Thin');
+    src: url('src/css/fonts/Lato-Thin');
 }
 
-
-
-h2 {
-
-
-  font-family: Lato-Thin;
-  font-size: 40px;
+h2, h4 {
+    font-family: Lato-Thin;
+    font-size: 40px;
 }
 
 .center {
-
-  height: 500px;
-  width: 500px;
-  position:absolute;
-  left:0; right:0;
-  top:0; bottom:0;
-margin:auto;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 input {
-
-  padding: 10px;
-  width: 500px;
+    padding: 10px;
+    width: 500px;
     font-size: 15px;
 }
+
 input[type="text"] {
-margin-bottom: 30px;
-
+    margin-bottom: 30px;
 }
+
 input[type="password"] {
-
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
-
 
 textarea {
-
     border-color: #cccccc;
     width: 500px;
     height: 200px;
 }
 
-
 button {
-
-
-padding: 10px;
-width: 100px;
-background-color: white;
-border-width: 1px;
-border-radius: 4px;
-border-style: solid;
-border-color: black;
-
-
+    padding: 10px;
+    width: 100px;
+    background-color: white;
+    border-width: 1px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
 }
 
 button:hover {
-
-  color: gray;
-
+    color: gray;
 }
 
 button:active {
-
-opacity: 0.2;
-
+    opacity: 0.2;
 }
 
 #login-button {
-
-margin-top: 10px;
-
-
-}
-
-#new-user {
-
-float: right;
-
+    margin-top: 10px;
 }
 
 
