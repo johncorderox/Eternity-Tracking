@@ -13,7 +13,7 @@ h2 {
   font-size: 40px;
 }
 
-.welcome {
+.center {
 
   height: 500px;
   width: 500px;
@@ -67,6 +67,12 @@ button:hover {
 
 }
 
+button:active {
+
+opacity: 0.2;
+
+}
+
 #login-button {
 
 margin-top: 10px;
@@ -79,3 +85,6 @@ margin-top: 10px;
 float: right;
 
 }
+
+
+/* Responsive Design */
