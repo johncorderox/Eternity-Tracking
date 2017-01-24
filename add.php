@@ -26,7 +26,7 @@
             <?php echo 'A Descriptive message.'; ?>
           </li>
           <li>
-            <?php echo 'A severity level.'; ?>
+            <?php echo 'A Severity level.'; ?>
           </li>
         </ul>
         </div>
@@ -34,7 +34,10 @@
           <form action="index.php" method="POST">
           <input type="text" placeholder="Title *" name="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *"></textarea><br />
-          <button type="submit" name="submit">Submit</button>
+            <input type="radio" id="radio" name="severity" value="Low"> Low
+            <input type="radio" id="radio" name="severity" value="Normal"> Normal
+            <input type="radio" id="radio" name="severity" value="High"> High<br />
+          <button type="submit" name="submit" id="add-button">Submit</button>
         </form>
         </div>
       </div>

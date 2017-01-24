@@ -19,6 +19,16 @@ h2, h4 {
     margin: auto;
 }
 
+#radio {
+
+  padding: 0;
+  width: auto;
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+
 input {
     padding: 10px;
     width: 500px;
@@ -57,9 +67,12 @@ button:active {
     opacity: 0.2;
 }
 
-#login-button {
+#login-button,
+#add-button
+ {
     margin-top: 10px;
 }
+
 
 
 /* Responsive Design */
