@@ -6,42 +6,34 @@
     <link href="src/css/interface.css" rel="stylesheet" />
   </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-          <?php echo '<h4>Eternity Tracking</h4> <br />'; ?>
-      </div>
-    </div>
-      </div>
-      <hr />
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3">
-          <?php echo '<p>Please make sure you add the following: </p>'; ?>
+  <div class="header-name">
+    <h4>Eternity Tracking</h4> <br />
+  </div>
+    <hr />
+        <div class="requirements">
+          <p>Please make sure you add the following: </p>
         <ul>
           <li>
-            <?php echo 'A Descriptive title.'; ?>
+             A Descriptive title.
           </li>
           <li>
-            <?php echo 'A Descriptive message.'; ?>
+            A Descriptive message.
           </li>
           <li>
-            <?php echo 'A Severity level.'; ?>
+            A Severity level.
           </li>
         </ul>
         </div>
-        <div class="col-md-9">
-          <form action="index.php" method="POST">
+        <div class="addform">
+          <form action="add.php" method="POST">
           <input type="text" placeholder="Title *" name="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *"></textarea><br />
             <input type="radio" id="radio" name="severity" value="Low"> Low
             <input type="radio" id="radio" name="severity" value="Normal"> Normal
             <input type="radio" id="radio" name="severity" value="High"> High<br />
           <button type="submit" name="submit" id="add-button">Submit</button>
-        </form>
-        </div>
+        </form>  
       </div>
-    </div>
   <!-- Javascript -->
   <script type='text/javascript' src='src/view.js'></script>
 </body>

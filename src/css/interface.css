@@ -46,6 +46,7 @@ input[type="password"] {
 textarea {
     border-color: #cccccc;
     width: 500px;
+    max-width: auto;
     height: 200px;
 }
 
@@ -73,6 +74,26 @@ button:active {
     margin-top: 10px;
 }
 
+.header-name {
+
+  margin-left: 30px;
+
+}
+
+.requirements {
+
+  height: 150px;
+  width: 280px;
+  float: left;
+
+  margin-left: 2%;
+}
+.addform {
+float: right;
+margin-right: 15%;
+
+
+}
 
 
 /* Responsive Design */
