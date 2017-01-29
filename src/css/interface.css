@@ -90,10 +90,55 @@ button:active {
 }
 .addform {
 float: right;
-margin-right: 15%;
+margin-right: 12%;
 
 
 }
 
 
 /* Responsive Design */
+@media only screen and (max-width: 570px) {
+
+  .center,
+  .header-name {
+    text-align:center;
+
+}
+  .center h2 {
+
+    font-size: 60px;
+    font-weight: 300;
+  }
+
+  #login-button {
+
+    height: 50px;
+    font-size: 17px;
+    font-weight: 300;
+  }
+
+  form {
+    width: 100%;
+    text-align: center;
+  }
+
+  .requirements,
+  .addform {
+    width: 100%;
+    margin: 0;
+  }
+  .requirements{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    float: none;
+  }
+  .requirements li {
+    list-style-type: none;
+  }
+  #add-button {
+    margin-top: 40px;
+  }
+
+
+}
