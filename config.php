@@ -1,7 +1,7 @@
 <?php
 
-$name = "John";                                   //Username for the gobal system
-$websitename = "YourWebsite.com";                 //Name of website to
+$name = "";                                       //Username for the gobal system
+$websitename = "YourWebsite.com";                 //Name of website 
 
 
 

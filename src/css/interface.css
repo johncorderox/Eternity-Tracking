@@ -3,7 +3,7 @@
     src: url('src/css/fonts/Lato-Thin');
 }
 
-h2, h4 {
+h2,h3, h4 {
     font-family: Lato-Thin;
     font-size: 40px;
 }
@@ -93,6 +93,33 @@ float: right;
 margin-right: 12%;
 
 
+}
+.leftside-info{
+
+  width: 300px;
+}
+.list-group .list-group-item{
+
+  cursor: default;
+}
+/* Table CSS Layout and Design */
+table {
+  float: right;
+  border-collapse: collapse;
+  width: 100%;
+
+
+}
+
+td,th {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #dddddd;
+  font-weight: 400;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 

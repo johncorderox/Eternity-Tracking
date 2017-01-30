@@ -25,6 +25,7 @@ php ----
 
 track ip by submitted.
 php version
+php info.... if php is low, show in CP.
 
 
 module to create new users via input forms.
