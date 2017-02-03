@@ -11,7 +11,7 @@
 <div class="center">
    <h2>Welcome.</h2>
      <form action="" method="">
-     <input type="text" placeholder="Username *" name="username" id="username"><br />
+     <input type="text" placeholder="Username *" name="username" id="username" class="error-input"><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />
      <button id="login-button">Login</button><br />
    </form>

@@ -25,7 +25,7 @@
         </ul>
         </div>
         <div class="addform">
-          <form action="index.php" method="POST">
+          <form action="add.php" method="POST">
           <input type="text" placeholder="Title *" name="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *"></textarea><br />
             <input type="radio" id="radio" name="severity" value="Low"> Low
@@ -35,6 +35,45 @@
         </form>
       </div>
   <!-- Javascript -->
-  <script type='text/javascript' src='src/view.js'></script>
+<!--  <script type='text/javascript' src='src/view.js'></script> not sure if needed just yet -->
 </body>
 </html>
+
+<?php
+
+include ('config.php');
+include ('connect.php');
+
+
+if (isset($_POST['submit'])) {
+
+  $title = $_POST['title'];
+  $message = $_POST['message'];
+
+
+    if(empty($title)) {
+      echo 'Title is empty!';
+    }
+    if(empty($message)){
+      echo 'Message is empty!';
+    }
+
+    if ($title && $message) {
+
+
+      $sql = "INSERT INTO bugs (title, message) VALUES ('$title','$message')";
+
+      mysqli_select_db($connect, $database);
+      $query = mysqli_query($connect, $sql);
+
+      if ($query ==  TRUE) {
+
+        echo 'records added to the database ! ! !';
+      }
+
+
+
+}
+}
+
+?>

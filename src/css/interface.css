@@ -122,6 +122,11 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.error-input {
+
+  
+}
+
 
 /* Responsive Design */
 @media only screen and (max-width: 570px) {
