@@ -2,9 +2,10 @@
 
   include('config.php');
   include('connect.php');
+  include('functions.php');
+
 
 ?>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -15,12 +16,11 @@
   <body>
     <div class="header-name">
   <?php echo '<h3>Eternity Tracking</h3><br />'; ?>
-  <?php echo '<p> Currently, its ' .date("l") . '. Have fun killing those bugs! </p>';?>
     </div><br />
       <div class="leftside-info">
         <div class="list-group">
           <a href="#" class="list-group-item active">Main Information</a>
-          <a href="#" class="list-group-item">Number of Bugs: $bugcount</a>
+          <a href="#" class="list-group-item">Number of Bugs: <?php bug_count(); ?></a>
           <a href="#" class="list-group-item">Number of User Accounts: $accountcount</a>
           <a href="#" class="list-group-item">Host Name: <?php echo $servername; ?></a>
           <a href="#" class="list-group-item">Database name: <?php echo $database; ?></a>
@@ -28,11 +28,13 @@
         <br />
         <div class="list-group">
           <a href="#" class="list-group-item active">Backend Information</a>
-          <a href="#" class="list-group-item">MySQL Server Status: $serverstatus</a>
           <a href="#" class="list-group-item">PHP Info: <?php echo phpversion(); ?></a>
+          <a href="#" class="list-group-item">MySQL Server Status:<?php check_mysql_server_status(); ?></a>
           <a href="#" class="list-group-item">MySQL Vers: <?php echo mysqli_get_server_version($connect); ?></a>
+
         </div>
       </div>
+
       <div class="table-design">
         <table>
           <tr>
