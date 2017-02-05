@@ -17,4 +17,5 @@
    </form>
 </div>
 </body>
+  <script type='text/javascript' src='src/js/view.js'></script>
 </html>

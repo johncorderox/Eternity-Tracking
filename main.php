@@ -20,7 +20,7 @@
       <div class="leftside-info">
         <div class="list-group">
           <a href="#" class="list-group-item active">Main Information</a>
-          <a href="#" class="list-group-item">Number of Bugs: <?php bug_count(); ?></a>
+          <a href="#" class="list-group-item">Number of Bugs: <?php ?></a>
           <a href="#" class="list-group-item">Number of User Accounts: $accountcount</a>
           <a href="#" class="list-group-item">Host Name: <?php echo $servername; ?></a>
           <a href="#" class="list-group-item">Database name: <?php echo $database; ?></a>

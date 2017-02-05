@@ -34,8 +34,8 @@
           <button type="submit" name="submit" id="add-button">Submit</button>
         </form>
       </div>
-  <!-- Javascript -->
-<!--  <script type='text/javascript' src='src/view.js'></script> not sure if needed just yet -->
+
+ <script type='text/javascript' src='src/js/view.js'></script>
 </body>
 </html>
 
@@ -69,7 +69,17 @@ if (isset($_POST['submit'])) {
       if ($query ==  TRUE) {
 
         echo 'records added to the database ! ! !';
+
+        echo '<script type="text/javascript">
+              test();
+              </script>'; 
+
       }
+
+      /*
+
+      STUFF NEEDS TO DISAPPEAR
+      WHEN REFRESHING, ITEMS GET DUPPED INTO MYSQL DB */
 
 
 
