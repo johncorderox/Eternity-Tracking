@@ -10,4 +10,25 @@ function check_mysql_server_status() {
     echo ' Connected';
   }
 }
+
+// @desc connects to MySQL and queries the DB for a count.
+// uses the function COUNT and echo's the num
+function num_of_bugs() {
+
+global $connect;
+global $database;
+
+if($connect) {
+  mysqli_select_db($connect, $database);
+  if(!$database){
+    die('Database Not Found! ! ! ');
+  }
+  $sql = "SELECT COUNT(*) as total FROM bugs";
+  $result = mysqli_query($connect, $sql);
+  $number = mysqli_fetch_assoc($result);
+  echo $number['total'];
+
+  }
+}
+
  ?>
