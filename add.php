@@ -26,7 +26,7 @@
         </ul>
         </div>
         <div class="addform">
-          <form action="add.php" method="POST">
+          <form action="addfunc.php" method="POST">
           <input type="text" placeholder="Title *" name="title" id="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *" id="message"></textarea><br />
             <input type="radio" id="radio" name="severity" value="Low"> Low
@@ -38,49 +38,13 @@
  <script type='text/javascript' src='src/js/view.js'></script>
 </body>
 </html>
-
 <?php
 
-include ('config.php');
-include ('connect.php');
+if (isset($_GET['success'])) {
 
-
-if (isset($_POST['submit'])) {
-
-  $title = $_POST['title'];
-  $message = $_POST['message'];
-
-    if(empty($title || $message)) {
-      echo '<script type="text/javascript">
-            display_input_message(1);
-            </script>';
-    }
-    if ($title && $message) {
-
-
-    /*  $sql = "INSERT INTO bugs (title, message) VALUES ('$title','$message')";
-
-      mysqli_select_db($connect, $database);
-      $query = mysqli_query($connect, $sql);
-
-      if ($query ==  TRUE) {
-
-        echo 'records added to the database ! ! !';
-*/
-        echo '<script type="text/javascript">
-              display_input_message(0);
-              </script>';
-
-      }
-
-      /*
-
-      STUFF NEEDS TO DISAPPEAR
-      WHEN REFRESHING, ITEMS GET DUPPED INTO MYSQL DB */
-
-
-
+  echo '<script type="text/javascript">
+        display_input_message(0);
+        </script>';
 }
-//}
 
-?>
+ ?>

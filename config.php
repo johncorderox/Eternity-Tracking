@@ -6,6 +6,4 @@ $password = '';
 $database = 'tracking';
 
 
-
-
  ?>

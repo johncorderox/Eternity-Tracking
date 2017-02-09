@@ -34,10 +34,12 @@
         </div>
       </div>
       <div class="ui-main">
-        <button>Add Bug</button>
-        <button>Edit Bug</button>
-        <button>Delete Bug</button>
-        <button>Add New User</button>
+        <button onclick="">Add Bug</button>
+        <button onclick="edit_bug()">Edit Bug</button>
+        <button onclick="delete_bug()">Delete Bug</button>
+        <button>Add New User</button><br />
+
+        <input type="text" />
       </div>
       <div class="table-design">
       </div>
