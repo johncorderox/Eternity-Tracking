@@ -11,10 +11,9 @@ if (isset($_POST['submit'])) {
   $message = $_POST['message'];
 
     if(empty($title || $message)) {
-      echo '<script type="text/javascript">
-            display_input_message(1);
-            </script>';
-            die();
+
+        header("Location: add.php?success=0");
+        die();
     }
     else {
 
@@ -27,8 +26,8 @@ if (isset($_POST['submit'])) {
       if ($query ==  TRUE) {
 */
 
-            
-            header("Location: add.php?success=0");
+
+            header("Location: add.php?success=1");
             die();
 
 

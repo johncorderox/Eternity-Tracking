@@ -4,6 +4,7 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
     <link href="src/css/interface.css" rel="stylesheet" />
   </head>
 <body>
@@ -29,9 +30,12 @@
           <form action="addfunc.php" method="POST">
           <input type="text" placeholder="Title *" name="title" id="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *" id="message"></textarea><br />
-            <input type="radio" id="radio" name="severity" value="Low"> Low
-            <input type="radio" id="radio" name="severity" value="Normal"> Normal
-            <input type="radio" id="radio" name="severity" value="High"> High<br />
+          <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select><br />
           <button type="submit" name="submit" id="add-button">Submit</button>
         </form>
       </div>
@@ -40,10 +44,18 @@
 </html>
 <?php
 
-if (isset($_GET['success'])) {
+if (isset($_GET['success']) && $_GET['success']=='0') {
 
   echo '<script type="text/javascript">
         display_input_message(0);
+        </script>';
+}
+
+
+if (isset($_GET['success']) && $_GET['success']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(1);
         </script>';
 }
 
