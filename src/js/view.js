@@ -53,3 +53,17 @@ function display_input_message(n) {
   }
 
 }
+function add_bug() {
+
+  $('.ui-main-button-group').hide("fast");
+}
+
+
+function cancel(n) {
+
+  if(n == 0) {
+
+    $('.ui-main-button-group').show("fast");
+  }
+
+}

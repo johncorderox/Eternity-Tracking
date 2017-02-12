@@ -29,6 +29,27 @@ if($connect) {
   echo $number['total'];
 
   }
+
+}
+
+function add_response ($x) {
+
+  $x == 0 ? header("Location: add.php?success=0") : header("Location: add.php?success=1");
+
+}
+
+function main_response($y) {
+
+  if ($y == 0 ) {
+
+    echo 'bad';
+  }
+
+  if ($y == 1) {
+
+    echo 'good!';
+  }
+
 }
 
  ?>

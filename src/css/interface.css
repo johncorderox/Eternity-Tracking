@@ -8,9 +8,9 @@ h2,h3, h4 {
     font-size: 40px;
 }
 
-option {
+select {
 
-  height: 10px;
+  background-color: white;
 }
 
 .center {
@@ -23,6 +23,7 @@ option {
     bottom: 0;
     margin: auto;
 }
+/* not so needed? */
 
 #radio {
 
@@ -79,6 +80,10 @@ button:active {
     margin-top: 10px;
 }
 
+#sl {
+  color: green;
+}
+
 .header-name {
 
   margin-left: 30px;
@@ -114,8 +119,15 @@ margin-right: 12%;
 
   height: 60px;
   padding: 0;
-  margin: 0px 20px;
+  margin: 20px 20px;
 
+
+}
+
+#larger {
+
+  font-size: 18px;
+  font-weight: 400;
 }
 .list-group .list-group-item{
 

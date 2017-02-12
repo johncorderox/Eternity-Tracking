@@ -20,8 +20,8 @@
       <div class="leftside-info">
         <div class="list-group">
           <a href="#" class="list-group-item active">Main Information</a>
-          <a href="#" class="list-group-item">Number of Bugs: <?php num_of_bugs(); ?></a>
-          <a href="#" class="list-group-item">Number of User Accounts: $accountcount</a>
+          <a href="#" class="list-group-item"><b>Number of Bugs: </b><?php num_of_bugs(); ?></a>
+          <a href="#" class="list-group-item">Number of User Accounts: <b> accountcount</b></a>
           <a href="#" class="list-group-item">Host Name: <?php echo $servername; ?></a>
           <a href="#" class="list-group-item">Database name: <?php echo $database; ?></a>
         </div>
@@ -34,15 +34,34 @@
         </div>
       </div>
       <div class="ui-main">
-        <button onclick="">Add Bug</button>
-        <button onclick="edit_bug()">Edit Bug</button>
-        <button onclick="delete_bug()">Delete Bug</button>
-        <button>Add New User</button><br />
-
-        <input type="text" />
+        <div class="ui-main-button-group">
+          <button onclick="add_bug()">Add Bug</button>
+          <button onclick="edit_bug()">Edit Bug</button>
+          <button onclick="delete_bug()">Delete Bug</button>
+          <button>Add New User</button><br />
+        </div>
+        <div class="addform">
+          <form action="addfunc.php" method="POST">
+          <p id="larger"> Please Enter a Title and a Descriptive Message! </p>
+          <input type="text" placeholder="Title *" name="title" id="title"/><br />
+          <input type="text" placeholder="Message *" id="message"></textarea><br />
+          <select class="form-control">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select><br />
+          <button type="submit" name="submit2" id="add-button">Submit</button>
+          <button type="button" onclick="cancel(0)">Cancel</button>
+        </form>
+      </div>
+      <div class="editform">
+        <form action="#" method="#">
+          <input type="text" id="edit" />
+        </form>
+      </div>
       </div>
       <div class="table-design">
       </div>
   </body>
-  <script type='text/javascript' src='src/view.js'></script>
+  <script type='text/javascript' src='src/js/view.js'></script>
 </html>
