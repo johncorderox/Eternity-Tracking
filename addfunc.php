@@ -10,6 +10,9 @@ if (isset($_POST['submit'])) {
 
   $title = $_POST['title'];
   $message = $_POST['message'];
+  $priority = $_POST['priority'];
+
+  echo $priority;
 
     if(empty($title) || (empty($message))) {
 
@@ -17,7 +20,7 @@ if (isset($_POST['submit'])) {
       die();
 
     }
-      $sql = "INSERT INTO bugs (title, message) VALUES ('$title','$message')";
+      $sql = "INSERT INTO bugs (title, message, priority) VALUES ('$title','$message', '$priority')";
 
       mysqli_select_db($connect, $database);
       $query = mysqli_query($connect, $sql);
@@ -34,9 +37,10 @@ if (isset($_POST['submit'])) {
 
       $title = $_POST['title'];
       $message = $_POST['message'];
+      $priority = $_POST['priority'];
 
         }
-          $sql = "INSERT INTO bugs (title, message) VALUES ('$title','$message')";
+          $sql = "INSERT INTO bugs (title, message, priority) VALUES ('$title','$message', '$priority')";
 
           mysqli_select_db($connect, $database);
           $query = mysqli_query($connect, $sql);
@@ -48,7 +52,7 @@ if (isset($_POST['submit'])) {
             </p>';
 
           }
-          header("Location: main.php?successinput");
+          header("Location: main.php");
 
 
 

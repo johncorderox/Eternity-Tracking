@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+
+  $('.addform2, .editform').hide();
+
   $('#title').focusout(function() {
     $('#title').val().length > 5 ? $('#dt').css("color","green") : $('#dt').css("color","red");
 
@@ -52,18 +55,50 @@ function display_input_message(n) {
 
   }
 
+
 }
 function add_bug() {
 
   $('.ui-main-button-group').hide("fast");
+  $('.addform2').fadeIn("fast");
 }
-
 
 function cancel(n) {
 
   if(n == 0) {
 
     $('.ui-main-button-group').show("fast");
+    $('.addform2, .editform').fadeOut("fast");
   }
 
+}
+
+function delete_bug() {
+
+  $('.editform').fadeIn();
+  $('#edit2, .ui-main-button-group').hide();
+
+  var d = document.getElementById('description_main');
+  d.innerHTML = "Enter the ID Number: ";
+  $('#edit').attr("placeholder" ,"ID: ");
+
+}
+
+function new_user () {
+
+$('.ui-main-button-group').hide("fast");
+
+ $('.editform').fadeIn();
+ $('#edit2').show();
+
+var d = document.getElementById('description_main');
+  d.innerHTML = "Please Enter a Desired Username and Password.";
+
+  $('#edit').attr("placeholder", "Username *");
+  $('#edit2').attr({
+
+    placeholder: 'Password *',
+    type: 'password'
+
+  });
 }

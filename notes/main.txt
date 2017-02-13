@@ -24,13 +24,7 @@ ajax -- autocomplete
 php ----
 
 track ip by submitted.
-redirect after submitted complete bug
-
-MAIN WILL HAVE BUTTONS TO DELETE A BUG, EDIT A BUG,
-
-
-module to create new users via input forms.
-
+delete all bugs? 
 
 SQL --
 

@@ -30,7 +30,7 @@
           <form action="addfunc.php" method="POST">
           <input type="text" placeholder="Title *" name="title" id="title"/><br />
           <textarea name="message" rows="5" placeholder="Message *" id="message"></textarea><br />
-          <select class="form-control">
+          <select class="form-control" name="priority">
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
