@@ -1,32 +1,5 @@
-// css
-
-When the user clicks on title input, it will focus, having the word become bold.
-When the user exists without input, focusOUT will make sure the line item
-will turn red indicating that nothing was inputted
-
-it will turn green unless the check of an if statement or focusout even checks
-turning it green
-
-
-<div class="alert alert-success">
-<strong>Success!</strong> Indicates a successful or positive action.
-</div>
-
-^^ for when the form is submitted! (bootstrap)
-
------------------
-
-ajax -- autocomplete
-
-
-
 
 php ----
 
 track ip by submitted.
-delete all bugs? 
-
-SQL --
-
-give id auto increment. use values as VALUES(NULL) so it will auto increment
-automatically.
+delete all bugs?

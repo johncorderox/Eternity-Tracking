@@ -12,7 +12,6 @@ if (isset($_POST['submit'])) {
   $message = $_POST['message'];
   $priority = $_POST['priority'];
 
-  echo $priority;
 
     if(empty($title) || (empty($message))) {
 

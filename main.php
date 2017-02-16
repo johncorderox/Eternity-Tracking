@@ -4,29 +4,53 @@
   include('connect.php');
   include('functions.php');
 
+  if(isset($_POST['submit_edit'])) {
+
+      if(!empty($_POST['first']) && !empty($_POST['second'])) {
+
+        $username = $_POST['first'];
+        $password = $_POST['second'];
+
+        $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+
+        mysqli_select_db($connect, $database);
 
 
-  include('config.php');
-  include('connect.php');
+        mysqli_query($connect, $sql);
 
 
+
+      }
+
+
+  }
+
+
+
+/*
     if (isset($_POST['submit_edit'])) {
 
       if (!empty($_POST['first']) && empty($_POST['second'])) {
 
         $id = $_POST['first'];
-
+        mysqli_select_db($connect, $database);
 
             $sql = "DELETE FROM bugs WHERE id = " .$id;
-            $test = "SELECT id FROM bugs WHERE id = " .$id;
-            mysqli_select_db($connect, $database);
+            $test = "SELECT * FROM bugs WHERE id = " .$id;
 
-            mysqli_query($connect, $sql);
+            $query = mysqli_query($connect, $test);
 
+            if(mysqli_num_rows($query) > 0 ) {
 
+              mysqli_query($connect, $sql);
+              echo ' bug number ' .$id . ' has been deleted';
+            } else {
+
+                echo ' bug number ' . $id . ' does not exist';
+            }
 }
 }
-
+*/
 ?>
 <html lang="en">
   <head>
@@ -42,17 +66,17 @@
       <div class="leftside-info">
         <div class="list-group">
           <a href="#" class="list-group-item active">Main Information</a>
-          <a href="#" class="list-group-item">Number of Bugs: <b><?php num_of_bugs(); ?></b></a>
-          <a href="#" class="list-group-item">Number of User Accounts: <b> accountcount</b></a>
-          <a href="#" class="list-group-item">Host Name: <b><?php echo $servername; ?></b></a>
-          <a href="#" class="list-group-item">Database name: <?php echo $database; ?></a>
+          <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php num_of_bugs(); ?></a>
+          <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php num_of_accounts(); ?></a>
+          <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $servername; ?></a>
+          <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $database; ?></a>
         </div>
         <br />
         <div class="list-group">
           <a href="#" class="list-group-item active">Backend Information</a>
-          <a href="#" class="list-group-item">PHP Info: <?php echo phpversion(); ?></a>
-          <a href="#" class="list-group-item">MySQL Server Status:<?php check_mysql_server_status(); ?></a>
-          <a href="#" class="list-group-item">MySQL Vers: <?php echo mysqli_get_server_version($connect); ?></a>
+          <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
+          <a href="#" class="list-group-item"><b>MySQL Server Status:</b><?php check_mysql_server_status(); ?></a>
+          <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($connect); ?></a>
         </div>
       </div>
       <div class="ui-main">
@@ -61,6 +85,7 @@
           <button onclick="edit_bug()">Edit Bug</button>
           <button onclick="delete_bug()">Delete Bug</button>
           <button onclick="new_user()">Add New User</button><br />
+          <button onclick="">Remove User</button><br />
         </div>
         <div class="addform2">
           <form action="addfunc.php" method="POST">
