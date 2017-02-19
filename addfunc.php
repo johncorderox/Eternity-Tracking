@@ -46,9 +46,7 @@ if (isset($_POST['submit'])) {
 
           if ($query ==  TRUE) {
 
-            echo '<p>
-            done
-            </p>';
+            
 
           }
           header("Location: main.php");

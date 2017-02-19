@@ -85,14 +85,14 @@
           <button onclick="edit_bug()">Edit Bug</button>
           <button onclick="delete_bug()">Delete Bug</button>
           <button onclick="new_user()">Add New User</button><br />
-          <button onclick="">Remove User</button><br />
+          <button onclick="remove_user()">Remove User</button><br />
         </div>
         <div class="addform2">
           <form action="addfunc.php" method="POST">
           <p id="larger"> Please Enter a Title and a Descriptive Message! </p>
           <input type="text" placeholder="Title *" name="title" id="title"/><br />
           <input type="text" placeholder="Message *" id="message"></textarea><br />
-          <select class="form-control" name="priority">
+          <select class="form-control" name="priority" id="select_box">
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
@@ -102,6 +102,66 @@
         </form>
       </div>
       <div class="editform">
+        <form action="edit.php" method="POST">
+          <div id="description_main"><br /></div>
+          <input type="text" id="edit_start" name ="edit_id" placeholder="ID #: "/><br />
+          <div class="edit_hidden">
+            <input type="text" placeholder="Title *" name="title" id="title_edit"/><br />
+            <input type="text" placeholder="Message *" id="message_edit"></textarea><br />
+            <select class="form-control" name="priority" id="select_box">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <button type="submit" name="submit_edit" id="add-button">Submit</button>
+          <button type="button" onclick="cancel(0)">Cancel</button>
+        </form>
+      </div>
+      <div class="deleteform">
+        <form action="delete.php" method="POST">
+          <div id="description_delete"></div>
+          <input type="text" id="del_start" name ="delete_id" placeholder="ID #: "/><br />
+          <button type="submit" name="submit_edit" id="add-button">Submit</button>
+          <button type="button" onclick="cancel(0)">Cancel</button>
+        </form>
+      </div>
+      <div class="newuserform">
+        <form action="newuser.php" method="POST">
+          <div id="description_newuser">
+            <p id="larger">
+              Please enter desired Username and Password.
+            </p><br />
+            <p>
+              Username and Password must be longer than 7 characters!
+          </div>
+          <input type="text" id="user_new" name ="username_new" placeholder="Username *"/><br />
+          <input type="text" id="pass_new" name ="password_new" placeholder="Password *"/><br />
+          <button type="submit" name="submit_edit" id="add-button">Submit</button>
+          <button type="button" onclick="cancel(0)">Cancel</button>
+        </form>
+      </div>
+      <div class="removeuserform">
+        <form action="removeuser.php" method="POST">
+          <p id="larger">
+            Enter Username ID:
+          </p>
+          <!-- DIV HERE WHERE A PHP FUNCTION WILL CALL AND VIEW LIST OF USERNAMES + IDS -->
+          <input type="text" id="remove_id" name ="delete_id" placeholder="ID #: "/><br />
+          <button type="submit" name="submit_edit" id="add-button">Submit</button>
+          <button type="button" onclick="cancel(0)">Show Users</button>
+          <button type="button" onclick="cancel(0)">Cancel</button>
+
+        </form>
+      </div>
+
+
+
+
+
+
+<!--
+      <div class="editform">
         <form action="main.php" method="POST">
           <div id="description_main"></div>
           <input type="text" id="edit" name ="first" /><br />
@@ -110,7 +170,8 @@
           <button type="button" onclick="cancel(0)">Cancel</button>
         </form>
       </div>
-      </div>
+
+-->
       <div class="table-design">
       </div>
   </body>

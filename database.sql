@@ -13,3 +13,13 @@ CREATE TABLE IF NOT EXISTS `bugs` (
 PRIMARY KEY (`id`)
 
 );
+
+
+CREATE TABLE IF NOT EXISTS `users` (
+
+`account_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`username` varchar(23) NOT NULL,
+`password` varchar(32) NOT NULL,
+PRIMARY KEY (`account_id`)
+
+);

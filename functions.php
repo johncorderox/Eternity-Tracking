@@ -32,24 +32,23 @@ if($connect) {
 
 }
 
+// @des connects and uses the count function to return n results.
+
+function num_of_accounts () {
+
+  include "connect.php";
+  $sql = "SELECT COUNT(*) as total FROM users";
+  $result = mysqli_query($connect, $sql);
+  $number = mysqli_fetch_assoc($result);
+  echo $number['total'];
+
+}
+
 function add_response ($x) {
 
   $x == 0 ? header("Location: add.php?success=0") : header("Location: add.php?success=1");
 
 }
 
-function main_response($y) {
-
-  if ($y == 0 ) {
-
-    echo 'bad';
-  }
-
-  if ($y == 1) {
-
-    echo 'good!';
-  }
-
-}
 
  ?>
