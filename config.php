@@ -5,5 +5,4 @@ $username = 'root';
 $password = '';
 $database = 'tracking';
 
-
  ?>

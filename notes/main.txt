@@ -3,3 +3,9 @@ php ----
 
 track ip by submitted.
 delete all bugs?
+
+
+html
+
+
+make h3 ET a link to the home page ////main.php

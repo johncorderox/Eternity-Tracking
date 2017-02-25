@@ -32,25 +32,5 @@ if (isset($_POST['submit'])) {
       }
     }
 
-    if (isset($_POST['submit2'])) {
-
-      $title = $_POST['title'];
-      $message = $_POST['message'];
-      $priority = $_POST['priority'];
-
-        }
-          $sql = "INSERT INTO bugs (title, message, priority) VALUES ('$title','$message', '$priority')";
-
-          mysqli_select_db($connect, $database);
-          $query = mysqli_query($connect, $sql);
-
-          if ($query ==  TRUE) {
-
-            
-
-          }
-          header("Location: main.php");
-
-
 
 ?>

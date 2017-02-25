@@ -13,6 +13,8 @@ $(document).ready(function() {
     });
 
 
+
+
 });
 
 // @desc Case system that outputs data to the screen when a user submits a form.
@@ -64,68 +66,26 @@ function display_input_message(n) {
 
 }
 
-
-function add_bug() {
-
-    $('.ui-main-button-group').hide("fast");
-    $('.addform2').fadeIn("fast");
-}
-
-function edit_bug() {
-
-    $('.editform').fadeIn();
-    $('.ui-main-button-group, .edit_hidden').hide("fast");
-
-    var d = document.getElementById('description_main');
-    d.innerHTML = "Enter the ID Number: ";
-
-}
-
-function cancel(n) {
-
-    if (n == 0) {
-
-        $('.ui-main-button-group').show("fast");
-        $('.addform2, .editform, .editform, .deleteform, .newuserform, .removeuserform').fadeOut("fast");
-
-    }
-    reset();
-
-}
-
-function delete_bug() {
-
-  var d = document.getElementById('description_delete');
-  d.innerHTML = "Enter the ID Number: ";
-
-    $('.deleteform').fadeIn();
-    $('.ui-main-button-group').hide();
-
-
-}
-
-function new_user() {
-
-    $('.ui-main-button-group').hide("fast");
-    $('.newuserform').show();
-
-
-
-}
-
-function remove_user() {
-
-
-  $('.ui-main-button-group').hide("fast");
-  $('.removeuserform').show();
-
-}
-
 function reset() {
 
+
+  switch(x) {
+
+    case 0:
     document.getElementById('title').value = "";
     document.getElementById('message').value = "";
     document.getElementById('select_box').selectedIndex = 0;
+    break;
+
+
+    default:
+            console.log("There was an error in the reset function ! ! !");
+
+
+
+  }
+
+
 
     document.getElementById('edit_start').value = "";
 
