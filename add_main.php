@@ -61,7 +61,7 @@ $error = "";
 $(document).ready(function() {
 
   $('.ui-main-button-group').hide("fast");
-  $('.addform2').fadeIn("slow");
+  $('.addform2').show("slow");
 
 });
 

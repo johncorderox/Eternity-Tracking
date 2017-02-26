@@ -20,6 +20,7 @@
       header("location: add_new_main.php");
     }
 
+
 ?>
 
 <html lang="en">
@@ -31,7 +32,7 @@
   </head>
   <body>
     <div class="header-name">
-  <?php echo '<h3>Eternity Tracking</h3><br />'; ?>
+  <a href="main.php"><h3>Eternity Tracking</h3></a><br />
     </div><br />
       <div class="leftside-info">
         <div class="list-group">

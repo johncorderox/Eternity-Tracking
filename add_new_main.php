@@ -7,7 +7,7 @@ $error = "";
 
 if(isset($_POST['submit_newuser'])) {
 
-    if($_POST['username'] >= 7 and $_POST['password'] >= 7) {
+    if($_POST['username'] and ($_POST['password'])) {
 
 
       $username = $_POST['username'];
@@ -22,8 +22,9 @@ if(isset($_POST['submit_newuser'])) {
 
         if(mysqli_num_rows($query) > 0 ) {
 
-          mysqli_connect($connect, $sql);
-          header("Location: main.php");
+          mysqli_query($connect, $sql);
+          $error = "This username is already taken!";
+
         }
 
         else {
@@ -70,7 +71,7 @@ if(isset($_POST['cancel'])) {
 $(document).ready(function() {
 
   $('.ui-main-button-group').hide("fast");
-  $('.newuserform').fadeIn("slow");
+  $('.newuserform').show("slow");
 
 });
 
