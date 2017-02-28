@@ -7,6 +7,11 @@
 
   if (isset($_POST['submit_delete'])) {
 
+    if (empty($_POST['delete_id'])) {
+
+      $error = "You didn't enter anyting into the field.";
+    }
+
     if (!empty($_POST['delete_id'])) {
 
       $id = $_POST['delete_id'];
@@ -27,7 +32,7 @@
 
           else {
 
-              $error = ' bug number ' . $id . ' does not exist';
+              $error = ' bug number ' . $id . ' does not exist.';
           }
   }
 
@@ -60,7 +65,7 @@
 $(document).ready(function() {
 
   $('.ui-main-button-group').hide("fast");
-  $('.deleteform').fadeIn("slow");
+  $('.deleteform').show("slow");
 
 });
 

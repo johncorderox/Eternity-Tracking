@@ -23,6 +23,7 @@ $error = "";
 
         mysqli_select_db($connect, $database);
         $query = mysqli_query($connect, $sql);
+        mysqli_close($connect);
         header("location: main.php");
 
   }
