@@ -19,7 +19,7 @@ if(isset($_POST['submit_newuser'])) {
       $username = $_POST['username'];
       $password = $_POST['password'];
       $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
-      $test = "SELECT * FROM users WHERE username = " . $username;
+      $test = "SELECT * FROM users WHERE users.username = '".$username."'";
 
       mysqli_select_db($connect, $database);
 
@@ -28,6 +28,14 @@ if(isset($_POST['submit_newuser'])) {
       if (mysqli_num_rows($query) > 0) {
 
         $error = "The username " . $username . " already exists!";
+      } else {
+
+        $result = mysqli_query($connect, $sql);
+           if ($result) {
+              $error = "Added to database succesfully.";
+
+           }
+
       }
 
 
