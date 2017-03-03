@@ -20,6 +20,11 @@
       header("location: add_new_main.php");
     }
 
+    else if(isset($_GET['remove_user'])) {
+
+        header("location: remove_user_main.php");
+      }
+
 
 ?>
 
@@ -57,7 +62,7 @@
           <button onclick="edit_bug()">Edit Bug</button>
           <button name="delete">Delete Bug</button>
           <button name="add_new">Add New User</button><br />
-          <button onclick="remove_user()">Remove User</button>
+          <button name="remove_user">Remove User</button>
           <button onclick="remove_user()">Bug List</button><br />
           </form>
 
@@ -80,28 +85,6 @@
           </div>
         </div>
         </div>
-        <!--
-
-
-      <div class="removeuserform">
-        <form action="removeuser.php" method="POST">
-          <p id="larger">
-            Enter Username ID:
-          </p>
-        -->
-          <!-- DIV HERE WHERE A PHP FUNCTION WILL CALL AND VIEW LIST OF USERNAMES + IDS -->
-          <!--
-          <input type="text" id="remove_id" name ="delete_id" placeholder="ID #: "/><br />
-          <button type="submit" name="submit_edit" id="add-button">Submit</button>
-          <button type="button" onclick="cancel(0)">Show Users</button>
-          <button type="button" onclick="cancel(0)">Cancel</button>
-
-        </form>
-      </div>
-
-      <div class="table-design">
-      </div>
-    -->
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>

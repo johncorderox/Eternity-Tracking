@@ -40,9 +40,6 @@ if(isset($_POST['submit_newuser'])) {
 
 
 
-
-
-
     }
 
 }
