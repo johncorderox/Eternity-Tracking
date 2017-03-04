@@ -138,7 +138,10 @@ a:visited {
     color: inherit;
     text-decoration: none;
 }
+#danger-dark {
 
+  color: #a94344;
+}
 
 /* Table CSS Layout and Design */
 

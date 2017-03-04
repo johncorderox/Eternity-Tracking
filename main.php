@@ -22,7 +22,7 @@
 
     else if(isset($_GET['remove_user'])) {
 
-        header("location: remove_user_main.php");
+        header("location: remove_user_main.php?");
       }
 
 
@@ -53,37 +53,22 @@
           <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
           <a href="#" class="list-group-item"><b>MySQL Server Status:</b><?php check_mysql_server_status(); ?></a>
           <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($connect); ?></a>
+        </div><br />
+        <div class="list-group">
+          <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
+          <a href="#" class="list-group-item">Delete All Bugs</a>
         </div>
       </div>
       <div class="ui-main">
         <div class="ui-main-button-group">
         <form action="main.php" action="GET">
         <button name="add">Add Bug</button>
-          <button onclick="edit_bug()">Edit Bug</button>
           <button name="delete">Delete Bug</button>
-          <button name="add_new">Add New User</button><br />
+          <button name="add_new">Add New User</button>
           <button name="remove_user">Remove User</button>
-          <button onclick="remove_user()">Bug List</button><br />
           </form>
+        <hr />
 
-          <!-- create admin dropdown -->
-          <div class="panel-group">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse1">Admin Panel</a>
-              </h4>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse">
-              <ul class="list-group">
-                <li class="list-group-item">One</li>
-                <li class="list-group-item">Two</li>
-                <li class="list-group-item">Three</li>
-              </ul>
-              <div class="panel-footer">Footer</div>
-            </div>
-          </div>
-        </div>
         </div>
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
