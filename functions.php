@@ -45,7 +45,7 @@ function num_of_accounts () {
 }
 
 // @decs adds true or false for the header pages after submission
-// used for the view of the application, NOT the owner. 
+// used for the view of the application, NOT the owner.
 
 function add_response ($x) {
 
@@ -89,4 +89,7 @@ function pages ($l) {
       }
 
 }
+
+
+
  ?>

@@ -33,6 +33,7 @@
     <meta charset="UTF-8">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
     <link href="src/css/interface.css" rel="stylesheet" />
   </head>
   <body>
@@ -56,7 +57,7 @@
         </div><br />
         <div class="list-group">
           <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
-          <a href="#" class="list-group-item">Delete All Bugs</a>
+          <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
         </div>
       </div>
       <div class="ui-main">
@@ -73,3 +74,18 @@
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>
+
+<?php
+
+
+if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(0);
+        </script>';
+
+}
+
+
+
+ ?>

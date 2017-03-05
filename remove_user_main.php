@@ -12,23 +12,27 @@ if(isset($_POST['cancel'])) {
 
 if (isset($_POST['submit_remove'])) {
 
-  if (!empty($_POST['delete_id'])) {
+  if (isset($_POST['delete_user'])) {
 
-      $id = $_POST['delete_id'];
-      $sql = "DELETE FROM bugs WHERE id = " .$id;
-      $test = "SELECT * FROM bugs WHERE id = " .$id;
+      $id = $_POST['delete_user'];
+      $sql = "DELETE FROM bugs WHERE account_id = " .$id;
+      $test = "SELECT * FROM bugs WHERE account_id = " .$id;
 
-      mysqli_select_db($connect, $database);
+        mysqli_select_db($connect, $database);
 
-      $query = mysqli_query($connect, $test);
+          $query = mysqli_query($connect, $test);
 
-      if(mysqli_num_rows($query) > 0 ) {
+            if (mysqli_num_rows($query) > 0) {
+
+                mysqli_query($connect, $sql);
+                $error = "ID has been removed";
+
+            } else {
+
+              $error = "Id does not exist.";
+            }
 
 
-        mysqli_query($connect, $sql);
-
-
-      }
   }
 
 }
@@ -40,7 +44,8 @@ if (isset($_POST['submit_remove'])) {
     <p id="larger">
       Enter Username ID:
     </p>
-    <input type="text" id="remove_id" name ="delete_id" placeholder="ID #: "/><br />
+    <?php echo $error; ?>
+    <input type="text" id="remove_id" name ="delete_user" placeholder="ID #: "/><br />
     <button type="submit" name="submit_remove" id="add-button">Submit</button>
     <button type="submit" name="cancel">Cancel</button>
   </form>

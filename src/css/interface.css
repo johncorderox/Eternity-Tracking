@@ -3,7 +3,7 @@
     src: url('src/css/fonts/Lato-Thin');
 }
 
-h2, h3, h4 {
+h1,h2, h3, h4 {
     font-family: Lato-Thin;
     font-size: 40px;
 }
@@ -26,13 +26,6 @@ select {
 
 /* not so needed? */
 
-#radio {
-    padding: 0;
-    width: auto;
-    margin-left: 80px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
 
 input {
     padding: 10px;
@@ -46,6 +39,15 @@ input[type="text"] {
 
 input[type="password"] {
     margin-bottom: 10px;
+}
+.modern-input {
+
+font-size: 20px;
+ padding: 10px;
+ background: transparent;
+ outline: 0;
+ border: 0;
+ border-bottom: 1px solid black;
 }
 
 textarea {
@@ -71,6 +73,11 @@ button:hover {
 
 button:active {
     opacity: 0.2;
+}
+
+#pointer {
+
+  cursor: pointer;
 }
 
 #login-button, #add-button {
@@ -141,6 +148,11 @@ a:visited {
 #danger-dark {
 
   color: #a94344;
+  height: 11px;
+}
+#submit_button_2 {
+
+  margin-top: 10px;
 }
 
 /* Table CSS Layout and Design */
