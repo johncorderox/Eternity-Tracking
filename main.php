@@ -4,25 +4,38 @@
   include('config.php');
   include('connect.php');
   include('functions.php');
+/*
+  ob_start();
+  session_start();
+
+  if (isset($_SESSION['username'])!= "") {
+
+    header("Location: index.php");
+  }
+  */
 
   if(isset($_GET['add'])) {
 
     header("location: add_main.php");
+    exit();
   }
 
   else if(isset($_GET['delete'])) {
 
     header("location: delete_main.php");
+    exit();
   }
 
   else if(isset($_GET['add_new'])) {
 
       header("location: add_new_main.php");
+      exit();
     }
 
     else if(isset($_GET['remove_user'])) {
 
         header("location: remove_user_main.php?");
+        exit();
       }
 
 
@@ -58,6 +71,7 @@
         <div class="list-group">
           <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
           <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
+          <a href="logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
       <div class="ui-main">
@@ -69,8 +83,8 @@
           <button name="remove_user">Remove User</button>
           </form>
         <hr />
-
         </div>
+
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>
@@ -82,6 +96,22 @@ if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
 
   echo '<script type="text/javascript">
         display_input_message(0);
+        </script>';
+
+}
+
+if (isset($_GET['deletebug']) && $_GET['deletebug']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(1);
+        </script>';
+
+}
+
+if (isset($_GET['login']) && $_GET['login']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(2);
         </script>';
 
 }

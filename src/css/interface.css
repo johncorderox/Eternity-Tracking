@@ -22,6 +22,12 @@ select {
     bottom: 0;
     margin: auto;
 }
+#exit {
+  margin-left: 30px;
+}
+#exit:hover {
+  color:red;
+}
 
 
 /* not so needed? */
@@ -184,6 +190,7 @@ tr:first-child th:last-child {
 td {
     border-right: 1px solid #c6c9cc;
     border-bottom: 1px solid #c6c9cc;
+
 }
 
 td:first-child {

@@ -72,7 +72,7 @@ if(isset($_POST['submit_newuser'])) {
 $(document).ready(function() {
 
   $('.ui-main-button-group').hide("fast");
-  $('.newuserform').show("slow");
+  $('.newuserform').show();
 
 });
 

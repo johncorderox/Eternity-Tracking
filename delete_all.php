@@ -18,7 +18,7 @@
           <h2>Enter the Password for your MySQL connection:  </h2>
           <input type="password" class="modern-input" name="del_pass" />
           <button id="submit_button_2" name="del_all">Delete All</button>
-          <button name="abort">Abort</button>
+          <button name="exit" id="exit">Exit</button>
         </form>
       </div>
   </div>
@@ -43,7 +43,16 @@ include 'connect.php';
                 mysqli_query($connect, $sql);
                 header("Location: main.php");
 
+              } else {
+
+                header("Location: main.php");
               }
 
         }
+  }
+
+  else if (isset($_POST['exit'])) {
+
+      header("Location: main.php");
+
   }

@@ -26,7 +26,7 @@
           if(mysqli_num_rows($query) > 0 ) {
 
             mysqli_query($connect, $sql);
-            header("Location: main.php");
+            header("Location: main.php?deletebug=1");
 
           }
 
@@ -65,7 +65,7 @@
 $(document).ready(function() {
 
   $('.ui-main-button-group').hide("fast");
-  $('.deleteform').show("slow");
+  $('.deleteform').show();
 
 });
 

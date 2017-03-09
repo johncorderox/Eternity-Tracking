@@ -3,8 +3,6 @@ $(document).ready(function() {
 
     $('.addform2, .editform, .deleteform, .newuserform, .removeuserform').hide();
 
-    //  display_input_message(0);
-
 });
 
 // @desc Case system that outputs data to the screen when a user submits a form.
@@ -15,7 +13,7 @@ $(document).ready(function() {
 function display_input_message(n) {
     switch (n) {
             case 0:
-                $.bootstrapGrowl("Bug Added to the Database Succcessfully.", {
+                $.bootstrapGrowl("Bug Added to the Database Successfully.", {
                     ele: 'body',
                     type: 'Success',
                     align: 'right',
@@ -29,6 +27,39 @@ function display_input_message(n) {
                     stackup_spacing: 10
                 });
                 break;
+
+                case 1:
+                    $.bootstrapGrowl("Bug Deleted from the Database Successfully.", {
+                        ele: 'body',
+                        type: 'Success',
+                        align: 'right',
+                        offset: {
+                            from: 'top',
+                            amount: 40
+                        },
+                        width: 450,
+                        delay: 3000,
+                        allow_dismiss: true,
+                        stackup_spacing: 10
+                    });
+                    break;
+
+                    case 2:
+                        $.bootstrapGrowl("Successful Login!", {
+                            ele: 'body',
+                            type: 'Success',
+                            align: 'right',
+                            offset: {
+                                from: 'top',
+                                amount: 40
+                            },
+                            width: 450,
+                            delay: 3500,
+                            allow_dismiss: true,
+                            stackup_spacing: 10
+                        });
+                        break;
+
 
         default:
             console.log("Error in display_input func. Check args");

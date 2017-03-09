@@ -10,8 +10,14 @@ $(document).ready(function(){
 
     });
 
+    $('#answer_del').keypress(function (e) {
 
+    if(e.which ==13)
 
+          $('#submit_button').click();
+          $('#del_pass').focus();
+
+  });
 
 });
 
