@@ -2,16 +2,18 @@
 
 $message = "Welcome.";
 
-require ("connect.php");
+include ("connect.php");
+include("functions.php");
 
+session_start();
 
 if (isset($_POST['submit'])) {
 
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  $username_l = trims($_POST['username']);
+  $password_l = trims($_POST['password']);
 
-  $query = "SELECT * FROM `users` WHERE username = '$username' and password = '$password'";
+  $query = "SELECT * FROM `users` WHERE username = '$username_l' and password = '$password_l'";
 
   $result = mysqli_query($connect, $query);
 
@@ -19,15 +21,17 @@ if (isset($_POST['submit'])) {
 
     if ($num_of_rows == 1) {
 
-      $_SESSION['username'] = $row['account_id'];
 
+      $_SESSION['username'] = $username_l;
       header("Location: main.php?login=1");
+
     } else {
 
       $message = "Invalid Credentials.";
     }
 
 }
+mysqli_close($connect);
 
 ?>
 
@@ -39,6 +43,7 @@ if (isset($_POST['submit'])) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
       <link href="src/css/interface.css" rel="stylesheet" />
     </head>
   <body>
@@ -53,3 +58,15 @@ if (isset($_POST['submit'])) {
 </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>
+
+<?php
+
+  if (isset($_GET['logout']) && $_GET['logout'] == '1') {
+
+    echo '<script type="text/javascript">
+          display_input_message(3);
+          </script>';
+  }
+
+
+ ?>

@@ -3,7 +3,7 @@ php ----
 
 track ip by submitted.
 delete all bugs?
-
+global password for delete all bugs during installation.
 
 html
 

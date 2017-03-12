@@ -30,9 +30,6 @@ select {
 }
 
 
-/* not so needed? */
-
-
 input {
     padding: 10px;
     width: 500px;
@@ -45,6 +42,15 @@ input[type="text"] {
 
 input[type="password"] {
     margin-bottom: 10px;
+}
+
+input [type="radio"] {
+
+padding: 0;
+width: 0;
+margin: 0 0 0 0;
+
+
 }
 .modern-input {
 
@@ -90,20 +96,11 @@ button:active {
     margin-top: 10px;
 }
 
-#sl {
-    color: green;
-}
 
 .header-name {
     margin-left: 30px;
 }
 
-.requirements {
-    height: 150px;
-    width: 280px;
-    float: left;
-    margin-left: 2%;
-}
 
 .addform, .addform2 {
     float: right;
@@ -125,6 +122,13 @@ button:active {
     height: 60px;
     padding: 0;
     margin: 20px 20px;
+}
+
+.bug_list {
+
+  float: left;
+  clear: left;
+  width: 100%;
 }
 
 #larger {
@@ -160,6 +164,8 @@ a:visited {
 
   margin-top: 10px;
 }
+
+
 
 /* Table CSS Layout and Design */
 

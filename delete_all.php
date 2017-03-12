@@ -30,12 +30,13 @@
 <?php
 
 include 'connect.php';
+include 'functions.php';
 
   if (isset($_POST['del_all'])) {
 
         if (!empty($_POST['del_pass'])) {
 
-              $del_pass = $_POST['del_pass'];
+              $del_pass = trims($_POST['del_pass']);
 
               if ($del_pass == "password") {
 

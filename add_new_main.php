@@ -15,9 +15,11 @@ if(isset($_POST['submit_newuser'])) {
 
     if(!empty($_POST['username']) && (!empty($_POST['password']))) {
 
+      include("functions.php");
 
-      $username = $_POST['username'];
-      $password = $_POST['password'];
+      $username = trims($_POST['username']);
+      $password = trims($_POST['password']);
+      $password = md5($password);
       $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
       $test = "SELECT * FROM users WHERE users.username = '".$username."'";
 

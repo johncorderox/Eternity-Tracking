@@ -1,16 +1,5 @@
 <?php
 
-// @desc Pings the MySQL Server and returns true if connected.
-// Throws mysqli_connect_error if there are errors in config.php. Global is
-// used to grab variable from connect.
-function check_mysql_server_status() {
-
-  global $connect;
-  if(mysqli_ping($connect)) {
-    echo ' Connected';
-  }
-}
-
 // @desc connects to MySQL and queries the DB for a count.
 // uses the function COUNT and echo's the num
 function num_of_bugs() {
@@ -44,14 +33,19 @@ function num_of_accounts () {
 
 }
 
-// @decs adds true or false for the header pages after submission
-// used for the view of the application, NOT the owner.
 
-function add_response ($x) {
 
-  $x == 0 ? header("Location: add.php?success=0") : header("Location: add.php?success=1");
+function trims($inputs) {
+
+  $inputs = trim($inputs);
+  $inputs = stripslashes($inputs);
+  $inputs = htmlspecialchars($inputs);
+
+  return $inputs;
 
 }
+
+
 // Calls headers within the application and redirects the user
 // each case is determined by the first letter of each page
 // @args prefix of page
@@ -76,7 +70,7 @@ function pages ($l) {
         header("Location: delete_main.php");
         break;
 
-    case a:
+    case an:
 
         header("Location: add_new_user.php");
         break;
@@ -89,7 +83,6 @@ function pages ($l) {
       }
 
 }
-
 
 
  ?>

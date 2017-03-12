@@ -4,15 +4,18 @@
   include('config.php');
   include('connect.php');
   include('functions.php');
-/*
-  ob_start();
+
   session_start();
 
-  if (isset($_SESSION['username'])!= "") {
+  $logged = $_SESSION['username'];
 
-    header("Location: index.php");
+  if (!isset($_SESSION['username'])) {
+
+      header("Location: index.php");
+      exit();
+
   }
-  */
+
 
   if(isset($_GET['add'])) {
 
@@ -38,6 +41,16 @@
         exit();
       }
 
+// @desc Pings the MySQL Server and returns true if connected.
+// Throws mysqli_connect_error if there are errors in config.php. Global is
+// used to grab variable from connect.
+  function check_mysql_server_status() {
+      global $connect;
+
+        if(mysqli_ping($connect)) {
+          echo ' Connected';
+        }
+      }
 
 ?>
 
@@ -81,10 +94,17 @@
           <button name="delete">Delete Bug</button>
           <button name="add_new">Add New User</button>
           <button name="remove_user">Remove User</button>
-          </form>
+        </form><br />
+        <p>
+          Welcome! <br />
+          You are currently logged in as: <?php echo $logged; ?> <br />
+          You have a current log in count of: and your last login date was:
+        </p><br />
+         <label><input type="checkbox" id="check_bug">Show / Hide Bug List</label>
         <hr />
         </div>
-
+      </div>
+        <?php include ("buglist.php"); ?>
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>

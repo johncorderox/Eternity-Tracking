@@ -13,8 +13,9 @@
     }
 
     if (!empty($_POST['delete_id'])) {
+        include("functions.php");
 
-      $id = $_POST['delete_id'];
+      $id = trims($_POST['delete_id']);
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
 

@@ -6,9 +6,11 @@ $error = "";
 
   if (isset($_POST['add_main'])) {
 
-    $title = $_POST['title'];
-    $message = $_POST['message'];
-    $priority = $_POST['priority'];
+    include("functions.php");
+
+    $title = trims($_POST['title']);
+    $message = trims($_POST['message']);
+    $priority = trims($_POST['priority']);
 
     if (empty($title) || empty($message)) {
 
