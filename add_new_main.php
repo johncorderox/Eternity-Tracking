@@ -14,6 +14,7 @@
           Please make both fields unique for the account. Numbers and Letters.
         </li>
       </ul>
+      <br />
     <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
     <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
     <button type="submit" name="submit_newuser" id="add-button">Submit</button>

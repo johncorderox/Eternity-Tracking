@@ -28,7 +28,7 @@ if (isset($_POST['submit_remove'])) {
         if (mysqli_num_rows($query) < 2) {
 
           echo '<script type="text/javascript">
-                display_input_message(5); 
+                display_input_message(5);
                 </script>';
             $error = "You cannot delete the last user in the System!";
 
