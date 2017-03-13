@@ -2,6 +2,7 @@
 
 include('config.php');
 include('connect.php');
+include('secure.php');
 
 
 $error = "";
@@ -15,24 +16,35 @@ if (isset($_POST['submit_remove'])) {
 
   if (isset($_POST['delete_user'])) {
 
-      $id = $_POST['delete_user'];
-      $sql = "DELETE FROM bugs WHERE account_id = " .$id;
-      $test = "SELECT * FROM bugs WHERE account_id = " .$id;
+      $id = trims($_POST['delete_user']);
+      $sql = "DELETE FROM users WHERE account_id = " .$id;
+      $test = "SELECT * FROM users WHERE account_id = " .$id;
 
         mysqli_select_db($connect, $database);
 
-          $query = mysqli_query($connect, $test);
+        $query = mysqli_query($connect, $test);
 
-            if (mysqli_num_rows($query) > 0) {
 
-                mysqli_query($connect, $sql);
-                $error = "ID has been removed";
+        if (mysqli_num_rows($query) < 2) {
 
-            } else {
+          echo '<script type="text/javascript">
+                display_input_message(5); 
+                </script>';
+            $error = "You cannot delete the last user in the System!";
 
-              $error = "Id does not exist.";
-            }
+        }
 
+        if(mysqli_num_rows($query) > 0 ) {
+
+            mysqli_query($connect, $sql);
+            header("Location: main.php?removeuser=1");
+
+
+        } else {
+
+
+          $error = "The username ID " . $id . "did not return any results.";
+        }
 
   }
 

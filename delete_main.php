@@ -1,6 +1,7 @@
 <?php
   include('config.php');
   include('connect.php');
+  include('secure.php');
 
   $error = "";
 
@@ -13,7 +14,6 @@
     }
 
     if (!empty($_POST['delete_id'])) {
-        include("functions.php");
 
       $id = trims($_POST['delete_id']);
       $sql = "DELETE FROM bugs WHERE id = " .$id;
@@ -28,6 +28,7 @@
 
             mysqli_query($connect, $sql);
             header("Location: main.php?deletebug=1");
+
 
           }
 

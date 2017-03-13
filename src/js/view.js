@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-    $('.addform2, .editform, .deleteform, .newuserform, .removeuserform').hide();
+    $('.editform, .deleteform, .newuserform, .removeuserform').hide();
 
 
     $('#check_bug').click(function() {
@@ -9,6 +9,7 @@ $(document).ready(function() {
         $('#table_bugs').toggle();
 
     });
+
 
 });
 
@@ -54,7 +55,7 @@ function display_input_message(n) {
         case 2:
             $.bootstrapGrowl("Successful Login!", {
                 ele: 'body',
-                type: 'Success',
+                type: 'info',
                 align: 'right',
                 offset: {
                     from: 'top',
@@ -84,6 +85,71 @@ function display_input_message(n) {
             });
             break;
 
+        case 4:
+            $.bootstrapGrowl("The Account Has Been Removed Successfully.", {
+                ele: 'body',
+                type: 'Success',
+                align: 'right',
+                offset: {
+                    from: 'top',
+                    amount: 40
+                },
+                width: 450,
+                delay: 3500,
+                allow_dismiss: true,
+                stackup_spacing: 10
+            });
+            break;
+
+
+        case 5:
+            $.bootstrapGrowl("There Is Only 1 Account Left!", {
+                ele: 'body',
+                type: 'danger',
+                align: 'right',
+                offset: {
+                    from: 'top',
+                    amount: 40
+                },
+                width: 450,
+                delay: 3500,
+                allow_dismiss: true,
+                stackup_spacing: 10
+            });
+            break;
+
+
+        case 6:
+            $.bootstrapGrowl("New User added to the Database", {
+                ele: 'body',
+                type: 'Success',
+                align: 'right',
+                offset: {
+                    from: 'top',
+                    amount: 40
+                },
+                width: 450,
+                delay: 3500,
+                allow_dismiss: true,
+                stackup_spacing: 10
+            });
+            break;
+
+            case 7:
+                $.bootstrapGrowl("MYSQL ERROR: Some requirements were not met.", {
+                    ele: 'body',
+                    type: 'danger',
+                    align: 'right',
+                    offset: {
+                        from: 'top',
+                        amount: 40
+                    },
+                    width: 450,
+                    delay: 4000,
+                    allow_dismiss: true,
+                    stackup_spacing: 10
+                });
+                break;
 
         default:
             console.log("Error in display_input func. Check args");

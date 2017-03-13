@@ -16,7 +16,6 @@
 
   }
 
-
   if(isset($_GET['add'])) {
 
     header("location: add_main.php");
@@ -39,17 +38,6 @@
 
         header("location: remove_user_main.php?");
         exit();
-      }
-
-// @desc Pings the MySQL Server and returns true if connected.
-// Throws mysqli_connect_error if there are errors in config.php. Global is
-// used to grab variable from connect.
-  function check_mysql_server_status() {
-      global $connect;
-
-        if(mysqli_ping($connect)) {
-          echo ' Connected';
-        }
       }
 
 ?>
@@ -98,13 +86,12 @@
         <p>
           Welcome! <br />
           You are currently logged in as: <?php echo $logged; ?> <br />
-          You have a current log in count of: and your last login date was:
         </p><br />
          <label><input type="checkbox" id="check_bug">Show / Hide Bug List</label>
         <hr />
         </div>
       </div>
-        <?php include ("buglist.php"); ?>
+    <?php include ("buglist.php"); ?>
   </body>
   <script type='text/javascript' src='src/js/view.js'></script>
 </html>
@@ -132,6 +119,22 @@ if (isset($_GET['login']) && $_GET['login']=='1') {
 
   echo '<script type="text/javascript">
         display_input_message(2);
+        </script>';
+
+}
+
+if (isset($_GET['removeuser']) && $_GET['removeuser']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(4);
+        </script>';
+
+}
+
+if (isset($_GET['newuser']) && $_GET['newuser']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(6);
         </script>';
 
 }

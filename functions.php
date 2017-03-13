@@ -33,18 +33,16 @@ function num_of_accounts () {
 
 }
 
+// @desc Pings the MySQL Server and returns true if connected.
+// Throws mysqli_connect_error if there are errors in config.php. Global is
+// used to grab variable from connect.
+  function check_mysql_server_status() {
+      global $connect;
 
-
-function trims($inputs) {
-
-  $inputs = trim($inputs);
-  $inputs = stripslashes($inputs);
-  $inputs = htmlspecialchars($inputs);
-
-  return $inputs;
-
-}
-
+        if(mysqli_ping($connect)) {
+          echo ' Connected';
+        }
+      }
 
 // Calls headers within the application and redirects the user
 // each case is determined by the first letter of each page

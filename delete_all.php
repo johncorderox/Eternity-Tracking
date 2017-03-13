@@ -31,6 +31,7 @@
 
 include 'connect.php';
 include 'functions.php';
+include 'secure.php';
 
   if (isset($_POST['del_all'])) {
 

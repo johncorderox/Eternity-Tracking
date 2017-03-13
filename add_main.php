@@ -1,12 +1,11 @@
 <?php
   include('config.php');
   include('connect.php');
+  include("secure.php");
 
 $error = "";
 
   if (isset($_POST['add_main'])) {
-
-    include("functions.php");
 
     $title = trims($_POST['title']);
     $message = trims($_POST['message']);
@@ -43,7 +42,7 @@ $error = "";
 <?php include 'main.php'; ?>
 <html>
 <body>
-  <div class="addform2">
+  <div class="addform">
     <form action="add_main.php" method="POST">
     <p id="larger"> Please Enter a Title and a Descriptive Message! </p><br />
     <?php echo  '<p>'. $error . '</p>'; ?>
