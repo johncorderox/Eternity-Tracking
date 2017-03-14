@@ -4,6 +4,7 @@ $message = "Welcome.";
 
 include ("connect.php");
 include("functions.php");
+include("secure.php");
 
 session_start();
 
@@ -12,6 +13,7 @@ if (isset($_POST['submit'])) {
 
   $username_l = trims($_POST['username']);
   $password_l = trims($_POST['password']);
+  $password_l = md5($password_l);
 
   $query = "SELECT * FROM `users` WHERE username = '$username_l' and password = '$password_l'";
 
