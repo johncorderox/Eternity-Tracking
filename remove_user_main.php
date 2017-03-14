@@ -62,6 +62,7 @@ if (isset($_POST['submit_remove'])) {
     <button type="submit" name="submit_remove" id="add-button">Submit</button>
     <button type="submit" name="cancel">Cancel</button>
   </form>
+  <?php include "user_list.php" ?>
 </div>
 <script type='text/javascript' src='src/js/view.js'></script>
 </body>
@@ -77,21 +78,3 @@ $(document).ready(function() {
 });
 
 </script>
-<?php
-
-include('config.php');
-include('connect.php');
-
-$sql = "SELECT * FROM users";
-
-mysqli_select_db($connect, $database);
-
-$result = mysqli_query($connect, $sql);
-
-  echo "<div id=\"table_users\">";
-  echo "<table><tr><th>ID</th><th>Username</th></tr>";
-  while ( $row = mysqli_fetch_assoc($result)) {
-    echo "<tr><td>".$row["account_id"]."</td><td>".$row["username"]."</td></tr>";
-    echo "</div>";
-}
-?>
