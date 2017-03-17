@@ -1,6 +1,8 @@
 <?php
 
+
 $message = "Welcome.";
+
 
 include ("connect.php");
 include("functions.php");
@@ -15,14 +17,16 @@ if (isset($_POST['submit'])) {
   $password_l = trims($_POST['password']);
   $password_l = md5($password_l);
 
-  $query = "SELECT * FROM `users` WHERE username = '$username_l' and password = '$password_l'";
 
+  $query = "SELECT * FROM `users` WHERE `username` = '$username_l' and password = '$password_l'";
+  $query_add = "UPDATE `users` SET `account_count` = account_count + 1 WHERE username = '$username_l'";
   $result = mysqli_query($connect, $query);
 
   $num_of_rows = mysqli_num_rows($result);
 
     if ($num_of_rows == 1) {
 
+    mysqli_query($connect, $query_add);
 
       $_SESSION['username'] = $username_l;
       header("Location: main.php?login=1");

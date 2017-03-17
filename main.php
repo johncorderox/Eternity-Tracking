@@ -43,17 +43,8 @@
 ?>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
-    <link href="src/css/interface.css" rel="stylesheet" />
-  </head>
+<?php  include("header.php"); ?>
   <body>
-    <div class="header-name">
-  <a href="main.php"><h3>Eternity Tracking</h3></a><br />
-    </div><br />
       <div class="leftside-info">
         <div class="list-group">
           <a href="#" class="list-group-item active">Main Information</a>
@@ -86,6 +77,7 @@
         <p>
           Welcome! <br />
           You are currently logged in as: <?php echo $logged; ?> <br />
+          Click here to view details on your account and other settings.
         </p><br />
          <label><input type="checkbox" id="check_bug">Show / Hide Bug List</label>
         <hr />

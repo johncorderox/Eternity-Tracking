@@ -135,8 +135,24 @@ function display_input_message(n) {
             });
             break;
 
-            case 7:
-                $.bootstrapGrowl("MYSQL ERROR: Some requirements were not met.", {
+        case 7:
+            $.bootstrapGrowl("MYSQL ERROR: Some requirements were not met.", {
+                ele: 'body',
+                type: 'danger',
+                align: 'right',
+                offset: {
+                    from: 'top',
+                    amount: 40
+                },
+                width: 450,
+                delay: 3000,
+                allow_dismiss: true,
+                stackup_spacing: 10
+            });
+            break;
+
+            case 8:
+                $.bootstrapGrowl("The User ID Does Not Exist!", {
                     ele: 'body',
                     type: 'danger',
                     align: 'right',
@@ -145,14 +161,13 @@ function display_input_message(n) {
                         amount: 40
                     },
                     width: 450,
-                    delay: 4000,
+                    delay: 3000,
                     allow_dismiss: true,
                     stackup_spacing: 10
                 });
                 break;
-
         default:
-            console.log("Error in display_input func. Check args");
+            console.log("Error in display input func. Check args");
 
     }
 

@@ -44,43 +44,4 @@ function num_of_accounts () {
         }
       }
 
-// Calls headers within the application and redirects the user
-// each case is determined by the first letter of each page
-// @args prefix of page
-function pages ($l) {
-
-  switch($l) {
-    case m:
-            header("Location: main.php");
-            break;
-    case a:
-
-          header("Location: add_main.php");
-          break;
-
-    case e:
-
-          header("Location: edit_main.php");
-          break;
-
-    case d:
-
-        header("Location: delete_main.php");
-        break;
-
-    case an:
-
-        header("Location: add_new_user.php");
-        break;
-
-    case r:
-
-        header("Location: remove_user_main.php");
-        break;
-
-      }
-
-}
-
-
  ?>
