@@ -1,5 +1,5 @@
 <?php
-include 'main.php';
+include ('main.php');
 include('config.php');
 include('connect.php');
 include("secure.php");
@@ -10,17 +10,24 @@ if(isset($_POST['cancel'])) {
   header("Location: main.php");
 }
 
-
 if(isset($_POST['submit_newuser'])) {
 
+
     if(!empty($_POST['username']) && (!empty($_POST['password'])) && !empty($_POST['email'])) {
+
+      if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+
+          showError();
+
+      } else {
 
       $username = trims($_POST['username']);
       $password = trims($_POST['password']);
       $password = md5($password);
       $email = trims($_POST['email']);
+      $email = email_clean($email);
       $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";
-      $test = "SELECT * FROM users WHERE users.username = '".$username."'";
+      $test = "SELECT * FROM users WHERE username = '".$username."'";
 
       mysqli_select_db($connect, $database);
 
@@ -36,11 +43,13 @@ if(isset($_POST['submit_newuser'])) {
            if ($result) {
 
               header("Location: main.php?newuser=1");
+              exit();
 
            }
 
       }
 
+    }
   } else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
 
     showError();

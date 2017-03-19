@@ -50,12 +50,13 @@
           <a href="#" class="list-group-item active">Main Information</a>
           <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php num_of_bugs(); ?></a>
           <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php num_of_accounts(); ?></a>
+          <a href="#" class="list-group-item"><b>Deleted Bugs</b>: </a>
           <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $servername; ?></a>
-          <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $database; ?></a>
         </div>
         <br />
         <div class="list-group">
           <a href="#" class="list-group-item active">Backend Information</a>
+          <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $database; ?></a>
           <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
           <a href="#" class="list-group-item"><b>MySQL Server Status:</b><?php check_mysql_server_status(); ?></a>
           <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($connect); ?></a>

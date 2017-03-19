@@ -8,12 +8,9 @@
 
   if (isset($_POST['submit_delete'])) {
 
-    if (empty($_POST['delete_id'])) {
-
-      $error = "You didn't enter anyting into the field.";
-    }
-
     if (!empty($_POST['delete_id'])) {
+
+      if (is_numeric($_POST['delete_id'])) {
 
       $id = trims($_POST['delete_id']);
       $sql = "DELETE FROM bugs WHERE id = " .$id;
@@ -28,6 +25,7 @@
 
             mysqli_query($connect, $sql);
             header("Location: main.php?deletebug=1");
+            mysqli_close($connect);
 
 
           }
@@ -36,8 +34,11 @@
 
               $error = ' bug number ' . $id . ' does not exist.';
           }
-  }
+  } else {
 
+    $error = "You did not enter a valid number.";
+  }
+}
 }
 
 
@@ -66,7 +67,7 @@
 <script>
 $(document).ready(function() {
 
-  $('.ui-main-button-group').hide("fast");
+  $('.ui-main-button-group').hide();
   $('.deleteform').show();
 
 });

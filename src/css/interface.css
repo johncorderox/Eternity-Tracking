@@ -37,11 +37,12 @@ input {
 }
 
 input[type="text"] {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 input[type="password"] {
-    margin-bottom: 10px;
+
+    margin-bottom: 15px;
 }
 
 .modern-input {

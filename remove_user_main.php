@@ -14,7 +14,7 @@ if(isset($_POST['cancel'])) {
 
 if (isset($_POST['submit_remove'])) {
 
-  if (isset($_POST['delete_user'])) {
+  if (!empty($_POST['delete_user']) && is_numeric($_POST['delete_user'])) {
 
       $id = trims($_POST['delete_user']);
       $sql = "DELETE FROM users WHERE account_id = " .$id;
@@ -27,7 +27,7 @@ if (isset($_POST['submit_remove'])) {
 
         if (mysqli_num_rows($query_first_test) == 1) {
 
-            echo "Only 1 left";
+           $error= "Only 1 left";
 
         } else {
 
@@ -48,6 +48,10 @@ if (isset($_POST['submit_remove'])) {
               }
 
         }
+    } else {
+
+          $error = "You did not meet some requirements.";
+
     }
 }
 
@@ -58,7 +62,7 @@ if (isset($_POST['submit_remove'])) {
     <p id="larger">
       Enter Username ID:
     </p>
-    <?php echo $error; ?>
+    <?php echo $error; ?><br />
     <input type="text" id="remove_id" name ="delete_user" placeholder="ID #: "/><br />
     <button type="submit" name="submit_remove" id="add-button">Submit</button>
     <button type="submit" name="cancel">Cancel</button>

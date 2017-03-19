@@ -10,5 +10,12 @@ function trims($inputs) {
 
 }
 
+function email_clean($inputs) {
+
+  $inputs = filter_var($inputs, FILTER_SANITIZE_EMAIL);
+
+  return $inputs;
+}
+
 
  ?>
