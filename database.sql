@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `deleted_bugs` (
   `title` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `priority` varchar(255) NOT NULL,
-  `delete_date` datetime NOT NULL default '0000-00-00 00:00:00',
+  `delete_date` datetime NOT NULL,
   `deleted_by` varchar(23) NOT NULL,
   PRIMARY KEY (`id`)
 

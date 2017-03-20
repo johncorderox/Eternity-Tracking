@@ -1,10 +1,10 @@
+<?php include 'main.php'; ?>
 <?php
   include('config.php');
   include('connect.php');
   include('secure.php');
 
   $error = "";
-
 
   if (isset($_POST['submit_delete'])) {
 
@@ -15,18 +15,23 @@
       $id = trims($_POST['delete_id']);
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
-
+      $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT * FROM bugs WHERE id = '$id'";
+      $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW() WHERE id = '$id'";
 
           mysqli_select_db($connect, $database);
-
           $query = mysqli_query($connect, $test);
 
           if(mysqli_num_rows($query) > 0 ) {
 
+            // Moves data into another table
+            mysqli_query($connect, $sql_copy);
+            // Adds remaining values to new table
+            mysqli_query($connect, $sql_insert);
+            // Deletes the bug ID number
             mysqli_query($connect, $sql);
+            // Successful redirect
             header("Location: main.php?deletebug=1");
             mysqli_close($connect);
-
 
           }
 
@@ -49,7 +54,6 @@
 
 ?>
 
-<?php include 'main.php'; ?>
 <html>
 <body>
   <div class="deleteform">

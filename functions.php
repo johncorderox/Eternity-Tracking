@@ -21,12 +21,25 @@ if($connect) {
 
 }
 
+
 // @des connects and uses the count function to return n results.
 
 function num_of_accounts () {
 
   include "connect.php";
   $sql = "SELECT COUNT(*) as total FROM users";
+  $result = mysqli_query($connect, $sql);
+  $number = mysqli_fetch_assoc($result);
+  echo $number['total'];
+
+}
+
+function num_of_deleted () {
+
+  global $connect;
+  global $database;
+  mysqli_select_db($connect, $database);
+  $sql = "SELECT COUNT(*) as total FROM deleted_bugs";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
   echo $number['total'];
@@ -43,5 +56,32 @@ function num_of_accounts () {
           echo ' Connected';
         }
       }
+
+function getLastBug() {
+
+global $connect;
+global $database;
+
+if ($connect) {
+
+  $sql = "SELECT message from `bugs` ORDER BY `id` DESC LIMIT 1";
+  $result = mysqli_query($connect, $sql);
+
+    if (mysqli_num_rows($result) != 1) {
+
+        echo '<p>Your bug list is currently empty.</p>';
+    } else {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+          echo '<p><b>Last bug reported:</b> '  .$row['message'].'</p>';
+        }
+    }
+
+}
+
+
+
+}
 
  ?>

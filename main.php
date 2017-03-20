@@ -50,7 +50,7 @@
           <a href="#" class="list-group-item active">Main Information</a>
           <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php num_of_bugs(); ?></a>
           <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php num_of_accounts(); ?></a>
-          <a href="#" class="list-group-item"><b>Deleted Bugs</b>: </a>
+          <a href="#" class="list-group-item"><b>Deleted Bugs</b>: <?php num_of_deleted(); ?> </a>
           <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $servername; ?></a>
         </div>
         <br />
@@ -63,6 +63,7 @@
         </div><br />
         <div class="list-group">
           <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
+          <a href="account.php" class="list-group-item" id="pointer">Account Settings</a>
           <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
           <a href="logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
@@ -77,8 +78,8 @@
         </form><br />
         <p>
           Welcome! <br />
-          You are currently logged in as: <?php echo $logged; ?> <br />
-          Click here to view details on your account and other settings.
+          You are currently logged in as: <?php echo $logged; ?>
+          <?php getLastBug(); ?>
         </p><br />
          <label><input type="checkbox" id="check_bug">Show / Hide Bug List</label>
         <hr />
