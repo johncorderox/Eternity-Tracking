@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 `password` varchar(32) NOT NULL,
 `email` varchar(50) NOT NULL,
 `account_count` int(11) unsigned NOT NULL default '0',
+`last_ip` varchar(100) NOT NULL default '0',
 PRIMARY KEY (`account_id`)
 
 );
