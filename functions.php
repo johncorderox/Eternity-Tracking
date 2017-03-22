@@ -23,6 +23,8 @@ if($connect) {
 
 
 // @des connects and uses the count function to return n results.
+// Returns amount to the main.php page for the first view.
+// Uses assoc to output using echo.
 
 function num_of_accounts () {
 
@@ -33,6 +35,9 @@ function num_of_accounts () {
   echo $number['total'];
 
 }
+
+// Counts the number of deleted bugs exactly like the num of
+// accounts and bugs. uses total as the assoc variable
 
 function num_of_deleted () {
 
@@ -49,13 +54,18 @@ function num_of_deleted () {
 // @desc Pings the MySQL Server and returns true if connected.
 // Throws mysqli_connect_error if there are errors in config.php. Global is
 // used to grab variable from connect.
-  function check_mysql_server_status() {
-      global $connect;
+function check_mysql_server_status() {
+   global $connect;
 
-        if(mysqli_ping($connect)) {
-          echo ' Connected';
+     if(mysqli_ping($connect)) {
+        echo ' Connected';
         }
-      }
+}
+
+// Retrieves the last bug from the database.
+// Connects and fetces using the query from the var $sql
+// Selects all bugs from the message column, orders them by id and
+// decends the list going from ex 9-1. Limiting 1 showing the last.
 
 function getLastBug() {
 
@@ -69,7 +79,7 @@ if ($connect) {
 
     if (mysqli_num_rows($result) != 1) {
 
-        echo '<p>Your bug list is currently empty.</p>';
+        echo '<p>Whoo hoo! No bugs reported!</p>';
     } else {
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -79,8 +89,6 @@ if ($connect) {
     }
 
 }
-
-
 
 }
 
