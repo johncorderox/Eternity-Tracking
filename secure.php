@@ -4,9 +4,9 @@
 // Cleans and keeps form secure from potential attacks and SQL injections.
 // @args $inputs 	Takes input from forms and cleans them using built in PHP methods
 
-// htmlspecialcharacters		converts to HTML entities. &amp;
-// trim 									  removes whitespaces from both sides
-// stripslashes							Removes backslashes
+// htmlspecialcharacters  -converts to HTML entities. &amp;
+// trim 									-removes whitespaces from both sides
+// stripslashes						-Removes backslashes
 // stript tags							Removes HTML/PHP tags 
 
 
