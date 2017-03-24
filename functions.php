@@ -70,11 +70,10 @@ function check_mysql_server_status() {
 function getLastBug() {
 
 global $connect;
-global $database;
 
 if ($connect) {
 
-  $sql = "SELECT message from `bugs` ORDER BY `id` DESC LIMIT 1";
+  $sql = "SELECT title from `bugs` ORDER BY `id` DESC LIMIT 1";
   $result = mysqli_query($connect, $sql);
 
     if (mysqli_num_rows($result) != 1) {
@@ -84,12 +83,25 @@ if ($connect) {
 
         while ($row = mysqli_fetch_assoc($result)) {
 
-          echo '<p><b>Last bug reported:</b> '  .$row['message'].'</p>';
+          echo '<p><b>Last bug reported:</b> '  .$row['title'].'</p>';
         }
-    }
+     }
+
+  }
 
 }
 
+function reset_login_count($user) {
+
+
+  global $connect;
+
+
+  if ($connect) {
+
+      $sql = "";
+
+  }
 }
 
  ?>

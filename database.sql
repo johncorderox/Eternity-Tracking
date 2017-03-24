@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS `bugs` (
 `title` varchar(255) NOT NULL,
 `message` varchar(255) NOT NULL,
 `priority` varchar(255) NOT NULL,
+`reported_by` varchar(3) NOT NULL,
 PRIMARY KEY (`id`)
 
 );
@@ -23,6 +24,16 @@ CREATE TABLE IF NOT EXISTS `deleted_bugs` (
   `delete_date` datetime NOT NULL,
   `deleted_by` varchar(23) NOT NULL,
   PRIMARY KEY (`id`)
+
+);
+
+CREATE TABLE IF NOT EXISTS `deleted_users` (
+
+  `account_id` int(11) unsigned NOT NULL,
+  `username` varchar(23) NOT NULL,
+  `deleted_reason` varchar(50) NOT NULL,
+  `deleted_by` varchar(23) NOT NULL,
+  PRIMARY KEY (`account_id`)
 
 );
 

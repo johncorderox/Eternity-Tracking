@@ -1,4 +1,5 @@
 <?php
+  include 'main.php';
   include('config.php');
   include('connect.php');
   include("secure.php");
@@ -9,7 +10,7 @@ $error = "";
 
     $title = trims($_POST['title']);
     $message = trims($_POST['message']);
-    $priority = trims($_POST['priority']);
+    $priority = $_POST['priority'];
 
     if (empty($title) || empty($message)) {
 
@@ -19,7 +20,7 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority) VALUES ('$title','$message', '$priority')";
+        $sql = "INSERT INTO bugs (title, message, priority, reported_by) VALUES ('$title','$message', '$priority', '$logged')";
 
         mysqli_select_db($connect, $database);
         $query = mysqli_query($connect, $sql);
@@ -39,7 +40,6 @@ $error = "";
 
 ?>
 
-<?php include 'main.php'; ?>
 <html>
 <body>
   <div class="addform">

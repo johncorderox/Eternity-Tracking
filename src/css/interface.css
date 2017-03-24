@@ -173,7 +173,14 @@ a:visited {
   margin-right: 15px;
 }
 
-.welcome_notes {
+#space {
+
+  margin-left: 14%;
+  cursor: pointer;
+}
+
+#space:hover {
+  color: #42444e;
 
 }
 

@@ -16,10 +16,11 @@ if (isset($_POST['submit'])) {
   $username_l = trims($_POST['username']);
   $password_l = trims($_POST['password']);
   $password_l = md5($password_l);
+  $ip = $_SERVER['REMOTE_ADDR'];
 
 
   $query = "SELECT * FROM `users` WHERE `username` = '$username_l' and password = '$password_l'";
-  $query_add = "UPDATE `users` SET `account_count` = account_count + 1 WHERE username = '$username_l'";
+  $query_add = "UPDATE `users` SET `account_count` = account_count + 1, `last_ip` = '$ip' WHERE username = '$username_l'";
   $result = mysqli_query($connect, $query);
 
   $num_of_rows = mysqli_num_rows($result);

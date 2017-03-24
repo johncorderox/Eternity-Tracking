@@ -4,7 +4,7 @@ include('config.php');
 include('connect.php');
 include('secure.php');
 
-
+session_start();
 $error = "";
 
 if(isset($_POST['cancel'])) {
@@ -17,7 +17,10 @@ if (isset($_POST['submit_remove'])) {
   if (!empty($_POST['delete_user']) && is_numeric($_POST['delete_user'])) {
 
       $id = trims($_POST['delete_user']);
+      $reason = $_POST['option_radio'];
       $sql = "DELETE FROM users WHERE account_id = " .$id;
+      $sql_copy = "INSERT INTO deleted_users (account_id, username) SELECT `account_id`,`username` from users WHERE account_id = '$id'";
+      $sql_addinfo = "UPDATE deleted_users SET deleted_reason = '$reason', deleted_by = '{$_SESSION['username']}' WHERE account_id = '$id'";
       $test = "SELECT * FROM users WHERE account_id = " .$id;
       $test_empty = "SELECT * FROM users";
 
@@ -35,16 +38,15 @@ if (isset($_POST['submit_remove'])) {
 
               if(mysqli_num_rows($query) > 0 ) {
 
-                  mysqli_query($connect, $sql);
+                    mysqli_query($connect, $sql_copy);
+                    mysqli_query($connect, $sql_addinfo) or die(mysqli_error($connect));
+                    mysqli_query($connect, $sql);
                   header("Location: main.php?removeuser=1");
 
 
               } else {
 
-                echo '<script type="text/javascript">
-                      display_input_message(8);
-                      </script>';
-
+                      $error = "The ID was not found...";
               }
 
         }
@@ -62,8 +64,24 @@ if (isset($_POST['submit_remove'])) {
     <p id="larger">
       Enter Username ID:
     </p>
+    <p>
+      Removing users removes all privledges and access to report bugs for <?php echo $company_name; ?>.<br />
+      Please make sure you really want to remove the user before submitting.
+    </p>
     <?php echo $error; ?><br />
     <input type="text" id="remove_id" name ="delete_user" placeholder="ID #: "/><br />
+      <div class="radio">
+        <label><input type="radio" name="option_radio" value="No Longer Needed" id="radio_default">No Longer Needed</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="option_radio" value="Unknown Account">Unknown Account</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="option_radio" value="Abusing Power">Abusing Power</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="option_radio" value="Other">Other</label>
+      </div>
     <button type="submit" name="submit_remove" id="add-button">Submit</button>
     <button type="submit" name="cancel">Cancel</button>
   </form>
@@ -72,7 +90,6 @@ if (isset($_POST['submit_remove'])) {
 <script type='text/javascript' src='src/js/view.js'></script>
 </body>
 </html>
-<script type='text/javascript' src='src/js/view.js'></script>
 <script>
 $(document).ready(function() {
 
@@ -82,6 +99,7 @@ $(document).ready(function() {
   $('table').css("width", "35%");
 
 
+  $('#radio_default').prop("checked", true);
 
 });
 </script>

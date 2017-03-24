@@ -95,7 +95,6 @@
 
 <?php
 
-
 if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
 
   echo '<script type="text/javascript">
