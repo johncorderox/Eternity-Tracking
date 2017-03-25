@@ -69,17 +69,13 @@ function showError() {
 <div class="newuserform">
   <form action="add_new_main.php" method="POST">
       <p id="larger">
-        Please enter desired Username and Password.
-      </p><br />
-      <ul>
-        <li>
-          Username and Password must be longer than 7 characters.
-        </li>
-        <li>
-          Please make both fields unique for the account. Numbers and Letters.
-        </li>
-      </ul>
+        Please enter desired Username and Password.</p>
       <br />
+      <p>
+          Username and Password must be longer than 7 characters.<br />
+          Please make both fields unique for the account. Numbers and Letters.<br />
+      <br />
+      </p>
     <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
     <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
     <input type="text" id="email_new" name ="email" placeholder="Email *"/><br />

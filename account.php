@@ -1,5 +1,6 @@
 <?php
 include 'main.php';
+include 'secure.php';
 
   $connected = mysqli_select_db($connect, $database);
   if($connected) {
@@ -15,6 +16,41 @@ include 'main.php';
     }
 
   }
+
+
+  if (isset($_POST['submit_newpass'])) {
+
+    $password = trims($_POST['password']);
+    $password_new1 = trims($_POST['password_new1']);
+    $password_new2 = trims($_POST['password_new2']);
+
+    if (empty($password) or (empty($password_new1)) or (empty($password_new2))) {
+
+      echo "Something is empty";
+
+
+    } else {
+
+        $sql = "SELECT `passsword` FROM users WHERE username = '{$_SESSION['username']}'";
+        $result = mysqli_query($connect, $sql);
+
+          echo $result;
+
+
+    }
+
+
+
+
+  }
+
+
+
+
+
+
+
+
  ?>
  <body>
    <div class="account_settings">
@@ -22,9 +58,9 @@ include 'main.php';
      <hr />
      <div class="panel panel-info">
   <div class="panel-heading"> Menu:
-    <span id="space">Change Password</span>
-    <span id="space">Change Email</span>
-    <span id="space">Reset Login Count</span>
+    <li onclick="reveal(0)">Change Password</li>
+    <li onclick="reveal(1)">Change Email</li>
+    <li onclick="reveal(2)">Reset Login Count</li>
   </div>
 </div>
     <div class="account_info">
@@ -35,14 +71,31 @@ include 'main.php';
       <p>Number of bugs reported: </p>
       <p>Number of bugs deleted:  </p>
     </div>
+    <div class="changePassword">
+      <form action="account.php" method="POST">
+        <p>
+          Enter your password.
+        </p>
+        <input type="password" name="password" /><br />
+        <p>
+          Enter your new password.
+        </p>
+        <input type="password" name="password_new1" /><br />
+        <p>
+          Enter your new password.
+        </p>
+        <input type="password" name="password_new2" /><br />
+        <button type="submit" name="submit_newpass" id="add-button">Submit</button>
+        <button type="submit" name="cancel">Cancel</button>
+      </form>
+    </div>
    </div>
  </body>
 
  <script>
  $(document).ready(function() {
 
-   $('.ui-main-button-group').hide();
-
+   $('.ui-main-button-group, .changePassword').hide();
 
  });
 
