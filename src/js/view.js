@@ -157,3 +157,16 @@ function display_input_message(n) {
 
 
 }
+function reveal(x) {
+
+switch (x) {
+  case 0:
+
+         $('.account_info').hide();
+         $('.changePassword').show("fast");
+
+         break;
+  default:
+
+}
+}

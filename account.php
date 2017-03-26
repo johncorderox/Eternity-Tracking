@@ -29,13 +29,28 @@ include 'secure.php';
       echo "Something is empty";
 
 
-    } else {
+    } else if ($password_new1 != $password_new2) {
 
-        $sql = "SELECT `passsword` FROM users WHERE username = '{$_SESSION['username']}'";
-        $result = mysqli_query($connect, $sql);
+      echo "The passwords do not match";
+    }
 
-          echo $result;
+    else {
 
+        $sql = "SELECT * FROM users WHERE username = '{$_SESSION['username']}' AND password = '$password";
+        mysqli_query($connect, $sql);
+
+        $rows = mysqli_num_rows($result);
+
+        if ($rows == 1) {
+
+            $password_new1 = md5($password_new1);
+            $sql_pass = "UPDATE users SET password = '$password_new1' WHERE username = '{$_SESSION['username']}'";
+            $result = mysqli_query($connect, $sql_pass);
+
+            if ($result) {
+
+              echo "Password update was Successful!";
+            }
 
     }
 
@@ -45,7 +60,7 @@ include 'secure.php';
   }
 
 
-
+}
 
 
 

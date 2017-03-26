@@ -173,15 +173,20 @@ a:visited {
   margin-right: 15px;
 }
 
-#space {
+li {
 
-  margin-left: 14%;
+  display: inline;
+  margin-left: 13%;
   cursor: pointer;
 }
 
-#space:hover {
-  color: #42444e;
+li:active {
+  opacity: 1;
+}
 
+.changePassword {
+
+  margin-top: 40px;
 }
 
 /* Table CSS Layout and Design */
