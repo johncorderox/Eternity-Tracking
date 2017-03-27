@@ -17,7 +17,6 @@ include 'secure.php';
 
   }
 
-
   if (isset($_POST['submit_newpass'])) {
 
     $password = trims($_POST['password']);
@@ -50,26 +49,58 @@ include 'secure.php';
             if ($result) {
 
               echo "Password update was Successful!";
+              mysqli_free_result($result);
             }
 
     }
 
 
+  }
+
+}
+
+  if (isset($_POST['submit_newemail'])) {
+
+
+    if(empty($_POST['new_email'])) {
+
+          echo "Nothing is being entered";
+
+    } else if (!filter_var($_POST['new_email'], FILTER_VALIDATE_EMAIL)) {
+
+      echo "invalid email format";
+    }
+
+
+
+    else {
+
+            $new_email = email_clean($_POST['new_email']);
+
+            $sql_email = "UPDATE users SET email = '$new_email' WHERE username = '{$_SESSION['username']}'";
+            $result = mysqli_query($connect, $sql_email);
+            echo "email updated";
+
+
+
+    }
 
 
   }
 
+  if (isset($_POST['submit_count'])) {
 
-}
+    $sql_count = "UPDATE users SET account_count = 0 WHERE username = '{$_SESSION['username']}'";
+    mysqli_query($connect, $sql_count);
 
+    header("Location: main.php");
 
-
-
+  }
 
  ?>
  <body>
    <div class="account_settings">
-     <h5>Account Settings</h5>
+    <a href="account.php"><h5>Account Settings</h5></a>
      <hr />
      <div class="panel panel-info">
   <div class="panel-heading"> Menu:
@@ -104,13 +135,38 @@ include 'secure.php';
         <button type="submit" name="cancel">Cancel</button>
       </form>
     </div>
+    <div class="changeEmail">
+      <form action="account.php" method="POST">
+        <p id="larger">
+          Your Email is currently: <?php echo $email; ?>
+        </p><br />
+        <p>
+          Enter your desired new email.
+        </p>
+        <input type="email" name="new_email" /><br />
+        <button type="submit" name="submit_newemail" id="add-button">Submit</button>
+        <button type="submit" name="cancel">Cancel</button>
+      </form>
+    </div>
+    <div class="resetLoginCount">
+      <p id="larger">
+         Your current login count is: <?php echo $account_count; ?>
+      </p><br />
+      <p>
+        Click submit to reset your Login Count to 0.
+      </p>
+      <form action="account.php" method="POST">
+      <button type="submit" name="submit_count" id="add-button">Submit</button>
+      <button type="submit" name="cancel">Cancel</button>
+    </form>
+    </div>
    </div>
  </body>
 
  <script>
  $(document).ready(function() {
 
-   $('.ui-main-button-group, .changePassword').hide();
+   $('.ui-main-button-group, .changePassword, .changeEmail, .resetLoginCount').hide();
 
  });
 

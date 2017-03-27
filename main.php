@@ -80,7 +80,7 @@
         <div class="welcome_notes">
         <p>
           Welcome! <br />
-          You are currently logged in as: <?php echo $logged; ?>
+          You are currently logged in as: <b><?php echo $logged; ?></b>
           <?php getLastBug(); ?>
         </p><br />
         </div>

@@ -159,13 +159,22 @@ function display_input_message(n) {
 }
 function reveal(x) {
 
+  $('.account_info').hide();
+
 switch (x) {
   case 0:
-
-         $('.account_info').hide();
-         $('.changePassword').show("fast");
-
+         $('.changePassword').toggle("fast");
          break;
+
+  case 1:
+
+        $('.changeEmail').toggle("fast");
+        break;
+
+        case 2:
+
+              $('.resetLoginCount').toggle("fast");
+              break;
   default:
 
 }

@@ -78,7 +78,7 @@ function showError() {
       </p>
     <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
     <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
-    <input type="text" id="email_new" name ="email" placeholder="Email *"/><br />
+    <input type="email" id="email_new" name ="email" placeholder="Email *"/><br />
     <button type="submit" name="submit_newuser" id="add-button">Submit</button>
     <button type="submit" name="cancel">Cancel</button>
   </form>
