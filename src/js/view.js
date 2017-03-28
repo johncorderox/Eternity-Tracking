@@ -144,6 +144,37 @@ function display_input_message(n) {
                 stackup_spacing: 10
             });
             break;
+            case 8:
+                $.bootstrapGrowl("Password Changed Successfully to the DB", {
+                    ele: 'body',
+                    type: 'Success',
+                    align: 'right',
+                    offset: {
+                        from: 'top',
+                        amount: 40
+                    },
+                    width: 450,
+                    delay: 3000,
+                    allow_dismiss: true,
+                    stackup_spacing: 10
+                });
+                break;
+
+                case 9:
+                    $.bootstrapGrowl("Email Updated Sucessfully to the DB", {
+                        ele: 'body',
+                        type: 'Success',
+                        align: 'right',
+                        offset: {
+                            from: 'top',
+                            amount: 40
+                        },
+                        width: 450,
+                        delay: 3000,
+                        allow_dismiss: true,
+                        stackup_spacing: 10
+                    });
+                    break;
         default:
             console.log("Error in display input func. Check args");
 

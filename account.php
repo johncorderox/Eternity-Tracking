@@ -25,12 +25,12 @@ include 'secure.php';
 
     if (empty($password) or (empty($password_new1)) or (empty($password_new2))) {
 
-      echo "Something is empty";
+showError();
 
 
     } else if ($password_new1 != $password_new2) {
 
-      echo "The passwords do not match";
+showError();
     }
 
     else {
@@ -47,9 +47,9 @@ include 'secure.php';
             $result = mysqli_query($connect, $sql_pass);
 
             if ($result) {
-
-              echo "Password update was Successful!";
-              mysqli_free_result($result);
+              echo '<script type="text/javascript">
+                    display_input_message(8);
+                    </script>';
             }
 
     }
@@ -64,11 +64,11 @@ include 'secure.php';
 
     if(empty($_POST['new_email'])) {
 
-          echo "Nothing is being entered";
+showError();
 
     } else if (!filter_var($_POST['new_email'], FILTER_VALIDATE_EMAIL)) {
 
-      echo "invalid email format";
+showError();
     }
 
 
@@ -79,9 +79,9 @@ include 'secure.php';
 
             $sql_email = "UPDATE users SET email = '$new_email' WHERE username = '{$_SESSION['username']}'";
             $result = mysqli_query($connect, $sql_email);
-            echo "email updated";
-
-
+            echo '<script type="text/javascript">
+                  display_input_message(9);
+                  </script>';
 
     }
 
@@ -117,6 +117,7 @@ include 'secure.php';
       <p>Number of bugs reported: </p>
       <p>Number of bugs deleted:  </p>
     </div>
+
     <div class="changePassword">
       <form action="account.php" method="POST">
         <p>

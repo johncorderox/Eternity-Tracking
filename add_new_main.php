@@ -57,12 +57,6 @@ if(isset($_POST['submit_newuser'])) {
 
 }
 
-function showError() {
-
-     echo '<script type="text/javascript">
-           display_input_message(7);
-           </script>';
-}
 ?>
 <html>
 <body>
@@ -88,7 +82,7 @@ function showError() {
 <script>
 $(document).ready(function() {
 
-  $('.ui-main-button-group').hide("fast");
+  $('.ui-main-button-group').hide();
   $('.newuserform').show();
 
 });

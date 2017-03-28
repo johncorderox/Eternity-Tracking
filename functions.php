@@ -90,4 +90,11 @@ if ($connect) {
   }
 
 }
+
+function showError() {
+
+     echo '<script type="text/javascript">
+           display_input_message(7);
+           </script>';
+}
  ?>
