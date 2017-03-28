@@ -90,18 +90,4 @@ if ($connect) {
   }
 
 }
-
-function reset_login_count($user) {
-
-
-  global $connect;
-
-
-  if ($connect) {
-
-      $sql = "";
-
-  }
-}
-
  ?>

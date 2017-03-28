@@ -5,6 +5,7 @@
   include('connect.php');
   include('functions.php');
 
+  ob_start();
   session_start();
 
   $logged = $_SESSION['username'];
@@ -80,11 +81,19 @@
         <div class="welcome_notes">
         <p>
           Welcome! <br />
-          You are currently logged in as: <b><?php echo $logged; ?></b>
+          You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
           <?php getLastBug(); ?>
         </p><br />
         </div>
-         <label><input type="checkbox" id="check_bug">Show / Hide Bug List</label>
+        <p>
+          You can search for bugs below that queries the database for Titles and Messages.<br />
+          -It is recommended that you input more than 5 characters.<br />
+          -You can also search by user submitted bugs.
+        </p>
+        <form action="main.php" method="POST">
+          <input type="text" name="search" placeholder="Search Database*" />
+          <button type="submit" name="submit_newpass" id="add-button">Submit</button>
+        </form>
         <hr />
         </div>
       </div>

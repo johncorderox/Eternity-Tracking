@@ -4,12 +4,6 @@ $(document).ready(function() {
     $('.editform, .deleteform, .newuserform, .removeuserform').hide();
 
 
-    $('#check_bug').click(function() {
-
-        $('#table_bugs').toggle();
-
-    });
-
 
 });
 
@@ -157,25 +151,26 @@ function display_input_message(n) {
 
 
 }
+
 function reveal(x) {
 
-  $('.account_info').hide();
+    $('.account_info').hide();
 
-switch (x) {
-  case 0:
-         $('.changePassword').toggle("fast");
-         break;
+    switch (x) {
+        case 0:
+            $('.changePassword').toggle("fast");
+            break;
 
-  case 1:
+        case 1:
 
-        $('.changeEmail').toggle("fast");
-        break;
+            $('.changeEmail').toggle("fast");
+            break;
 
         case 2:
 
-              $('.resetLoginCount').toggle("fast");
-              break;
-  default:
+            $('.resetLoginCount').toggle("fast");
+            break;
+        default:
 
-}
+    }
 }
