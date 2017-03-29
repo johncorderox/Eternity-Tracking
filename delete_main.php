@@ -15,7 +15,7 @@
       $id = trims($_POST['delete_id']);
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
-      $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT * FROM bugs WHERE id = '$id'";
+      $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT `id`,`title`, `message`, `priority` from bugs WHERE id = '$id'";
       $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW() WHERE id = '$id'";
 
           mysqli_select_db($connect, $database);
@@ -24,7 +24,7 @@
           if(mysqli_num_rows($query) > 0 ) {
 
             // Moves data into another table
-            mysqli_query($connect, $sql_copy);
+            mysqli_query($connect, $sql_copy) or die(mysqli_error($connect));
             // Adds remaining values to new table
             mysqli_query($connect, $sql_insert);
             // Deletes the bug ID number

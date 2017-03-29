@@ -114,8 +114,8 @@ showError();
       <p>Email: <?php echo $email; ?></p>
       <p>Login Count: <?php echo $account_count; ?> </p>
       <p>Last IP: <?php echo $ip; ?> </p><br />
-      <p>Number of bugs reported: </p>
-      <p>Number of bugs deleted:  </p>
+      <p>Number of bugs reported: <?php echo getReported(1); ?></p>
+      <p>Number of bugs deleted: <?php echo getReported(2); ?> </p>
     </div>
 
     <div class="changePassword">

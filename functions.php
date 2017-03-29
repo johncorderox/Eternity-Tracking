@@ -97,4 +97,26 @@ function showError() {
            display_input_message(7);
            </script>';
 }
+
+function getReported ($x) {
+  global $connect;
+
+  if ($connect && $x == 1) {
+
+    $sql_get_r = "SELECT COUNT(*) as total FROM bugs WHERE reported_by = '{$_SESSION['username']}'";
+    $result = mysqli_query($connect, $sql_get_r);
+    $number = mysqli_fetch_assoc($result);
+
+    echo $number['total'];
+
+  } else if ($connect && $x == 2) {
+
+    $sql_get_r = "SELECT COUNT(*) as total FROM deleted_bugs WHERE deleted_by = '{$_SESSION['username']}'";
+    $result = mysqli_query($connect, $sql_get_r);
+    $number = mysqli_fetch_assoc($result);
+
+    echo $number['total'];
+
+  }
+}
  ?>
