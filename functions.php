@@ -91,12 +91,21 @@ if ($connect) {
 
 }
 
+// Universal show error function throughout the app. 
+// Calls the JS plugin to display an error on the top of the page
+// Display: MySQL Error
+
 function showError() {
 
      echo '<script type="text/javascript">
            display_input_message(7);
            </script>';
 }
+
+// For the account.php page. Allows the user to see the number of reported X
+// Grabs the count for MySQL and echos as assoc array, like a menu.
+//
+// @args input from trigger on account.php
 
 function getReported ($x) {
   global $connect;
