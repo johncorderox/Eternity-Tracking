@@ -7,7 +7,8 @@
 // htmlspecialcharacters  -converts to HTML entities. &amp;
 // trim 									-removes whitespaces from both sides
 // stripslashes						-Removes backslashes
-// stript tags							Removes HTML/PHP tags 
+// stript tags						-Removes HTML/PHP tags 
+// mysqli_real            -Escapes special characters in a string for MySQL
 
 
 function trims($inputs) {
@@ -15,6 +16,7 @@ function trims($inputs) {
   $inputs = stripslashes($inputs);
   $inputs = htmlspecialchars($inputs);
   $inputs = strip_tags($inputs);
+  $inputs = mysqli_real_escape_string($inputs);
   return $inputs;
 }
 
