@@ -190,16 +190,19 @@ function reveal(x) {
     switch (x) {
         case 0:
             $('.changePassword').toggle("fast");
+            $('.resetLoginCount, .changeEmail').hide();
             break;
 
         case 1:
 
             $('.changeEmail').toggle("fast");
+            $('.changePassword, .resetLoginCount').hide();
             break;
 
         case 2:
 
             $('.resetLoginCount').toggle("fast");
+            $('.changePassword, .changeEmail').hide();
             break;
         default:
 

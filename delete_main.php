@@ -24,7 +24,7 @@
           if(mysqli_num_rows($query) > 0 ) {
 
             // Moves data into another table
-            mysqli_query($connect, $sql_copy) or die(mysqli_error($connect));
+            mysqli_query($connect, $sql_copy);
             // Adds remaining values to new table
             mysqli_query($connect, $sql_insert);
             // Deletes the bug ID number
