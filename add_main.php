@@ -11,6 +11,7 @@ $error = "";
     $title = trims($_POST['title']);
     $message = trims($_POST['message']);
     $priority = $_POST['priority'];
+    $category = $_POST['category'];
 
     if (empty($title) || empty($message)) {
 
@@ -20,7 +21,7 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority, reported_by) VALUES ('$title','$message', '$priority', '$logged')";
+        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW())";
 
         mysqli_select_db($connect, $database);
         $query = mysqli_query($connect, $sql);
@@ -48,10 +49,24 @@ $error = "";
     <?php echo  '<p>'. $error . '</p>'; ?>
     <input type="text" placeholder="Title *" name="title" id="title"/><br />
     <input type="text" placeholder="Message *" id="message" name="message"></textarea><br />
+    <p> Enter a priority and a category for your bug.</p>
     <select class="form-control" name="priority" id="select_box">
       <option value="Low">Low</option>
       <option value="Medium">Medium</option>
       <option value="High">High</option>
+      <option value="None">None</option>
+      <option value="Other">Other</option>
+    </select><br />
+    <select class="form-control" name="category" id="select_box">
+      <option value="None">None</option>
+      <option value="Administration">Administration</option>
+      <option value="Feature">Feature</option>
+      <option value="Security">Security</option>
+      <option value="Database">Database</option>
+      <option value="None">Email</option>
+      <option value="None">Enhancement</option>
+      <option value="None">Customization</option>
+      <option value="None">Other</option>
     </select><br />
     <button type="submit" name="add_main" id="add-button">Submit</button>
     <button name="cancel">Cancel</button>

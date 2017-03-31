@@ -9,8 +9,10 @@ CREATE TABLE IF NOT EXISTS `bugs` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `title` varchar(255) NOT NULL,
 `message` varchar(255) NOT NULL,
-`priority` varchar(255) NOT NULL,
-`reported_by` varchar(3) NOT NULL,
+`priority` varchar(255) NOT NULL default 'None',
+`category` varchar(255) NOT NULL default 'Admin',
+`reported_by` varchar(255) NOT NULL,
+`date` datetime NOT NULL,
 PRIMARY KEY (`id`)
 
 );

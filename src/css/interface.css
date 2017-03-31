@@ -195,6 +195,9 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
 th, td {
@@ -218,6 +221,7 @@ tr:first-child th:last-child {
 td {
     border-right: 1px solid #c6c9cc;
     border-bottom: 1px solid #c6c9cc;
+
 
 }
 
