@@ -28,12 +28,14 @@ if($connect) {
 
 function num_of_accounts () {
 
-  include "connect.php";
+    global $connect;
+  if ($connect){
+
   $sql = "SELECT COUNT(*) as total FROM users";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
   echo $number['total'];
-
+  }
 }
 
 // Counts the number of deleted bugs exactly like the num of
@@ -91,7 +93,7 @@ if ($connect) {
 
 }
 
-// Universal show error function throughout the app. 
+// Universal show error function throughout the app.
 // Calls the JS plugin to display an error on the top of the page
 // Display: MySQL Error
 

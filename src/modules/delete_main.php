@@ -1,8 +1,8 @@
 <?php include 'main.php'; ?>
 <?php
-  include('config.php');
-  include('connect.php');
-  include('secure.php');
+include('../config/config.php');
+include("../lib/secure.php");
+include('../sql/connect.php');
 
   $error = "";
 

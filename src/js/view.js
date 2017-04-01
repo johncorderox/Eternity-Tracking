@@ -3,8 +3,6 @@ $(document).ready(function() {
 
     $('.editform, .deleteform, .newuserform, .removeuserform').hide();
 
-
-
 });
 
 // @desc Case system that outputs data to the screen when a user submits a form.

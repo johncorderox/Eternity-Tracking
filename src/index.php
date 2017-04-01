@@ -4,9 +4,9 @@
 $message = "Welcome.";
 
 
-include ("connect.php");
-include("functions.php");
-include("secure.php");
+include ("sql/connect.php");
+include("lib/functions.php");
+include("lib/secure.php");
 
 session_start();
 
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
     mysqli_query($connect, $query_add);
 
       $_SESSION['username'] = $username_l;
-      header("Location: main.php?login=1");
+      header("Location: modules/main.php?login=1");
 
     } else {
 
@@ -52,7 +52,7 @@ mysqli_close($connect);
       <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
       <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
-      <link href="src/css/interface.css" rel="stylesheet" />
+      <link href="css/interface.css" rel="stylesheet" />
     </head>
   <body>
 <div class="center">
@@ -64,7 +64,7 @@ mysqli_close($connect);
    </form>
 </div>
 </body>
-  <script type='text/javascript' src='src/js/view.js'></script>
+  <script type='text/javascript' src='js/view.js'></script>
 </html>
 
 <?php

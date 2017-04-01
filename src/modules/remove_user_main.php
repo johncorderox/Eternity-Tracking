@@ -1,8 +1,8 @@
 <?php
-
-include('config.php');
-include('connect.php');
-include('secure.php');
+include("../header.php");
+include('../config/config.php');
+include('../sql/connect.php');
+include("../lib/secure.php");
 
 session_start();
 $error = "";
@@ -58,7 +58,6 @@ if (isset($_POST['submit_remove'])) {
 }
 
 ?>
-<?php include("header.php"); ?>
 <div class="removeuserform">
   <form action="remove_user_main.php" method="POST">
     <p id="larger">
@@ -86,7 +85,7 @@ if (isset($_POST['submit_remove'])) {
     <button type="submit" name="cancel">Cancel</button>
   </form>
 </div>
-<?php include 'user_list.php'; ?>
+<?php include '../tables/user_list.php'; ?>
 <script type='text/javascript' src='src/js/view.js'></script>
 </body>
 </html>

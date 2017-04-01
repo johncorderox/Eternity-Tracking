@@ -1,8 +1,8 @@
 <?php
 include ('main.php');
-include('config.php');
-include('connect.php');
-include("secure.php");
+include('../config/config.php');
+include('../sql/connect.php');
+include("../lib/secure.php");
 
 
 if(isset($_POST['cancel'])) {

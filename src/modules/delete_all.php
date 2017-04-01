@@ -1,9 +1,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="src/css/interface.css" rel="stylesheet" />
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/interface.css" rel="stylesheet" />
   </head>
   <body>
 <div class="center center-delete">
@@ -24,14 +24,14 @@
   </div>
 
 </body>
-  <script type='text/javascript' src='src/js/delete.js'></script>
+  <script type='text/javascript' src='../js/delete.js'></script>
 </html>
 
 <?php
 
-include 'connect.php';
-include 'functions.php';
-include 'secure.php';
+include('../config/config.php');
+include('../lib/functions.php');
+include '../lib/secure.php';
 
   if (isset($_POST['del_all'])) {
 

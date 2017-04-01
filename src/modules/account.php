@@ -1,6 +1,6 @@
 <?php
 include 'main.php';
-include 'secure.php';
+include '../lib/secure.php';
 
   $connected = mysqli_select_db($connect, $database);
   if($connected) {

@@ -1,9 +1,9 @@
 
 <?php
 
-  include('config.php');
-  include('connect.php');
-  include('functions.php');
+  include('../config/config.php');
+  include('../lib/functions.php');
+  include('../sql/connect.php');
 
   ob_start();
   session_start();
@@ -37,14 +37,14 @@
 
     else if(isset($_GET['remove_user'])) {
 
-        header("location: remove_user_main.php?");
+        header("location: remove_user_main.php");
         exit();
       }
 
 ?>
 
 <html lang="en">
-<?php  include("header.php"); ?>
+<?php  include("../header.php"); ?>
   <body>
       <div class="leftside-info">
         <div class="list-group">
@@ -67,7 +67,7 @@
           <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
           <a href="account.php" class="list-group-item" id="pointer">Account Settings</a>
           <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
-          <a href="logout.php" class="list-group-item" id="pointer">Logout</a>
+          <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
       <div class="ui-main">
@@ -97,9 +97,9 @@
         <hr />
         </div>
       </div>
-    <?php include ("buglist.php"); ?>
+    <?php include ("../tables/buglist.php"); ?>
   </body>
-  <script type='text/javascript' src='src/js/view.js'></script>
+  <script type='text/javascript' src='../js/view.js'></script>
 </html>
 
 <?php
