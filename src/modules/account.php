@@ -129,7 +129,7 @@ showError();
         </p>
         <input type="password" name="password_new1" /><br />
         <p>
-          Enter your new password.
+          Confirm your new password.
         </p>
         <input type="password" name="password_new2" /><br />
         <button type="submit" name="submit_newpass" id="add-button">Submit</button>

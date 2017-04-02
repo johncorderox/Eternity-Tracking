@@ -21,13 +21,14 @@
 
                mysqli_select_db($connect, $database);
                $result = mysqli_query($connect, $sql_search);
+               $result_count = mysqli_num_rows($result);
 
                echo "<div id=\"table_bugs\">";
-               echo "<table><tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th>";
+               echo "<table><tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th><th>User</th>";
                while($row = mysqli_fetch_assoc($result)) {
 
                    echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
-                   "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>".$row["category"]."</td></tr>";
+                   "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>".$row["category"]."</td><td>".$row["reported_by"]."</td></tr>";
                    echo "</div>";
 
                }
@@ -48,8 +49,8 @@
        <button type="submit" name="submit_search" id="add-button-search">Submit</button>
      </form>
      <hr />
-     <p id="larger">
+     <h6>
       <?php echo $result_count;?> Result(s) found in the Database.
-     </p>
+    </h6>
    </div>
    <script type='text/javascript' src='../js/view.js'></script>

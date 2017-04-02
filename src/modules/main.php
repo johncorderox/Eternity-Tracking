@@ -86,13 +86,13 @@
         </p><br />
         </div>
         <p>
-          You can search for bugs below that queries the database for Titles and Messages.<br />
+          You can search for bugs below that queries the database for Message content.<br />
           -It is recommended that you input more than 5 characters.<br />
           -You can also search by user submitted bugs.
         </p>
-        <form action="main.php" method="POST">
+        <form action="search.php" method="POST">
           <input type="text" name="search" placeholder="Search Database*" />
-          <button type="submit" name="submit_newpass" id="add-button">Submit</button>
+          <button type="submit" name="submit_search" id="add-button">Submit</button>
         </form>
         <hr />
         </div>

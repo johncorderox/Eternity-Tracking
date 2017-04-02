@@ -58,7 +58,7 @@ mysqli_close($connect);
 <div class="center">
     <?php echo '<h2>' . $message . '</h2>'; ?>
      <form action="index.php" method="POST">
-     <input type="text" placeholder="Username *" name="username" id="username" class="error-input"><br />
+     <input type="text" placeholder="Username *" name="username" id="username" class="error-input" autofocus><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />
      <button id="login-button" name="submit">Login</button><br />
    </form>

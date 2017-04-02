@@ -173,6 +173,8 @@ function display_input_message(n) {
                         stackup_spacing: 10
                     });
                     break;
+
+
         default:
             console.log("Error in display input func. Check args");
 
