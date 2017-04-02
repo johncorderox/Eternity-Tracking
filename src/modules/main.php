@@ -5,18 +5,6 @@
   include('../lib/functions.php');
   include('../sql/connect.php');
 
-  ob_start();
-  session_start();
-
-  $logged = $_SESSION['username'];
-
-  if (!isset($_SESSION['username'])) {
-
-      header("Location: index.php");
-      exit();
-
-  }
-
   if(isset($_GET['add'])) {
 
     header("location: add_main.php");

@@ -51,3 +51,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 PRIMARY KEY (`account_id`)
 
 );
+
+-- CREATES DEFAULT ACCOUNT SO NEW USERS CAN LOG IN
+
+-- ADMIN / GUEST
+-- password is password for both accounts
+INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES (NULL, 'admin', 'password', 'admin@eternitytracking.com', '0', '0');

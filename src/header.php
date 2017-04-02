@@ -8,3 +8,16 @@
   <a href="../modules/main.php"><h3>Eternity Tracking</h3></a><br />
     </div><br />
 </head>
+<?php
+ob_start();
+session_start();
+
+$logged = $_SESSION['username'];
+
+if (!isset($_SESSION['username'])) {
+
+    header("Location: index.php");
+    exit();
+
+}
+?>

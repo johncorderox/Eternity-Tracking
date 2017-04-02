@@ -4,7 +4,6 @@ include('../config/config.php');
 include('../sql/connect.php');
 include("../lib/secure.php");
 
-session_start();
 $error = "";
 
 if(isset($_POST['cancel'])) {

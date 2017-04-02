@@ -29,9 +29,22 @@
 
 <?php
 
+
 include('../config/config.php');
 include('../lib/functions.php');
 include '../lib/secure.php';
+
+ob_start();
+session_start();
+
+$logged = $_SESSION['username'];
+global $password;
+
+if (!isset($_SESSION['username'])) {
+
+    header("Location: index.php");
+    exit();
+}
 
   if (isset($_POST['del_all'])) {
 
@@ -39,7 +52,7 @@ include '../lib/secure.php';
 
               $del_pass = trims($_POST['del_pass']);
 
-              if ($del_pass == "password") {
+              if ($del_pass == $password) {
 
                 $sql = "TRUNCATE TABLE bugs";
                 mysqli_query($connect, $sql);
@@ -58,3 +71,4 @@ include '../lib/secure.php';
       header("Location: main.php");
 
   }
+?>
