@@ -1,9 +1,6 @@
 <?php
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'tracking';
+include ('../config/config.php');
 
 $connect = new mysqli("$servername", "$username", "$password", "$database");
 
@@ -11,23 +8,8 @@ $connect = new mysqli("$servername", "$username", "$password", "$database");
 
     die("ERROR in Connection! ! ! " .mysqli_connect_error());
   } else {
-
-
-    /*
-    echo 'Connection Successful to ' .$servername;
-*/
   }
 
 
-/*
-  $results = $connect->query("SELECT id, title, message FROM bugs");
 
-  while ($row=$results->fetch_assoc()) {
-
-
-    echo $row['id'] + '<br />' . $row['title'] . '<br />' . $row['message'];
-  }
-*/
-
-//mysqli_close($connect);
 ?>

@@ -79,7 +79,7 @@
           -You can also search by user submitted bugs.
         </p>
         <form action="search.php" method="POST">
-          <input type="text" name="search" placeholder="Search Database*" />
+          <input type="text" name="search" placeholder="Search Database*" autofocus/>
           <button type="submit" name="submit_search" id="add-button">Submit</button>
         </form>
         <hr />
