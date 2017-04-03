@@ -1,3 +1,3 @@
 # Eternity Tracking
 Bug Tracking Software written in PHP.<br>
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/okAz0"><a href="//imgur.com/okAz0"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<a href="http://tinypic.com?ref=2q9jm0h" target="_blank"><img src="http://i65.tinypic.com/2q9jm0h.png" border="0" ></a>
