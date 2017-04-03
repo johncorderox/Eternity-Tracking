@@ -10,9 +10,9 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 -MySQL 5+<br>
 <br>
 <h3>Installation</h3><br>
-Run the ``` database.sql ``` file and make sure the admin insert has ran.<br>
+Run the `database.sql ` file and make sure the admin insert has ran.<br>
 Locate the Config file and update the values with your host information.
-```
+```php
 $servername = 'localhost';
 $username = 'root';
 $password = '';
