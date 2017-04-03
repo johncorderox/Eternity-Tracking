@@ -1,6 +1,7 @@
 <?php
 include 'main.php';
 include '../lib/secure.php';
+include('../config/config.php');
 
   $connected = mysqli_select_db($connect, $database);
   if($connected) {

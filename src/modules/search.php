@@ -1,8 +1,7 @@
 
  <?php
- // COUNT NUMBER OF RECORDS FOUND(S).
        include '../header.php';
-       include '../sql/connect.php';
+       include ("../config/config.php");
        include '../lib/functions.php';
        include '../lib/secure.php';
 

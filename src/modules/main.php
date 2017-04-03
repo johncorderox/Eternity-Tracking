@@ -3,7 +3,6 @@
 
   include('../config/config.php');
   include('../lib/functions.php');
-  include('../sql/connect.php');
 
   if(isset($_GET['add'])) {
 
@@ -72,12 +71,12 @@
           You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
           <?php getLastBug(); ?>
         </p><br />
-        </div>
         <p>
           You can search for bugs below that queries the database for Message content.<br />
           -It is recommended that you input more than 5 characters.<br />
           -You can also search by user submitted bugs.
         </p>
+        </div>
         <form action="search.php" method="POST">
           <input type="text" name="search" placeholder="Search Database*" autofocus/>
           <button type="submit" name="submit_search" id="add-button">Submit</button>

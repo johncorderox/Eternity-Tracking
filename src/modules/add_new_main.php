@@ -1,7 +1,6 @@
 <?php
 include ('main.php');
-include('../config/config.php');
-include('../sql/connect.php');
+include ("../config/config.php");
 include("../lib/secure.php");
 
 

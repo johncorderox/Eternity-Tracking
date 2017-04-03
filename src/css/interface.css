@@ -282,4 +282,7 @@ tr:last-child td:last-child {
     #add-button {
         margin-top: 40px;
     }
+    .welcome_notes {
+      text-align:center;
+    }
 }

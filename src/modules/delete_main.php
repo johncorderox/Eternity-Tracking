@@ -2,7 +2,6 @@
 <?php
 include('../config/config.php');
 include("../lib/secure.php");
-include('../sql/connect.php');
 
   $error = "";
 

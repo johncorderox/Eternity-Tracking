@@ -4,7 +4,7 @@
 $message = "Welcome.";
 
 
-include ("sql/connect.php");
+include ("config/config.php");
 include("lib/functions.php");
 include("lib/secure.php");
 
