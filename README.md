@@ -13,10 +13,12 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 Run the `database.sql ` file and make sure the admin insert has ran.<br>
 Locate the Config file and update the values with your host information.<br>
 ```php
+
 $servername = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'tracking';
 
 $company_name = "Eternity LLC";
+
 ```
