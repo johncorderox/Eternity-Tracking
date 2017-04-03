@@ -253,6 +253,18 @@ tr:last-child td:last-child {
     .center, .header-name {
         text-align: center;
     }
+
+    .leftside-info, .header-name{
+
+      width: 100%;
+      text-align: center;
+    }
+    button {
+      width: 100%;
+      margin: 0;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
     .center h2 {
         font-size: 60px;
         font-weight: 300;
