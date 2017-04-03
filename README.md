@@ -8,5 +8,6 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 
 <h3>Requirements</h3>
 PHP 5.4+ <br>
-MySQL 5+
-
+MySQL 5+<br>
+<hr><br>
+To Install, Locate ```src/config/config.php``` and edit the following:
