@@ -2,7 +2,6 @@
 <h1 align="center">Eternity Tracking</h1> <br>
       
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)]()
 
 
 <p align="center">
