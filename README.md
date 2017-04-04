@@ -3,7 +3,7 @@
       
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 [![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)]()
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://github.com/johncorderox/Eternity-Tracking)
+
 
 <p align="center">
 <b>A modern and productive bug tracker for completing tasks.</b><br>
