@@ -1,6 +1,10 @@
 
 <h1 align="center">Eternity Tracking</h1> <br>
 <p align="center">
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+
+
 <b>A modern and productive bug tracker for completing tasks.</b><br>
 </p><br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within a system. Includes Account management and web application security. An easy-to-install program that allows developers to build off of.<br>
