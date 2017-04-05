@@ -1,6 +1,6 @@
 
 <h1 align="center">Eternity Tracking</h1> <br>
-      
+
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 
@@ -13,7 +13,6 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 PHP 5.4+ <br>
 MySQL 5+<br>
 <br>
->>>>>>> 12e6d885ecca2e067b8a4084dbad401403acf7ed
 
 <h1 align="center">Eternity Tracking</h1> <br>
 <p align="center">
@@ -42,6 +41,6 @@ $database = 'tracking';
 $company_name = "Eternity LLC";
 
 ```
-Easy as Pie! You're done. 
+Easy as Pie! You're done.
 <hr>
 <a href="https://eternity-tracking.000webhostapp.com/ET/index.php">Demo</a>
