@@ -56,4 +56,4 @@ PRIMARY KEY (`account_id`)
 
 -- ADMIN / GUEST
 -- password is password for both accounts
-INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES (NULL, 'admin', 'password', 'admin@eternitytracking.com', '0', '0');
+INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES (NULL, 'admin', md5('password'), 'admin@eternitytracking.com', '0', '0');
