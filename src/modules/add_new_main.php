@@ -46,12 +46,16 @@ if(isset($_POST['submit_newuser'])) {
 
            }
 
-      }
+       }
 
-    }
-  } else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
+     }
+      
+  }
+  
+    else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
 
     showError();
+      
   }
 
 }
