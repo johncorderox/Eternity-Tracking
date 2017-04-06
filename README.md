@@ -1,7 +1,7 @@
 
 <h1 align="center">Eternity Tracking</h1> <br>
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![VersionEye](https://img.shields.io/versioneye/d/ruby/rails.svg)]()
 
 
 <p align="center">
