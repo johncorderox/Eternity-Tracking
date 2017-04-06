@@ -26,12 +26,12 @@ include('../config/config.php');
 
     if (empty($password) or (empty($password_new1)) or (empty($password_new2))) {
 
-showError();
+        showError();
 
 
     } else if ($password_new1 != $password_new2) {
 
-showError();
+        showError();
     }
 
     else {
@@ -51,12 +51,12 @@ showError();
               echo '<script type="text/javascript">
                     display_input_message(8);
                     </script>';
+              
             }
 
-    }
+       }
 
-
-  }
+   }
 
 }
 
@@ -65,14 +65,12 @@ showError();
 
     if(empty($_POST['new_email'])) {
 
-showError();
+        showError();
 
     } else if (!filter_var($_POST['new_email'], FILTER_VALIDATE_EMAIL)) {
 
-showError();
+        showError();
     }
-
-
 
     else {
 
@@ -84,8 +82,7 @@ showError();
                   display_input_message(9);
                   </script>';
 
-    }
-
+        }
 
   }
 
@@ -118,7 +115,6 @@ showError();
       <p>Number of bugs reported: <?php echo getReported(1); ?></p>
       <p>Number of bugs deleted: <?php echo getReported(2); ?> </p>
     </div>
-
     <div class="changePassword">
       <form action="account.php" method="POST">
         <p>
@@ -164,7 +160,6 @@ showError();
     </div>
    </div>
  </body>
-
  <script>
  $(document).ready(function() {
 
