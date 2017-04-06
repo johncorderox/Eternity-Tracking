@@ -17,32 +17,34 @@ include("../lib/secure.php");
       $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT `id`,`title`, `message`, `priority` from bugs WHERE id = '$id'";
       $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW() WHERE id = '$id'";
 
-          mysqli_select_db($connect, $database);
-          $query = mysqli_query($connect, $test);
+            mysqli_select_db($connect, $database);
+            $query = mysqli_query($connect, $test);
 
-          if(mysqli_num_rows($query) > 0 ) {
+            if(mysqli_num_rows($query) > 0 ) {
 
-            // Moves data into another table
-            mysqli_query($connect, $sql_copy);
-            // Adds remaining values to new table
-            mysqli_query($connect, $sql_insert);
-            // Deletes the bug ID number
-            mysqli_query($connect, $sql);
-            // Successful redirect
-            header("Location: main.php?deletebug=1");
-            mysqli_close($connect);
+              // Moves data into another table
+              mysqli_query($connect, $sql_copy);
+              // Adds remaining values to new table
+              mysqli_query($connect, $sql_insert);
+              // Deletes the bug ID number
+              mysqli_query($connect, $sql);
+              // Successful redirect
+              header("Location: main.php?deletebug=1");
+              mysqli_close($connect);
 
-          }
+            }
 
-          else {
+              else {
 
               $error = ' bug number ' . $id . ' does not exist.';
-          }
-  } else {
-
+             }
+        
+       } else {
+        
     $error = "You did not enter a valid number.";
+        
   }
-}
+ }
 }
 
 
