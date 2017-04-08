@@ -20,12 +20,10 @@ Locate the Config file and update the values with your host information.<br>
 
 ```php
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
+$servername = 'YourHost';
+$username = 'YourUsername';
+$password = 'YourPassword';
 $database = 'tracking';
-
-$company_name = "Eternity LLC";
 
 ```
 Easy as Pie! You're done.
