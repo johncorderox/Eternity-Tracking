@@ -12,7 +12,6 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-
   $username_l = trims($_POST['username']);
   $password_l = trims($_POST['password']);
   $password_l = md5($password_l);
@@ -29,22 +28,23 @@ if (isset($_POST['submit'])) {
 
       mysqli_query($connect, $query_add);
 
-      $sql_login_success = "INSERT INTO login_log (`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-      ((SELECT `account_id` FROM `users` WHERE username = '$username_l'),
+      $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+        (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
        '$username_l',
        'Success',
         NOW(),
        '$ip'
        )";
 
-      mysqli_query($connect, $sql_login_success);
+      mysqli_query($connect, $sql_login_success)or die(mysqli_error($connect));
       $_SESSION['username'] = $username_l;
       header("Location: modules/main.php?login=1");
 
     } else {
 
-          $sql_login_error = "INSERT INTO login_log (`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-          ('0',
+          $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+          ('',
+          '',
            '$username_l',
            'INVALID LOGIN ATTEMPT',
             NOW(),
