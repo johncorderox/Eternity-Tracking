@@ -27,15 +27,37 @@ if (isset($_POST['submit'])) {
 
     if ($num_of_rows == 1) {
 
-    mysqli_query($connect, $query_add);
+      mysqli_query($connect, $query_add);
 
+      $sql_login_success = "INSERT INTO login_log (`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+      ((SELECT `account_id` FROM `users` WHERE username = '$username_l'),
+       '$username_l',
+       'Success',
+        NOW(),
+       '$ip'
+       )";
+
+      mysqli_query($connect, $sql_login_success);
       $_SESSION['username'] = $username_l;
       header("Location: modules/main.php?login=1");
 
     } else {
 
-      $message = "Invalid Credentials.";
-    }
+          $sql_login_error = "INSERT INTO login_log (`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+          ('0',
+           '$username_l',
+           'INVALID LOGIN ATTEMPT',
+            NOW(),
+           '$ip'
+           )";
+           mysqli_query($connect, $sql_login_error) or die(mysqli_error($connect));
+           $message = "Invalid Credentials.";
+
+        }
+
+      $message = "Incorrect Login Information.";
+
+
 
 }
 

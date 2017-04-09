@@ -52,6 +52,27 @@ PRIMARY KEY (`account_id`)
 
 );
 
+CREATE TABLE IF NOT EXISTS `login_log` (
+
+`account_id` int(11) unsigned,
+`username` varchar(23) NOT NULL,
+`error_message` varchar(100) NOT NULL default 'UNKNOWN',
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+PRIMARY KEY (`account_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `logs` (
+
+`action_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`username` varchar(23) NOT NULL,
+`action` ENUM('A','D','AU','RU','CP','CE','RC','DA'),
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+PRIMARY KEY (`action_id`)
+
+);
+
 -- CREATES DEFAULT ACCOUNT SO NEW USERS CAN LOG IN
 
 -- ADMIN / GUEST
