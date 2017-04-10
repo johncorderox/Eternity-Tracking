@@ -12,6 +12,7 @@ $error = "";
     $priority = $_POST['priority'];
     $category = $_POST['category'];
 
+
     if (empty($title) || empty($message)) {
 
         $error ="Some fields are missing in the form!";
@@ -20,7 +21,7 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW())";
+        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', '$date'";
 
         mysqli_select_db($connect, $database);
         $query = mysqli_query($connect, $sql);

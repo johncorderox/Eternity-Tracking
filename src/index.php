@@ -30,11 +30,7 @@ if (isset($_POST['submit'])) {
 
       $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
         (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
-       '$username_l',
-       'Success',
-        NOW(),
-       '$ip'
-       )";
+       '$username_l','Success', NOW(),'$ip')";
 
       mysqli_query($connect, $sql_login_success)or die(mysqli_error($connect));
       $_SESSION['username'] = $username_l;
@@ -43,19 +39,14 @@ if (isset($_POST['submit'])) {
     } else {
 
           $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-          ('',
-          '',
-           '$username_l',
-           'INVALID LOGIN ATTEMPT',
-            NOW(),
-           '$ip'
-           )";
+          ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
            mysqli_query($connect, $sql_login_error) or die(mysqli_error($connect));
            $message = "Invalid Credentials.";
 
         }
 
       $message = "Incorrect Login Information.";
+      
 
 
 
