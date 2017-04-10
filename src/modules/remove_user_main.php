@@ -21,6 +21,8 @@ if (isset($_POST['submit_remove'])) {
       $sql_addinfo = "UPDATE deleted_users SET deleted_reason = '$reason', deleted_by = '{$_SESSION['username']}' WHERE account_id = '$id'";
       $test = "SELECT * FROM users WHERE account_id = " .$id;
       $test_empty = "SELECT * FROM users";
+      $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','RU','{$_SESSION['username']}', '$id', NOW(), '$ip')";
+
 
         mysqli_select_db($connect, $database);
 
@@ -37,8 +39,9 @@ if (isset($_POST['submit_remove'])) {
               if(mysqli_num_rows($query) > 0 ) {
 
                     mysqli_query($connect, $sql_copy);
-                    mysqli_query($connect, $sql_addinfo) or die(mysqli_error($connect));
+                    mysqli_query($connect, $sql_addinfo);
                     mysqli_query($connect, $sql);
+                    mysqli_query($connect, $sql_log);
                   header("Location: main.php?removeuser=1");
 
 

@@ -66,8 +66,9 @@ PRIMARY KEY (`log_id`)
 CREATE TABLE IF NOT EXISTS `logs` (
 
 `action_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-`username` varchar(23) NOT NULL,
 `action` ENUM('A','D','AU','RU','CP','CE','RC','DA'),
+`log_user` varchar(255) NOT NULL,
+`action_value` varchar(255) NOT NULL,
 `date` datetime NOT NULL,
 `ip` varchar(100) NOT NULL default '0',
 PRIMARY KEY (`action_id`)
@@ -78,5 +79,5 @@ PRIMARY KEY (`action_id`)
 
 -- ADMIN / GUEST
 -- password is password for both accounts
-INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`, `created_by`) VALUES
+INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES
 (NULL, 'admin', md5('password'), 'admin@eternitytracking.com', '0', '0');

@@ -25,8 +25,6 @@ $username = 'root';
 $password = '';
 $database = 'tracking';
 
-$company_name = "Eternity LLC";
-
 ```
 Easy as Pie! You're done.
 <hr>

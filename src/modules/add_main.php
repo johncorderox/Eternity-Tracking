@@ -11,6 +11,7 @@ $error = "";
     $message = trims($_POST['message']);
     $priority = $_POST['priority'];
     $category = $_POST['category'];
+    $ip = $_SERVER['REMOTE_ADDR'];
 
 
     if (empty($title) || empty($message)) {
@@ -21,10 +22,13 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', '$date'";
+        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW())";
+        $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','A','{$_SESSION['username']}', '$title', NOW(), '$ip')";
 
         mysqli_select_db($connect, $database);
-        $query = mysqli_query($connect, $sql);
+
+        mysqli_query($connect, $sql) or die (mysqli_error($connect));
+        mysqli_query($connect, $sql_log);
         mysqli_close($connect);
 
 
