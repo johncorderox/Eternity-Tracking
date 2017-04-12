@@ -16,6 +16,7 @@ if (isset($_POST['submit_remove'])) {
 
       $id = trims($_POST['delete_user']);
       $reason = $_POST['option_radio'];
+      $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "DELETE FROM users WHERE account_id = " .$id;
       $sql_copy = "INSERT INTO deleted_users (account_id, username) SELECT `account_id`,`username` from users WHERE account_id = '$id'";
       $sql_addinfo = "UPDATE deleted_users SET deleted_reason = '$reason', deleted_by = '{$_SESSION['username']}' WHERE account_id = '$id'";

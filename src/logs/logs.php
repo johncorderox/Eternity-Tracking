@@ -9,7 +9,7 @@ include ('../config/config.php');
   <h5>Logs</h5>
 </body>
 <?php
-
+// test
     $log_counter = 0;
 
 
@@ -18,6 +18,7 @@ include ('../config/config.php');
     $result = mysqli_query($connect, $query_logs);
 
       while($rows=mysqli_fetch_assoc($result)) {
+
 
         $log_counter++;
 

@@ -25,6 +25,7 @@ if(isset($_POST['submit_newuser'])) {
       $password = md5($password);
       $email = trims($_POST['email']);
       $email = email_clean($email);
+      $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";
       $test = "SELECT * FROM users WHERE username = '".$username."'";
       $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','AU','{$_SESSION['username']}', '$username', NOW(), '$ip')";
