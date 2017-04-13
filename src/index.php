@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
   $query_add = "UPDATE `users` SET `account_count` = account_count + 1, `last_ip` = '$ip' WHERE username = '$username_l'";
   $result = mysqli_query($connect, $query);
 
-  $num_of_rows = mysqli_num_rows($result);
+  $num_of_rows = mysqli_num_rows($result); 
 
     if ($num_of_rows == 1) {
 
@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
         }
 
       $message = "Incorrect Login Information.";
-      
+
 
 
 
