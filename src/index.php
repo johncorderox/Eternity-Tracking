@@ -12,7 +12,6 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-
   $username_l = trims($_POST['username']);
   $password_l = trims($_POST['password']);
   $password_l = md5($password_l);
@@ -23,19 +22,33 @@ if (isset($_POST['submit'])) {
   $query_add = "UPDATE `users` SET `account_count` = account_count + 1, `last_ip` = '$ip' WHERE username = '$username_l'";
   $result = mysqli_query($connect, $query);
 
-  $num_of_rows = mysqli_num_rows($result);
+  $num_of_rows = mysqli_num_rows($result); 
 
     if ($num_of_rows == 1) {
 
-    mysqli_query($connect, $query_add);
+      mysqli_query($connect, $query_add);
 
+      $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+        (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
+       '$username_l','Success', NOW(),'$ip')";
+
+      mysqli_query($connect, $sql_login_success)or die(mysqli_error($connect));
       $_SESSION['username'] = $username_l;
       header("Location: modules/main.php?login=1");
 
     } else {
 
-      $message = "Invalid Credentials.";
-    }
+          $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+          ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
+           mysqli_query($connect, $sql_login_error) or die(mysqli_error($connect));
+           $message = "Invalid Credentials.";
+
+        }
+
+      $message = "Incorrect Login Information.";
+
+
+
 
 }
 

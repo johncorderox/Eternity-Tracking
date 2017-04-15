@@ -52,8 +52,32 @@ PRIMARY KEY (`account_id`)
 
 );
 
+CREATE TABLE IF NOT EXISTS `login_log` (
+
+`log_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`account_id` int(11) unsigned,
+`username` varchar(23) NOT NULL,
+`error_message` varchar(100) NOT NULL default 'UNKNOWN',
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+PRIMARY KEY (`log_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `logs` (
+
+`action_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`action` ENUM('A','D','AU','RU','CP','CE','RC','DA'),
+`log_user` varchar(255) NOT NULL,
+`action_value` varchar(255) NOT NULL,
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+PRIMARY KEY (`action_id`)
+
+);
+
 -- CREATES DEFAULT ACCOUNT SO NEW USERS CAN LOG IN
 
 -- ADMIN / GUEST
 -- password is password for both accounts
-INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES (NULL, 'admin', md5('password'), 'admin@eternitytracking.com', '0', '0');
+INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES
+(NULL, 'admin', md5('password'), 'admin@eternitytracking.com', '0', '0');

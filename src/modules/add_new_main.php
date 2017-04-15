@@ -25,8 +25,10 @@ if(isset($_POST['submit_newuser'])) {
       $password = md5($password);
       $email = trims($_POST['email']);
       $email = email_clean($email);
+      $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";
       $test = "SELECT * FROM users WHERE username = '".$username."'";
+      $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','AU','{$_SESSION['username']}', '$username', NOW(), '$ip')";
 
       mysqli_select_db($connect, $database);
 
@@ -39,6 +41,7 @@ if(isset($_POST['submit_newuser'])) {
       } else {
 
         $result = mysqli_query($connect, $sql);
+        mysqli_query($connect, $sql_log);
            if ($result) {
 
               header("Location: main.php?newuser=1");
@@ -49,13 +52,13 @@ if(isset($_POST['submit_newuser'])) {
        }
 
      }
-      
+
   }
-  
+
     else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
 
     showError();
-      
+
   }
 
 }
