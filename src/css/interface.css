@@ -1,10 +1,8 @@
 @font-face {
     font-family: 'Lato-Thin';
-    src: url('fonts/lato-thin-webfont.woff2') format('woff2'),
-         url('fonts/lato-thin-webfont.woff') format('woff');
+    src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,10 +15,11 @@ h5 {
     font-weight: 500;
     text-align: center;
 }
+
 h6 {
-  font-size: 20px;
-  font-weight: 500;
-  text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
 }
 
 select {
@@ -28,8 +27,7 @@ select {
 }
 
 .searchForm {
-
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .center {
@@ -196,6 +194,28 @@ li:active {
 }
 
 
+/* Log Side Bar */
+
+.sidebar {
+    height: 100%;
+    width: 450px;
+    background-color: #edeff0;
+    top: 0;
+    right: 0;
+    color: black;
+    position: fixed;
+    overflow: auto;
+    text-align: center;
+}
+
+.sidebar hr {
+    color: black;
+    background-color: black;
+    height: 1px;
+    border: 0;
+}
+
+
 /* Table CSS Layout and Design */
 
 table {
@@ -253,17 +273,14 @@ tr:last-child td:last-child {
     .center, .header-name {
         text-align: center;
     }
-
-    .leftside-info, .header-name{
-
-      width: 100%;
-      text-align: center;
+    .leftside-info, .header-name {
+        width: 100%;
+        text-align: center;
     }
     button {
-      
-      margin: 0;
-      margin-left: 0px;
-      margin-right: 0px;
+        margin: 0;
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .center h2 {
         font-size: 60px;
@@ -295,6 +312,6 @@ tr:last-child td:last-child {
         margin-top: 40px;
     }
     .welcome_notes {
-      text-align:center;
+        text-align: center;
     }
 }

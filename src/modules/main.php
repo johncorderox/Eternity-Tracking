@@ -57,6 +57,7 @@
           <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
+      <?php include ('../logs/logs.php'); ?>
       <div class="ui-main">
         <div class="ui-main-button-group">
         <form action="main.php" action="GET">
