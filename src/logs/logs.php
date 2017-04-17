@@ -1,14 +1,13 @@
 <div class="sidebar">
     <h4>Logs</h4>
-    <hr />
   <?php
 
   $query_logs = "SELECT * from logs ORDER BY `action_id` DESC";
   $result = mysqli_query($connect, $query_logs);
     while($rows=mysqli_fetch_assoc($result)) {
 
+        echo "<hr id=\"hr_logs\">";
         if ($rows['action'] == 'A') {
-          $a = "added";
 
         echo $rows['log_user'] . ' added a new bug on '. $rows['date'] . '.<br>';
 
