@@ -208,3 +208,13 @@ function reveal(x) {
 
     }
 }
+
+function close_sidebar() {
+
+  $('#cancel').on("click", function() {
+
+      $('.sidebar').css("width", "0");
+      
+
+  });
+}

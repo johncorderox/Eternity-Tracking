@@ -1,5 +1,9 @@
 <div class="sidebar">
+  <p id="cancel">
+    <a href="javascript:void(0)" onclick="close_sidebar()">&times;</a> 
+  </p><br />
     <h4>Logs</h4>
+
   <?php
 
   $query_logs = "SELECT * from logs ORDER BY `action_id` DESC";

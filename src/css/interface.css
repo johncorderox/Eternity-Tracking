@@ -221,6 +221,12 @@ li:active {
   border: 0;
 }
 
+#cancel {
+
+  float: left;
+  font-size: 50px;
+  cursor: pointer;
+}
 
 /* Table CSS Layout and Design */
 
