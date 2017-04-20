@@ -106,7 +106,7 @@ button:active {
 
 .header-name {
     margin-left: 30px;
-    width: 300px;
+    width: 96%;
 }
 
 .addform, .deleteform, .newuserform, .removeuser, .removeuserform {
@@ -198,7 +198,7 @@ li:active {
 
 .sidebar {
     height: 100%;
-    width: 470px;
+    width: 0;
     background-color: #edeff0;
     top: 0;
     right: 0;
@@ -206,27 +206,30 @@ li:active {
     position: fixed;
     overflow: auto;
     text-align: center;
-
     font-family: Lato-thin;
-
 }
 
-
 #hr_logs {
-
-  width: 250px;
-  color: black;
-  background-color: black;
-  height: 1px;
-  border: 0;
+    width: 250px;
+    color: black;
+    background-color: black;
+    height: 1px;
+    border: 0;
 }
 
 #cancel {
-
-  float: left;
-  font-size: 50px;
-  cursor: pointer;
+    float: left;
+    font-size: 50px;
+    cursor: pointer;
 }
+
+#open {
+float: right;
+font-size: 50px;
+
+
+}
+
 
 /* Table CSS Layout and Design */
 

@@ -1,6 +1,6 @@
 <div class="sidebar">
   <p id="cancel">
-    <a href="javascript:void(0)" onclick="close_sidebar()">&times;</a> 
+    <a href="javascript:void(0)" onclick="close_sidebar()">&times;</a>
   </p><br />
     <h4>Logs</h4>
 

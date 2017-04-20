@@ -75,7 +75,6 @@
         <p>
           You can search for bugs below that queries the database for Message content.<br />
           -It is recommended that you input more than 5 characters.<br />
-          -You can also search by user submitted bugs.
         </p>
         </div>
         <form action="search.php" method="POST">
