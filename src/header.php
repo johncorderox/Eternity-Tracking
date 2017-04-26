@@ -5,7 +5,7 @@
   <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
   <link href="../css/interface.css" rel="stylesheet" />
   <div class="header-name">
-   <a href="javascript:void(0)" onclick="open_sidebar()" id="open">&#9776;</a> 
+   <a href="javascript:void(0)" id="open">&#9776;</a> 
 
   <a href="../modules/main.php"><h3>Eternity Tracking</h3></a>
     </div><br />

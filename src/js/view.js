@@ -3,6 +3,20 @@ $(document).ready(function() {
 
     $('.editform, .deleteform, .newuserform, .removeuserform').hide();
 
+    $('#open').click(function(){
+
+      $('.sidebar').css("width", "425");
+
+
+    });
+
+
+    $('#cancel').click(function(){
+
+        $('.sidebar').css("width","0");
+
+    });
+
 });
 
 // @desc Case system that outputs data to the screen when a user submits a form.
@@ -207,27 +221,4 @@ function reveal(x) {
         default:
 
     }
-}
-
-function close_sidebar() {
-
-  $('#cancel').click(function(){
-
-    $('.sidebar').css("width", "0");
-
-
-  });
-
-
-}
-
-function open_sidebar() {
-
-  $('#open').click(function(){
-
-    $('.sidebar').css("width", "425");
-
-
-  });
-
 }
