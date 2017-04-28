@@ -10,7 +10,7 @@
       while ($row = mysqli_fetch_assoc($result)) {
 
         echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
-        "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>".$row["category"]."</td></tr>";
+        "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>"."<button name=\'delete\' value='".$row['id']."' />View</button></td></tr>";
         echo "</div>";
 
       }
