@@ -6,7 +6,10 @@ include('../config/config.php');
   $connected = mysqli_select_db($connect, $database);
   if($connected) {
 
-    $sql = "SELECT `email`, `account_count`, `last_ip` FROM users WHERE username = '$logged'";
+    $sql = "SELECT `email`, `account_count`, `last_ip` ";
+    $sql .= "FROM users ";
+    $sql .= "WHERE username = '$logged'";
+
     $result = mysqli_query($connect, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
 
@@ -51,7 +54,7 @@ include('../config/config.php');
               echo '<script type="text/javascript">
                     display_input_message(8);
                     </script>';
-              
+
             }
 
        }

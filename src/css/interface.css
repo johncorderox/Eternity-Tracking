@@ -207,6 +207,8 @@ li:active {
     overflow: auto;
     text-align: center;
     font-family: Lato-thin;
+    border-radius: 2%;
+
 }
 
 #hr_logs {

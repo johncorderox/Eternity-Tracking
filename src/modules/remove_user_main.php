@@ -88,8 +88,8 @@ if (isset($_POST['submit_remove'])) {
   </form>
 </div>
 <?php include '../tables/user_list.php'; ?>
-<script type='text/javascript' src='src/js/view.js'></script>
 </body>
+<script type='text/javascript' src='src/js/view.js'></script>
 </html>
 <script>
 $(document).ready(function() {

@@ -6,7 +6,6 @@
   <link href="../css/interface.css" rel="stylesheet" />
   <div class="header-name">
    <a href="javascript:void(0)" id="open">&#9776;</a> 
-
   <a href="../modules/main.php"><h3>Eternity Tracking</h3></a>
     </div><br />
 </head>
