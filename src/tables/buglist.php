@@ -10,10 +10,12 @@
       while ($row = mysqli_fetch_assoc($result)) {
 
         echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
-        "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>"."<button name=\'delete\' value='".$row['id']."' />View</button></td></tr>";
+        "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>".
+        "<form action=\"view.php\" method=\"POST\">".
+        "<button type=\'submit\' name =\"id\" value='".$row['id']."' />View</button></td></tr>
+        </form>";
         echo "</div>";
 
       }
-
 
  ?>
