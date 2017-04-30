@@ -67,10 +67,10 @@ $error = "";
       <option value="Feature">Feature</option>
       <option value="Security">Security</option>
       <option value="Database">Database</option>
-      <option value="None">Email</option>
-      <option value="None">Enhancement</option>
-      <option value="None">Customization</option>
-      <option value="None">Other</option>
+      <option value="Email">Email</option>
+      <option value="Enhancement">Enhancement</option>
+      <option value="Customization">Customization</option>
+      <option value="Other">Other</option>
     </select><br />
     <button type="submit" name="add_main" id="add-button">Submit</button>
     <button name="cancel">Cancel</button>
