@@ -232,7 +232,12 @@ font-size: 50px;
 
 }
 
+.glyphicon-list,
+.glyphicon-cog,
+.glyphicon-inbox {
 
+  margin-right: 10px;
+}
 
 /* Table CSS Layout and Design */
 

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Lato-Thin';
+    src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Lato-Thin;
+    font-size: 40px;
+}
+
+.header-name {
+    margin-left: 30px;
+    width: 96%;
+}
+
+.main-content {
+
+width: 100%;
+
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #6b6d6c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.glyphicon-check,
+.glyphicon-trash {
+
+  margin-left: 7px;
+}
+
+button {
+
+height: 45px;
+width: 100px;
+
+}
+
+.button-center {
+  text-align: center;
+}
+#save {
+  margin-right: 30%;
+}

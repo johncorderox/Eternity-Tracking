@@ -35,7 +35,7 @@
   <body>
       <div class="leftside-info">
         <div class="list-group">
-          <a href="#" class="list-group-item active">Main Information</a>
+          <a href="#" class="list-group-item active"><span class="glyphicon glyphicon-inbox"></span>Main Information</a>
           <a href="#" class="list-group-item"><b>Company Name:</b> <?php echo $company_name; ?></a>
           <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php num_of_bugs(); ?></a>
           <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php num_of_accounts(); ?></a>
@@ -43,7 +43,7 @@
         </div>
         <br />
         <div class="list-group">
-          <a href="#" class="list-group-item active">Backend Information</a>
+          <a href="#" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span>Backend Information </a>
           <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $servername; ?></a>
           <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $database; ?></a>
           <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
@@ -51,8 +51,8 @@
           <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($connect); ?></a>
         </div><br />
         <div class="list-group">
-          <a class="list-group-item list-group-item-danger"><p id="danger-dark">Admin Section</p></a>
-          <a href="account.php" class="list-group-item" id="pointer">Account Settings</a>
+          <a class="list-group-item list-group-item-danger"><p id="danger-dark"><span class="glyphicon glyphicon-cog"></span>Admin Section</p></a>
+          <a href="account.php" class="list-group-item" id="pointer">Account Settings </a>
           <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
           <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
