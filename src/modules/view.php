@@ -57,11 +57,10 @@ session_start();
   <div class="panel-body">
     <form action="view.php" method="POST">
       <div class="container-fluid">
-     <p>Bug ID: <?php echo $bug_id; ?></p><br />
+     <p id="larger">Bug ID: <?php echo $bug_id; ?></p><br />
+     <p id="larger">Date: <?php echo $date; ?></p>
      <input type="text" class="form-control" value="<?php echo $title;?>"/>
      <p>Reported By: <?php echo $reported; ?></p><br />
-     <p>Date: <?php echo $date; ?></p>
-     <input type="text" value="<?php echo $title; ?>"><br />
      <select  name="priority" id="select_box">
        <option value="Low">Low</option>
        <option value="Medium">Medium</option>

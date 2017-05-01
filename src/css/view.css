@@ -53,5 +53,10 @@ width: 100px;
   text-align: center;
 }
 #save {
-  margin-right: 30%;
+  margin-right: 5%;
+}
+
+#larger {
+    font-size: 18px;
+    font-weight: 400;
 }
