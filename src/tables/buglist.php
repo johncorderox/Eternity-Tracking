@@ -6,13 +6,13 @@
     $result = mysqli_query($connect, $sql);
 
     echo "<div id=\"table_bugs\">";
-    echo "<table><tr><th>ID: </th><th>Title</th><th>Category</th>";
+    echo "<table><tr><th>ID: </th><th>Title</th><th>Actions</th>";
       while ($row = mysqli_fetch_assoc($result)) {
 
         echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
         "</td><td>".
         "<form action=\"view.php\" method=\"POST\">".
-        "<button type=\'submit\' name =\"id\" value='".$row['id']."' />View</button></td></tr>
+        "<button type=\'submit\' class=\"btn btn-link\" name =\"id\" value='".$row['id']."' />View</button></td></tr>
         </form>";
         echo "</div>";
 

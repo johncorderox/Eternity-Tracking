@@ -15,11 +15,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 96%;
 }
 
-.main-content {
-
-width: 100%;
-
-}
 a {
     color: inherit;
     text-decoration: none;
@@ -45,18 +40,27 @@ a:visited {
 button {
 
 height: 45px;
-width: 100px;
+width: 120px;
+margin-right: 5%;
 
 }
 
 .button-center {
   text-align: center;
 }
-#save {
-  margin-right: 5%;
-}
+
 
 #larger {
     font-size: 18px;
     font-weight: 400;
+}
+
+#select_box {
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+#date_display {
+
+  float: right;
 }

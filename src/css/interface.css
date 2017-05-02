@@ -192,6 +192,10 @@ li:active {
 .changePassword {
     margin-top: 40px;
 }
+.btn btn-link {
+
+color: red;
+}
 
 
 /* Log Side Bar */
