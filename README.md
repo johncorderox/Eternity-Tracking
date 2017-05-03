@@ -26,7 +26,10 @@ $password = 'YourPassword';
 $database = 'tracking';
 
 ```
-<hr>
-<h3>Whats new?</h3><br>
--Log System 1.0 <br>
-A sidepanel for E.T. that now displays a log sheet from all users with the actions Add, Delete, New User, and Deleted Users. New Log sql files have already been updated as well as the main src.
+<h3>Features </h3><br>
++Multiple Users
++Account Settings
++Bug Review 
+..* Add, Delete, Edit, 
++Log System
++Error Log System
