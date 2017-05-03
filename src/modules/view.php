@@ -87,7 +87,7 @@ session_start();
           <div class="button-center">
             <button type="submit" class="btn btn-primary" name="submit_view" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
             <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
-            <button type="button" class="btn btn-primary" id="comment"> Add Comments <span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="btn btn-primary" id="cancel"> Cancel </button>
           </div>
      </div>
 </form>

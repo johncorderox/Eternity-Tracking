@@ -66,19 +66,20 @@
           <button name="add_new">Add New User</button>
           <button name="remove_user">Remove User</button>
         </form><br />
-        <div class="welcome_notes">
-        <p>
-          Welcome! <br />
-          You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
-          <?php getLastBug(); ?>
-        </p><br />
-        <p>
-          You can search for bugs below that queries the database for Message content.<br />
-          -It is recommended that you input more than 5 characters.<br />
-        </p>
-        </div>
+        <div class="panel panel-default">
+        <!--   <div class="panel-heading">Welcome</div> -->
+          <div class="panel-body">
+            <div class="welcome_notes">
+            <p>
+              Welcome! <br />
+              You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
+              <?php getLastBug(); ?>
+            </p>
+            </div>
+          </div>
+      </div>
         <form action="search.php" method="POST">
-          <input type="text" name="search" placeholder="Search Database*" autofocus/>
+          <input type="text" name="search" placeholder="Search Database" autofocus/>
           <button type="submit" name="submit_search" id="add-button">Submit</button>
         </form>
         <hr />
