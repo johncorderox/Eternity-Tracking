@@ -27,9 +27,9 @@ $database = 'tracking';
 
 ```
 <h3>Features </h3><br>
-+Multiple Users
-+Account Settings
-+Bug Review 
++ Multiple Users<br>
++ Account Settings<br>
++ Bug Review<br> 
 ..* Add, Delete, Edit, 
-+Log System
-+Error Log System
++ Log System<br>
++ Error Log System<br>
