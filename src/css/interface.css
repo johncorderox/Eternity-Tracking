@@ -210,7 +210,8 @@ color: red;
     position: fixed;
     overflow: auto;
     text-align: center;
-    font-family: Lato-thin;
+    font-family: sans-serif;
+    color: black;
     border-radius: 2%;
 
 }
@@ -241,6 +242,11 @@ font-size: 50px;
 .glyphicon-inbox {
 
   margin-right: 10px;
+}
+
+button [type="submit"] {
+
+  height: 100px;
 }
 
 /* Table CSS Layout and Design */

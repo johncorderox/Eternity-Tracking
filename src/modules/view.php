@@ -4,12 +4,9 @@ include ('../config/config.php');
 
 ob_start();
 session_start();
-//
-// in case to check who deleted button
-//
-//$logged = $_SESSION['username'];
-//
-//
+
+$logged = $_SESSION['username'];
+
   if (!isset($_SESSION['username'])) {
 
       header("Location: index.php");
@@ -35,11 +32,21 @@ session_start();
           $priority =   $row['priority'];
           $category =   $row['category'];
           $reported =   $row['reported_by'];
-          $date     =   $row['date'];
+          $phpdate = strtotime($row['date']);
+          $clean_date = date('m-d-Y', $phpdate);
 
       }
 
+ }
+
+
+
+  if (isset($_POST['cancel'])) {
+
+    header("Location: main.php");
   }
+
+
  ?>
  <head>
    <meta charset="UTF-8">
@@ -82,12 +89,12 @@ session_start();
        <option value="Other">Other</option>
      </select><br />
           <label for="message">Message: </label>
-          <p id="date_display"><b>Date Reported: </b> <i><?php echo $date; ?></i></p>
+          <p id="date_display"><b>Date Reported: </b> <i><?php echo $clean_date; ?></i></p>
           <textarea class="form-control" id="message" rows="7"><?php echo $message; ?></textarea><br />
           <div class="button-center">
             <button type="submit" class="btn btn-primary" name="submit_view" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
             <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
-            <button type="button" class="btn btn-primary" id="cancel"> Cancel </button>
+            <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
           </div>
      </div>
 </form>

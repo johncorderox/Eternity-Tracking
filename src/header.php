@@ -4,8 +4,9 @@
   <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
   <link href="../css/interface.css" rel="stylesheet" />
+  <title>Eternity Tracking</title>
   <div class="header-name">
-   <a href="javascript:void(0)" id="open">&#9776;</a> 
+   <a href="javascript:void(0)" id="open">&#9776;</a>
   <a href="../modules/main.php"><h3>Eternity Tracking</h3></a>
     </div><br />
 </head>

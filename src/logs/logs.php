@@ -13,7 +13,10 @@
         echo "<hr id=\"hr_logs\">";
         if ($rows['action'] == 'A') {
 
-        echo $rows['log_user'] . ' added a new bug on '. $rows['date'] . '.<br>';
+        $phpdate = strtotime($rows['date']);
+        $clean_date = date('m-d-Y', $phpdate);
+
+        echo $rows['log_user'] . ' added a new bug on '. $clean_date . '.<br>';
 
         } else if ($rows['action'] == 'D') {
 

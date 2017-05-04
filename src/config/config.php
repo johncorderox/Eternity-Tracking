@@ -5,8 +5,9 @@ $username = 'root';
 $password = '';
 $database = 'tracking';
 
-
 $company_name = "Eternity LLC";
+
+
 $connect = new mysqli("$servername", "$username", "$password", "$database");
 
   if (!$connect) {

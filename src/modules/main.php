@@ -67,7 +67,6 @@
           <button name="remove_user">Remove User</button>
         </form><br />
         <div class="panel panel-default">
-        <!--   <div class="panel-heading">Welcome</div> -->
           <div class="panel-body">
             <div class="welcome_notes">
             <p>
