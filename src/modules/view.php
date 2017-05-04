@@ -62,7 +62,7 @@ $logged = $_SESSION['username'];
   <div main="main_content">
     <div class="panel panel-default">
   <div class="panel-body">
-    <form action="view.php" method="POST">
+    <form action="../lib/v.php" method="GET">
       <div class="container-fluid">
      <p id="larger">Bug ID: <?php echo $bug_id; ?></p>
      <p>Reported By: <?php echo $reported; ?></p>
