@@ -192,10 +192,7 @@ li:active {
 .changePassword {
     margin-top: 40px;
 }
-.btn btn-link {
 
-color: red;
-}
 
 
 /* Log Side Bar */
@@ -244,9 +241,20 @@ font-size: 50px;
   margin-right: 10px;
 }
 
-button [type="submit"] {
 
-  height: 100px;
+.view_buttom {
+
+  color: black;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  margin-top: 5px;
+  background-color: inherit;
+  border-color: inherit;
+  border-width: 1px;
+  border-radius: 7px;
+  border-style: solid;
+
 }
 
 /* Table CSS Layout and Design */

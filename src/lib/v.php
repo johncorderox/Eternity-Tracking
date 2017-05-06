@@ -11,15 +11,16 @@ if (isset($_POST['cancel'])) {
 
 if (isset($_POST['save'])) {
 
-    //  $title_2    = $_POST['title'];
+      $id       = $_POST['id'];
+      $title    = $_POST['title'];
       $category = $_POST['category'];
       $priority = $_POST['priority'];
       $message  = $_POST['message'];
 
 
-      $sql = "UPDATE bugs SET `category` = '$category' WHERE id = '$bug_id'";
+      $sql = "UPDATE bugs SET title = '$title', category = '$category', priority = '$priority', message = '$message' WHERE id = '$id' ";
 
-      mysqli_query($connect, $sql);
+      mysqli_query($connect, $sql) or die(mysqli_error($connect));
 
       header("Location: ../modules/main.php");
 
@@ -27,11 +28,6 @@ if (isset($_POST['save'])) {
 
 
 }
-
-
-
-
-
 
 
  ?>

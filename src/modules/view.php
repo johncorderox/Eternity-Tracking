@@ -58,9 +58,10 @@ $logged = $_SESSION['username'];
     <form action="../lib/v.php" method="POST">
       <div class="container-fluid">
      <p id="larger">Bug ID: <?php echo $bug_id; ?></p>
+     <input type="text" id="hiddenInput" name="id" value='<?php echo $id; ?>'; />
      <p>Reported By: <?php echo $reported; ?></p>
      <label for="title">Title:</label>
-     <input type="text" name="title" id="title" class="form-control" value="<?php echo $title; ?>"/>
+     <input type="text" name="title" id="title" class="form-control" value="<?php echo $title; ?>" />
      <label for="select_box_priority">Priority: </label>
      <select  name="priority" class="form-control" id="select_box">
        <option value="Low">Low</option>
@@ -95,3 +96,12 @@ $logged = $_SESSION['username'];
 </div>
 </div>
  </body>
+ <script>
+ $(document).ready(function() {
+
+$('#hiddenInput').hide();
+
+ });
+
+
+ </script>
