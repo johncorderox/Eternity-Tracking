@@ -5,7 +5,7 @@
 
     $result = mysqli_query($connect, $sql);
 
-    echo "<div id=\"table_bugs\">";
+
     echo "<table><tr><th>ID: </th><th>Title</th><th>Actions</th>";
       while ($row = mysqli_fetch_assoc($result)) {
 
@@ -14,7 +14,6 @@
         "<form action=\"view.php\" method=\"POST\">".
         "<button type=\'submit\' class=\"view_buttom\" name =\"id\" value='".$row['id']."' />View</button></td></tr>
         </form>";
-        echo "</div>";
 
       }
 
