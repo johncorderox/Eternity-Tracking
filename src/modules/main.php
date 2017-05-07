@@ -131,6 +131,14 @@ if (isset($_GET['newuser']) && $_GET['newuser']=='1') {
 
 }
 
+if (isset($_GET['savebug']) && $_GET['savebug']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(0);
+        </script>';
+
+}
+
 
 
  ?>
