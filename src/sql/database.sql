@@ -75,6 +75,22 @@ PRIMARY KEY (`action_id`)
 
 );
 
+CREATE TABLE IF NOT EXISTS `requests` (
+
+`request_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`first_name` varchar(23) NOT NULL,
+`last_name` varchar(23) NOT NULL,
+`username` varchar(23) NOT NULL,
+`password` varchar(32) NOT NULL,
+`email` varchar(50) NOT NULL,
+`message` varchar(255) DEFAULT 'Requesting access.',
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+`request_status` int(11) NOT NULL,
+PRIMARY KEY (`request_id`)
+
+);
+
 -- CREATES DEFAULT ACCOUNT SO NEW USERS CAN LOG IN
 
 -- ADMIN / GUEST
