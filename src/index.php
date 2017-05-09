@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
   $query_add = "UPDATE `users`";
   $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$ip'";
   $query_add .= "WHERE username = '$username_l'";
-  
+
   $result = mysqli_query($connect, $query);
 
   $num_of_rows = mysqli_num_rows($result);
@@ -80,6 +80,7 @@ mysqli_close($connect);
      <form action="index.php" method="POST">
      <input type="text" placeholder="Username *" name="username" id="username" class="error-input" autofocus><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />
+     <a href="modules/request.php"<p id="request">Request Account?</p></a>
      <button id="login-button" name="submit">Login</button><br />
    </form>
 </div>

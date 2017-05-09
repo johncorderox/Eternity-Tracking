@@ -1,249 +1,277 @@
 @font-face {
-    font-family: 'Lato-Thin';
-    src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Lato-Thin';
+  src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Lato-Thin;
-    font-size: 40px;
+  font-family: Lato-Thin;
+  font-size: 40px;
 }
 
 h5 {
-    font-size: 25px;
-    font-weight: 500;
-    text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
 }
 
 h6 {
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
 }
 
 select {
-    background-color: white;
+  background-color: white;
 }
 
 .searchForm {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .center {
-    height: 500px;
-    width: 500px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.request-container {
+
+  margin-left: 30px;
+  margin-top: 20px;
+  color: #347bb2;
+}
+ #larger {
+
+  margin-left: 5px;
+}
+.form-body #larger,.form-body #etc  {
+
+  margin-left: 8px;
+}
+
+
+
+#small_input {
+
+  width: 200px;
+
 }
 
 #exit {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 #exit:hover {
-    color: red;
+  color: red;
 }
-
 #add-button-search {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 input {
-    padding: 10px;
-    width: 500px;
-    font-size: 15px;
+  padding: 10px;
+  width: 500px;
+  font-size: 15px;
 }
 
 input[type="text"] {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 input[type="password"] {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .modern-input {
-    font-size: 20px;
-    padding: 10px;
-    background: transparent;
-    outline: 0;
-    border: 0;
-    border-bottom: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+  background: transparent;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid black;
 }
 
 button {
-    padding: 10px;
-    width: 100px;
-    background-color: white;
-    border-width: 1px;
-    border-radius: 4px;
-    border-style: solid;
-    border-color: black;
-    height: 55px;
-    margin-right: 30px;
+  padding: 10px;
+  width: 100px;
+  background-color: white;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: black;
+  height: 55px;
+  margin-right: 30px;
 }
 
 button:hover {
-    color: gray;
+  color: gray;
 }
 
 button:active {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 #pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #login-button, #add-button {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .header-name {
-    margin-left: 30px;
-    width: 96%;
+  margin-left: 30px;
+  width: 96%;
 }
 
 .addform, .deleteform, .newuserform, .removeuser, .removeuserform {
-    float: right;
-    margin-right: 12%;
+  float: right;
+  margin-right: 12%;
 }
 
 .leftside-info {
-    width: 300px;
-    float: left;
-    margin-right: 20px;
+  width: 300px;
+  float: left;
+  margin-right: 20px;
 }
 
 .ui-main {
-    float: right;
-    margin-right: 70px;
+  float: right;
+  margin-right: 70px;
 }
 
 .ui-main button {
-    height: 60px;
-    padding: 0;
-    margin: 20px 20px;
+  height: 60px;
+  padding: 0;
+  margin: 20px 20px;
 }
 
 .bug_list {
-    float: left;
-    clear: left;
-    width: 100%;
+  float: left;
+  clear: left;
+  width: 100%;
 }
 
 #larger {
-    font-size: 18px;
-    font-weight: 400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .list-group .list-group-item {
-    cursor: default;
+  cursor: default;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #6b6d6c;
-    text-decoration: none;
-    cursor: pointer;
+  color: #6b6d6c;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 #danger-dark {
-    color: #a94344;
-    height: 11px;
+  color: #a94344;
+  height: 11px;
 }
 
 #submit_button_2 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .account_settings {
-    border-radius: 8px;
-    width: 60%;
-    height: 70%;
-    float: right;
-    margin-right: 15px;
+  border-radius: 8px;
+  width: 60%;
+  height: 70%;
+  float: right;
+  margin-right: 15px;
 }
 
 li {
-    display: inline;
-    margin-left: 13%;
-    cursor: pointer;
+  display: inline;
+  margin-left: 13%;
+  cursor: pointer;
 }
 
 li:active {
-    opacity: 1;
+  opacity: 1;
 }
 
 .changePassword {
-    margin-top: 40px;
+  margin-top: 40px;
 }
-
 
 
 /* Log Side Bar */
 
 .sidebar {
-    height: 100%;
-    width: 0;
-    background-color: #edeff0;
-    top: 0;
-    right: 0;
-    color: black;
-    position: fixed;
-    overflow: auto;
-    text-align: center;
-    font-family: sans-serif;
-    color: black;
-    border-radius: 2%;
-
+  height: 100%;
+  width: 0;
+  background-color: #edeff0;
+  top: 0;
+  right: 0;
+  color: black;
+  position: fixed;
+  overflow: auto;
+  text-align: center;
+  font-family: sans-serif;
+  color: black;
+  border-radius: 2%;
 }
 
 #hr_logs {
-    width: 250px;
-    color: black;
-    background-color: black;
-    height: 1px;
-    border: 0;
-}
-
-#cancel {
-    float: left;
-    font-size: 50px;
-    cursor: pointer;
+  width: 250px;
+  color: black;
+  background-color: black;
+  height: 1px;
+  border: 0;
 }
 
 #open {
-float: right;
-font-size: 50px;
-
-
+  float: right;
+  font-size: 50px;
 }
 
-.glyphicon-list,
-.glyphicon-cog,
-.glyphicon-inbox {
+#cancel {
+  float: left;
+  font-size: 50px;
+  cursor: pointer;
+  margin-left: 12px;
+}
+#request {
 
+  float: right;
+  cursor: pointer;
+  color: #347bb2;
+
+}
+#request:hover{
+
+  text-decoration: underline;
+}
+#request:active{
+
+  opacity: 0.2;
+}
+
+.glyphicon-list, .glyphicon-cog, .glyphicon-inbox {
   margin-right: 10px;
 }
 
-
 .view_buttom {
-
   color: black;
   height: 25px;
   padding: 0;
@@ -254,106 +282,106 @@ font-size: 50px;
   border-width: 1px;
   border-radius: 7px;
   border-style: solid;
-
 }
+
 
 /* Table CSS Layout and Design */
 
 table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
 }
 
 th, td {
-    padding: 6px 15px;
+  padding: 6px 15px;
 }
 
 th {
-    background: #42444e;
-    color: #fff;
-    text-align: left;
+  background: #42444e;
+  color: #fff;
+  text-align: left;
 }
 
 tr:first-child th:first-child {
-    border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
 tr:first-child th:last-child {
-    border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 td {
-    border-right: 1px solid #c6c9cc;
-    border-bottom: 1px solid #c6c9cc;
+  border-right: 1px solid #c6c9cc;
+  border-bottom: 1px solid #c6c9cc;
 }
 
 td:first-child {
-    border-left: 1px solid #c6c9cc;
+  border-left: 1px solid #c6c9cc;
 }
 
 tr:nth-child(even) td {
-    background: #eaeaed;
+  background: #eaeaed;
 }
 
 tr:last-child td:first-child {
-    border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 tr:last-child td:last-child {
-    border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 
 /* Responsive Design */
 
 @media only screen and (max-width: 570px) {
-    .center, .header-name {
-        text-align: center;
-    }
-    .leftside-info, .header-name {
-        width: 100%;
-        text-align: center;
-    }
-    button {
-        margin: 0;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .center h2 {
-        font-size: 60px;
-        font-weight: 300;
-    }
-    #login-button {
-        height: 50px;
-        font-size: 17px;
-        font-weight: 300;
-    }
-    form {
-        width: 100%;
-        text-align: center;
-    }
-    .requirements, .addform {
-        width: 100%;
-        margin: 0;
-    }
-    .requirements {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 300;
-        float: none;
-    }
-    .requirements li {
-        list-style-type: none;
-    }
-    #add-button {
-        margin-top: 40px;
-    }
-    .welcome_notes {
-        text-align: center;
-    }
+  .center, .header-name {
+    text-align: center;
+  }
+  .leftside-info, .header-name {
+    width: 100%;
+    text-align: center;
+  }
+  button {
+    margin: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .center h2 {
+    font-size: 60px;
+    font-weight: 300;
+  }
+  #login-button {
+    height: 50px;
+    font-size: 17px;
+    font-weight: 300;
+  }
+  form {
+    width: 100%;
+    text-align: center;
+  }
+  .requirements, .addform {
+    width: 100%;
+    margin: 0;
+  }
+  .requirements {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    float: none;
+  }
+  .requirements li {
+    list-style-type: none;
+  }
+  #add-button {
+    margin-top: 40px;
+  }
+  .welcome_notes {
+    text-align: center;
+  }
 }
