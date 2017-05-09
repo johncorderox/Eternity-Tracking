@@ -15,9 +15,21 @@ if(isset($_POST['send_request'])) {
   $password = $_POST['password'];
   $message  = $_POST['message'];
 
-    if (empty($first) || empty($last)) {
+    if (empty($first)) {
+
+    }
+    else if (empty($last)) {
 
 
+    } else if (empty($username)) {
+
+
+    } else if (empty($email)) {
+
+
+    }else if (empty($password)) {
+
+      
     }
 
 
@@ -45,6 +57,7 @@ if(isset($_POST['send_request'])) {
   <hr />
 <div class="form-body">
 </div>
+<?php echo $error; ?><br />
   <p id="larger">
     All information will be recorded and sent to the team for review. Once accepted, you'll be able to access the software.
   </p>
