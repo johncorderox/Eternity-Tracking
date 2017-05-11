@@ -40,27 +40,9 @@ select {
   bottom: 0;
   margin: auto;
 }
-.request-container {
 
-  margin-left: 30px;
-  margin-top: 20px;
-  color: #347bb2;
-}
- #larger {
-
+#larger {
   margin-left: 5px;
-}
-.form-body #larger,.form-body #etc  {
-
-  margin-left: 8px;
-}
-
-
-
-#small_input {
-
-  width: 200px;
-
 }
 
 #exit {
@@ -70,6 +52,7 @@ select {
 #exit:hover {
   color: red;
 }
+
 #add-button-search {
   margin-left: 20px;
 }
@@ -80,11 +63,7 @@ input {
   font-size: 15px;
 }
 
-input[type="text"] {
-  margin-bottom: 15px;
-}
-
-input[type="password"] {
+input[type="text"], input[type="password"],input[type="email"] {
   margin-bottom: 15px;
 }
 
@@ -214,6 +193,18 @@ li:active {
   margin-top: 40px;
 }
 
+.request-container {
+  margin-left: 50px;
+}
+
+#small_input, #small_input2 {
+  width: 200px;
+}
+
+#small_input2 {
+  margin-left: 25px;
+}
+
 
 /* Log Side Bar */
 
@@ -251,19 +242,18 @@ li:active {
   cursor: pointer;
   margin-left: 12px;
 }
-#request {
 
+#request {
   float: right;
   cursor: pointer;
   color: #347bb2;
-
 }
-#request:hover{
 
+#request:hover {
   text-decoration: underline;
 }
-#request:active{
 
+#request:active {
   opacity: 0.2;
 }
 
