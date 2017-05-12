@@ -72,6 +72,7 @@
             <p>
               Welcome! <br />
               You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
+              <?php getRequest(); ?>
               <?php getLastBug(); ?>
             </p>
             </div>

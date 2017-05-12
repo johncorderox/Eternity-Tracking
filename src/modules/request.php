@@ -1,6 +1,7 @@
 <?php
 
 include ('../config/config.php');
+include ('../lib/secure.php');
 
 if (isset($_POST['cancel'])) {
 
@@ -10,12 +11,14 @@ if (isset($_POST['cancel'])) {
 
 if(isset($_POST['send_request'])) {
 
-  $first    = $_POST['first_name'];
-  $last     = $_POST['last_name'];
-  $username = $_POST['username'];
-  $email    = $_POST['email'];
-  $password = $_POST['password'];
-  $message  = $_POST['message'];
+  $first    = trims($_POST['first_name']);
+  $last     = trims($_POST['last_name']);
+  $username = trims($_POST['username']);
+  $email = trims($_POST['email']);
+  $email = email_clean($email);
+  $password = trims($_POST['password']);
+  $password = md5($password);
+  $message  = trims($_POST['message']);
   $ip       = $_SERVER['REMOTE_ADDR'];
 /*
     if (empty($first)) {
@@ -91,6 +94,7 @@ if(isset($_POST['send_request'])) {
   <p id="etc">
     Please use real information so the team can identify who you are and accept/deny the request.
   </p><br />
+
 <form action="request.php" method="POST">
   <input type="text" id="small_input" placeholder="First Name*" name="first_name" autofocus/>
   <input type="text" id="small_input2" placeholder="Last Name*" name="last_name"/><br />

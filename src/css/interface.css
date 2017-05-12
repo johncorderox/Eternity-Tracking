@@ -274,6 +274,10 @@ li:active {
   border-style: solid;
 }
 
+.request-container textarea{
+
+  width: 500px;
+}
 
 /* Table CSS Layout and Design */
 

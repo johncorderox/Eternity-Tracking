@@ -131,6 +131,20 @@ function getReported ($x) {
   }
 }
 
+function getRequest () {
 
+  global $connect;
+
+  $sql_request_fetch = "SELECT COUNT(*) as total FROM requests";
+  $result = mysqli_query($connect, $sql_request_fetch);
+  $number = mysqli_fetch_assoc($result);
+
+  if ($number >= 1) {
+
+    echo '<p>Number of Account Requests: '. $number['total'] .'</p>';
+  }
+
+
+}
 
  ?>
