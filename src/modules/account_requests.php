@@ -10,10 +10,12 @@
         while ($row = mysqli_fetch_assoc($result)) {
 
             echo '<form action=\"account_requests.php\" method=\"POST">';
-            echo '<p>First Name: '.$row['first_name']. $row['email'] . $row['message'].'</p>';
+            echo '<p><b>First Name:</b> '.$row['first_name'] .'<br />';
+            echo '<b>Email: </b>'. $row['email'].'<br />';
+            echo '<b>Message: </b>'. $row['message']. '<br /><br />';
             echo '<button type=\"submit\">Accept</button>'.'<button type=\"submit\">Deny</button>';
             echo '</form>';
-            echo '<br />';
+            echo '<br /><br /><br />';
 
         }
        ?>
