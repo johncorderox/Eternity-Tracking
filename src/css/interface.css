@@ -63,7 +63,7 @@ input {
   font-size: 15px;
 }
 
-input[type="text"], input[type="password"],input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"] {
   margin-bottom: 15px;
 }
 
@@ -265,20 +265,27 @@ li:active {
   color: black;
   height: 25px;
   padding: 0;
-  margin: 0;
-  margin-top: 5px;
-  background-color: inherit;
-  border-color: inherit;
-  border-width: 1px;
-  border-radius: 7px;
-  border-style: solid;
+  margin-top: 10px;
 }
 
-.request-container textarea{
+.list-group .list-group-item {
+  cursor: pointer;
+}
 
+.request-container textarea {
   width: 500px;
 }
 
+.account_requests_view {
+
+text-align: center;
+}
+
+.account_requests_view button {
+
+height: 40px;
+
+}
 /* Table CSS Layout and Design */
 
 table {
@@ -291,14 +298,12 @@ table {
   text-align: center;
 }
 
-th, td {
-  padding: 6px 15px;
-}
 
 th {
   background: #42444e;
   color: #fff;
   text-align: left;
+  padding: 5px;
 }
 
 tr:first-child th:first-child {

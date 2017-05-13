@@ -15,7 +15,7 @@ if($connect) {
   $sql = "SELECT COUNT(*) as total FROM bugs";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
-  echo $number['total'];
+  echo '( '.$number['total'].' )';
 
   }
 
@@ -34,7 +34,7 @@ function num_of_accounts () {
   $sql = "SELECT COUNT(*) as total FROM users";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
-  echo $number['total'];
+  echo '( '.$number['total'].' )';
   }
 }
 
@@ -49,7 +49,7 @@ function num_of_deleted () {
   $sql = "SELECT COUNT(*) as total FROM deleted_bugs";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
-  echo $number['total'];
+  echo '( '.$number['total'].' )';
 
 }
 
@@ -118,7 +118,7 @@ function getReported ($x) {
     $result = mysqli_query($connect, $sql_get_r);
     $number = mysqli_fetch_assoc($result);
 
-    echo $number['total'];
+    echo '( '.$number['total'].' )';
 
   } else if ($connect && $x == 2) {
 
@@ -126,7 +126,7 @@ function getReported ($x) {
     $result = mysqli_query($connect, $sql_get_r);
     $number = mysqli_fetch_assoc($result);
 
-    echo $number['total'];
+    echo '( '.$number['total'].' )';
 
   }
 }
@@ -141,7 +141,7 @@ function getRequest () {
 
   if ($number >= 1) {
 
-    echo '<p>Number of Account Requests: '. $number['total'] .'</p>';
+    echo '( '.$number['total'].' )';
   }
 
 

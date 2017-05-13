@@ -1,11 +1,11 @@
 <?php
 
-include ('../config/config.php');
-include ('../lib/secure.php');
+include ('config/config.php');
+include ('lib/secure.php');
 
 if (isset($_POST['cancel'])) {
 
-  header("Location: ../index.php");
+  header("Location: index.php");
 }
 
 
@@ -14,8 +14,8 @@ if(isset($_POST['send_request'])) {
   $first    = trims($_POST['first_name']);
   $last     = trims($_POST['last_name']);
   $username = trims($_POST['username']);
-  $email = trims($_POST['email']);
-  $email = email_clean($email);
+  $email    = trims($_POST['email']);
+  $email    = email_clean($email);
   $password = trims($_POST['password']);
   $password = md5($password);
   $message  = trims($_POST['message']);
@@ -60,7 +60,7 @@ if(isset($_POST['send_request'])) {
                   $result_request = mysqli_query($connect, $sql_request) or die(mysqli_error($connect));
                   if($result_request) {
 
-                      header("Location: ../index.php");
+                      header("Location: index.php");
                   }
 
     //  }
@@ -74,13 +74,13 @@ if(isset($_POST['send_request'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
-  <link href="../css/interface.css" rel="stylesheet" />
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+  <link href="css/interface.css" rel="stylesheet" />
   <title>Request Form</title>
   <div class="header-name">
-    <a href="../index.php"><h3>Request Form</h3></a>
+    <a href="index.php"><h3>Request Form</h3></a>
   </div>
 </head>
 <body>
