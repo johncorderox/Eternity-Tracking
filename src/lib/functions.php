@@ -135,7 +135,7 @@ function getRequest () {
 
   global $connect;
 
-  $sql_request_fetch = "SELECT COUNT(*) as total FROM requests";
+  $sql_request_fetch = "SELECT COUNT(*) as total FROM requests WHERE request_status = 'open'";
   $result = mysqli_query($connect, $sql_request_fetch);
   $number = mysqli_fetch_assoc($result);
 

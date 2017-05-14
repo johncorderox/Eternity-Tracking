@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
 `message` varchar(255) DEFAULT 'Requesting access.',
 `date` datetime NOT NULL,
 `ip` varchar(100) NOT NULL default '0',
-`request_status` int(11) NOT NULL,
+`request_status` varchar(23) NOT NULL default 'open',
 PRIMARY KEY (`request_id`)
 
 );

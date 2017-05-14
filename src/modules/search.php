@@ -1,16 +1,15 @@
 
  <?php
-       include '../header.php';
-       include ("../config/config.php");
-       include '../lib/functions.php';
-       include '../lib/secure.php';
+       include ('../header.php');
+       include('../config/config.php');
+       include('../lib/functions.php');
+       include ('../lib/secure.php');
 
 
        if (isset($_POST['submit_search'])) {
 
          if ($_POST['search'] == "" ) {
 
-           showerror();
            $result_count = 0;
 
          } else {
@@ -52,4 +51,12 @@
       <?php echo $result_count;?> Result(s) found in the Database.
     </h6>
    </div>
+   <script>
+   $(document).ready(function() {
+
+     $('#open').hide();
+
+   });
+   </script>
+
    <script type='text/javascript' src='../js/view.js'></script>

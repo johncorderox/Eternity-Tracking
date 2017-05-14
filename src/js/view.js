@@ -7,7 +7,6 @@ $(document).ready(function() {
 
       $('.sidebar').css("width", "425");
 
-
     });
 
 

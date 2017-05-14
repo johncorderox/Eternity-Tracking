@@ -86,6 +86,6 @@ $(document).ready(function() {
   $('.addform2').show();
 
 });
-
+</script>
 
 </script>
