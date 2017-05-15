@@ -20,7 +20,7 @@ if(isset($_POST['send_request'])) {
   $password = md5($password);
   $message  = trims($_POST['message']);
   $ip       = $_SERVER['REMOTE_ADDR'];
-/*
+
     if (empty($first)) {
 
     }
@@ -38,7 +38,7 @@ if(isset($_POST['send_request'])) {
 
     }
           else {
-*/
+
             $sql_username = "SELECT username FROM users WHERE username = '$username'";
             $sql_email = "SELECT email FROM users WHERE email = '$email'";
 
@@ -63,7 +63,7 @@ if(isset($_POST['send_request'])) {
                       header("Location: index.php?request=1");
                   }
 
-    //  }
+      }
 
 }
 
@@ -102,7 +102,7 @@ if(isset($_POST['send_request'])) {
   <input type="email" placeholder="Email*" name="email"/><br />
   <input type="password" placeholder="Enter a Password*" name="password"/><br />
   <textarea placeholder="Message to the Admin" class="form-control" rows="5" name="message"></textarea><br />
-  <button type="submit" class="btn btn-primary" name="send_request">Submit  <span class="glyphicon glyphicon-ok"></span></button>
+  <button type="submit" class="btn btn-primary" name="send_request" onclick="request_view_check()">Submit  <span class="glyphicon glyphicon-ok"></span></button>
   <button type="submit" class="btn btn-primary" name="cancel"> Cancel </button>
 </div>
 </div>

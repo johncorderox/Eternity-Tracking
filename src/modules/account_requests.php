@@ -18,8 +18,6 @@
         header("Location: main.php?accept=1");
       }
 
-
-
   }
 
 
@@ -59,7 +57,7 @@
 
         }
       }
-       ?>
+    ?>
     </div>
 
 </body>
@@ -70,6 +68,4 @@ $(document).ready(function() {
   $('.account_requests_view').show();
 
 });
-
-
 </script>
