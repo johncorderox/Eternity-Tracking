@@ -97,5 +97,12 @@ mysqli_close($connect);
           </script>';
   }
 
+  if (isset($_GET['request']) && $_GET['request'] == '1') {
+
+    echo '<script type="text/javascript">
+          display_input_message(10);
+          </script>';
+  }
+
 
  ?>

@@ -2,6 +2,23 @@
 
   if(isset($_POST['accept'])) {
 
+      $request_id = $_POST['accept'];
+
+      $sql_account_accept  = "INSERT INTO `users` (username, password, email) ";
+      $sql_account_accept .= "SELECT `username`, `password`, `email` ";
+      $sql_account_accept .= "FROM requests ";
+      $sql_account_accept .= "WHERE `request_id` = '$request_id'";
+
+      $result = mysqli_query($connect, $sql_account_accept);
+
+      if ($result) {
+
+        $sql = "UPDATE requests SET request_status = 'closed'";
+        mysqli_query($connect, $sql);
+        header("Location: main.php?accept=1");
+      }
+
+
 
   }
 

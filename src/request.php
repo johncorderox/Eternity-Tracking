@@ -60,7 +60,7 @@ if(isset($_POST['send_request'])) {
                   $result_request = mysqli_query($connect, $sql_request) or die(mysqli_error($connect));
                   if($result_request) {
 
-                      header("Location: index.php");
+                      header("Location: index.php?request=1");
                   }
 
     //  }

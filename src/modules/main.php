@@ -141,6 +141,13 @@ if (isset($_GET['savebug']) && $_GET['savebug']=='1') {
         </script>';
 
 }
+if (isset($_GET['accept']) && $_GET['accept']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(6);
+        </script>';
+
+}
 
 
 
