@@ -19,7 +19,6 @@ if (isset($_POST['cancel'])) {
 
 if (isset($_POST['save'])) {
 
-
       $sql = "UPDATE bugs SET title = '$title', category = '$category', priority = '$priority', message = '$message' WHERE id = '$id' ";
 
       mysqli_query($connect, $sql) or die(mysqli_error($connect));
