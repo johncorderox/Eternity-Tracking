@@ -22,7 +22,7 @@ if (isset($_POST['submit_remove'])) {
       $sql_addinfo = "UPDATE deleted_users SET deleted_reason = '$reason', deleted_by = '{$_SESSION['username']}' WHERE account_id = '$id'";
       $test = "SELECT * FROM users WHERE account_id = " .$id;
       $test_empty = "SELECT * FROM users";
-      $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','RU','{$_SESSION['username']}', (SELECT username FROM deleted_bugs ORDER BY DESC LIMIT 1) , NOW(), '$ip')";
+      $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','RU','{$_SESSION['username']}', '$id' , NOW(), '$ip')";
 
 
         mysqli_select_db($connect, $database);

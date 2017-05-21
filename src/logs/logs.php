@@ -18,15 +18,17 @@
 
         echo $rows['log_user'] . ' added a new bug on '. $clean_date . '.<br>';
 
-        } else if ($rows['action'] == 'D') {
-
-          echo $rows['log_user'] . ' has deleted the bug ID '. $rows['action_value'] . '.<br>';
+        }
+        else if ($rows['action'] == 'D') {
+        echo $rows['log_user'] . ' has deleted the bug ID '. $rows['action_value'] . '.<br>';
 
         }
+
        else if ($rows['action'] == 'AU') {
         echo $rows['log_user'] . ' created the user ' . $rows['action_value']. '.<br>';
 
         }
+
         else if ($rows['action'] == 'RU') {
        echo $rows['log_user'] . ' removed user ID '. $rows['action_value']. '.<br>';
 

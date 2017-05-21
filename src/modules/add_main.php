@@ -22,7 +22,7 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW())";
+        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW() )";
         $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','A','{$_SESSION['username']}', '$title', NOW(), '$ip')";
 
         mysqli_select_db($connect, $database);
@@ -72,11 +72,10 @@ $error = "";
       <option value="Customization">Customization</option>
       <option value="Other">Other</option>
     </select><br />
-    <button type="submit" name="add_main" id="add-button">Submit</button>
+    <button type="submit" name="add_main" id="add-button" onClick="checkAdd()">Submit</button>
     <button name="cancel">Cancel</button>
   </form>
   </div>
-  <script type='text/javascript' src='src/js/view.js'></script>
 </body>
 </html>
 <script>

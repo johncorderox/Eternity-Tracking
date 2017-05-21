@@ -268,25 +268,27 @@ li:active {
   margin-top: 10px;
 }
 
-
 .request-container textarea {
   width: 500px;
 }
 
 .account_requests_view {
-
-text-align: center;
+  text-align: center;
 }
 
 .account_requests_view button {
-
-height: 40px;
-
+  height: 40px;
 }
-.main-info a:nth-child(6) {
 
+.main-info a:nth-child(6) {
   cursor: pointer;
 }
+
+.error-form {
+
+  color: red;
+}
+
 /* Table CSS Layout and Design */
 
 table {
@@ -298,7 +300,6 @@ table {
   overflow: hidden;
   text-align: center;
 }
-
 
 th {
   background: #42444e;
