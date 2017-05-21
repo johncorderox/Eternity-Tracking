@@ -10,7 +10,7 @@ include('../config/config.php');
     $sql .= "FROM users ";
     $sql .= "WHERE username = '$logged'";
 
-    $result = mysqli_query($connect, $sql);
+    $result = $connect->query($sql);
     while ($row = mysqli_fetch_assoc($result)) {
 
       $email = $row['email'];
@@ -80,7 +80,7 @@ include('../config/config.php');
             $new_email = email_clean($_POST['new_email']);
 
             $sql_email = "UPDATE users SET email = '$new_email' WHERE username = '{$_SESSION['username']}'";
-            $result = mysqli_query($connect, $sql_email);
+            $connect->query($sql_email);
             echo '<script type="text/javascript">
                   display_input_message(9);
                   </script>';
@@ -92,7 +92,7 @@ include('../config/config.php');
   if (isset($_POST['submit_count'])) {
 
     $sql_count = "UPDATE users SET account_count = 0 WHERE username = '{$_SESSION['username']}'";
-    mysqli_query($connect, $sql_count);
+    $connect->query($sql_count);
 
     header("Location: main.php");
 

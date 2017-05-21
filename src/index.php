@@ -27,19 +27,19 @@ if (isset($_POST['submit'])) {
   $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$ip'";
   $query_add .= "WHERE username = '$username_l'";
 
-  $result = mysqli_query($connect, $query);
+  $result = $connect->query($query);
 
-  $num_of_rows = mysqli_num_rows($result);
 
-    if ($num_of_rows == 1) {
 
-      mysqli_query($connect, $query_add);
+    if ($result->num_rows == 1) {
+
+      $connect->query($query_add);
 
       $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
         (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
        '$username_l','Success', NOW(),'$ip')";
 
-      mysqli_query($connect, $sql_login_success)or die(mysqli_error($connect));
+      $connect->query($sql_login_success);
       $_SESSION['username'] = $username_l;
       header("Location: modules/main.php?login=1");
 
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
           $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
           ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
-           mysqli_query($connect, $sql_login_error) or die(mysqli_error($connect));
+           $connect->query($sql_login_error);
            $message = "Invalid Credentials.";
 
         }
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-mysqli_close($connect);
+$connect->close();
 
 ?>
 

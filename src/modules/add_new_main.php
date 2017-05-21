@@ -32,16 +32,19 @@ if(isset($_POST['submit_newuser'])) {
 
       mysqli_select_db($connect, $database);
 
-      $query = mysqli_query($connect, $test) or die(mysqli_error($connect));
 
-      if (mysqli_num_rows($query) > 0) {
+      $query = $connect->query($test);
+
+      if ($query->num_rows > 0) {
 
         showError();
 
       } else {
 
-        $result = mysqli_query($connect, $sql);
-        mysqli_query($connect, $sql_log);
+      $result = $connect->query($sql);
+                $connect->query($sql_log);
+
+
            if ($result) {
 
               header("Location: main.php?newuser=1");

@@ -27,10 +27,8 @@ $error = "";
 
         mysqli_select_db($connect, $database);
 
-        mysqli_query($connect, $sql) or die (mysqli_error($connect));
-        mysqli_query($connect, $sql_log);
-        mysqli_close($connect);
-
+        $connect->query($sql);
+        $connect->query($sql_log);
 
         header("location: main.php?successbug=1");
 

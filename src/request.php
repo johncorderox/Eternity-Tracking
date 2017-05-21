@@ -42,13 +42,13 @@ if(isset($_POST['send_request'])) {
             $sql_username = "SELECT username FROM users WHERE username = '$username'";
             $sql_email = "SELECT email FROM users WHERE email = '$email'";
 
-            $result_user = mysqli_query($connect, $sql_username);
-            $result_email = mysqli_query($connect, $sql_email);
+            $result_user = $connect->query($sql_username);
+            $result_email = $connect->query($sql_email);
 
-              if(mysqli_num_rows($result_user) >= 1) {
+              if($result_user->num_rows >= 1) {
 
                 echo "Username Taken";
-              } else if (mysqli_num_rows($result_email)) {
+              } else if ($result_email->num_rows) {
 
                 echo "email taken!";
               }
@@ -57,7 +57,7 @@ if(isset($_POST['send_request'])) {
                   $sql_request = "INSERT INTO `requests` (first_name, last_name, username, password, email, message, date, ip)
                   VALUES ('$first', '$last', '$username','$password','$email', '$message', NOW(), '$ip');
                   ";
-                  $result_request = mysqli_query($connect, $sql_request) or die(mysqli_error($connect));
+                  $result_request = $connect->query($sql_request);
                   if($result_request) {
 
                       header("Location: index.php?request=1");
