@@ -3,11 +3,11 @@
     $sql = "SELECT id, title, message, priority, category FROM bugs";
     mysqli_select_db($connect, $database);
 
-    $result = mysqli_query($connect, $sql);
+    $result = $connect->query($sql);
 
 
     echo "<table><tr><th>ID: </th><th>Title</th><th>Actions</th>";
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($row = $result->fetch_assoc()) {
 
         echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
         "</td><td>".

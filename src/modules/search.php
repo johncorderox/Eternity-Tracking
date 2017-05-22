@@ -18,12 +18,13 @@
                $sql_search = "SELECT * FROM bugs WHERE message LIKE '%".$search."%'";
 
                mysqli_select_db($connect, $database);
-               $result = mysqli_query($connect, $sql_search);
-               $result_count = mysqli_num_rows($result);
+
+               $result = $connect->query($sql_search);
+               $result_count = $result->num_rows;
 
                echo "<div id=\"table_bugs\">";
                echo "<table><tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th><th>User</th>";
-               while($row = mysqli_fetch_assoc($result)) {
+               while($row = $result->fetch_assoc()) {
 
                    echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
                    "</td><td>".$row["message"]."</td><td>".$row["priority"]."</td><td>".$row["category"]."</td><td>".$row["reported_by"]."</td></tr>";

@@ -91,6 +91,18 @@ PRIMARY KEY (`request_id`)
 
 );
 
+CREATE TABLE IF NOT EXISTS `comments` (
+
+`comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+`bug_id`  int(11) unsigned NOT NULL,
+`comment` varchar(255) NOT NULL,
+`comment_by` varchar(23) NOT NULL,
+`date` datetime NOT NULL,
+`ip` varchar(100) NOT NULL default '0',
+PRIMARY KEY (`comment_id`)
+
+);
+
 -- CREATES DEFAULT ACCOUNT SO NEW USERS CAN LOG IN
 
 -- ADMIN / GUEST

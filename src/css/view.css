@@ -64,3 +64,10 @@ margin-right: 5%;
 
   float: right;
 }
+
+/* Comment Section*/
+.comment_view {
+
+  width: 450px;
+  margin-left: 30%;
+}

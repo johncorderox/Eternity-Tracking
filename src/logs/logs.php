@@ -7,8 +7,8 @@
   <?php
 
   $query_logs = "SELECT * from logs ORDER BY `action_id` DESC";
-  $result = mysqli_query($connect, $query_logs);
-    while($rows=mysqli_fetch_assoc($result)) {
+  $result = $connect->query($query_logs);
+    while($rows= $result->fetch_assoc()) {
 
         echo "<hr id=\"hr_logs\">";
         if ($rows['action'] == 'A') {

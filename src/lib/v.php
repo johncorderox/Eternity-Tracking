@@ -10,6 +10,8 @@ $title    = $_POST['title'];
 $category = $_POST['category'];
 $priority = $_POST['priority'];
 $message  = $_POST['message'];
+$user     = $_SESSION['username'];
+$ip       = $_SERVER['REMOTE_ADDR'];
 
 if (isset($_POST['cancel'])) {
 
@@ -21,11 +23,8 @@ if (isset($_POST['save'])) {
 
       $sql = "UPDATE bugs SET title = '$title', category = '$category', priority = '$priority', message = '$message' WHERE id = '$id' ";
 
-      mysqli_query($connect, $sql) or die(mysqli_error($connect));
-
+      $connect->query($sql);
       header("Location: ../modules/main.php?savebug=1");
-
-
 
 
 }
@@ -40,16 +39,35 @@ if (isset($_POST['delete'])) {
         mysqli_select_db($connect, $database);
 
           // Moves data into another table
-          mysqli_query($connect, $sql_copy) or die(mysqli_error($connect));
+          $connect->query($sql_copy);
           // Adds remaining values to new table
-          mysqli_query($connect, $sql_insert) or die(mysqli_error($connect));
+          $connect->query($sql_insert);
           // Deletes the bug ID number
-          mysqli_query($connect, $sql);
+          $connect->query($sql);
           // Logs the deleted bug
-          mysqli_query($connect, $sql_log);
+          $connect->query($sql_log);
           // Successful redirect
           header("Location: ../modules/main.php?deletebug=1");
 
+
+}
+
+if (isset($_POST['add_comment'])) {
+
+  $comment = $_POST['comment'];
+
+    if($comment == "") {
+
+
+    }
+
+    $sql_insert = "INSERT INTO `comments` (comment_id, bug_id, comment, comment_by, date, ip) VALUES('', '$id', '$comment', '$user', NOW(), '$ip')";
+    $result = $connect->query($sql_insert) or die ($connect->error);
+
+    if ($result) {
+
+      header("location: ../modules/main.php");
+    }
 
 }
 

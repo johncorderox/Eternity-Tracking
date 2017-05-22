@@ -5,6 +5,8 @@ include ('../config/config.php');
 ob_start();
 session_start();
 
+$error_comment = "";
+
 $logged = $_SESSION['username'];
 
   if (!isset($_SESSION['username'])) {
@@ -22,9 +24,9 @@ $logged = $_SESSION['username'];
       $sql .= "FROM bugs ";
       $sql .= "WHERE id = '$id' ";
 
-      $result = mysqli_query($connect, $sql);
+      $result = $connect->query($sql);
 
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($row = $result->fetch_assoc()) {
 
           $bug_id   =   $row['id'];
           $title    =   $row['title'];
@@ -39,18 +41,18 @@ $logged = $_SESSION['username'];
 
  }
 
-
  ?>
- <head>
-   <meta charset="UTF-8">
-   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-   <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-   <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
-   <link href="../css/view.css" rel="stylesheet" />
-   <div class="header-name">
-   <a href="main.php"><h3>Eternity Tracking</h3></a>
-     </div><br />
- </head>
+ <html>
+   <head>
+     <meta charset="UTF-8">
+     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+     <link href="../css/view.css" rel="stylesheet" />
+     <div class="header-name">
+     <a href="main.php"><h3>Eternity Tracking</h3></a>
+       </div><br />
+   </head>
  <body>
   <div main="main_content">
     <div class="panel panel-default">
@@ -70,33 +72,43 @@ $logged = $_SESSION['username'];
                <option value="None">None</option>
                <option value="Other">Other</option>
              </select>
-             <label for="select_box_priority">Category: </label>
-               <select  name="category" class="form-control" id="select_box">
-                 <option value="None">None</option>
-                 <option value="Administration">Administration</option>
-                 <option value="Feature">Feature</option>
-                 <option value="Security">Security</option>
-                 <option value="Database">Database</option>
-                 <option value="Email">Email</option>
-                 <option value="Enhancement">Enhancement</option>
-                 <option value="Customization">Customization</option>
-                 <option value="Other">Other</option>
-               </select><br />
-              <label for="message">Message: </label>
-            <p id="date_display"><b>Date Reported: </b> <i><?php echo $clean_date; ?></i></p>
-           <textarea class="form-control" id="message" name="message" rows="7"><?php echo $message; ?></textarea><br />
-            <div class="button-center">
-            <button type="submit" class="btn btn-primary" name="save" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
-            <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
-            <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
+               <label for="select_box_priority">Category: </label>
+                 <select  name="category" class="form-control" id="select_box">
+                   <option value="None">None</option>
+                   <option value="Administration">Administration</option>
+                   <option value="Feature">Feature</option>
+                   <option value="Security">Security</option>
+                   <option value="Database">Database</option>
+                   <option value="Email">Email</option>
+                   <option value="Enhancement">Enhancement</option>
+                   <option value="Customization">Customization</option>
+                   <option value="Other">Other</option>
+                 </select><br />
+                <label for="message">Message: </label>
+              <p id="date_display"><b>Date Reported: </b> <i><?php echo $clean_date; ?></i></p>
+             <textarea class="form-control" id="message" name="message" rows="7"><?php echo $message; ?></textarea><br />
+              <div class="button-center">
+              <button type="submit" class="btn btn-primary" name="save" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
+              <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
+              <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
+                <button type="button" class="btn btn-info" onClick="showComments()">Comment <span class="glyphicon glyphicon-edit"></span></button>
+              </div>
+             </div>
           </div>
-         </div>
-       </form>
+          </div>
+          <!-- here is the comment section -->
+          <div class="comment_view">
+            <?php echo $error_comment; ?>
+              <textarea class="form-control" id="message" name="comment" rows="5"></textarea><br />
+              <button type="submit" class="btn btn-warning" name="add_comment" id="save">Add Comment </button>
+              <button type="button" class="btn btn-warning" onClick="showComments()"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+            </form>
+          </div>
       </div>
-     </div>
-    </div>
-  </body>
- <script>
+    </body>
+    <script type='text/javascript' src='../js/forms.js'></script>
+  </html>
+   <script>
  $(document).ready(function() {
 
 $('#hiddenInput').hide();
