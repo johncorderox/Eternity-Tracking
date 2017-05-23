@@ -100,7 +100,7 @@ $logged = $_SESSION['username'];
           <div class="comment_view">
             <?php echo $error_comment; ?>
               <textarea class="form-control" id="message" name="comment" rows="5"></textarea><br />
-              <button type="submit" class="btn btn-warning" name="add_comment" id="save">Add Comment </button>
+              <button type="submit" class="btn btn-warning" name="add_comment" onclick="checkComment()" id="save">Add Comment </button>
               <button type="button" class="btn btn-warning" onClick="showComments()"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
