@@ -16,6 +16,7 @@ $logged = $_SESSION['username'];
 
   }
 
+
   if (isset($_POST['id']) && $_POST['id'] != NULL) {
 
       $id = $_POST['id'];
@@ -48,6 +49,7 @@ $logged = $_SESSION['username'];
      <script src="../bower_components/jquery/dist/jquery.min.js"></script>
      <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
      <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+       <script src="../bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script>
      <link href="../css/view.css" rel="stylesheet" />
      <div class="header-name">
      <a href="main.php"><h3>Eternity Tracking</h3></a>
@@ -91,17 +93,16 @@ $logged = $_SESSION['username'];
               <button type="submit" class="btn btn-primary" name="save" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
               <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
               <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
-                <button type="button" class="btn btn-info" onClick="showComments()">Comment <span class="glyphicon glyphicon-edit"></span></button>
+                <button type="button" class="btn btn-info" onClick="showComments(1)">Comment <span class="glyphicon glyphicon-edit"></span></button>
               </div>
              </div>
           </div>
           </div>
           <!-- here is the comment section -->
           <div class="comment_view">
-            <?php echo $error_comment; ?>
               <textarea class="form-control" id="message" name="comment" rows="5"></textarea><br />
-              <button type="submit" class="btn btn-warning" name="add_comment" onclick="checkComment()" id="save">Add Comment </button>
-              <button type="button" class="btn btn-warning" onClick="showComments()"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+              <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment">Add Comment </button>
+              <button type="button" class="btn btn-warning" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
       </div>

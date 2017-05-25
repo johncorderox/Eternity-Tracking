@@ -58,16 +58,18 @@ if (isset($_POST['add_comment'])) {
 
     if($comment == "") {
 
+      header("Location: ../modules/main.php");
 
     }
 
     $sql_insert = "INSERT INTO `comments` (comment_id, bug_id, comment, comment_by, date, ip) VALUES('', '$id', '$comment', '$user', NOW(), '$ip')";
-  /*  $result = $connect->query($sql_insert) or die ($connect->error);
-    if ($result) {
 
-      header("location: ../modules/main.php");
-    }
-*/
+     $result = $connect->query($sql_insert) or die ($connect->error);
+     if ($result) {
+
+        header("location: ../modules/main.php");
+      }
+
 }
 
 

@@ -18,6 +18,7 @@
     "bootstrap": "^3.3.7"
   },
   "dependencies": {
-    "bootstrap-growl": "^1.1.0"
+    "bootstrap-growl": "^1.1.0",
+    "jquery.scrollTo": "^2.1.2"
   }
 }

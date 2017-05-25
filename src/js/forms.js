@@ -1,16 +1,40 @@
-function showComments() {
+$(document).ready(function() {
+
+  var message = $('#message').val();
+  var comment = $('#add_comment');
+
+  comment.attr("disabled", "disabled");
+
+  $('.comment_view').hide();
 
 
-}
+  $('.comment_view textarea').keypress(function() {
 
-function checkComment() {
+    if (message.length >= 1) {
 
-  var comment = document.getElementById('message');
+      $('#add_comment').removeAttr("disabled");
 
-  if (!comment) {
+    }
 
-    alert("No comment was added.");
-    return;
+  });
+
+});
+
+function showComments(a) {
+
+  if (a === 1) {
+
+    $('.comment_view').show();
+
+    $('body').scrollTo('.comment_view', {
+      duration: 300
+    });
+
+
+  } else {
+
+    $('.comment_view').hide();
   }
+
 
 }
