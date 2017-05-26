@@ -5,9 +5,18 @@ include ('../config/config.php');
 ob_start();
 session_start();
 
-$error_comment = "";
-
 $logged = $_SESSION['username'];
+
+
+  // code to fetch comments on load
+
+  $sql_fetch_comments  = "SELECT `comment`, `comment_by`, `date` ";
+  $sql_fetch_comments .= "FROM `comments` ";
+  $sql_fetch_comments .= "WHERE `bug_id` = '$bug_id'";
+
+  $result = $connect->query($sql_fetch_comments);
+
+
 
   if (!isset($_SESSION['username'])) {
 
