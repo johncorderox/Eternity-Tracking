@@ -7,17 +7,6 @@ session_start();
 
 $logged = $_SESSION['username'];
 
-
-  // code to fetch comments on load
-
-  $sql_fetch_comments  = "SELECT `comment`, `comment_by`, `date` ";
-  $sql_fetch_comments .= "FROM `comments` ";
-  $sql_fetch_comments .= "WHERE `bug_id` = '$bug_id'";
-
-  $result = $connect->query($sql_fetch_comments);
-
-
-
   if (!isset($_SESSION['username'])) {
 
       header("Location: index.php");
@@ -114,6 +103,7 @@ $logged = $_SESSION['username'];
               <button type="button" class="btn btn-warning" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
+          <?php include ('../tables/comment_table.php'); ?>
       </div>
     </body>
     <script type='text/javascript' src='../js/forms.js'></script>

@@ -24,7 +24,7 @@ function showComments(a) {
 
   if (a === 1) {
 
-    $('.comment_view').show();
+    $('.comment_view').toggle();
 
     $('body').scrollTo('.comment_view', {
       duration: 300

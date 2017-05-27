@@ -51,7 +51,6 @@ if (isset($_POST['delete'])) {
 
 
 }
-
 if (isset($_POST['add_comment'])) {
 
   $comment = $_POST['comment'];
@@ -67,10 +66,8 @@ if (isset($_POST['add_comment'])) {
      $result = $connect->query($sql_insert) or die ($connect->error);
      if ($result) {
 
-        header("location: ../modules/main.php");
+        header("Location: ../modules/main.php?successcomment=1");
       }
 
 }
-
-
  ?>

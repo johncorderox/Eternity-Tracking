@@ -149,6 +149,12 @@ if (isset($_GET['accept']) && $_GET['accept']=='1') {
 
 }
 
+if (isset($_GET['successcomment']) && $_GET['successcomment']=='1') {
 
+  echo '<script type="text/javascript">
+        display_input_message(11);
+        </script>';
+
+}
 
  ?>
