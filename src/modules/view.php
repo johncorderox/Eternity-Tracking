@@ -1,6 +1,7 @@
 <?php
 
 include ('../config/config.php');
+include ('../lib/functions.php');
 
 ob_start();
 session_start();
@@ -96,7 +97,6 @@ $logged = $_SESSION['username'];
              </div>
           </div>
           </div>
-          <!-- here is the comment section -->
           <div class="comment_view">
               <textarea class="form-control" id="message" name="comment" rows="5"></textarea><br />
               <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment">Add Comment </button>

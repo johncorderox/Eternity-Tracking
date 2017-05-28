@@ -13,6 +13,8 @@ $error = "";
     $category = $_POST['category'];
     $ip = $_SERVER['REMOTE_ADDR'];
 
+    $title = mysqli_real_escape_string($connect, $title);
+    $message = mysqli_real_escape_string($connect, $message);
 
     if (empty($title) || empty($message)) {
 

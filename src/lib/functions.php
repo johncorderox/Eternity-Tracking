@@ -131,6 +131,10 @@ function getReported ($x) {
   }
 }
 
+// Counts the number of request sent by the view
+//
+// allows users to accept and deny request @ request.php
+
 function getRequest () {
 
   global $connect;
@@ -146,4 +150,5 @@ function getRequest () {
 
 
 }
+
  ?>

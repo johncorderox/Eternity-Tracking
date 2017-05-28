@@ -20,10 +20,10 @@ if(isset($_POST['submit_newuser'])) {
 
       } else {
 
-      $username = trims($_POST['username']);
-      $password = trims($_POST['password']);
+      $username = trims(mysqli_escape_string($connect, $_POST['username']));
+      $password = trims(mysqli_escape_string($connect, $_POST['password']));
       $password = md5($password);
-      $email = trims($_POST['email']);
+      $email = trims(mysqli_escape_string($connect, $_POST['email']));
       $email = email_clean($email);
       $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";

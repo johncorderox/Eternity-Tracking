@@ -23,9 +23,9 @@ include('../config/config.php');
 
   if (isset($_POST['submit_newpass'])) {
 
-    $password = trims($_POST['password']);
-    $password_new1 = trims($_POST['password_new1']);
-    $password_new2 = trims($_POST['password_new2']);
+    $password = trims(mysqli_escape_string($connect,$_POST['password']));
+    $password_new1 = trims(mysqli_escape_string($connect,$_POST['password_new1']));
+    $password_new2 = trims(mysqli_escape_string($connect,$_POST['password_new2']));
 
     if (empty($password) or (empty($password_new1)) or (empty($password_new2))) {
 
@@ -115,6 +115,7 @@ include('../config/config.php');
       <p>Email: <?php echo $email; ?></p>
       <p>Login Count: <?php echo $account_count; ?> </p>
       <p>Last IP: <?php echo $ip; ?> </p><br />
+      <hr />
       <p>Number of bugs reported: <?php echo getReported(1); ?></p>
       <p>Number of bugs deleted: <?php echo getReported(2); ?> </p>
     </div>

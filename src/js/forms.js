@@ -34,6 +34,7 @@ function showComments(a) {
   } else {
 
     $('.comment_view').hide();
+
   }
 
 

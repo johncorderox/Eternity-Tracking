@@ -14,7 +14,7 @@
 
          } else {
 
-               $search= trims($_POST['search']);
+               $search= trims(mysqli_escape_string($connect, $_POST['search']));
                $sql_search = "SELECT * FROM bugs WHERE message LIKE '%".$search."%'";
 
                mysqli_select_db($connect, $database);

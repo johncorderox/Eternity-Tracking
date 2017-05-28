@@ -11,14 +11,14 @@ if (isset($_POST['cancel'])) {
 
 if(isset($_POST['send_request'])) {
 
-  $first    = trims($_POST['first_name']);
-  $last     = trims($_POST['last_name']);
-  $username = trims($_POST['username']);
-  $email    = trims($_POST['email']);
+  $first    = trims(mysqli_escape_string($connect, $_POST['first_name']));
+  $last     = trims(mysqli_escape_string($connect,$_POST['last_name']));
+  $username = trims(mysqli_escape_string($connect,$_POST['username']));
+  $email    = trims(mysqli_escape_string($connect,$_POST['email']));
   $email    = email_clean($email);
-  $password = trims($_POST['password']);
+  $password = trims(mysqli_escape_string($connect,$_POST['password']));
   $password = md5($password);
-  $message  = trims($_POST['message']);
+  $message  = trims(mysqli_escape_string($connect,$_POST['message']));
   $ip       = $_SERVER['REMOTE_ADDR'];
 
     if (empty($first)) {

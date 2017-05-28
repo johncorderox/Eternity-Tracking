@@ -11,13 +11,14 @@ include("../lib/secure.php");
 
       if (is_numeric($_POST['delete_id'])) {
 
-      $id = trims($_POST['delete_id']);
+      $id = trims(mysqli_escape_string($connect, $_POST['delete_id']));
       $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
       $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT `id`,`title`, `message`, `priority` from bugs WHERE id = '$id'";
       $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW() WHERE id = '$id'";
       $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$id', NOW(), '$ip')";
+      $sql_delete_comments = "DELETE FROM comments WHERE bug_id = '$id' ";
 
             mysqli_select_db($connect, $database);
 
@@ -26,13 +27,15 @@ include("../lib/secure.php");
             if($query->num_rows > 0 ) {
 
               // Moves data into another table
-              $query = $connect->query($sql_copy);
+              $connect->query($sql_copy);
               // Adds remaining values to new table
-              $query = $connect->query($sql_insert);
+              $connect->query($sql_insert);
               // Deletes the bug ID number
-              $query = $connect->query($sql);
+              $connect->query($sql);
               // Logs the deleted bug
-              $query = $connect->query($sql_log);
+              $connect->query($sql_log);
+              // Deletes all comments associated
+              $connect->query($sql_delete_comments);
               // Successful redirect
               header("Location: main.php?deletebug=1");
               mysqli_close($connect);

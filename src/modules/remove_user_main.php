@@ -14,7 +14,7 @@ if (isset($_POST['submit_remove'])) {
 
   if (!empty($_POST['delete_user']) && is_numeric($_POST['delete_user'])) {
 
-      $id = trims($_POST['delete_user']);
+      $id = trims(mysqli_escape_string($connect, $_POST['delete_user']));
       $reason = $_POST['option_radio'];
       $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "DELETE FROM users WHERE account_id = " .$id;

@@ -12,8 +12,8 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-  $username_l = trims($_POST['username']);
-  $password_l = trims($_POST['password']);
+  $username_l = trims(mysqli_escape_string($connect, $_POST['username']));
+  $password_l = trims(mysqli_escape_string($connect,$_POST['password']));
   $password_l = md5($password_l);
   $ip = $_SERVER['REMOTE_ADDR'];
 

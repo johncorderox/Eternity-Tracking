@@ -157,4 +157,12 @@ if (isset($_GET['successcomment']) && $_GET['successcomment']=='1') {
 
 }
 
+if (isset($_GET['deletecomment']) && $_GET['deletecomment']=='1') {
+
+  echo '<script type="text/javascript">
+        display_input_message(12);
+        </script>';
+
+}
+
  ?>

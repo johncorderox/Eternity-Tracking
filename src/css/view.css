@@ -70,4 +70,13 @@ margin-right: 5%;
 
   width: 450px;
   margin-left: 30%;
+  margin-bottom: 20px;
+}
+
+.container button {
+
+  width: 25px;
+  height: 25px;
+  float: right;
+
 }
