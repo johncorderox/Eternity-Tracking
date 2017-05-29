@@ -26,10 +26,10 @@ $password = 'YourPassword';
 $database = 'tracking';
 
 ```
-<h3>Features </h3><br>
-- Multiple Users<br>
-- Account Settings<br>
-- Bug Review<br>
-- Log System<br>
-- Error Log System<br>
-- Account Requests
+## Features:
+- **Login System** - Contains styles to demonstrate Hover. Not required in your projects
+- **Account Requests** - Allows outside users to request access
+- **Logging System ** - Captures and stores actions inside the CP into the DB for reference 
+- **Comments** - Comment and review bugs for in depth analysis 
+- **Account Settings** - Password Changes, Email changes
+
