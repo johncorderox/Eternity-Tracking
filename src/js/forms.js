@@ -22,6 +22,8 @@ $(document).ready(function() {
 
 function showComments(a) {
 
+
+
   if (a === 1) {
 
     $('.comment_view').toggle();
@@ -29,7 +31,6 @@ function showComments(a) {
     $('body').scrollTo('.comment_view', {
       duration: 300
     });
-
 
   } else {
 
