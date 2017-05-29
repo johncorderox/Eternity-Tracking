@@ -5,7 +5,7 @@
 <a href="https://eternity-tracking.000webhostapp.com/Eternity-Tracking-backend-dev/Eternity-Tracking-backend-dev/src/index.php">Demo</a>
 </p><br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within a system. Includes Account management and web application security. An easy-to-install program that allows developers to build off of.<br>
-<a href="http://tinypic.com?ref=2q9jm0h" target="_blank"><img src="http://i65.tinypic.com/2q9jm0h.png" border="0" ></a><br>
+<a href="http://tinypic.com?ref=2na6105" target="_blank"><img src="http://i67.tinypic.com/2na6105.jpg" border="0"></a><br>
 <h3>Requirements</h3>
 PHP 5.4+ <br>
 MySQL 5+<br>
@@ -32,4 +32,4 @@ $database = 'tracking';
 - Bug Review<br>
 - Log System<br>
 - Error Log System<br>
-- Account Requests 
+- Account Requests
