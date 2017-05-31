@@ -18,7 +18,14 @@ if(isset($_POST['submit_newuser'])) {
 
           showError();
 
-      } else {
+      }
+
+      else if (sizeof($_POST['password']) < $MinPasswordLength || sizeof($_POST['password']) > $MaxPasswordLength) {
+
+            showError();
+      }
+
+      else {
 
       $username = trims(mysqli_escape_string($connect, $_POST['username']));
       $password = trims(mysqli_escape_string($connect, $_POST['password']));
@@ -75,8 +82,9 @@ if(isset($_POST['submit_newuser'])) {
         Please enter desired Username and Password.</p>
       <br />
       <p>
-          Username and Password must be longer than 7 characters.<br />
-          Please make both fields unique for the account. Numbers and Letters.<br />
+          Username and Password must be longer than 8 characters.<br />
+          Password must not exceed <?php echo $MaxPasswordLength; ?> characters.<br />
+          Email field must be in standard email format: abcdefg@email.com<br />
       <br />
       </p>
     <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />

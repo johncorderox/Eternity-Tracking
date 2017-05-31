@@ -30,7 +30,6 @@ if (isset($_POST['submit'])) {
   $result = $connect->query($query);
 
 
-
     if ($result->num_rows == 1) {
 
       $connect->query($query_add);
@@ -47,6 +46,8 @@ if (isset($_POST['submit'])) {
 
           $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
           ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
+
+
            $connect->query($sql_login_error);
            $message = "Invalid Credentials.";
 

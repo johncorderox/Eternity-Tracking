@@ -19,7 +19,7 @@ while ($row = $result->fetch_assoc()) {
 echo  "<form action=\"../lib/v.php\" method=\"POST\">";
 echo  "<div class=\"panel panel-default\">";
 echo  "<div class=\"panel-heading\"> "."Comment by: ".$comment_by_fetch." on ".$clean_date.
-      "<button type=\'submit\' class=\"view_buttom\" name =\"delete_comment\" value='".$row['comment_id']."' />X</button>";
+      "<button type=\'submit\' id=\"delete_comment_button\" name =\"delete_comment\" value='".$row['comment_id']."' />X</button>";
 echo "</div>";
 echo  "<div class=\"panel-body\">".$comment_fetch."</div>";
 echo  "</div>";

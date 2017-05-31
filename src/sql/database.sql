@@ -58,7 +58,6 @@ CREATE TABLE IF NOT EXISTS `login_log` (
 `account_id` int(11) unsigned,
 `username` varchar(23) NOT NULL,
 `error_message` varchar(100) NOT NULL default 'UNKNOWN',
-`login_attemps` int(11) unsigned,
 `date` datetime NOT NULL,
 `ip` varchar(100) NOT NULL default '0',
 PRIMARY KEY (`log_id`)

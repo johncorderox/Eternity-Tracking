@@ -1,58 +1,53 @@
 @font-face {
-    font-family: 'Lato-Thin';
-    src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Lato-Thin';
+  src: url('fonts/lato-thin-webfont.woff2') format('woff2'), url('fonts/lato-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Lato-Thin;
-    font-size: 40px;
+  font-family: Lato-Thin;
+  font-size: 40px;
 }
 
 .header-name {
-    margin-left: 30px;
-    width: 96%;
+  margin-left: 30px;
+  width: 96%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #6b6d6c;
-    text-decoration: none;
-    cursor: pointer;
+  color: #6b6d6c;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
-.glyphicon-check,
-.glyphicon-trash {
-
+.glyphicon-check, .glyphicon-trash {
   margin-left: 7px;
 }
 
 button {
-
-height: 45px;
-width: 120px;
-margin-right: 5%;
-
+  height: 45px;
+  width: 120px;
+  margin-right: 5%;
 }
 
 .button-center {
   text-align: center;
 }
 
-
 #larger {
-    font-size: 18px;
-    font-weight: 400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 #select_box {
@@ -61,22 +56,38 @@ margin-right: 5%;
 }
 
 #date_display {
-
   float: right;
 }
 
-/* Comment Section*/
-.comment_view {
 
+/* Comment Section*/
+
+.comment_view {
   width: 450px;
   margin-left: 30%;
   margin-bottom: 20px;
 }
 
 .container button {
-
   width: 25px;
   height: 25px;
   float: right;
+}
 
+#delete_comment_button {
+
+  background-color: white;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: black;
+}
+
+#delete_comment_button:active {
+
+background-color: gray;
+}
+#delete_comment_button:hover {
+
+opacity: 0.2;
 }

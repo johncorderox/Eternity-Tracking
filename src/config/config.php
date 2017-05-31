@@ -7,6 +7,8 @@ $database = 'tracking';                     // Database name to host Tracking Ta
 
 $company_name = "Eternity LLC";             // Company Name for main module
 
+$MinPasswordLength = 8;                     // Password Length variable
+$MaxPasswordLength = 32;                    // Max Password Legnth. DO NOT INCREASE WITHOUT CONSULTING THE SQL TABLE
 
 $connect = new mysqli("$servername", "$username", "$password", "$database");
 
