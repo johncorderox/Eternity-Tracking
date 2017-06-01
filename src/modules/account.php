@@ -98,6 +98,40 @@ include('../config/config.php');
 
   }
 
+  if (isset($_POST['delete_account'])) {
+
+    $user_to_delete = $_SESSION['username'];
+
+    $sql_delete_user  = "SELECT `username` ";
+    $sql_delete_user .= "FROM users ";
+    $sql_delete_user .= "WHERE username = '$user_to_delete' ";
+
+    // add check if one user is left.
+    $sql_user_check  = "SELECT * FROM users ";
+
+    $result = $connect->query($sql_user_check);
+
+    if($result->num_rows <= 1) {
+
+      echo "Cannot delete when 1 account is left!";
+    } else {
+
+        $sql  = "DELETE * FROM users ";
+        $sql .= "WHERE username = '$user_to_delete' ";
+
+        $result_delete = $connect->query($sql);
+
+        if ($result_delete) {
+
+          header("Location: index.php");
+
+        }
+
+    }
+
+  }
+
+
  ?>
  <body>
    <div class="account_settings">
@@ -117,7 +151,13 @@ include('../config/config.php');
       <p>Last IP: <?php echo $ip; ?> </p><br />
       <hr />
       <p>Number of bugs reported: <?php echo getReported(1); ?></p>
-      <p>Number of bugs deleted: <?php echo getReported(2); ?> </p>
+      <p>Number of bugs deleted: <?php echo getReported(2); ?> </p><br /><br />
+      <br />
+      <br />
+      <br />
+      <form action="account.php" method="POST">
+        <button type="submit" name="delete_account">Delete My Account</button>
+      </form>
     </div>
     <div class="changePassword">
       <form action="account.php" method="POST">

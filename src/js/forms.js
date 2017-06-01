@@ -23,7 +23,6 @@ $(document).ready(function() {
 function showComments(a) {
 
 
-
   if (a === 1) {
 
     $('.comment_view').toggle();
