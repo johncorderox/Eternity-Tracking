@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
   var message = $('#message').val();
-  var comment = $('#add_comment');
+  var comment_button = $('#add_comment');
 
-  comment.attr("disabled", "disabled");
+  comment_button.attr("disabled", "disabled");
 
   $('.comment_view').hide();
 
@@ -18,9 +18,11 @@ $(document).ready(function() {
 
   });
 
+
 });
 
 function showComments(a) {
+
 
 
   if (a === 1) {
@@ -33,7 +35,9 @@ function showComments(a) {
 
   } else {
 
+
     $('.comment_view').hide();
+
 
   }
 

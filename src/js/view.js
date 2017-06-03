@@ -188,54 +188,54 @@ function display_input_message(n) {
       });
       break;
 
-      case 10:
-        $.bootstrapGrowl("Account Request Sucessfully Sent!", {
-          ele: 'body',
-          type: 'success',
-          align: 'right',
-          offset: {
-            from: 'top',
-            amount: 40
-          },
-          width: 450,
-          delay: 3000,
-          allow_dismiss: true,
-          stackup_spacing: 10
-        });
-        break;
+    case 10:
+      $.bootstrapGrowl("Account Request Sucessfully Sent!", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 40
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
-        case 11:
-          $.bootstrapGrowl("Comment added!", {
-            ele: 'body',
-            type: 'success',
-            align: 'right',
-            offset: {
-              from: 'top',
-              amount: 40
-            },
-            width: 450,
-            delay: 3000,
-            allow_dismiss: true,
-            stackup_spacing: 10
-          });
-          break;
+    case 11:
+      $.bootstrapGrowl("Comment added!", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 40
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
 
-          case 12:
-            $.bootstrapGrowl("Comment has been deleted!!", {
-              ele: 'body',
-              type: 'success',
-              align: 'right',
-              offset: {
-                from: 'top',
-                amount: 40
-              },
-              width: 450,
-              delay: 3000,
-              allow_dismiss: true,
-              stackup_spacing: 10
-            });
-            break;
+    case 12:
+      $.bootstrapGrowl("Comment has been deleted!!", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 40
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
 
 
@@ -271,4 +271,11 @@ function reveal(x) {
     default:
 
   }
+}
+
+function hideLogs() {
+
+    $('#open').hide();
+
+
 }

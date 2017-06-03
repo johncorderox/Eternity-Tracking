@@ -106,7 +106,6 @@ include('../config/config.php');
     $sql_delete_user .= "FROM users ";
     $sql_delete_user .= "WHERE username = '$user_to_delete' ";
 
-    // add check if one user is left.
     $sql_user_check  = "SELECT * FROM users ";
 
     $result = $connect->query($sql_user_check);

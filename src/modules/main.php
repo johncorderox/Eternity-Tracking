@@ -40,7 +40,7 @@
             <a href="#" class="list-group-item"><b>Company Name:</b> <?php echo $company_name; ?></a>
             <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php num_of_bugs(); ?></a>
             <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php num_of_accounts(); ?></a>
-            <a href="#" class="list-group-item"><b>Deleted Bugs</b>: <?php num_of_deleted(); ?> </a>
+            <a href="view_deleted.php" class="list-group-item"><b>Deleted Bugs</b>: <?php num_of_deleted(); ?> </a>
             <a href="account_requests.php" class="list-group-item"><b>Account Requests</b>: <?php getRequest(); ?> </a>
           </div>
           </div>

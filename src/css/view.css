@@ -36,9 +36,17 @@ a:visited {
 }
 
 button {
+
   height: 45px;
   width: 120px;
   margin-right: 5%;
+
+}
+#view_deleted {
+
+  height: 35px;
+  width: 120px;
+  margin-right: 0%;
 }
 
 .button-center {
@@ -58,7 +66,6 @@ button {
 #date_display {
   float: right;
 }
-
 
 /* Comment Section*/
 

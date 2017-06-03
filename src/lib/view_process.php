@@ -37,7 +37,7 @@ if (isset($_POST['delete'])) {
 
   $sql = "DELETE FROM bugs WHERE id = " .$id;
   $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority) SELECT `id`,`title`, `message`, `priority` from bugs WHERE id = '$id'";
-  $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW() WHERE id = '$id'";
+  $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status ='closed' WHERE id = '$id'";
   $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$id', NOW(), '$ip')";
   $sql_delete_comments = "DELETE FROM comments WHERE bug_id = '$id' ";
 

@@ -52,12 +52,7 @@
       <?php echo $result_count;?> Result(s) found in the Database.
     </h6>
    </div>
-   <script>
-   $(document).ready(function() {
-
-     $('#open').hide();
-
-   });
-   </script>
-
    <script type='text/javascript' src='../js/view.js'></script>
+   <script>
+    hideLogs();
+   </script>

@@ -43,22 +43,12 @@ $logged = $_SESSION['username'];
 
  ?>
  <html>
-   <head>
-     <meta charset="UTF-8">
-     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-     <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
-       <script src="../bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script>
-     <link href="../css/view.css" rel="stylesheet" />
-     <div class="header-name">
-     <a href="main.php"><h3>Eternity Tracking</h3></a>
-       </div><br />
-   </head>
+<?php include 'module_header.php'; ?>
  <body>
   <div main="main_content">
     <div class="panel panel-default">
   <div class="panel-body">
-    <form action="../lib/v.php" method="POST">
+    <form action="../lib/view_process.php" method="POST">
       <div class="container-fluid">
          <p id="larger">Bug ID: <?php echo $bug_id; ?></p>
          <input type="text" id="hiddenInput" name="id" value='<?php echo $id; ?>'; />
@@ -92,13 +82,13 @@ $logged = $_SESSION['username'];
               <button type="submit" class="btn btn-primary" name="save" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
               <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
               <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
-                <button type="button" class="btn btn-info" onClick="showComments(1)">Comment <span class="glyphicon glyphicon-edit"></span></button>
+                <button type="button" class="btn btn-info" onClick="showComments(1)" id="add_comment2">Comment <span class="glyphicon glyphicon-edit"></span></button>
               </div>
              </div>
           </div>
           </div>
           <div class="comment_view">
-              <textarea class="form-control" id="message" name="comment" rows="5"></textarea><br />
+              <textarea class="form-control" id="comment" name="comment" rows="5"></textarea><br />
               <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment">Add Comment </button>
               <button type="button" class="btn btn-warning" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
