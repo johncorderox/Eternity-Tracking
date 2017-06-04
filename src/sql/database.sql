@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `deleted_bugs` (
   `title` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `priority` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
   `status` varchar(20) NOT NULL,
   `delete_date` datetime NOT NULL,
   `deleted_by` varchar(23) NOT NULL,
