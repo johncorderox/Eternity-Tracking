@@ -89,7 +89,7 @@ if (isset($_POST['submit_remove'])) {
 </div>
 <?php include '../tables/user_list.php'; ?>
 </body>
-<script type='text/javascript' src='src/js/view.js'></script>
+<script type='text/javascript' src='..js/forms.js'></script>
 </html>
 <script>
 $(document).ready(function() {
@@ -101,6 +101,8 @@ $(document).ready(function() {
 
 
   $('#radio_default').prop("checked", true);
+
+  hideLogs();
 
 });
 </script>

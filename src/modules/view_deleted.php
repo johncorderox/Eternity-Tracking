@@ -3,13 +3,24 @@ include 'module_header.php';
 include('../config/config.php');
 include('../lib/functions.php');
 include ('../lib/secure.php');
+?>
+<body>
+  <form action="view_deleted.php" method="POST">
+    <div class="search_input">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search*" autofocus>
+      <div class="input-group-btn">
+        <button class="btn btn-default" id="searchButton" type="submit">
+          <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </div>
+    </div>
+    </div>
+  </form>
+</body>
+<?php
 
 
-//ADD SEARCH FUNCTIONS?
-//
-//
-//
-//
 
 if (isset($_POST['undelete'])) {
 
@@ -26,6 +37,27 @@ if (isset($_POST['undelete'])) {
      $connect->query($sql);
      $connect->query($sql_value_change);
      $connect->query($sql_delete);
+
+     header("Location: view_deleted.php?undelete=1");
+
+
+}
+
+if (isset($_POST['destroy'])) {
+
+  $id = $_POST['destroy'];
+
+  $sql_destroy = "DELETE FROM deleted_bugs WHERE id = '$id'";
+  $sql_destroy_comments = "DELETE FROM comments WHERE bug_id = '$id'";
+
+  $result_destroy          = $connect->query($sql_destroy);
+  $result_destroy_comments = $connect->query($sql_destroy_comments);
+
+  if ($result_destroy && $result_destroy_comments) {
+
+      header("Location: view_deleted.php?destroy=1");
+  }
+
 
 
 }
@@ -55,10 +87,21 @@ $undelete_icon = "<span class=\"glyphicon glyphicon-refresh\"></span>";
           echo "</tbody></table></form>";
 
 ?>
-<body>
+<script type='text/javascript' src='../js/notification.js'></script>
+<?php
 
-</body>
-<script type='text/javascript' src='../js/view.js'></script>
-<script>
- hideLogs();
-</script>
+if (isset($_GET['undelete']) && $_GET['undelete'] == 1) {
+
+  echo '<script type="text/javascript">
+        display_input_message(13);
+        </script>';
+}
+
+if (isset($_GET['destroy']) && $_GET['destroy'] == 1) {
+
+  echo '<script type="text/javascript">
+        display_input_message(14);
+        </script>';
+}
+
+?>

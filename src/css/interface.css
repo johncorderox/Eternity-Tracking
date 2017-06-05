@@ -283,6 +283,9 @@ li:active {
 .main-info a:nth-child(6) {
   cursor: pointer;
 }
+.main-info a:nth-child(5) {
+  cursor: pointer;
+}
 
 
 /* Table CSS Layout and Design */

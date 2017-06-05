@@ -9,6 +9,10 @@ $company_name = "Eternity LLC";             // Company Name for main module
 
 $MinPasswordLength = 8;                     // Password Length variable
 $MaxPasswordLength = 32;                    // Max Password Legnth. DO NOT INCREASE WITHOUT CONSULTING THE SQL TABLE
+$allowMultiEmail = true;                    // Register new accounts with the same emails.
+
+
+
 
 $connect = new mysqli("$servername", "$username", "$password", "$database");
 

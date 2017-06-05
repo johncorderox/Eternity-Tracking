@@ -98,3 +98,12 @@ background-color: gray;
 
 opacity: 0.2;
 }
+
+#searchButton {
+  height: 34px;
+  width: 40px;
+}
+.search_input {
+
+  width: 500px;
+}

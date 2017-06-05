@@ -1,24 +1,3 @@
-$(document).ready(function() {
-
-
-  $('.editform, .deleteform, .newuserform, .removeuserform').hide();
-
-  $('#open').click(function() {
-
-    $('.sidebar').css("width", "425");
-
-  });
-
-
-  $('#cancel').click(function() {
-
-    $('.sidebar').css("width", "0");
-
-  });
-
-
-});
-
 // @desc Case system that outputs data to the screen when a user submits a form.
 // Things like Success! Error! or Warning! are common outputs.
 // Using bootstrap-growl plugin for easier output.
@@ -237,45 +216,58 @@ function display_input_message(n) {
       });
       break;
 
+      case 13:
+        $.bootstrapGrowl("Bug has been undeleted!", {
+          ele: 'body',
+          type: 'success',
+          align: 'right',
+          offset: {
+            from: 'top',
+            amount: 30
+          },
+          width: 450,
+          delay: 3000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+        });
+        break;
+
+        case 14:
+          $.bootstrapGrowl("Bug has been permanently deleted from the DB", {
+            ele: 'body',
+            type: 'success',
+            align: 'right',
+            offset: {
+              from: 'top',
+              amount: 50
+            },
+            width: 450,
+            delay: 3000,
+            allow_dismiss: true,
+            stackup_spacing: 10
+          });
+
+          $.bootstrapGrowl("All comments associated have also been removed", {
+            ele: 'body',
+            type: 'info',
+            align: 'right',
+            offset: {
+              from: 'top',
+              amount: 80
+            },
+            width: 450,
+            delay: 3500,
+            allow_dismiss: true,
+            stackup_spacing: 10
+          });
+          break;
+
 
 
     default:
       console.log("Error in display input func. Check args");
 
   }
-
-
-}
-
-function reveal(x) {
-
-  $('.account_info').hide();
-
-  switch (x) {
-    case 0:
-      $('.changePassword').toggle("fast");
-      $('.resetLoginCount, .changeEmail').hide();
-      break;
-
-    case 1:
-
-      $('.changeEmail').toggle("fast");
-      $('.changePassword, .resetLoginCount').hide();
-      break;
-
-    case 2:
-
-      $('.resetLoginCount').toggle("fast");
-      $('.changePassword, .changeEmail').hide();
-      break;
-    default:
-
-  }
-}
-
-function hideLogs() {
-
-    $('#open').hide();
 
 
 }

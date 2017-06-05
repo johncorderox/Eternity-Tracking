@@ -18,7 +18,6 @@ include("../lib/secure.php");
       $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$id'";
       $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status = 'closed' WHERE id = '$id'";
       $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$id', NOW(), '$ip')";
-      $sql_delete_comments = "DELETE FROM comments WHERE bug_id = '$id' ";
 
             mysqli_select_db($connect, $database);
 
@@ -34,8 +33,6 @@ include("../lib/secure.php");
               $connect->query($sql);
               // Logs the deleted bug
               $connect->query($sql_log);
-              // Deletes all comments associated
-              $connect->query($sql_delete_comments);
               // Successful redirect
               header("Location: main.php?deletebug=1");
               mysqli_close($connect);

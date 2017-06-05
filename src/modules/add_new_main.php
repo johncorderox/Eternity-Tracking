@@ -39,6 +39,16 @@ if(isset($_POST['submit_newuser'])) {
 
       mysqli_select_db($connect, $database);
 
+      $sql_email_double = "SELECT * from users WHERE email = '$email' ";
+      $email_result = $connect->query($sql_email_double);
+
+      if ($allowMultiEmail = FALSE) {
+
+        if ($email_result->num_rows >= 1) {
+
+          echo "the email is already taken";
+        }
+      } else {
 
       $query = $connect->query($test);
 
@@ -60,6 +70,8 @@ if(isset($_POST['submit_newuser'])) {
            }
 
        }
+
+     }
 
      }
 

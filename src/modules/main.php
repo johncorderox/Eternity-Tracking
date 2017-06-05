@@ -89,7 +89,9 @@
       </div>
     <?php include ("../tables/buglist.php"); ?>
   </body>
-  <script type='text/javascript' src='../js/view.js'></script>
+  <script type='text/javascript' src='../js/notification.js'></script>
+  <script type='text/javascript' src='../js/forms.js'></script>
+
 </html>
 
 <?php
