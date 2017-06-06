@@ -4,23 +4,7 @@ include('../config/config.php');
 include('../lib/functions.php');
 include ('../lib/secure.php');
 ?>
-<body>
-  <form action="view_deleted.php" method="POST">
-    <div class="search_input">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search*" autofocus>
-      <div class="input-group-btn">
-        <button class="btn btn-default" id="searchButton" type="submit">
-          <i class="glyphicon glyphicon-search"></i>
-        </button>
-      </div>
-    </div>
-    </div>
-  </form>
-</body>
 <?php
-
-
 
 if (isset($_POST['undelete'])) {
 
@@ -62,6 +46,7 @@ if (isset($_POST['destroy'])) {
 
 }
 
+
 $undelete_icon = "<span class=\"glyphicon glyphicon-refresh\"></span>";
 
         $sql_view_deleted = "SELECT id, title, status, delete_date, deleted_by FROM deleted_bugs WHERE status = 'closed'";
@@ -69,12 +54,12 @@ $undelete_icon = "<span class=\"glyphicon glyphicon-refresh\"></span>";
         $result = $connect->query($sql_view_deleted);
         $result_count = $result->num_rows;
 
-
         echo "<table class=\"table table-hover\">";
         echo "<thead> <tr> <tbody>";
         echo "<tr><th>ID: </th><th>Title</th><th>Status</th><th>Delete Date</th><th>Deleted By</th><th>Actions</th>";
         echo "</thead><tbody>";
         while($row = $result->fetch_assoc()) {
+
 
             echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["status"]."</td><td>".$row["delete_date"]."</td><td>";
             echo $row["deleted_by"]."</td>";

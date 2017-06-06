@@ -34,28 +34,38 @@ if (isset($_POST['submit'])) {
 
       $connect->query($query_add);
 
-      $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-        (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
-       '$username_l','Success', NOW(),'$ip')";
+        if ($allowLogSearch == TRUE) {
 
-      $connect->query($sql_login_success);
-      $_SESSION['username'] = $username_l;
-      header("Location: modules/main.php?login=1");
+          $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+            (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
+           '$username_l','Success', NOW(),'$ip')";
+
+          $connect->query($sql_login_success);
+        } else {
+
+          $_SESSION['username'] = $username_l;
+          header("Location: modules/main.php?login=1");
+
+        }
 
     } else {
 
-          $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-          ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
+            if ($allowLogSearch == TRUE) {
 
+            $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+            ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
 
-           $connect->query($sql_login_error);
-           $message = "Invalid Credentials.";
+            $connect->query($sql_login_error);
+
+          } else {
+
+          $message = "Invalid Credentials.";
+
+          }
 
         }
 
       $message = "Incorrect Login Information.";
-
-
 
 
 }
