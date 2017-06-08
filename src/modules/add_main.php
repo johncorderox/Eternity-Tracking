@@ -3,7 +3,42 @@
   include('../config/config.php');
   include("../lib/secure.php");
 
-$error = "";
+
+  class AddBug {
+
+    public $title;
+    private $message;
+    private $priority;
+    private $category;
+
+  public function __construct($t/*,$m,$p,$c*/) {
+
+        $this->$title = $t;
+      //  $this->$m = $message;
+      //  $this->$p = $priority;
+      //  $this->$c = $category;
+
+    }
+
+    public static function display() {
+
+      echo $title;
+
+    }
+
+  }
+
+  if (isset($_POST['add_main'])) {
+
+    $add_main = new AddBug($_POST['title']);
+  //  $add_main -> display();
+
+
+  }
+
+//$error = "";
+
+/*
 
   if (isset($_POST['add_main'])) {
 
@@ -24,19 +59,21 @@ $error = "";
     }
     else {
 
-        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW() )";
-        $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','A','{$_SESSION['username']}', '$title', NOW(), '$ip')";
+      $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW() )";
 
-        mysqli_select_db($connect, $database);
 
-        $connect->query($sql);
-        $connect->query($sql_log);
+      //  $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','A','{$_SESSION['username']}', '$title', NOW(), '$ip')";
+
+
+
+      //  $connect->query($sql);
+      //  $connect->query($sql_log);
 
         header("location: main.php?successbug=1");
 
-  }
+  } */
 
-}
+
 
   if(isset($_POST['cancel'])) {
 
@@ -50,7 +87,7 @@ $error = "";
   <div class="addform">
     <form action="add_main.php" method="POST">
     <p id="larger"> Please Enter a Title and a Descriptive Message! </p><br />
-    <?php echo  '<p>'. $error . '</p>'; ?>
+  <!--  <?php echo  '<p>'. $error . '</p>'; ?> -->
     <input type="text" placeholder="Title *" name="title" id="title"/><br />
     <input type="text" placeholder="Message *" id="message" name="message"></textarea><br />
     <p> Enter a priority and a category for your bug.</p>
