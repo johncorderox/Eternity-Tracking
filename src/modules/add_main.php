@@ -4,34 +4,36 @@
   include("../lib/secure.php");
 
 
-  class AddBug {
+  class AddBug
+  {
+      
 
-    public $title;
-    private $message;
-    private $priority;
-    private $category;
+    public function sql($t,$m,$p,$c) {
 
-  public function __construct($t/*,$m,$p,$c*/) {
+      $title = $t;
+      $message = $m;
+      $priority = $p;
+      $category = $c;
+      $logged = $_SERVER['REMOTE_ADDR'];
 
-        $this->$title = $t;
-      //  $this->$m = $message;
-      //  $this->$p = $priority;
-      //  $this->$c = $category;
+      $sql_add  = "INSERT INTO `bugs` (title, message, priority, category, reported_by, date) ";
+      $sql_add .= "VALUES ('$title','$message', '$priority', '$category', '$logged', NOW() )";
 
-    }
+      $result = $connect->query($sql_add);
 
-    public static function display() {
-
-      echo $title;
 
     }
+
 
   }
 
+
+
   if (isset($_POST['add_main'])) {
 
-    $add_main = new AddBug($_POST['title']);
-  //  $add_main -> display();
+
+    $add_main = new AddBug();
+    $add_main->sql($_POST['title'],$_POST['message'],$_POST['priority'],$_POST['category']);
 
 
   }

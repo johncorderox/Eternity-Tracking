@@ -4,14 +4,8 @@
 // uses the function COUNT and echo's the num
 function num_of_bugs() {
 
-global $connect;
-global $database;
-
-if($connect) {
-  mysqli_select_db($connect, $database);
-  if(!$database){
-    die('Database Not Found! ! ! ');
-  }
+  $nb = new Connect();
+  $nb->query();
   $sql = "SELECT COUNT(*) as total FROM bugs";
   $result = mysqli_query($connect, $sql);
   $number = mysqli_fetch_assoc($result);
