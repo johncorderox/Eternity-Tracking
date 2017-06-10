@@ -10,31 +10,21 @@ $company_name                     = "Eternity LLC"; // Company Name for main mod
 $MinPasswordLength                = 8;              // Password Length variable
 $MaxPasswordLength                = 32;             // Max Password Legnth. DO NOT INCREASE WITHOUT CONSULTING THE SQL TABLE
 $allowMultiEmail                  = FALSE;          // Register new accounts with the same emails.
-$allowLogLogin                   = TRUE;           // Logs login for success and fail
+
+
+$allowLogSearch                   = TRUE;           // Logs login for success and fail
 
 
 
 
-class Connect {
 
-  protected $servername = 'localhost';
-  protected $username = 'root';
-  protected $password = '';
-  protected $database = 'tracking';
+$connect = new mysqli("$servername", "$username", "$password", "$database");
 
-  public function connect() {
+  if ($connect->connect_error) {
 
-    $connect = new mysqli($this->servername, $this->username, $this->password, $this->Database);
-
-     if ($connect->connect_error) {
-
-       die($connect->connect_error);
-
-     }
-
+    die($connect->connect_error);
 
   }
 
-}
 
  ?>
