@@ -34,23 +34,23 @@ if (isset($_POST['submit'])) {
 
       $connect->query($query_add);
 
-        if ($allowLogSearch == TRUE) {
+        if ($allowLoginLog == TRUE) {
 
           $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
             (NULL, (SELECT `account_id` FROM `users` WHERE username = '$username_l'),
            '$username_l','Success', NOW(),'$ip')";
 
           $connect->query($sql_login_success);
-        } else {
-
           $_SESSION['username'] = $username_l;
           header("Location: modules/main.php?login=1");
+        } else {
+
 
         }
 
     } else {
 
-            if ($allowLogSearch == TRUE) {
+            if ($allowLoginLog == TRUE) {
 
             $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
             ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
