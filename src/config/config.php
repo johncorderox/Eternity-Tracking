@@ -14,15 +14,16 @@ $allowLoginLog                    = TRUE;           // Logs login for success an
 
 
 
+class Connect {
 
+  public function connect() {
 
-$connect = new mysqli("$servername", "$username", "$password", "$database");
+    $connect = mysqli_connect("$servername", "$username", "$password", "$database");
 
-  if ($connect->connect_error) {
-
-    die($connect->connect_error);
-
+    return $connect;
   }
 
+
+}
 
  ?>
