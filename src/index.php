@@ -11,17 +11,17 @@ include("lib/secure.php");
 session_start();
 
 
-class Login {
+class Login extends Connect {
 
 
   private $ip;
-  private $username;
-  private $password;
+  private $user;
+  private $pass;
 
   public function __construct() {
 
-    $this->username = trims($_POST['username']);
-    $this->password = trims($_POST['password']);
+    $this->user= trims($_POST['username']);
+    $this->pass = trims($_POST['password']);
     $this->password = md5($this->password);
     $this->ip = $_SERVER['REMOTE_ADDR'];
 
@@ -38,22 +38,26 @@ class Login {
 
     $query  = "SELECT `username`,`password`";
     $query .= "FROM `users`";
-    $query .= "WHERE `username` = $this->username and password = $this->password";
+    $query .= "WHERE `username` = $this->user and password = $this->pass";
 
     $query_add = "UPDATE `users`";
     $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip'";
-    $query_add .= "WHERE username = $this->username ";
+    $query_add .= "WHERE username = $this->user ";
 
+    $login_connect = new Connect();
+
+    $connect = $login_connect->connect();
+    $result = $connect->query($query);
 
     if ($result->num_rows == 1) {
 
       $connect->query($query_add);
       $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-                            (NULL, (SELECT `account_id` FROM `users` WHERE username = $this->username),
-                            '$username_l','Success', NOW(),'$ip')";
+                            (NULL, (SELECT `account_id` FROM `users` WHERE username = $this->user),
+                            '$this->user','Success', NOW(),'$this->ip')";
 
           $connect->query($sql_login_success);
-          $_SESSION['username'] = $this->username;
+          $_SESSION['username'] = $this->user;
           header("Location: modules/main.php?login=1");
 
     }
