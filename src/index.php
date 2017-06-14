@@ -22,7 +22,7 @@ class Login extends Connect {
 
     $this->user= trims($_POST['username']);
     $this->pass = trims($_POST['password']);
-    $this->password = md5($this->password);
+    $this->pass = md5($this->pass);
     $this->ip = $_SERVER['REMOTE_ADDR'];
 
   }
@@ -33,37 +33,42 @@ class Login extends Connect {
     return $this->ip;
   }
 
+  public function getPass() {
+
+    echo "username = " .$this->user . "";
+    echo "password = " .$this->pass;
+  }
+
 
   public function login() {
 
-    $query  = "SELECT `username`,`password`";
-    $query .= "FROM `users`";
-    $query .= "WHERE `username` = $this->user and password = $this->pass";
+     $query = "SELECT * FROM users WHERE username = ". $this->user . "and password = " .$this->pass;
 
-    $query_add = "UPDATE `users`";
-    $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip'";
-    $query_add .= "WHERE username = $this->user ";
+    $query_add = "UPDATE `users` ";
+    $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
+    $query_add .= "WHERE username = $this->user";
 
     $login_connect = new Connect();
+    $result = mysqli_query($login_connect->connect(), $query);
+    var_dump($result);
 
-    $connect = $login_connect->connect();
-    $result = $connect->query($query);
 
-    if ($result->num_rows == 1) {
+    if(mysqli_num_rows($result) == 1) {
 
+/*
       $connect->query($query_add);
       $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
                             (NULL, (SELECT `account_id` FROM `users` WHERE username = $this->user),
                             '$this->user','Success', NOW(),'$this->ip')";
 
-          $connect->query($sql_login_success);
+          $connect->query($sql_login_success); */
           $_SESSION['username'] = $this->user;
           header("Location: modules/main.php?login=1");
 
-    }
 
- }
+}
 
+}
 }
 
 if (isset($_POST['submit'])) {
@@ -71,8 +76,11 @@ if (isset($_POST['submit'])) {
 
   $login_main = new Login();
   $login_main->login();
+  echo $login_main->getPass();
+
 
 }
+
 
 /*
 
