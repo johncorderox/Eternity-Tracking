@@ -42,7 +42,7 @@ class Login extends Connect {
 
   public function login() {
 
-     $query = "SELECT * FROM users WHERE username = ". $this->user . "and password = " .$this->pass;
+     $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
 
     $query_add = "UPDATE `users` ";
     $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
@@ -50,9 +50,8 @@ class Login extends Connect {
 
     $login_connect = new Connect();
     $result = mysqli_query($login_connect->connect(), $query);
-    var_dump($result);
 
-
+    $num = mysqli_num_rows($result);
     if(mysqli_num_rows($result) == 1) {
 
 /*
@@ -61,12 +60,13 @@ class Login extends Connect {
                             (NULL, (SELECT `account_id` FROM `users` WHERE username = $this->user),
                             '$this->user','Success', NOW(),'$this->ip')";
 
-          $connect->query($sql_login_success); */
+          $connect->query($sql_login_success);*/
           $_SESSION['username'] = $this->user;
           header("Location: modules/main.php?login=1");
 
 
 }
+
 
 }
 }
@@ -76,7 +76,6 @@ if (isset($_POST['submit'])) {
 
   $login_main = new Login();
   $login_main->login();
-  echo $login_main->getPass();
 
 
 }
