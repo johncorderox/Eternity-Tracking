@@ -4,7 +4,7 @@
 $message = "Welcome.";
 
 
-include ("config/config.php");
+include ("lib/connect.php");
 include("lib/functions.php");
 include("lib/secure.php");
 
@@ -33,16 +33,11 @@ class Login extends Connect {
     return $this->ip;
   }
 
-  public function getPass() {
-
-    echo "username = " .$this->user . "";
-    echo "password = " .$this->pass;
-  }
-
-
   public function login() {
 
-     $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
+    require_once("config/config.php");
+
+    $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
 
     $query_add = "UPDATE `users` ";
     $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
@@ -54,21 +49,36 @@ class Login extends Connect {
     $num = mysqli_num_rows($result);
     if(mysqli_num_rows($result) == 1) {
 
-/*
-      $connect->query($query_add);
-      $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-                            (NULL, (SELECT `account_id` FROM `users` WHERE username = $this->user),
-                            '$this->user','Success', NOW(),'$this->ip')";
+      if($config['$allowLoginLog'] == TRUE) {
 
-          $connect->query($sql_login_success);*/
-          $_SESSION['username'] = $this->user;
-          header("Location: modules/main.php?login=1");
+        $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+                              (NULL, (SELECT `account_id` FROM `users` WHERE username = '$this->user'),
+                              '$this->user','Success', NOW(),'$this->ip')";
+
+        mysqli_query($login_connect->connect(), $sql_login_success);
+      }
+
+         mysqli_query($login_connect->connect(), $query_add);
+
+        $_SESSION['username'] = $this->user;
+        header("Location: modules/main.php?login=1");
+
+    } else {
+
+            if($config['$allowLoginLog'] == TRUE) {
+
+              $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+              ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
+              $connect->query($sql_login_error);
+
+            }
+
+            $message = "Invald login credentials";
 
 
-}
 
-
-}
+    }
+  }
 }
 
 if (isset($_POST['submit'])) {
@@ -80,21 +90,8 @@ if (isset($_POST['submit'])) {
 
 }
 
-
-/*
-
-            $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-            ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
-            $connect->query($sql_login_error);
-
-          }
-              $message = "Incorrect Login Information.";
-        }
-
 }
 
-$connect->close();
-*/
 ?>
 
 
