@@ -3,6 +3,7 @@
 // Using bootstrap-growl plugin for easier output.
 //
 // @args Triggers for output. var = num
+
 function display_input_message(n) {
   switch (n) {
     case 0:

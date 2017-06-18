@@ -1,22 +1,33 @@
 <?php
 
 
-$message = "Welcome.";
+/*
+
+NEEDS ESCAPE REAL STRING BEFORE CONTINUE
 
 
-include ("lib/connect.php");
-include("lib/functions.php");
-include("lib/secure.php");
+********************
+
+
+*
+
+*
+
+*/
+
+
+include_once("lib/functions.php");
+include_once("lib/secure.php");
 
 session_start();
 
 
 class Login extends Connect {
 
-
-  private $ip;
   private $user;
   private $pass;
+  private $ip;
+  public static $welcome = "Welcome.";
 
   public function __construct() {
 
@@ -31,6 +42,31 @@ class Login extends Connect {
 
 
     return $this->ip;
+  }
+
+  public static function getLogin($bool) {
+
+    if (isset($bool) && $bool == 1) {
+
+        return $this->user . $this->pass;
+    } else {
+
+      return $this->user . $this->ip;
+    }
+
+  }
+
+  public function login_log_check($query) {
+
+    if ($query) {
+
+      $logcheck = new Connect();
+
+      mysqli_query($logcheck->connect(), $query);
+
+
+    }
+
   }
 
   public function login() {
@@ -55,10 +91,9 @@ class Login extends Connect {
                               (NULL, (SELECT `account_id` FROM `users` WHERE username = '$this->user'),
                               '$this->user','Success', NOW(),'$this->ip')";
 
-        mysqli_query($login_connect->connect(), $sql_login_success);
-      }
+        $this->login_log_check($sql_login_success);
 
-         mysqli_query($login_connect->connect(), $query_add);
+      }
 
         $_SESSION['username'] = $this->user;
         header("Location: modules/main.php?login=1");
@@ -68,17 +103,17 @@ class Login extends Connect {
             if($config['$allowLoginLog'] == TRUE) {
 
               $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-              ('','','$username_l','INVALID LOGIN ATTEMPT',NOW(),'$ip')";
-              $connect->query($sql_login_error);
+              ('','','$this->user','INVALID LOGIN ATTEMPT',NOW(),'$this->ip')";
+
+              $this->login_log_check($sql_login_error);
 
             }
 
-            $message = "Invald login credentials";
+            Login::$welcome = "Invalid Login Credentials.";
 
+        }
+     }
 
-
-    }
-  }
 }
 
 if (isset($_POST['submit'])) {
@@ -90,7 +125,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-}
+
 
 ?>
 
@@ -107,7 +142,7 @@ if (isset($_POST['submit'])) {
     </head>
   <body>
 <div class="center">
-    <?php echo '<h2>' . $message . '</h2>'; ?>
+    <?php echo '<h2>' . Login::$welcome .'</h2>'; ?>
      <form action="index.php" method="POST">
      <input type="text" placeholder="Username *" name="username" id="username" class="error-input" autofocus><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />

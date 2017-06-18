@@ -1,68 +1,48 @@
 <?php
 
-// @desc connects to MySQL and queries the DB for a count.
-// uses the function COUNT and echo's the num
-function num_of_bugs() {
+include ("connect.php");
 
-global $connect;
-global $database;
 
-if($connect) {
-  mysqli_select_db($connect, $database);
-  if(!$database){
-    die('Database Not Found! ! ! ');
+class Functions {
+
+  private $sql_count_bugs     = "SELECT COUNT(*) as total FROM bugs";
+  private $sql_count_accounts = "SELECT COUNT(*) as total FROM users";
+  private $sql_count_deleted  = "SELECT COUNT(*) as total FROM deleted_bugs";
+  private $sql_count_request  = "SELECT COUNT(*) as total FROM requests WHERE request_status = 'open'";
+
+  public function num_of_items($v) {
+
+    $c = new Connect();
+
+    if ($v == '0') {
+
+      $result = mysqli_query($c->connect(), $this->sql_count_bugs);
+
+    } else if ($v == '1') {
+
+      $result = mysqli_query($c->connect(), $this->sql_count_accounts);
+
+    } else if ($v == '2') {
+
+      $result = mysqli_query($c->connect(), $this->sql_count_deleted);
+
+    } else if ($v == '3') {
+
+      $result = mysqli_query($c->connect(), $this->sql_count_request);
+
+    }
+
+    $number = mysqli_fetch_assoc($result);
+    echo '( '.$number['total'].' )';
+
   }
-  $sql = "SELECT COUNT(*) as total FROM bugs";
-  $result = mysqli_query($connect, $sql);
-  $number = mysqli_fetch_assoc($result);
-  echo '( '.$number['total'].' )';
 
-  }
+
 
 }
 
+/*
 
-// @des connects and uses the count function to return n results.
-// Returns amount to the main.php page for the first view.
-// Uses assoc to output using echo.
-
-function num_of_accounts () {
-
-    global $connect;
-  if ($connect){
-
-  $sql = "SELECT COUNT(*) as total FROM users";
-  $result = mysqli_query($connect, $sql);
-  $number = mysqli_fetch_assoc($result);
-  echo '( '.$number['total'].' )';
-  }
-}
-
-// Counts the number of deleted bugs exactly like the num of
-// accounts and bugs. uses total as the assoc variable
-
-function num_of_deleted () {
-
-  global $connect;
-  global $database;
-  mysqli_select_db($connect, $database);
-  $sql = "SELECT COUNT(*) as total FROM deleted_bugs";
-  $result = mysqli_query($connect, $sql);
-  $number = mysqli_fetch_assoc($result);
-  echo '( '.$number['total'].' )';
-
-}
-
-// @desc Pings the MySQL Server and returns true if connected.
-// Throws mysqli_connect_error if there are errors in config.php. Global is
-// used to grab variable from connect.
-function check_mysql_server_status() {
-   global $connect;
-
-     if(mysqli_ping($connect)) {
-        echo ' Connected';
-        }
-}
 
 // Retrieves the last bug from the database.
 // Connects and fetces using the query from the var $sql
@@ -93,17 +73,6 @@ if ($connect) {
 
 }
 
-// Universal show error function throughout the app.
-// Calls the JS plugin to display an error on the top of the page
-// Display: MySQL Error
-
-function showError() {
-
-     echo '<script type="text/javascript">
-           display_input_message(7);
-           </script>';
-}
-
 // For the account.php page. Allows the user to see the number of reported X
 // Grabs the count for MySQL and echos as assoc array, like a menu.
 //
@@ -130,25 +99,6 @@ function getReported ($x) {
 
   }
 }
-
-// Counts the number of request sent by the view
-//
-// allows users to accept and deny request @ request.php
-
-function getRequest () {
-
-  global $connect;
-
-  $sql_request_fetch = "SELECT COUNT(*) as total FROM requests WHERE request_status = 'open'";
-  $result = mysqli_query($connect, $sql_request_fetch);
-  $number = mysqli_fetch_assoc($result);
-
-  if ($number >= 1) {
-
-    echo '( '.$number['total'].' )';
-  }
-
-
-}
+*/
 
  ?>

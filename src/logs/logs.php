@@ -6,9 +6,14 @@
 
   <?php
 
+  include "../lib/connect.php";
+
+  $log_connect = new Connect();
+
   $query_logs = "SELECT * from logs ORDER BY `action_id` DESC";
-  $result = $connect->query($query_logs);
-    while($rows= $result->fetch_assoc()) {
+  $result = mysqli($log_connect->connect(), $query_logs);
+  
+      while ($row = mysqli_fetch_assoc($result)) {
 
         echo "<hr id=\"hr_logs\">";
         if ($rows['action'] == 'A') {
