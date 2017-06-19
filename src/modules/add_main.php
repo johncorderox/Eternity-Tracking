@@ -3,6 +3,30 @@
   include('../config/config.php');
   include("../lib/secure.php");
 
+
+  Class AddBug() {
+
+    private $title;
+    private $message;
+    private $priority;
+    private $category;
+    private $error_message;
+
+
+    public function __construct() {
+
+      $this->title    = trims($_POST['title']);
+      $this->message  = trims($_POST['message']);
+      $this->priority = $_POST['priority'];
+      $this->category = $_POST['category'];
+      $this->ip       = $_SERVER['REMOTE_ADDR'];
+
+
+    }
+
+
+  }
+
 $error = "";
 
   if (isset($_POST['add_main'])) {

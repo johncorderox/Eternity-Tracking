@@ -67,9 +67,7 @@
           <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
-      before~~~
-<!--
-      <?php include ('../logs/logs.php'); ?>
+
 
 
       <div class="ui-main">
@@ -87,7 +85,7 @@
             <p>
               Welcome! <br />
               You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
-              <?php $main_display->display(); ?>
+              <?php $main->getLastBug() ?>
             </p>
             </div>
           </div>
@@ -104,10 +102,10 @@
 
   <script type='text/javascript' src='../js/notification.js'></script>
   <script type='text/javascript' src='../js/forms.js'></script>
--->
+
 </html>
 <?php
-/*
+
 if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
 
   echo '<script type="text/javascript">
@@ -178,6 +176,6 @@ if (isset($_GET['deletecomment']) && $_GET['deletecomment']=='1') {
         </script>';
 
 }
-*/
+
 
  ?>

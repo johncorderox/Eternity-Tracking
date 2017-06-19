@@ -1,21 +1,5 @@
 <?php
 
-
-/*
-
-NEEDS ESCAPE REAL STRING BEFORE CONTINUE
-
-
-********************
-
-
-*
-
-*
-
-*/
-
-
 include_once("lib/functions.php");
 include_once("lib/secure.php");
 
@@ -80,6 +64,10 @@ class Login extends Connect {
     $query_add .= "WHERE username = $this->user";
 
     $login_connect = new Connect();
+
+    $this->user = mysqli_real_escape_string($login_connect->connect(), $this->user);
+    $this->pass = mysqli_real_escape_string($login_connect->connect(), $this->pass);
+
     $result = mysqli_query($login_connect->connect(), $query);
 
     $num = mysqli_num_rows($result);
