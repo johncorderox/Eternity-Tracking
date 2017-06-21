@@ -10,7 +10,7 @@
     private $message;
     private $priority;
     private $category;
-    private $error_message;
+    public static $error_message;
 
 
     public function __construct() {
@@ -27,15 +27,9 @@
 
   }
 
-$error = "";
 
   if (isset($_POST['add_main'])) {
 
-    $title = trims($_POST['title']);
-    $message = trims($_POST['message']);
-    $priority = $_POST['priority'];
-    $category = $_POST['category'];
-    $ip = $_SERVER['REMOTE_ADDR'];
 
     $title = mysqli_real_escape_string($connect, $title);
     $message = mysqli_real_escape_string($connect, $message);
