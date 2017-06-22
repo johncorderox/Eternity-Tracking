@@ -4,12 +4,15 @@
   include("../lib/secure.php");
 
 
-  Class AddBug() {
+  Class AddBug {
 
     private $title;
     private $message;
     private $priority;
     private $category;
+
+    private $sql_add = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
+
     public static $error_message;
 
 
@@ -20,6 +23,47 @@
       $this->priority = $_POST['priority'];
       $this->category = $_POST['category'];
       $this->ip       = $_SERVER['REMOTE_ADDR'];
+
+
+    }
+
+    public function checkAddFields() {
+
+      if (!$this->title || $this->title == NULL) {
+
+          Addbug::$error_message .= "Title is Empty!";
+
+      }
+
+      if (!$this->message || $this->message == NULL) {
+
+          Addbug::$error_message .= " Message is Empty!";
+      }
+
+    }
+
+    public function getSqlAddBug() {
+
+      return "Current sql query is: " .$this->sql_add . "<br />"."Sql variable is marked \'Private\' ";
+
+    }
+
+    public function setSqlAddBugDefault() {
+
+      $this->sql_add .= "VALUES ('$this->title','$this->message', '$this->priority', '$this->category', '$this->logged', NOW() )";
+
+
+    }
+
+    public function setSqlAddBugCustom($t, $m, $p, $c) {
+
+      $this->sql_add = "VALUES ('$this->t','$this->m', '$this->p', '$this->c', '$this->logged', NOW() )";
+
+
+    }
+
+
+    public function addBug() {
 
 
     }
@@ -68,7 +112,7 @@
   <div class="addform">
     <form action="add_main.php" method="POST">
     <p id="larger"> Please Enter a Title and a Descriptive Message! </p><br />
-    <?php echo  '<p>'. $error . '</p>'; ?>
+    <?php echo  '<p>'. Addbug::$error_message . '</p>'; ?>
     <input type="text" placeholder="Title *" name="title" id="title"/><br />
     <input type="text" placeholder="Message *" id="message" name="message"></textarea><br />
     <p> Enter a priority and a category for your bug.</p>
