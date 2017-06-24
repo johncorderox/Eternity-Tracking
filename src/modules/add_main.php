@@ -11,7 +11,8 @@
     private $priority;
     private $category;
 
-    private $sql_add = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
+    private $sql_add;
+    private $sql_add_log;
 
     public static $error_message;
 
@@ -22,6 +23,7 @@
       $this->message  = trims($_POST['message']);
       $this->priority = $_POST['priority'];
       $this->category = $_POST['category'];
+      $this->logged   = $_SESSION['username'];
       $this->ip       = $_SERVER['REMOTE_ADDR'];
 
 
@@ -31,13 +33,14 @@
 
       if (!$this->title || $this->title == NULL) {
 
-          Addbug::$error_message .= "Title is Empty!";
+         Addbug::$error_message .= "Title is Empty!";
+
 
       }
 
       if (!$this->message || $this->message == NULL) {
 
-          Addbug::$error_message .= " Message is Empty!";
+           Addbug::$error_message .= " Message is Empty!";
       }
 
     }
@@ -50,6 +53,7 @@
 
     public function setSqlAddBugDefault() {
 
+      $this->sql_add  = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
       $this->sql_add .= "VALUES ('$this->title','$this->message', '$this->priority', '$this->category', '$this->logged', NOW() )";
 
 
@@ -57,13 +61,50 @@
 
     public function setSqlAddBugCustom($t, $m, $p, $c) {
 
+      $this->sql_add  = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
       $this->sql_add = "VALUES ('$this->t','$this->m', '$this->p', '$this->c', '$this->logged', NOW() )";
+
+
+    }
+
+    public function setAddBugLog() {
+
+      $this->sql_add_log  = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) ";
+      $this->sql_add_log .=" VALUES ('','A','$this->logged', '$this->title', NOW(), '$this->ip')";
 
 
     }
 
 
     public function addBug() {
+
+        $add_bug_connect = new Connect();
+
+        $this->checkAddFields();
+
+        $this->title = mysqli_real_escape_string($add_bug_connect->connect(), $this->title);
+        $this->message = mysqli_real_escape_string($add_bug_connect->connect(), $this->message);
+
+        $this->setSqlAddBugDefault();
+
+        $result = mysqli_query($add_bug_connect->connect(), $this->sql_add);
+
+        if ($result) {
+
+          $this->setAddBugLog();
+
+          $result_log = mysqli_query($add_bug_connect->connect(), $this->sql_add_log);
+
+          if ($result_log == FALSE) {
+
+            echo "There was an error logging the bug: " . $this->title;
+            return;
+          }
+
+          header("location: main.php?successbug=1");
+
+        }
+
 
 
     }
@@ -74,31 +115,13 @@
 
   if (isset($_POST['add_main'])) {
 
+    $add_bug = new AddBug();
+    $add_bug->addBug();
 
-    $title = mysqli_real_escape_string($connect, $title);
-    $message = mysqli_real_escape_string($connect, $message);
-
-    if (empty($title) || empty($message)) {
-
-        $error ="Some fields are missing in the form!";
-
-
-    }
-    else {
-
-        $sql = "INSERT INTO bugs (title, message, priority, category, reported_by, date) VALUES ('$title','$message', '$priority', '$category', '$logged', NOW() )";
-        $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','A','{$_SESSION['username']}', '$title', NOW(), '$ip')";
-
-        mysqli_select_db($connect, $database);
-
-        $connect->query($sql);
-        $connect->query($sql_log);
-
-        header("location: main.php?successbug=1");
 
   }
 
-}
+
 
   if(isset($_POST['cancel'])) {
 
