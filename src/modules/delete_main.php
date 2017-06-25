@@ -1,18 +1,115 @@
-<?php include 'main.php'; ?>
-<?php
+<?php include 'main.php';
+
 include('../config/config.php');
 include("../lib/secure.php");
 
-  $error = "";
+
+class DeleteBug {
+
+  private $deleteId;
+  private $ip;
+  private $user;
+  private $delete_sql        = "DELETE FROM bugs WHERE id = " .$this->deleteId;
+  private $delete_sql_test   = "SELECT * FROM bugs WHERE id = " .$this->deleteId;
+  private $delete_sql_copy   = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$this->deleteId'";
+  private $delete_sql_update = "UPDATE deleted_bugs SET deleted_by = '$this->user', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId'";
+  private $delete_sql_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','$this->user', '$this->Id', NOW(), '$this->ip')";
+
+  public static $errorMessage = "";
+
+
+  public function __construct() {
+
+    $this->deleteId = trims($_POST['delete_id']);
+    $this->ip       = $_SERVER['REMOTE_ADDR'];
+    $this->user     = $_SESSION['username'];
+
+  }
+
+
+  public function setDeleteId ($d) {
+
+    $this->deleteId = $d;
+
+
+  }
+
+  public function getDeleteId() {
+
+    return $this->deleteId;
+
+
+  }
+
+  private function test_query($t) {
+
+    $test_query = new Connect();
+
+    $result = mysqli_query($test_query->connect(), $t);
+
+      if (mysqli_num_rows($result) > 0) {
+
+        $this->run();
+
+      } else {
+
+        DeleteBug::$errorMessage = "ID: " . $this->deleteId . " could not be found.";
+      }
+
+
+  }
+
+  private function run () {
+
+
+
+
+  }
+
+  public function deleteBug() {
+
+      if(!empty($this->deleteId) {
+
+          return DeleteBug::$error_message = "You did not enter anything to be deleted!";
+
+      } else {
+
+
+          if (is_numeric($this->deleteId)) {
+
+            $delete_connect = new Connect();
+
+            mysqli_escape_string($delete_conenct->connect(), $this->deleteId);
+            $this->test_query($delete_sql_test);
+
+
+          }
+
+      }
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 
   if (isset($_POST['submit_delete'])) {
 
-    if (!empty($_POST['delete_id'])) {
+    $delete_bug = new DeleteBug();
+    $delete_bug->deleteBug();
 
-      if (is_numeric($_POST['delete_id'])) {
 
-      $id = trims(mysqli_escape_string($connect, $_POST['delete_id']));
-      $ip = $_SERVER['REMOTE_ADDR'];
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
       $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$id'";
@@ -44,12 +141,8 @@ include("../lib/secure.php");
               $error = ' bug number ' . $id . ' does not exist.';
              }
 
-       } else {
 
-    $error = "You did not enter a valid number.";
-
-  }
- }
+ }*/
 }
 
 
@@ -65,7 +158,7 @@ include("../lib/secure.php");
   <div class="deleteform">
     <form action="delete_main.php" method="POST">
       <?php echo '<p id="larger">Enter the Bug ID Number: </p> <br />'; ?>
-      <?php echo  '<p>'. $error . '</p>'; ?>
+      <?php DeleteBug::$errorMessage; ?>
       <input type="text" id="del_start" name ="delete_id" placeholder="ID #: "/><br />
       <button type="submit" name="submit_delete" id="add-button">Submit</button>
       <button name="cancel">Cancel</button>

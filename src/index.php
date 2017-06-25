@@ -6,103 +6,104 @@ include_once("lib/secure.php");
 session_start();
 
 
-class Login extends Connect {
+class Login {
 
   private $user;
   private $pass;
   private $ip;
   public static $welcome = "Welcome.";
 
-  public function __construct() {
 
-    $this->user= trims($_POST['username']);
-    $this->pass = trims($_POST['password']);
-    $this->pass = md5($this->pass);
-    $this->ip = $_SERVER['REMOTE_ADDR'];
+      public function __construct() {
 
-  }
-
-  public function getIP() {
-
-
-    return $this->ip;
-  }
-
-  public static function getLogin($bool) {
-
-    if (isset($bool) && $bool == 1) {
-
-        return $this->user . $this->pass;
-    } else {
-
-      return $this->user . $this->ip;
-    }
-
-  }
-
-  public function login_log_check($query) {
-
-    if ($query) {
-
-      $logcheck = new Connect();
-
-      mysqli_query($logcheck->connect(), $query);
-
-
-    }
-
-  }
-
-  public function login() {
-
-    require_once("config/config.php");
-
-    $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
-
-    $query_add = "UPDATE `users` ";
-    $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
-    $query_add .= "WHERE username = $this->user";
-
-    $login_connect = new Connect();
-
-    $this->user = mysqli_real_escape_string($login_connect->connect(), $this->user);
-    $this->pass = mysqli_real_escape_string($login_connect->connect(), $this->pass);
-
-    $result = mysqli_query($login_connect->connect(), $query);
-
-    $num = mysqli_num_rows($result);
-    if(mysqli_num_rows($result) == 1) {
-
-      if($config['$allowLoginLog'] == TRUE) {
-
-        $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-                              (NULL, (SELECT `account_id` FROM `users` WHERE username = '$this->user'),
-                              '$this->user','Success', NOW(),'$this->ip')";
-
-        $this->login_log_check($sql_login_success);
+        $this->user= trims($_POST['username']);
+        $this->pass = trims($_POST['password']);
+        $this->pass = md5($this->pass);
+        $this->ip = $_SERVER['REMOTE_ADDR'];
 
       }
 
-        $_SESSION['username'] = $this->user;
-        header("Location: modules/main.php?login=1");
+      public function getIP() {
 
-    } else {
 
-            if($config['$allowLoginLog'] == TRUE) {
+        return $this->ip;
+      }
 
-              $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
-              ('','','$this->user','INVALID LOGIN ATTEMPT',NOW(),'$this->ip')";
+      public static function getLogin($bool) {
 
-              $this->login_log_check($sql_login_error);
+        if (isset($bool) && $bool == 1) {
 
-            }
+            return $this->user . $this->pass;
+        } else {
 
-            Login::$welcome = "Invalid Login Credentials.";
+          return $this->user . $this->ip;
+        }
+
+      }
+
+      public function login_log_check($query) {
+
+        if ($query) {
+
+          $logcheck = new Connect();
+
+          mysqli_query($logcheck->connect(), $query);
+
 
         }
-     }
 
-}
+      }
+
+      public function login() {
+
+        require_once("config/config.php");
+
+        $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
+
+        $query_add = "UPDATE `users` ";
+        $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
+        $query_add .= "WHERE username = $this->user";
+
+        $login_connect = new Connect();
+
+        $this->user = mysqli_real_escape_string($login_connect->connect(), $this->user);
+        $this->pass = mysqli_real_escape_string($login_connect->connect(), $this->pass);
+
+        $result = mysqli_query($login_connect->connect(), $query);
+
+        $num = mysqli_num_rows($result);
+        if(mysqli_num_rows($result) == 1) {
+
+          if($config['$allowLoginLog'] == TRUE) {
+
+            $sql_login_success = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+                                  (NULL, (SELECT `account_id` FROM `users` WHERE username = '$this->user'),
+                                  '$this->user','Success', NOW(),'$this->ip')";
+
+            $this->login_log_check($sql_login_success);
+
+          }
+
+            $_SESSION['username'] = $this->user;
+            header("Location: modules/main.php?login=1");
+
+        } else {
+
+                if($config['$allowLoginLog'] == TRUE) {
+
+                  $sql_login_error = "INSERT INTO login_log (`log_id`,`account_id`,`username`,`error_message`,`date`,`ip`) VALUES
+                  ('','','$this->user','INVALID LOGIN ATTEMPT',NOW(),'$this->ip')";
+
+                  $this->login_log_check($sql_login_error);
+
+                }
+
+                Login::$welcome = "Invalid Login Credentials.";
+
+          }
+      }
+
+   }
 
 if (isset($_POST['submit'])) {
 
@@ -110,13 +111,8 @@ if (isset($_POST['submit'])) {
   $login_main = new Login();
   $login_main->login();
 
-
 }
-
-
-
 ?>
-
 
 <!DOCTYPE html>
   <html lang="en">

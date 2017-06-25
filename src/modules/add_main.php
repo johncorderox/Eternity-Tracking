@@ -29,21 +29,6 @@
 
     }
 
-    public function checkAddFields() {
-
-      if (!$this->title || $this->title == NULL) {
-
-         Addbug::$error_message .= "Title is Empty!";
-
-
-      }
-
-      if (!$this->message || $this->message == NULL) {
-
-           Addbug::$error_message .= " Message is Empty!";
-      }
-
-    }
 
     public function getSqlAddBug() {
 
@@ -80,7 +65,10 @@
 
         $add_bug_connect = new Connect();
 
-        $this->checkAddFields();
+        if (!$this->title || !$this->message) {
+
+          return Addbug::$error_message = "You are missing one of the required fields.";
+        }
 
         $this->title = mysqli_real_escape_string($add_bug_connect->connect(), $this->title);
         $this->message = mysqli_real_escape_string($add_bug_connect->connect(), $this->message);
