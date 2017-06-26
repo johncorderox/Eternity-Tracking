@@ -10,10 +10,11 @@ class DeleteBug {
   private $ip;
   private $user;
   private $delete_sql        = "DELETE FROM bugs WHERE id = " .$this->deleteId;
-  private $delete_sql_test   = "SELECT * FROM bugs WHERE id = " .$this->deleteId;
-  private $delete_sql_copy   = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$this->deleteId'";
-  private $delete_sql_update = "UPDATE deleted_bugs SET deleted_by = '$this->user', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId'";
-  private $delete_sql_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','$this->user', '$this->Id', NOW(), '$this->ip')";
+  private $delete_sql_test   = "SELECT * FROM bugs WHERE id =" .$this->deleteId;
+  private $delete_sql_copy   = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = ".$this->deleteId;
+  private $delete_sql_update = "UPDATE deleted_bugs SET deleted_by = '$this->user', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId' ";
+  private $delete_sql_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','$this->user', '$this->deleteId', NOW(), '$this->ip')";
+
 
   public static $errorMessage = "";
 
@@ -59,9 +60,21 @@ class DeleteBug {
 
   }
 
-  private function run () {
+  private function run() {
+
+    $run = new Connect();
 
 
+    // Moves data into another table
+    $mysqli_query($run->connect(),$delete_sql_copy);
+    // Adds remaining values to new table
+    $mysqli_query($run->connect(),$delete_sql_update);
+    // Deletes the bug ID number
+    $mysqli_query($run->connect(),$delete_sql);
+    // Logs the deleted bug
+    $mysqli_query($run->connect(),$delete_sql_log);
+    // Successful redirect
+    header("Location: main.php?deletebug=1");
 
 
   }
@@ -88,18 +101,9 @@ class DeleteBug {
       }
 
    }
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
 
 
 
@@ -109,7 +113,9 @@ class DeleteBug {
     $delete_bug = new DeleteBug();
     $delete_bug->deleteBug();
 
+  }
 
+/*
       $sql = "DELETE FROM bugs WHERE id = " .$id;
       $test = "SELECT * FROM bugs WHERE id = " .$id;
       $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$id'";
@@ -142,8 +148,7 @@ class DeleteBug {
              }
 
 
- }*/
-}
+ } */
 
 
   if(isset($_POST['cancel'])) {
