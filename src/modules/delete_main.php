@@ -9,11 +9,6 @@ class DeleteBug {
   private $deleteId;
   private $ip;
   private $user;
-  private $delete_sql        = "DELETE FROM bugs WHERE id = " .$this->deleteId;
-  private $delete_sql_test   = "SELECT * FROM bugs WHERE id =" .$this->deleteId;
-  private $delete_sql_copy   = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = ".$this->deleteId;
-  private $delete_sql_update = "UPDATE deleted_bugs SET deleted_by = '$this->user', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId' ";
-  private $delete_sql_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','$this->user', '$this->deleteId', NOW(), '$this->ip')";
 
 
   public static $errorMessage = "";
@@ -27,7 +22,7 @@ class DeleteBug {
 
   }
 
-
+/*
   public function setDeleteId ($d) {
 
     $this->deleteId = $d;
@@ -64,7 +59,6 @@ class DeleteBug {
 
     $run = new Connect();
 
-
     // Moves data into another table
     $mysqli_query($run->connect(),$delete_sql_copy);
     // Adds remaining values to new table
@@ -77,13 +71,14 @@ class DeleteBug {
     header("Location: main.php?deletebug=1");
 
 
-  }
+  } */
 
   public function deleteBug() {
 
-      if(!empty($this->deleteId) {
+      if (empty($this->deleteId)) {
 
-          return DeleteBug::$error_message = "You did not enter anything to be deleted!";
+           return DeleteBug::$errorMessage = "You did not enter anything to be deleted!";
+
 
       } else {
 
@@ -163,7 +158,7 @@ class DeleteBug {
   <div class="deleteform">
     <form action="delete_main.php" method="POST">
       <?php echo '<p id="larger">Enter the Bug ID Number: </p> <br />'; ?>
-      <?php DeleteBug::$errorMessage; ?>
+      <?php echo '<p>' . DeleteBug::$errorMessage .'</p>'; ?>
       <input type="text" id="del_start" name ="delete_id" placeholder="ID #: "/><br />
       <button type="submit" name="submit_delete" id="add-button">Submit</button>
       <button name="cancel">Cancel</button>
