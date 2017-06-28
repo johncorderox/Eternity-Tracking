@@ -10,7 +10,6 @@ class DeleteBug {
   private $ip;
   private $user;
 
-
   public static $errorMessage = "";
 
 
@@ -22,7 +21,7 @@ class DeleteBug {
 
   }
 
-/*
+
   public function setDeleteId ($d) {
 
     $this->deleteId = $d;
@@ -37,11 +36,12 @@ class DeleteBug {
 
   }
 
-  private function test_query($t) {
+  private function test_query() {
 
     $test_query = new Connect();
+    $delete_sql_test = "SELECT * FROM bugs WHERE id = '$this->deleteId' ";
 
-    $result = mysqli_query($test_query->connect(), $t);
+    $result = mysqli_query($test_query->connect(), $delete_sql_test);
 
       if (mysqli_num_rows($result) > 0) {
 
@@ -58,20 +58,25 @@ class DeleteBug {
   private function run() {
 
     $run = new Connect();
+    $delete_sql      = "DELETE FROM bugs WHERE id = " .$this->deleteId;
+    $delete_sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$this->deleteId'";
+    $delete_sql_update ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId'";
+    $delete_sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$this->deleteId', NOW(), '$this->ip')";
+
 
     // Moves data into another table
-    $mysqli_query($run->connect(),$delete_sql_copy);
+    mysqli_query($run->connect(),$delete_sql_copy);
     // Adds remaining values to new table
-    $mysqli_query($run->connect(),$delete_sql_update);
+    mysqli_query($run->connect(),$delete_sql_update);
     // Deletes the bug ID number
-    $mysqli_query($run->connect(),$delete_sql);
+    mysqli_query($run->connect(),$delete_sql);
     // Logs the deleted bug
-    $mysqli_query($run->connect(),$delete_sql_log);
+    mysqli_query($run->connect(),$delete_sql_log);
     // Successful redirect
     header("Location: main.php?deletebug=1");
 
 
-  } */
+  }
 
   public function deleteBug() {
 
@@ -87,20 +92,21 @@ class DeleteBug {
 
             $delete_connect = new Connect();
 
-            mysqli_escape_string($delete_conenct->connect(), $this->deleteId);
-            $this->test_query($delete_sql_test);
+            mysqli_escape_string($delete_connect->connect(), $this->deleteId);
+            $this->test_query();
 
+
+          } else {
+
+              return DeleteBug::$errorMessage = "You did not enter a valid number!";
 
           }
 
       }
 
    }
+
 }
-
-
-
-
 
 
   if (isset($_POST['submit_delete'])) {
@@ -109,41 +115,6 @@ class DeleteBug {
     $delete_bug->deleteBug();
 
   }
-
-/*
-      $sql = "DELETE FROM bugs WHERE id = " .$id;
-      $test = "SELECT * FROM bugs WHERE id = " .$id;
-      $sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$id'";
-      $sql_insert ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status = 'closed' WHERE id = '$id'";
-      $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$id', NOW(), '$ip')";
-
-            mysqli_select_db($connect, $database);
-
-            $query = $connect->query($test);
-
-            if($query->num_rows > 0 ) {
-
-              // Moves data into another table
-              $connect->query($sql_copy);
-              // Adds remaining values to new table
-              $connect->query($sql_insert);
-              // Deletes the bug ID number
-              $connect->query($sql);
-              // Logs the deleted bug
-              $connect->query($sql_log);
-              // Successful redirect
-              header("Location: main.php?deletebug=1");
-              mysqli_close($connect);
-
-            }
-
-              else {
-
-              $error = ' bug number ' . $id . ' does not exist.';
-             }
-
-
- } */
 
 
   if(isset($_POST['cancel'])) {
