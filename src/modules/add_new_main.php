@@ -4,6 +4,36 @@ include ("../config/config.php");
 include("../lib/secure.php");
 
 
+
+
+class NewUser() {
+
+  private $username_user;
+  private $password_user;
+  private $email;
+  private $ip;
+
+
+  public function __construct() {
+
+    $username = trims($_POST['username']);
+    $password = trims($_POST['password']);
+    $password = md5($password);
+    $email = trims(mysqli_escape_string($connect, $_POST['email']));
+    $email = email_clean($email);
+
+
+
+  }
+
+
+
+
+
+}
+
+
+
 if(isset($_POST['cancel'])) {
 
   header("Location: main.php");
