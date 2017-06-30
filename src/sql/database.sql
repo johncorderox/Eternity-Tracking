@@ -1,5 +1,7 @@
 -- Create MySQL Database --
-
+--
+--
+-- No need to run, just create Manually. -- 
 CREATE DATABASE tracking;
 
 -- Create MySQL Table
