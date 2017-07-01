@@ -4,23 +4,48 @@ include ("../config/config.php");
 include("../lib/secure.php");
 
 
-
-
 class NewUser() {
 
   private $username_user;
   private $password_user;
   private $email;
+  private $logged_user;
   private $ip;
 
 
   public function __construct() {
 
-    $username = trims($_POST['username']);
-    $password = trims($_POST['password']);
-    $password = md5($password);
-    $email = trims(mysqli_escape_string($connect, $_POST['email']));
-    $email = email_clean($email);
+    $this->username_user = trims($_POST['username']);
+    $this->password_user = trims($_POST['password']);
+    $this->email         = trims($_POST['email']);
+    $this->ip            = $_SESSION['REMOTE_ADDR'];
+    $this->logged_user   = $_SESSION['username'];
+
+    $this->email_clean();
+    $this->md5pass();
+    $this->escape_var();
+
+  }
+
+  private function email_clean() {
+
+    $this->email = email_clean($this->email);
+
+  }
+
+  private function md5pass() {
+
+    $this->password_user = md5($this->password_user);
+
+  }
+
+  private function escape_var() {
+
+    $escape_var = new Connect();
+
+    mysqli_escape_string($escape_var->connect(), $this->username_user);
+    mysqli_escape_string($escape_var->connect(), $this->password_user);
+    mysqli_escape_string($escape_var->connect(), $this->email);
 
 
 
