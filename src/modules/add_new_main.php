@@ -1,10 +1,9 @@
 <?php
-include ('main.php');
-include ("../config/config.php");
-include("../lib/secure.php");
+require ('main.php');
+require ("../config/config.php");
+require ("../lib/secure.php");
 
-
-class NewUser() {
+class NewUser {
 
   private $username_user;
   private $password_user;
@@ -12,137 +11,155 @@ class NewUser() {
   private $logged_user;
   private $ip;
 
+  public static $errorMessage = "";
 
-  public function __construct() {
+    public function __construct() {
 
-    $this->username_user = trims($_POST['username']);
-    $this->password_user = trims($_POST['password']);
-    $this->email         = trims($_POST['email']);
-    $this->ip            = $_SESSION['REMOTE_ADDR'];
-    $this->logged_user   = $_SESSION['username'];
+      $this->username_user = trims($_POST['username']);
+      $this->password_user = trims($_POST['password']);
+      $this->email         = trims($_POST['email']);
+      $this->ip            = $_SERVER['REMOTE_ADDR'];
+      $this->logged_user   = $_SESSION['username'];
 
-    $this->email_clean();
-    $this->md5pass();
-    $this->escape_var();
+      $this->email_clean();
+      $this->md5pass();
+      $this->escape_var();
 
-  }
-
-  private function email_clean() {
-
-    $this->email = email_clean($this->email);
-
-  }
-
-  private function md5pass() {
-
-    $this->password_user = md5($this->password_user);
-
-  }
-
-  private function escape_var() {
-
-    $escape_var = new Connect();
-
-    mysqli_escape_string($escape_var->connect(), $this->username_user);
-    mysqli_escape_string($escape_var->connect(), $this->password_user);
-    mysqli_escape_string($escape_var->connect(), $this->email);
+    }
 
 
+    public function email_clean() {
 
-  }
+      $this->email = email_clean($this->email);
 
+    }
+
+    public function md5pass() {
+
+      $this->password_user = md5($this->password_user);
+
+    }
+
+
+    public function escape_var() {
+
+      $escape_var = new Connect();
+
+      mysqli_escape_string($escape_var->connect(), $this->username_user);
+      mysqli_escape_string($escape_var->connect(), $this->password_user);
+      mysqli_escape_string($escape_var->connect(), $this->email);
 
 
 
+    }
 
-}
+    public function test_email() {
 
+        require("../config/config.php");
 
+        $test_email_check = new Connect();
 
-if(isset($_POST['cancel'])) {
+        if ($config['$allowMultiEmail'] == FALSE) {
 
-  header("Location: main.php");
-}
+          $sql_check_double_email = "SELECT * from `users` WHERE `email` = '$this->email' ";
 
-if(isset($_POST['submit_newuser'])) {
+          $result = mysqli_query($test_email_check->connect(), $sql_check_double_email);
 
+            if(mysqli_num_rows($result) >= 1) {
 
-    if(!empty($_POST['username']) && (!empty($_POST['password'])) && !empty($_POST['email'])) {
+               NewUser::$errorMessage = "This email is already taken!";
+               mysqli_close($test_email_check->connect());
 
-
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-
-            showError();
-
-        }
-
-      else if (strlen($_POST['password']) < $MinPasswordLength || sizeof($_POST['password']) > $MaxPasswordLength) {
-
-              showError();
+            }
 
         }
 
-        else {
-
-            $username = trims(mysqli_escape_string($connect, $_POST['username']));
-            $password = trims(mysqli_escape_string($connect, $_POST['password']));
-            $password = md5($password);
-            $email = trims(mysqli_escape_string($connect, $_POST['email']));
-            $email = email_clean($email);
-            $ip = $_SERVER['REMOTE_ADDR'];
-            $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";
-            $test = "SELECT * FROM users WHERE username = '".$username."'";
-            $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','AU','{$_SESSION['username']}', '$username', NOW(), '$ip')";
-
-            mysqli_select_db($connect, $database);
-
-            $sql_email_double = "SELECT * from users WHERE email = '$email' ";
-
-            if ($allowMultiEmail == FALSE) {
-
-              $email_result = $connect->query($sql_email_double);
-
-              if ($email_result->num_rows >= 1) {
-
-                echo "the email is already taken";
-
-              }
-
-            } else {
-
-            $query = $connect->query($test);
-
-                if ($query->num_rows > 0) {
-
-                  showError();
-
-                } else {
-
-                $result = $connect->query($sql);
-                          $connect->query($sql_log);
-
-                     if ($result) {
-
-                        header("Location: main.php?newuser=1");
-                        exit();
-
-                     }
-
-                  }
-
-              }
-
-           }
-
-        }
-
-    else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
-
-    showError();
+        $this->test_username();
 
   }
 
+  public function test_username() {
+
+    $test_username = new Connect();
+
+    $sql_username_test = "SELECT * FROM users WHERE username = '".$this->username_user."'";
+
+    $result = mysqli_query($test_username->connect(), $sql_username_test);
+
+      if (mysqli_num_rows($result) >= 1) {
+
+         NewUser::$errorMessage = "This username is already taken.";
+
+      }
+
+  }
+
+    public function add_new_user() {
+
+      require ("../config/config.php");
+
+      if(!empty($_POST['username']) && (!empty($_POST['password'])) && !empty($_POST['email'])) {
+
+
+          if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+
+               NewUser::$errorMessage = "Incorrect Email Format!";
+
+          }
+
+        else if (strlen($_POST['password']) < $config['$MinPasswordLength'] || sizeof($_POST['password']) > $config['$MaxPasswordLength']) {
+
+                 NewUser::$errorMessage = "Password requirements did not meet.";
+
+          }
+              else {
+
+
+              $this->test_email();
+
+                    $add_new_final = new Connect();
+                    $sql_add_new  = "INSERT INTO users (username, password, email) VALUES ('$this->username_user', '$this->password_user', '$this->email')";
+                    $sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','AU','$this->logged_user', '$this->username_user', NOW(), '$this->ip')";
+                    mysqli_query($add_new_final->connect(), $sql_add_new);
+
+                    mysqli_query($add_new_final->connect(), $sql_log);
+
+                    mysqli_close($add_new_final->connect());
+
+                  //  header("Location: main.php?newuser=1");
+                    //exit();
+
+
+                }
+
+          }
+
+       else if (empty($_POST['username']) or empty($_POST['password']) or empty($_POST['email'])) {
+
+             NewUser::$errorMessage = "You are missing 1 or more of the required fields.";
+
+      }
+
+   }
+
 }
+
+  if(isset($_POST['submit_newuser'])) {
+
+      $new_user = new NewUser();
+      $new_user->add_new_user();
+
+
+
+  }
+
+
+
+  if(isset($_POST['cancel'])) {
+
+    header("Location: main.php");
+  }
+
 
 ?>
 <html>
@@ -154,10 +171,11 @@ if(isset($_POST['submit_newuser'])) {
       <br />
       <p>
           Username and Password must be longer than 8 characters.<br />
-          Password must not exceed <?php echo $MaxPasswordLength; ?> characters.<br />
+          Password must not exceed <?php echo $config['$MaxPasswordLength']; ?> characters.<br />
           Email field must be in standard email format: abcdefg@email.com<br />
       <br />
       </p>
+    <?php echo '<p>' . NewUser::$errorMessage .'</p>'; ?>
     <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
     <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
     <input type="email" id="email_new" name ="email" placeholder="Email *"/><br />
