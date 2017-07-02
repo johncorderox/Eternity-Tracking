@@ -126,8 +126,8 @@ class NewUser {
 
                     mysqli_close($add_new_final->connect());
 
-                  //  header("Location: main.php?newuser=1");
-                    //exit();
+                    header("Location: main.php?newuser=1");
+                    exit();
 
 
                 }
