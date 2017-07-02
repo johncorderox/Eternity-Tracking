@@ -5,7 +5,7 @@
 <a href="https://eternity-tracking.000webhostapp.com/Eternity-Tracking/Eternity-Tracking/src/index.php">Demo</a>
 </p><br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within a system. Includes Account management and web application security. An easy-to-install program that allows developers to build off of.<br>
-<a href="http://tinypic.com?ref=2na6105" target="_blank"><img src="http://i67.tinypic.com/2na6105.jpg" border="0"></a><br>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/EmiCa"><a href="//imgur.com/EmiCa"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script><br>
 
 ## Features
 - **Login System** - Contains styles to demonstrate Hover. Not required in your projects
