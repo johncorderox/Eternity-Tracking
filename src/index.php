@@ -56,7 +56,7 @@ class Login {
 
       public function login() {
 
-        require_once("config/config.php");
+
 
         $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
 

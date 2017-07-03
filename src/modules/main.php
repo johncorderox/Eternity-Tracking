@@ -6,10 +6,9 @@
   include('../tables/buglist.php');
 
   $main = new Functions();
-
   $main_connect = new Connect();
 
-  $main_display = new Bugs();
+
 
   if(isset($_GET['add'])) {
 
@@ -67,9 +66,6 @@
           <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
-
-
-
       <div class="ui-main">
         <div class="ui-main-button-group">
         <form action="main.php" action="GET">
@@ -97,7 +93,10 @@
         <hr />
         </div>
       </div>
-    <?php  ?>
+    <?php
+      $displayBugs = new BugList();
+      $displayBugs->displayBugs();
+     ?>
   </body>
 
   <script type='text/javascript' src='../js/notification.js'></script>
