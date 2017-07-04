@@ -3,29 +3,26 @@ include 'main.php';
 include '../lib/secure.php';
 include('../config/config.php');
 
-  $connected = mysqli_select_db($connect, $database);
-  if($connected) {
 
-    $sql = "SELECT `email`, `account_count`, `last_ip` ";
+    $sql  = "SELECT `email`, `account_count`, `last_ip` ";
     $sql .= "FROM users ";
     $sql .= "WHERE username = '$logged'";
 
-    $result = $connect->query($sql);
+    $result = mysqli_query($main_connect->connect(), $sql);
     while ($row = mysqli_fetch_assoc($result)) {
 
       $email = $row['email'];
       $account_count = $row['account_count'];
       $ip = $row['last_ip'];
 
-    }
-
   }
+
 
   if (isset($_POST['submit_newpass'])) {
 
-    $password = trims(mysqli_escape_string($connect,$_POST['password']));
-    $password_new1 = trims(mysqli_escape_string($connect,$_POST['password_new1']));
-    $password_new2 = trims(mysqli_escape_string($connect,$_POST['password_new2']));
+    $password      = trims(mysqli_escape_string($main_connect->connect(),$_POST['password']));
+    $password_new1 = trims(mysqli_escape_string($main_connect->connect(),$_POST['password_new1']));
+    $password_new2 = trims(mysqli_escape_string($main_connect->connect(),$_POST['password_new2']));
 
     if (empty($password) or (empty($password_new1)) or (empty($password_new2))) {
 
@@ -40,7 +37,7 @@ include('../config/config.php');
     else {
 
         $sql = "SELECT * FROM users WHERE username = '{$_SESSION['username']}' AND password = '$password";
-        mysqli_query($connect, $sql);
+        mysqli_query($main_connect->connect(), $sql);
 
         $rows = mysqli_num_rows($result);
 
@@ -48,7 +45,7 @@ include('../config/config.php');
 
             $password_new1 = md5($password_new1);
             $sql_pass = "UPDATE users SET password = '$password_new1' WHERE username = '{$_SESSION['username']}'";
-            $result = mysqli_query($connect, $sql_pass);
+            $result = mysqli_query($main_connect->connect(), $sql_pass);
 
             if ($result) {
               echo '<script type="text/javascript">
@@ -80,7 +77,7 @@ include('../config/config.php');
             $new_email = email_clean($_POST['new_email']);
 
             $sql_email = "UPDATE users SET email = '$new_email' WHERE username = '{$_SESSION['username']}'";
-            $connect->query($sql_email);
+            mysqli_query($main_connect->connect(), $sql_email);
             echo '<script type="text/javascript">
                   display_input_message(9);
                   </script>';
@@ -92,7 +89,7 @@ include('../config/config.php');
   if (isset($_POST['submit_count'])) {
 
     $sql_count = "UPDATE users SET account_count = 0 WHERE username = '{$_SESSION['username']}'";
-    $connect->query($sql_count);
+    mysqli_query($main_connect->connect(), $sql_count);
 
     header("Location: main.php");
 
@@ -108,7 +105,7 @@ include('../config/config.php');
 
     $sql_user_check  = "SELECT * FROM users ";
 
-    $result = $connect->query($sql_user_check);
+    $result = mysqli_query($main_connect->connect(), $sql_user_check);
 
     if($result->num_rows <= 1) {
 
@@ -118,7 +115,7 @@ include('../config/config.php');
         $sql  = "DELETE * FROM users ";
         $sql .= "WHERE username = '$user_to_delete' ";
 
-        $result_delete = $connect->query($sql);
+        $result_delete = mysqli_query($main_connect->connect(), $sql);
 
         if ($result_delete) {
 
@@ -130,6 +127,8 @@ include('../config/config.php');
 
   }
 
+
+$account_functions = new Functions();
 
  ?>
  <body>
@@ -149,8 +148,8 @@ include('../config/config.php');
       <p>Login Count: <?php echo $account_count; ?> </p>
       <p>Last IP: <?php echo $ip; ?> </p><br />
       <hr />
-      <p>Number of bugs reported: <?php echo getReported(1); ?></p>
-      <p>Number of bugs deleted: <?php echo getReported(2); ?> </p><br /><br />
+      <p>Number of bugs reported: <?php echo $account_functions->getReported(1); ?></p>
+      <p>Number of bugs deleted: <?php echo $account_functions->getReported(2); ?> </p><br /><br />
       <br />
       <br />
       <br />

@@ -7,8 +7,14 @@ require ('../lib/connect.php');
 
 class viewDeleted {
 
-  public $undelete_icon = "<span class=\"glyphicon glyphicon-refresh\"></span>";
-  public $sql_view_deleted = "SELECT id, title, status, delete_date, deleted_by FROM deleted_bugs WHERE status = 'closed'";
+  public $undelete_icon        = "<span class=\"glyphicon glyphicon-refresh\"></span>";
+  public $sql_view_deleted     = "SELECT id, title, status, delete_date, deleted_by FROM deleted_bugs WHERE status = 'closed'";
+  public $sql_destroy;
+  public $sql_destroy_comments;
+  public $id;
+  public $undelete_sql;
+  public $sql_delete_update;
+  public $sql_delete_final;
 
 
 
@@ -40,6 +46,51 @@ class viewDeleted {
 
         }
 
+        public function undelete() {
+
+          $this->id = $_POST['undelete'];
+
+          $this->undelete_sql  = "INSERT INTO `bugs` (id, title, message, priority, category, status, reported_by, date) ";
+          $this->undelete_sql .= "SELECT `id`, `title`, `message`, `priority`, `category`, `status`, `deleted_by`, `delete_date` FROM deleted_bugs ";
+          $this->undelete_sql .= "WHERE `id` = '$this->id' ";
+
+          $this->sql_delete_update  = "UPDATE status, reported_by, date SET `status` = 'open', reported_by = 'System', date = NOW() WHERE id = '$this->id' ";
+
+          $this->sql_delete_final = "DELETE FROM deleted_bugs WHERE id = '$this->id' ";
+
+          $undelete = new Connect();
+          mysqli_query($undelete->connect(), $this->undelete_sql);
+          mysqli_query($undelete->connect(), $this->sql_delete_update);
+          $result = mysqli_query($undelete->connect(), $this->sql_delete_final);
+
+            if($result) {
+
+              header("Location: view_deleted.php?undelete=1");
+              mysqli_close($undelete->connect());
+            }
+
+
+
+        }
+
+        public function destroy() {
+
+          $this->id = $_POST['destroy'];
+
+          $this->sql_destroy          = "DELETE FROM deleted_bugs WHERE id = '$this->id'";
+          $this->sql_destroy_comments = "DELETE FROM comments WHERE bug_id = '$this->id'";
+          $destroy                    = new Connect();
+          $result_destroy             = mysqli_query($destroy->connect(), $this->sql_destroy);
+          $result_destroy_comments    = mysqli_query($destroy->connect(), $this->sql_destroy_comments);
+
+          if ($result_destroy && $result_destroy_comments) {
+
+              header("Location: view_deleted.php?destroy=1");
+              mysqli_close($destroy->connect());
+          }
+
+        }
+
 
     }
 
@@ -49,40 +100,15 @@ class viewDeleted {
 
 if (isset($_POST['undelete'])) {
 
-  $id = $_POST['undelete'];
-
-      $sql  = "INSERT INTO `bugs` (id, title, message, priority, category, status, reported_by, date) ";
-      $sql .= "SELECT `id`, `title`, `message`, `priority`, `category`, `status`, `deleted_by`, `delete_date` FROM deleted_bugs ";
-      $sql .= "WHERE `id` = '$id' ";
-
-      $sql_value_change  = "UPDATE status, reported_by, date SET `status` = 'open', reported_by = 'System', date = NOW() WHERE id = '$id' ";
-
-      $sql_delete = "DELETE FROM deleted_bugs WHERE id = '$id' ";
-
-     $connect->query($sql);
-     $connect->query($sql_value_change);
-     $connect->query($sql_delete);
-
-     header("Location: view_deleted.php?undelete=1");
+  $view->undelete();
 
 
 }
 
 if (isset($_POST['destroy'])) {
 
-  $id = $_POST['destroy'];
 
-  $sql_destroy = "DELETE FROM deleted_bugs WHERE id = '$id'";
-  $sql_destroy_comments = "DELETE FROM comments WHERE bug_id = '$id'";
-
-  $result_destroy          = $connect->query($sql_destroy);
-  $result_destroy_comments = $connect->query($sql_destroy_comments);
-
-  if ($result_destroy && $result_destroy_comments) {
-
-      header("Location: view_deleted.php?destroy=1");
-  }
-
+  $view->destroy();
 
 
 }

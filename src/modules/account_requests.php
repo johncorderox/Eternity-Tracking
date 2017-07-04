@@ -9,12 +9,11 @@
       $sql_account_accept .= "FROM requests ";
       $sql_account_accept .= "WHERE `request_id` = '$request_id'";
 
-      $result = $connect->query($sql_account_accept);
-
+      $result = mysqli_query($main->connect(), $sql_account_accept);
       if ($result) {
 
         $sql = "UPDATE requests SET request_status = 'closed'";
-        $connect->query($sql);
+        mysqli_query($main_connect->connect(), $sql);
         header("Location: main.php?accept=1");
       }
 
@@ -29,7 +28,7 @@
     $sql_account_deny .= "SET `request_status` = 'closed' ";
     $sql_account_deny .= "WHERE `request_id` = '$request_id'";
 
-    $connect->query($sql_account_deny);
+    mysqli_query($main_connect->connect(), $sql_account_deny);
 
   }
 
@@ -42,7 +41,7 @@
       <?php
       $sql_getRequests =  "SELECT `request_id`,`first_name`, `email`, `message`, `request_status` FROM requests";
 
-        $result = mysqli_query($connect, $sql_getRequests);
+        $result = mysqli_query($main_connect->connect(), $sql_getRequests);
 
         while ($row = mysqli_fetch_assoc($result)) {
 

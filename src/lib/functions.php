@@ -53,48 +53,36 @@ class Functions {
             echo '<p><b>Last bug reported:</b> '  .$row['title'].'</p>';
           }
        }
+    }
+
+    public function getReported($x) {
+
+      $gr = new Connect();
+
+      if ($gr->connect() && $x == 1) {
+
+        $sql_get_r = "SELECT COUNT(*) as total FROM bugs WHERE reported_by = '{$_SESSION['username']}'";
+        $result = mysqli_query($gr->connect(), $sql_get_r);
+        $number = mysqli_fetch_assoc($result);
+
+        echo '( '.$number['total'].' )';
+
+      } else if ($gr->connect() && $x == 2) {
+
+        $sql_get_r = "SELECT COUNT(*) as total FROM deleted_bugs WHERE deleted_by = '{$_SESSION['username']}'";
+        $result = mysqli_query($gr->connect(), $sql_get_r);
+        $number = mysqli_fetch_assoc($result);
+
+        echo '( '.$number['total'].' )';
+
+      }
 
     }
 
-
-
-}
-
-/*
+ }
 
 
 
 
-
-
-}
-
-// For the account.php page. Allows the user to see the number of reported X
-// Grabs the count for MySQL and echos as assoc array, like a menu.
-//
-// @args input from trigger on account.php
-
-function getReported ($x) {
-  global $connect;
-
-  if ($connect && $x == 1) {
-
-    $sql_get_r = "SELECT COUNT(*) as total FROM bugs WHERE reported_by = '{$_SESSION['username']}'";
-    $result = mysqli_query($connect, $sql_get_r);
-    $number = mysqli_fetch_assoc($result);
-
-    echo '( '.$number['total'].' )';
-
-  } else if ($connect && $x == 2) {
-
-    $sql_get_r = "SELECT COUNT(*) as total FROM deleted_bugs WHERE deleted_by = '{$_SESSION['username']}'";
-    $result = mysqli_query($connect, $sql_get_r);
-    $number = mysqli_fetch_assoc($result);
-
-    echo '( '.$number['total'].' )';
-
-  }
-}
-*/
 
  ?>
