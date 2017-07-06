@@ -6,6 +6,7 @@
        include ('../lib/secure.php');
 
 
+       $search_connect = new Connect();
        if (isset($_POST['submit_search'])) {
 
          if ($_POST['search'] == "" ) {
@@ -14,12 +15,11 @@
 
          } else {
 
-               $search= trims(mysqli_escape_string($connect, $_POST['search']));
+               $search= trims(mysqli_escape_string($search_connect->connect(), $_POST['search']));
                $sql_search = "SELECT * FROM bugs WHERE message LIKE '%".$search."%'";
 
-               mysqli_select_db($connect, $database);
 
-               $result = $connect->query($sql_search);
+               $result = mysqli_query($search_connect->connect(), $sql_search);
                $result_count = $result->num_rows;
 
                echo "<div id=\"table_bugs\">";

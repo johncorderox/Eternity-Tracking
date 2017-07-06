@@ -13,6 +13,7 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 - **Logging System** - Captures and stores actions inside the CP into the DB for reference
 - **Comments** - Comment and review bugs for in depth analysis
 - **Account Settings** - Password Changes, Email changes
+- **Deleted Bug Review - Allows users to see deleted bugs, destroy and undelete
 
 
 ## Requirements

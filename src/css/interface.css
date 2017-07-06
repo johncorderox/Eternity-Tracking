@@ -106,7 +106,7 @@ button:active {
 
 .header-name {
   margin-left: 30px;
-  width: 96%;
+  width: 300px;
 }
 
 .addform, .deleteform, .newuserform, .removeuser, .removeuserform {
@@ -205,43 +205,6 @@ li:active {
   margin-left: 25px;
 }
 
-
-/* Log Side Bar */
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  background-color: #edeff0;
-  top: 0;
-  right: 0;
-  color: black;
-  position: fixed;
-  overflow: auto;
-  text-align: center;
-  font-family: sans-serif;
-  color: black;
-  border-radius: 2%;
-}
-
-#hr_logs {
-  width: 250px;
-  color: black;
-  background-color: black;
-  height: 1px;
-  border: 0;
-}
-
-#open {
-  float: right;
-  font-size: 50px;
-}
-
-#cancel {
-  float: left;
-  font-size: 50px;
-  cursor: pointer;
-  margin-left: 12px;
-}
 
 #request {
   float: right;

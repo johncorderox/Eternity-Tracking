@@ -2,9 +2,12 @@
 
 include "../config/config.php";
 include "secure.php";
+require "connect.php";
 
 ob_start();
 session_start();
+
+$view_process = new Connect();
 
 $id       = $_POST['id'];
 $title    = $_POST['title'];
@@ -22,12 +25,12 @@ if (isset($_POST['cancel'])) {
 
 if (isset($_POST['save'])) {
 
-    $title    = mysqli_escape_string($connect, $title);
-    $message  = mysqli_escape_string($connect, $message);
+    $title    = mysqli_escape_string($view_process->connect(), $title);
+    $message  = mysqli_escape_string($view_process->connect(), $message);
 
       $sql = "UPDATE bugs SET title = '$title', category = '$category', priority = '$priority', message = '$message' WHERE id = '$id' ";
 
-      $connect->query($sql);
+      mysqli_query($view_process->connect(), $sql);
       header("Location: ../modules/main.php?savebug=1");
 
 
@@ -43,13 +46,13 @@ if (isset($_POST['delete'])) {
         mysqli_select_db($connect, $database);
 
           // Moves data into another table
-          $connect->query($sql_copy);
+          mysqli_query($view_process->connect(), $sql_copy);
           // Adds remaining values to new table
-          $connect->query($sql_insert);
+          mysqli_query($view_process->connect(), $sql_insert);
           // Deletes the bug ID number
-          $connect->query($sql);
+          mysqli_query($view_process->connect(), $sql);
           // Logs the deleted bug
-          $connect->query($sql_log);
+          mysqli_query($view_process->connect(), $sql_log);
           // Successful redirect
           header("Location: ../modules/main.php?deletebug=1");
 
@@ -58,7 +61,7 @@ if (isset($_POST['delete'])) {
 if (isset($_POST['add_comment'])) {
 
   $comment = trims($_POST['comment']);
-  $comment = mysqli_escape_string($connect, $comment);
+  $comment = mysqli_escape_string($view_process->connect(), $comment);
 
     if($comment == "") {
 
@@ -69,7 +72,7 @@ if (isset($_POST['add_comment'])) {
 
     $sql_insert = "INSERT INTO `comments` (comment_id, bug_id, comment, comment_by, date, ip) VALUES('', '$id', '$comment', '$user', NOW(), '$ip')";
 
-     $result = $connect->query($sql_insert) or die ($connect->error);
+     $result = mysqli_query($view_process->connect(), $sql_insert);
      if ($result) {
 
         header("Location: ../modules/main.php?successcomment=1");
@@ -83,7 +86,7 @@ if (isset($_POST['delete_comment'])) {
   $id = $_POST['delete_comment'];
 
   $sql_delete_comment = "DELETE FROM comments WHERE comment_id = '$id'";
-  $result = $connect->query($sql_delete_comment);
+  $result = mysqli_query($view_process->connect(), $sql_delete_comment);
 
 
   if ($result) {
