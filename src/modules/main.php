@@ -19,8 +19,14 @@
   <body>
     <div ng-app="tabController">
       <div ng-controller="tabController">
-
-    {{test}}
+        <ul class="nav nav-tabs">
+   <li class="active"><a href="#">Home</a></li>
+   <li><a href="#">Bugs</a></li>
+   <li><a href="#">Deleted Bugs</a></li>
+   <li><a href="#">User Accounts</a></li>
+   <li><a href="#">Advanced Search</a></li>
+   <li><a href="#">Account Settings</a></li>
+ </ul>
   </div>
   </div>
       <div class="leftside-info">
