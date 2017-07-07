@@ -26,6 +26,21 @@ select {
   background-color: white;
 }
 
+.main-buttons button {
+
+  height: 40px;
+  width: 150px;
+  margin-top: 16px;
+}
+
+
+
+
+
+
+
+
+
 .searchForm {
   margin-left: 20px;
 }
@@ -76,26 +91,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   border-bottom: 1px solid black;
 }
 
-button {
-  padding: 10px;
-  width: 100px;
-  background-color: white;
-  border-width: 1px;
-  border-radius: 4px;
-  border-style: solid;
-  border-color: black;
-  height: 55px;
-  margin-right: 30px;
-}
-
-button:hover {
-  color: gray;
-}
-
-button:active {
-  opacity: 0.2;
-}
-
 #pointer {
   cursor: pointer;
 }
@@ -116,19 +111,27 @@ button:active {
 
 .leftside-info {
   width: 300px;
+
+}
+
+.main-information {
+
+  margin-top: 10px;
+}
+.backend-information {
   float: left;
-  margin-right: 20px;
+  width: 45%;
+  display: inline;
+  margin-left: 5%;
+
 }
 
-.ui-main {
-  float: right;
-  margin-right: 70px;
-}
+.main-info {
 
-.ui-main button {
-  height: 60px;
-  padding: 0;
-  margin: 20px 20px;
+width: 45%;
+float: left;
+display: inline;
+
 }
 
 .bug_list {
@@ -179,7 +182,7 @@ a:visited {
   margin-right: 15px;
 }
 
-li {
+.main-info li {
   display: inline;
   margin-left: 13%;
   cursor: pointer;

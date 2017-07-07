@@ -1,1 +1,1 @@
-var app = angular.module("tabController", []);
+var app = angular.module("tabController", ["ngRoute"]);

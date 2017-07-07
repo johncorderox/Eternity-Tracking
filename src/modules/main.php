@@ -20,16 +20,18 @@
     <div ng-app="tabController">
       <div ng-controller="tabController">
         <ul class="nav nav-tabs">
-   <li class="active"><a href="#">Home</a></li>
-   <li><a href="#">Bugs</a></li>
-   <li><a href="#">Deleted Bugs</a></li>
-   <li><a href="#">User Accounts</a></li>
-   <li><a href="#">Advanced Search</a></li>
-   <li><a href="#">Account Settings</a></li>
- </ul>
+         <li class="active"><a href="#">Home</a></li>
+         <li><a href="view_deleted.php">Bug Review</a></li>
+         <li><a href="view_deleted.php">Deleted Bugs</a></li>
+         <li><a href="#">User Accounts</a></li>
+         <li><a href="#">Advanced Search</a></li>
+         <li><a href="#">Account Settings</a></li>
+         <li><a href="#">Logout</a></li>
+       </ul>
   </div>
   </div>
-      <div class="leftside-info">
+    <div class="container-fluid">
+      <div class="main-information">
         <div class="list-group">
           <div class="main-info">
             <a href="#" class="list-group-item active"><span class="glyphicon glyphicon-inbox"></span>Main Information</a>
@@ -37,9 +39,21 @@
             <a href="#" class="list-group-item"><b>Number of Bugs:</b> <?php $main->num_of_items(0); ?></a>
             <a href="#" class="list-group-item"><b>Number of User Accounts:</b> <?php $main->num_of_items(1); ?></a>
             <a href="view_deleted.php" class="list-group-item"><b>Deleted Bugs</b>: <?php $main->num_of_items(2); ?> </a>
-            <a href="account_requests.php" class="list-group-item"><b>Account Requests</b>: <?php $main->num_of_items(3); ?> </a>
           </div>
-          </div>
+        </div>
+      </div>
+      <div class="backend-information">
+        <div class="list-group">
+          <a href="#" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span>Backend Information </a>
+          <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $main_connect->getServer(); ?></a>
+          <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $main_connect->getDatabase(); ?></a>
+          <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
+          <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($main_connect->connect()); ?></a>
+        </div><br />
+      </div>
+    </div>
+
+            <!--
         <br />
         <div class="list-group">
           <a href="#" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span>Backend Information </a>
@@ -56,13 +70,13 @@
         </div>
       </div>
       <div class="ui-main">
-        <div class="ui-main-button-group">
+        <div class="main-buttons">
         <form action="main.php" action="GET">
-          <button name="add">Add Bug</button>
-          <button name="delete">Delete Bug</button>
-          <button name="add_new">Add New User</button>
-          <button name="remove_user">Remove User</button>
+          <button name="add" class="btn btn-primary" >Add Bug <span class="glyphicon glyphicon-plus"></span></button>
+          <button name="delete" class="btn btn-primary">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
+          <button name="add_new" class="btn btn-primary">Search Bugs <span class="glyphicon glyphicon-search"></span></button>
         </form><br />
+
 
         <div class="panel panel-default">
           <div class="panel-body">
@@ -81,9 +95,10 @@
         </form>
         <hr />
         </div>
-      </div>
+      </div> -->
     <?php
       $displayBugs = new BugList();
+
       $displayBugs->displayBugs();
      ?>
   </body>
