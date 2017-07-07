@@ -133,6 +133,30 @@ float: left;
 display: inline;
 
 }
+.log-buttons {
+margin-left: 30px;
+margin-right: 30px;
+float: right;
+display: inline;
+
+}
+.main-logs {
+
+  text-align: center;
+}
+
+.main-logs h5 {
+
+margin-left: 180px;
+
+}
+
+.logs {
+
+  width: 40%;
+  text-align: center;
+
+}
 
 .bug_list {
   float: left;

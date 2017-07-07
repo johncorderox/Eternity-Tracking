@@ -53,6 +53,16 @@
       </div>
     </div>
 
+    <?php require ('../logs/logs.php'); ?>
+
+    <!-- module under backend
+
+
+
+
+
+    -->
+
             <!--
         <br />
         <div class="list-group">
@@ -99,7 +109,7 @@
     <?php
       $displayBugs = new BugList();
 
-      $displayBugs->displayBugs();
+      //$displayBugs->displayBugs();
      ?>
   </body>
   <script type='text/javascript' src='../js/notification.js'></script>
