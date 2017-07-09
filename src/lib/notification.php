@@ -30,6 +30,13 @@
 
           }
 
+          else if(isset($_GET['remove_user'])) {
+
+              header("location: remove_user_main.php");
+              exit();
+
+            }
+
 
     }
 

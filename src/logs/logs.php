@@ -1,18 +1,15 @@
-<form action="main.php" method="POST">
-  <div class="log-buttons">
-    <button class="btn btn-success" name="view">View More</button>
-    <button class="btn btn-danger" name="reset">Reset</button><br />
-  </div>
-</form>
-
-
 <div class="main-logs">
-<h5>Logs</h5>
+  <h5>Action logs</h5>
+  <form action="main.php" method="POST">
+    <div class="log-buttons">
+      <button class="btn btn-success" id="view_logs_button" name="view">View More</button>
+      <button class="btn btn-danger" name="reset">Reset</button>
+    </div>
+  </form>
 
 <?php
 
   $log_limit = 3;
-
 
   if(isset($_POST['view'])) {
 

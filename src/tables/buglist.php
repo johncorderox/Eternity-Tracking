@@ -1,4 +1,6 @@
 <?php
+
+require ('../lib/connect.php');
 class BugList {
 
   private $sql = "SELECT id, title FROM bugs";

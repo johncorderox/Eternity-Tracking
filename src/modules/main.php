@@ -3,7 +3,6 @@
 
   require('../config/config.php');
   require('../lib/functions.php');
-  require('../tables/buglist.php');
   require('../lib/notification.php');
 
   $main              = new Functions();
@@ -21,11 +20,11 @@
       <div ng-controller="tabController">
         <ul class="nav nav-tabs">
          <li class="active"><a href="#">Home</a></li>
-         <li><a href="view_deleted.php">Bug Review</a></li>
+         <li><a href="bugs.php">Bug Review</a></li>
          <li><a href="view_deleted.php">Deleted Bugs</a></li>
-         <li><a href="#">User Accounts</a></li>
+         <li><a href="">User Accounts</a></li>
          <li><a href="#">Advanced Search</a></li>
-         <li><a href="#">Account Settings</a></li>
+         <li><a href="account.php">Account Settings</a></li>
          <li><a href="#">Logout</a></li>
        </ul>
   </div>
@@ -79,13 +78,7 @@
           <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
         </div>
       </div>
-      <div class="ui-main">
-        <div class="main-buttons">
-        <form action="main.php" action="GET">
-          <button name="add" class="btn btn-primary" >Add Bug <span class="glyphicon glyphicon-plus"></span></button>
-          <button name="delete" class="btn btn-primary">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
-          <button name="add_new" class="btn btn-primary">Search Bugs <span class="glyphicon glyphicon-search"></span></button>
-        </form><br />
+
 
 
         <div class="panel panel-default">
@@ -106,11 +99,6 @@
         <hr />
         </div>
       </div> -->
-    <?php
-      $displayBugs = new BugList();
-
-      //$displayBugs->displayBugs();
-     ?>
   </body>
   <script type='text/javascript' src='../js/notification.js'></script>
   <script type='text/javascript' src='../js/forms.js'></script>
