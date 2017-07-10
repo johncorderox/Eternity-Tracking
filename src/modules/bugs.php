@@ -3,8 +3,16 @@
       require('../tables/buglist.php');
       require('../config/config.php');
       require("../lib/secure.php");
-
  ?>
+ <ul class="nav nav-tabs">
+    <li><a href="main.php">Home</a></li>
+    <li class="active"><a href="bugs.php">Bug Review</a></li>
+    <li><a href="view_deleted.php">Deleted Bugs</a></li>
+    <li><a href="">User Accounts</a></li>
+    <li><a href="#">Advanced Search</a></li>
+    <li><a href="account.php">Account Settings</a></li>
+    <li><a href="#">Logout</a></li>
+ </ul>
 
    <div class="review-buttons">
    <form action="main.php" action="GET">
@@ -163,6 +171,7 @@
      </div>
    </body>
    </html>
+   
    <script>
    $(document).ready(function() {
 

@@ -84,10 +84,3 @@ function reveal(x) {
 
   }
 }
-
-function hideLogs() {
-
-  $('#open').hide();
-
-
-}

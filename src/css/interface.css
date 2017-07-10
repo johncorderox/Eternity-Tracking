@@ -44,6 +44,11 @@ select {
   display: inline;
 }
 
+.main-logs #view_login_logs_button {
+
+  margin-left: 30px;
+}
+
 .main-logs {
 
   width: 80%;
@@ -53,11 +58,6 @@ select {
 .main-logs h5 {
 
   float: left;
-}
-
-#view_logs_button {
-
-  margin-left: 30px;
 }
 
 .center {

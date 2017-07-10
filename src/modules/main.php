@@ -15,20 +15,17 @@
 
 <html lang="en">
 <?php  include("../header.php"); ?>
+
   <body>
-    <div ng-app="tabController">
-      <div ng-controller="tabController">
-        <ul class="nav nav-tabs">
-         <li class="active"><a href="#">Home</a></li>
-         <li><a href="bugs.php">Bug Review</a></li>
-         <li><a href="view_deleted.php">Deleted Bugs</a></li>
-         <li><a href="">User Accounts</a></li>
-         <li><a href="#">Advanced Search</a></li>
-         <li><a href="account.php">Account Settings</a></li>
-         <li><a href="#">Logout</a></li>
-       </ul>
-  </div>
-  </div>
+    <ul class="nav nav-tabs">
+     <li class="active"><a href="main.php">Home</a></li>
+     <li><a href="bugs.php">Bug Review</a></li>
+     <li><a href="view_deleted.php">Deleted Bugs</a></li>
+     <li><a href="">User Accounts</a></li>
+     <li><a href="#">Advanced Search</a></li>
+     <li><a href="account.php">Account Settings</a></li>
+     <li><a href="#">Logout</a></li>
+    </ul>
     <div class="container-fluid">
       <div class="main-information">
         <div class="list-group">
@@ -102,11 +99,6 @@
   </body>
   <script type='text/javascript' src='../js/notification.js'></script>
   <script type='text/javascript' src='../js/forms.js'></script>
-  <!-- Modules -->
-  <script src="../js/app.js"></script>
-
-  <!-- Controllers -->
-  <script src="../js/controllers/tabController.js"></script>
 
 </html>
 <?php

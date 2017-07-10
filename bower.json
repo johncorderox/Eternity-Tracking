@@ -20,6 +20,5 @@
   "dependencies": {
     "bootstrap-growl": "^1.1.0",
     "jquery.scrollTo": "^2.1.2",
-    "angular": "^1.6.5"
   }
 }
