@@ -16,7 +16,7 @@ class BugList {
         echo "<tr><td>".$row["id"]."</td><td>".$row["title"].
         "</td><td>".
         "<form action=\"view.php\" method=\"POST\">".
-        "<button type=\'submit\' class=\"view_buttom\" name =\"id\" value='".$row['id']."' />View</button></td></tr>
+        "<button type=\'submit\' class=\"btn btn-primary\" name =\"id\" value='".$row['id']."' />View</button></td></tr>
         </form>";
 
       }

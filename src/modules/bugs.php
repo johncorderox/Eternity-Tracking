@@ -13,13 +13,10 @@
     <li><a href="account.php">Account Settings</a></li>
     <li><a href="#">Logout</a></li>
  </ul>
-
    <div class="review-buttons">
-   <form action="main.php" action="GET">
-     <button name="add" class="btn btn-primary" >Add Bug <span class="glyphicon glyphicon-plus"></span></button>
-     <button name="delete" class="btn btn-primary">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
-     <button name="add_new" class="btn btn-primary">Search Bugs <span class="glyphicon glyphicon-search"></span></button>
-   </form><br />
+     <button class="btn btn-primary">Add Bug <span class="glyphicon glyphicon-plus"></span></button>
+     <button class="btn btn-primary">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
+     <button class="btn btn-primary">Search Bugs <span class="glyphicon glyphicon-search"></span></button>
 
    <?php
 
@@ -170,18 +167,8 @@
      </form>
      </div>
    </body>
+   <script type='text/javascript' src='../js/forms.js'></script>
    </html>
-   
-   <script>
-   $(document).ready(function() {
-
-     $('.ui-main-button-group').hide("fast");
-     $('.addform2').show();
-
-   });
-   </script>
-
-   </script>
 
 
  <?php

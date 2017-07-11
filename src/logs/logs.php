@@ -1,10 +1,23 @@
 <div class="main-logs">
-  <h5>Action logs</h5>
-  <form action="main.php" method="POST">
+  <h5>Action Logs</h5>
     <div class="log-buttons">
-      <button class="btn btn-success" id="view_login_logs_button" name="view_login">View Login Logs <span class="glyphicon glyphicon-eye-open"></span></button>
+      <button class="btn btn-success" onclick="showLogin()" id="view_login_logs_button">View Login Logs <span class="glyphicon glyphicon-eye-open"></span></button>
     </div>
-  </form>
+    <?php
+    $main_logs = new Logs();
+    $main_logs->display();
+    ?>
+  </div>
+<div class="login-logs">
+  <h5>Login logs</h5>
+    <div class="log-buttons">
+      <button class="btn btn-success" id="view_login_logs_button" onclick="showAction()">View Action Logs <span class="glyphicon glyphicon-eye-open"></span></button>
+    </div>
+    <?php
+
+      $main_logs->display2();
+     ?>
+</div>
 
 <?php
 
@@ -13,26 +26,6 @@ class Logs {
   private $action_log_limit = 10;
   private $login_log_limit = 10;
 
-  public function view_more_action() {
-
-    $this->action_log_limit = 10;
-  }
-
-  public function reset_action() {
-
-    $this->action_log_limit = 5;
-  }
-
-  public function view_more_login() {
-
-    $this->action_log_limit = 50;
-
-  }
-
-  public function reset_login() {
-
-    $this->action_log_limit = 10;
-  }
 
   public function cleanDate($old) {
 
@@ -81,22 +74,25 @@ class Logs {
 
   }
 
-}
-$main_logs = new Logs();
-$main_logs->display();
+  public function display2() {
 
-  if(isset($_POST['view'])) {
+    $log_connect_2 = new Connect();
 
-    $main_logs->view_more_action();
-    $main_logs->display();
+    $query_2 = "SELECT * FROM `login_log` ORDER BY 'log_id' DESC LIMIT $this->login_log_limit";
+
+    $result = mysqli_query($log_connect_2->connect(), $query_2);
+
+    while ($rows = mysqli_fetch_assoc($result)) {
+      echo "<hr>";
+
+      echo "Username: <b>" .$rows['username'] . '</b> had an ' .$rows['error_message']. ' on ' .$this->cleanDate($rows['date']).
+      ' under the IP: '.$rows['ip'].'.<br>';
+
+      }
+
+    }
+
   }
-
-  if(isset($_POST['reset'])) {
-
-    $main_logs->reset_action();
-    $main_logs->display();
-  }
-
 
 ?>
 </div>

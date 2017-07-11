@@ -44,18 +44,18 @@ select {
   display: inline;
 }
 
-.main-logs #view_login_logs_button {
+.main-logs #view_login_logs_button, .login-logs #view_login_logs_button {
 
   margin-left: 30px;
 }
 
-.main-logs {
+.main-logs, .login-logs {
 
   width: 80%;
   margin-left: 20px;
 }
 
-.main-logs h5 {
+.main-logs h5, .login-logs h5 {
 
   float: left;
 }
@@ -267,15 +267,6 @@ li:active {
 
 /* Table CSS Layout and Design */
 
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-}
 
 th {
   background: #42444e;
@@ -284,13 +275,6 @@ th {
   padding: 5px;
 }
 
-tr:first-child th:first-child {
-  border-top-left-radius: 6px;
-}
-
-tr:first-child th:last-child {
-  border-top-right-radius: 6px;
-}
 
 td {
   border-right: 1px solid #c6c9cc;
@@ -305,13 +289,7 @@ tr:nth-child(even) td {
   background: #eaeaed;
 }
 
-tr:last-child td:first-child {
-  border-bottom-left-radius: 6px;
-}
 
-tr:last-child td:last-child {
-  border-bottom-right-radius: 6px;
-}
 
 
 /* Responsive Design */

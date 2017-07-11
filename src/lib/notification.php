@@ -3,43 +3,6 @@
   class Notification {
 
 
-    public function redirects() {
-
-        if(isset($_GET['add'])) {
-
-          header("location: add_main.php");
-          exit();
-        }
-
-        else if(isset($_GET['delete'])) {
-
-          header("location: delete_main.php");
-          exit();
-        }
-
-        else if(isset($_GET['add_new'])) {
-
-          header("location: add_new_main.php");
-          exit();
-        }
-
-        else if(isset($_GET['remove_user'])) {
-
-            header("location: remove_user_main.php");
-            exit();
-
-          }
-
-          else if(isset($_GET['remove_user'])) {
-
-              header("location: remove_user_main.php");
-              exit();
-
-            }
-
-
-    }
-
     public function notifications() {
 
       if (isset($_GET['successbug']) && $_GET['successbug']=='1') {

@@ -9,7 +9,6 @@
   $main_connect      = new Connect();
   $main_notification = new Notification();
 
-  $main_notification->redirects();
 
 ?>
 

@@ -3,20 +3,7 @@ $(document).ready(function() {
   var message = $('#message').val();
   var comment_button = $('#add_comment');
 
-  $('.editform, .deleteform, .newuserform, .removeuserform').hide();
-
-  $('#open').click(function() {
-
-    $('.sidebar').css("width", "425");
-
-  });
-
-
-  $('#cancel').click(function() {
-
-    $('.sidebar').css("width", "0");
-
-  });
+  $('.login-logs, .addform').hide();
 
   comment_button.attr("disabled", "disabled");
 
@@ -35,6 +22,7 @@ $(document).ready(function() {
 
 
 });
+
 
 function showComments(a) {
 
@@ -83,4 +71,15 @@ function reveal(x) {
     default:
 
   }
+}
+function showLogin() {
+
+$('.main-logs').hide();
+$('.login-logs').show();
+}
+
+function showAction() {
+  $('.main-logs').show();
+  $('.login-logs').hide();
+
 }
