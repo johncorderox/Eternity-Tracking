@@ -21,19 +21,11 @@
 
 <?php
 
-class Logs {
+class Logs extends Functions{
 
   private $action_log_limit = 10;
   private $login_log_limit = 10;
 
-
-  public function cleanDate($old) {
-
-    $phpdate = strtotime($old);
-    $new = date('m-d-Y', $phpdate);
-    return $new;
-
-  }
 
   public function display() {
 

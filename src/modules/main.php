@@ -18,7 +18,7 @@
   <body>
     <ul class="nav nav-tabs">
      <li class="active"><a href="main.php">Home</a></li>
-     <li><a href="bugs.php">Bug Review</a></li>
+     <li><a href="bug_review.php">Bug Review</a></li>
      <li><a href="view_deleted.php">Deleted Bugs</a></li>
      <li><a href="">User Accounts</a></li>
      <li><a href="#">Advanced Search</a></li>
@@ -48,34 +48,11 @@
       </div>
     </div>
 
+
+
     <?php require ('../logs/logs.php'); ?>
 
     <!-- module under backend
-
-
-
-
-
-    -->
-
-            <!--
-        <br />
-        <div class="list-group">
-          <a href="#" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span>Backend Information </a>
-          <a href="#" class="list-group-item"><b>Host Name:</b> <?php echo $main_connect->getServer(); ?></a>
-          <a href="#" class="list-group-item"><b>Database name:</b> <?php echo $main_connect->getDatabase(); ?></a>
-          <a href="#" class="list-group-item"><b>PHP Info:</b> <?php echo phpversion(); ?></a>
-          <a href="#" class="list-group-item"><b>MySQL Vers:</b> <?php echo mysqli_get_server_version($main_connect->connect()); ?></a>
-        </div><br />
-        <div class="list-group">
-          <a class="list-group-item list-group-item-danger"><p id="danger-dark"><span class="glyphicon glyphicon-cog"></span>Admin Section</p></a>
-          <a href="account.php" class="list-group-item" id="pointer">Account Settings </a>
-          <a href="delete_all.php" class="list-group-item" id="pointer">Delete All Bugs</a>
-          <a href="../logout.php" class="list-group-item" id="pointer">Logout</a>
-        </div>
-      </div>
-
-
 
         <div class="panel panel-default">
           <div class="panel-body">

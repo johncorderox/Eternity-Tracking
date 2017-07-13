@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
-  var message = $('#message').val();
+  var message        = $('#message').val();
   var comment_button = $('#add_comment');
+  var title          = $('#title');
+
 
   $('.login-logs, .addform').hide();
 
@@ -82,4 +84,16 @@ function showAction() {
   $('.main-logs').show();
   $('.login-logs').hide();
 
+}
+
+function add_bug() {
+
+  $('.addform').toggle();
+  $('#bug_table').toggle();
+
+}
+
+function delete_bug () {
+
+  
 }

@@ -1,6 +1,6 @@
 <?php
 
-include ("connect.php");
+require ("connect.php");
 
 
 class Functions {
@@ -79,9 +79,18 @@ class Functions {
 
     }
 
+
+       public function cleanDate($old) {
+
+         $phpdate = strtotime($old);
+
+         $new = date('m-d-Y', $phpdate);
+
+         return $new;
+
+     }
+
  }
-
-
 
 
 
