@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-  var message        = $('#message').val();
+  var message = $('#message').val();
   var comment_button = $('#add_comment');
-  var title          = $('#title');
+  var title = $('#title');
 
 
-  $('.login-logs').hide();
+  $('.login-logs, .addform, .deleteform').hide();
 
   comment_button.attr("disabled", "disabled");
 
@@ -55,40 +55,39 @@ function reveal(x) {
 
   switch (x) {
     case 0:
-      $('.changePassword').toggle("fast");
-      $('.resetLoginCount, .changeEmail').hide();
+      $('.login-logs').show();
+      $('.main-logs').hide();
       break;
 
     case 1:
-
-      $('.changeEmail').toggle("fast");
-      $('.changePassword, .resetLoginCount').hide();
+      $('.main-logs').show();
+      $('.login-logs').hide();
       break;
 
     case 2:
-
-      $('.resetLoginCount').toggle("fast");
-      $('.changePassword, .changeEmail').hide();
+      $('.addform').show();
+      $('.deleteform, #bug_table, .searchform').hide();
       break;
+
+    case 3:
+      $('.deleteform, #bug_table').show();
+      $(' .addform, .searchform').hide();
+      break;
+
+      case 5:
+
+      $('.addform').hide();
+      $('#bug_table').show();
+      break;
+
+      case 6:
+
+      $('.deleteform').hide();
+
+      break;
+
+
     default:
 
   }
-}
-function showLogin() {
-
-$('.main-logs').hide();
-$('.login-logs').show();
-}
-
-function showAction() {
-  $('.main-logs').show();
-  $('.login-logs').hide();
-
-}
-
-function add_bug() {
-
-  $('.addform').toggle();
-  $('#bug_table').toggle();
-
 }
