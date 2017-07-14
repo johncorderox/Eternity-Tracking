@@ -61,7 +61,7 @@ select {
   float: left;
 }
 
-.addform {
+.addform, .deleteform {
 
   margin-top: 80px;
   width: 500px;
