@@ -5,7 +5,7 @@ $(document).ready(function() {
   var title          = $('#title');
 
 
-  $('.login-logs, .addform').hide();
+  $('.login-logs').hide();
 
   comment_button.attr("disabled", "disabled");
 
