@@ -100,14 +100,12 @@
 
        public function addBug() {
 
-           $add_bug_connect = new Connect();
+         $add_bug_connect = new Connect();
 
+         if (!$this->title || !$this->message) {
+  
+           return Addbug::$error_message = "You are missing one of the required fields.";
 
-           if (!$this->title || !$this->message) {
-
-             return Addbug::$error_message = "You are missing one of the required fields.";
-             exit();
-           }
 
 
            $this->title = mysqli_real_escape_string($add_bug_connect->connect(), $this->title);
@@ -140,7 +138,7 @@
 
 
      }
-
+}
 
      if (isset($_POST['add_main'])) {
 

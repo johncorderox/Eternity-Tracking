@@ -92,8 +92,3 @@ function add_bug() {
   $('#bug_table').toggle();
 
 }
-
-function delete_bug () {
-
-  
-}
