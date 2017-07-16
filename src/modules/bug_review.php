@@ -3,6 +3,7 @@
       require('../config/config.php');
       require('../lib/secure.php');
       require('../lib/functions.php');
+      require('../lib/notification.php');
 
 
         class BugList extends Functions {
@@ -140,6 +141,126 @@
 
      }
 
+     class DeleteBug {
+
+       private $deleteId;
+       private $ip;
+       private $user;
+
+       public static $errorMessage = "";
+
+
+       public function __construct() {
+
+         $this->deleteId = trims($_POST['delete_id']);
+         $this->ip       = $_SERVER['REMOTE_ADDR'];
+         $this->user     = $_SESSION['username'];
+
+       }
+
+
+       public function setDeleteId ($d) {
+
+         $this->deleteId = $d;
+
+
+       }
+
+       public function getDeleteId() {
+
+         return $this->deleteId;
+
+
+       }
+
+       private function test_query() {
+
+         $test_query = new Connect();
+         $delete_sql_test = "SELECT * FROM bugs WHERE id = '$this->deleteId' ";
+
+         $result = mysqli_query($test_query->connect(), $delete_sql_test);
+
+           if (mysqli_num_rows($result) > 0) {
+
+             $this->run();
+
+           } else {
+
+             DeleteBug::$errorMessage = "ID: " . $this->deleteId . " could not be found.";
+           }
+
+
+       }
+
+       public function run() {
+
+         $run = new Connect();
+         $delete_sql      = "DELETE FROM bugs WHERE id = " .$this->deleteId;
+         $delete_sql_copy = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` FROM bugs WHERE id = '$this->deleteId'";
+         $delete_sql_update ="UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status = 'closed' WHERE id = '$this->deleteId'";
+         $delete_sql_log = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$this->deleteId', NOW(), '$this->ip')";
+
+
+         // Moves data into another table
+         mysqli_query($run->connect(),$delete_sql_copy);
+         // Adds remaining values to new table
+         mysqli_query($run->connect(),$delete_sql_update);
+         // Deletes the bug ID number
+         mysqli_query($run->connect(),$delete_sql);
+         // Logs the deleted bug
+         mysqli_query($run->connect(),$delete_sql_log);
+         // Successful redirect
+         header("Location: bug_review.php?deletebug=1");
+
+
+       }
+
+       public function deleteBug() {
+
+           if (empty($this->deleteId)) {
+
+                return DeleteBug::$errorMessage = "You did not enter anything to be deleted!";
+
+
+           } else {
+
+
+               if (is_numeric($this->deleteId)) {
+
+                 $delete_connect = new Connect();
+
+                 mysqli_escape_string($delete_connect->connect(), $this->deleteId);
+                 $this->test_query();
+
+
+               } else {
+
+                   return DeleteBug::$errorMessage = "You did not enter a valid number!";
+
+               }
+
+           }
+
+        }
+
+     }
+
+     class Search {
+
+       public $search;
+       public $result_count;
+       public static $errorMessage;
+
+       public function __construct() {
+
+         $this->search = trims($_POST['search']);
+       }
+
+
+
+
+  }
+
 
      if (isset($_POST['add_main'])) {
 
@@ -148,12 +269,23 @@
 
        }
 
-     if(isset($_POST['cancel'])) {
 
-        header("location: bug_review.php");
+      if (isset($_POST['submit_delete'])) {
+
+        $delete_bug = new DeleteBug();
+        $delete_bug->deleteBug();
+
+      }
+
+      if (isset($_POST['submit_search'])) {
+
+        if ($_POST['search'] == "" ) {
+
+          Search::$errorMessage = 0;
 
         }
 
+      }
 
 
  ?>
@@ -169,9 +301,8 @@
       <li><a href="#">Logout</a></li>
    </ul>
      <div class="review-buttons">
-       <button class="btn btn-primary" onclick="add_bug()">Add Bug <span class="glyphicon glyphicon-plus"></span></button>
-       <button class="btn btn-primary">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
-       <button class="btn btn-primary">Search Bugs <span class="glyphicon glyphicon-search"></span></button>
+       <button class="btn btn-primary" onclick="reveal(2)">Add Bug <span class="glyphicon glyphicon-plus"></span></button>
+       <button class="btn btn-primary" onclick="reveal(3)">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
      </div>
      <div class="bug-count">
        <p id="larger">Number of Bugs: <?php
@@ -179,7 +310,7 @@
        $bug->num_of_items(0); ?></p>
      </div><br />
      <div class="addform">
-       <form action="bug_review.php" method="POST">
+       <form name="add" action="bug_review.php" method="POST">
        <p id="larger"> Please Enter a Title and a Descriptive Message! </p><br />
        <?php echo  '<p>'. Addbug::$error_message . '</p>'; ?>
        <input type="text" placeholder="Title *" name="title" id="title"/><br />
@@ -203,13 +334,38 @@
          <option value="Customization">Customization</option>
          <option value="Other">Other</option>
        </select><br />
-       <button type="submit" name="add_main" id="e-button" onClick="checkAdd()">Submit</button>
-       <button name="cancel" id="e-button">Cancel</button>
+       <button type="submit" name="add_main" id="e-button">Submit</button>
+       <button type="button" onclick="reveal(5)" id="e-button">Cancel</button>
      </form>
+     </div>
+     <div class="deleteform">
+       <form action="bug_review.php" method="POST">
+         <?php echo '<p id="larger">Enter the Bug ID Number: </p> <br />'; ?>
+         <?php echo '<p>' . DeleteBug::$errorMessage .'</p>'; ?>
+         <input type="text" id="del_start" name ="delete_id" placeholder="ID #: "/><br />
+         <button type="submit" name="submit_delete" id="e-button">Submit</button>
+         <button type="button" id="e-button" onclick="reveal(6)">Cancel</button>
+       </form>
      </div>
    </body>
   <script type='text/javascript' src='../js/forms.js'></script>
+
  </html>
 <?php
-   $displayBugs = new BugList();
-   $displayBugs->displayBugs(); ?>
+
+   $displayBugs         = new BugList();
+   $review_notification = new Notification();
+
+   $displayBugs->displayBugs();
+   $review_notification->notifications();
+
+   if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
+
+     echo '<script type="text/javascript">
+           display_input_message(0);
+           </script>';
+
+   }
+
+
+    ?>

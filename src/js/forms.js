@@ -1,29 +1,28 @@
+'use strict';
+
 $(document).ready(function() {
 
-  var message = $('#message').val();
+  var message        = $('#message').val();
   var comment_button = $('#add_comment');
-  var title = $('#title');
+//  var comment_box    = $(' #comment').val();
+var cb = document.getElementById('comment');
 
 
-  $('.login-logs, .addform, .deleteform').hide();
-
-  comment_button.attr("disabled", "disabled");
-
-  $('.comment_view').hide();
 
 
-  $('.comment_view textarea').keypress(function() {
+  $('.login-logs, .deleteform').hide();
 
-    if (message.length >= 1) {
 
-      $('#add_comment').removeAttr("disabled");
+  $('.comment_view, .addform').hide();
 
-    }
 
-  });
 
 
 });
+
+
+
+
 
 
 function showComments(a) {
@@ -74,17 +73,22 @@ function reveal(x) {
       $(' .addform, .searchform').hide();
       break;
 
-      case 5:
+  //  case 4:
+    //  $('.searchform').show();
+      //break;
+
+    case 5:
 
       $('.addform').hide();
       $('#bug_table').show();
       break;
 
-      case 6:
+    case 6:
 
       $('.deleteform').hide();
 
       break;
+
 
 
     default:

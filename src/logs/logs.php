@@ -1,7 +1,7 @@
 <div class="main-logs">
   <h5>Action Logs</h5>
     <div class="log-buttons">
-      <button class="btn btn-success" onclick="showLogin()" id="view_login_logs_button">View Login Logs <span class="glyphicon glyphicon-eye-open"></span></button>
+      <button class="btn btn-success" onclick="reveal(0)" id="view_login_logs_button">View Login Logs <span class="glyphicon glyphicon-eye-open"></span></button>
     </div>
     <?php
     $main_logs = new Logs();
@@ -11,7 +11,7 @@
 <div class="login-logs">
   <h5>Login logs</h5>
     <div class="log-buttons">
-      <button class="btn btn-success" id="view_login_logs_button" onclick="showAction()">View Action Logs <span class="glyphicon glyphicon-eye-open"></span></button>
+      <button class="btn btn-success" id="view_login_logs_button" onclick="reveal(1)">View Action Logs <span class="glyphicon glyphicon-eye-open"></span></button>
     </div>
     <?php
 

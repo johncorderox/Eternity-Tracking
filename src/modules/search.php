@@ -1,12 +1,6 @@
 
  <?php
-       include ('../header.php');
-       include('../config/config.php');
-       include('../lib/functions.php');
-       include ('../lib/secure.php');
 
-
-       $search_connect = new Connect();
        if (isset($_POST['submit_search'])) {
 
          if ($_POST['search'] == "" ) {

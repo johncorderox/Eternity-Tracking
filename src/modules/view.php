@@ -7,8 +7,9 @@ require ('../lib/functions.php');
 ob_start();
 session_start();
 
-$view = new Connect();
+$view            = new Connect();
 $comment_connect = new Connect();
+$delete_view     = new Connect();
 
 $logged = $_SESSION['username'];
 
@@ -20,9 +21,10 @@ $logged = $_SESSION['username'];
   }
 
 
-  if (isset($_POST['id']) && $_POST['id'] != NULL) {
+  if (isset($_POST['view']) && $_POST['view'] != NULL) {
 
-      $id = $_POST['id'];
+
+      $id = $_POST['view'];
 
       $sql = "SELECT `id`,`title`,`message`,`priority`,`category`,`reported_by`,`date` ";
       $sql .= "FROM bugs ";
@@ -42,6 +44,30 @@ $logged = $_SESSION['username'];
           $clean_date = date('m-d-Y', $phpdate);
 
       }
+
+ }
+
+ if (isset($_POST['delete'])) {
+
+     $id         = $_POST['delete'];
+     $sql        = "DELETE FROM bugs WHERE id = " .$id;
+     $sql_copy   = "INSERT INTO deleted_bugs (id, title, message, priority, category) SELECT `id`,`title`, `message`, `priority`, `category` from bugs WHERE id = '$id'";
+     $sql_insert = "UPDATE deleted_bugs SET deleted_by = '{$_SESSION['username']}', delete_date = NOW(), status ='closed' WHERE id = '$id'";
+     $sql_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','D','{$_SESSION['username']}', '$id', NOW(), '{$_SERVER['REMOTE_ADDR']}')";
+
+
+             // Moves data into another table
+             mysqli_query($delete_view->connect(), $sql_copy);
+             // Adds remaining values to new table
+             mysqli_query($delete_view->connect(), $sql_insert);
+             // Deletes the bug ID number
+             mysqli_query($delete_view->connect(), $sql);
+             // Logs the deleted bug
+             mysqli_query($delete_view->connect(), $sql_log);
+             // Successful redirect
+             header("Location: ../modules/bug_review.php?bug_view=1");
+
+
 
  }
  ?>
@@ -92,11 +118,10 @@ $logged = $_SESSION['username'];
           </div>
           <div class="comment_view">
               <textarea class="form-control" id="comment" name="comment" rows="5"></textarea><br />
-              <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment">Add Comment </button>
+              <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment" disabled="disabled">Add Comment </button>
               <button type="button" class="btn btn-warning" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
-
       </div>
     </body>
     <script type='text/javascript' src='../js/forms.js'></script>

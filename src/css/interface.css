@@ -34,11 +34,6 @@ select {
   margin-top: 16px;
 }
 
-.searchForm {
-
-  margin-left: 20px;
-
-}
 
 #main_button_view {
 
@@ -67,6 +62,7 @@ select {
   width: 500px;
   margin-left: 25px;
 }
+
 
 .center {
   height: 500px;
@@ -106,17 +102,6 @@ select {
   margin-left: 5px;
 }
 
-#exit {
-  margin-left: 30px;
-}
-
-#exit:hover {
-  color: red;
-}
-
-#add-button-search {
-  margin-left: 20px;
-}
 
 input {
   padding: 10px;
@@ -137,9 +122,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   border-bottom: 1px solid black;
 }
 
-#pointer {
-  cursor: pointer;
-}
+
 
 #login-button, #add-button {
   margin-top: 10px;
@@ -264,13 +247,6 @@ li:active {
   margin-right: 10px;
 }
 
-.view_buttom {
-  color: black;
-  height: 25px;
-  padding: 0;
-  margin-top: 10px;
-}
-
 .request-container textarea {
   width: 500px;
 }
@@ -300,8 +276,8 @@ li:active {
 
 .bug-count {
 
-  float: right;
-  display: inline;
+   float: right;
+   display: inline;
     margin-top: 30px;
     margin-right: 30px;
     margin-bottom: 15px;
