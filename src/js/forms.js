@@ -4,13 +4,12 @@ $(document).ready(function() {
 
   var message        = $('#message').val();
   var comment_button = $('#add_comment');
-//  var comment_box    = $(' #comment').val();
-var cb = document.getElementById('comment');
 
 
 
 
-  $('.login-logs, .deleteform').hide();
+
+  $('.login-logs, .deleteform, #hiddenInput').hide();
 
 
   $('.comment_view, .addform').hide();
@@ -39,8 +38,11 @@ function showComments(a) {
 
   } else {
 
-
     $('.comment_view').hide();
+    $('body').scrollTo('body', {
+      duration: 300
+    });
+
 
 
   }

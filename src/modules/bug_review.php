@@ -298,14 +298,14 @@
       <li><a href="">User Accounts</a></li>
       <li><a href="#">Advanced Search</a></li>
       <li><a href="account.php">Account Settings</a></li>
-      <li><a href="#">Logout</a></li>
+      <li><a href="../logout.php">Logout</a></li>
    </ul>
      <div class="review-buttons">
        <button class="btn btn-primary" onclick="reveal(2)">Add Bug <span class="glyphicon glyphicon-plus"></span></button>
        <button class="btn btn-primary" onclick="reveal(3)">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
      </div>
      <div class="bug-count">
-       <p id="larger">Number of Bugs: <?php
+       <p id="num-bugs">Bug Queue: <?php
        $bug = new Functions();
        $bug->num_of_items(0); ?></p>
      </div><br />
@@ -349,23 +349,15 @@
      </div>
    </body>
   <script type='text/javascript' src='../js/forms.js'></script>
-
+  <script type='text/javascript' src='../js/notification.js'></script>
  </html>
 <?php
 
    $displayBugs         = new BugList();
    $review_notification = new Notification();
 
-   $displayBugs->displayBugs();
    $review_notification->notifications();
-
-   if (isset($_GET['successbug']) && $_GET['successbug']=='1') {
-
-     echo '<script type="text/javascript">
-           display_input_message(0);
-           </script>';
-
-   }
+   $displayBugs->displayBugs();
 
 
     ?>

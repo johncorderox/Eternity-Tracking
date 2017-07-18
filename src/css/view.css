@@ -36,15 +36,12 @@ a:visited {
 }
 
 button {
-
   height: 45px;
   width: 120px;
   margin-right: 5%;
-
 }
 
 #view_deleted {
-
   height: 35px;
   width: 120px;
   margin-right: 0%;
@@ -68,6 +65,19 @@ button {
   float: right;
 }
 
+.status-buttons button {
+  width: 150px;
+  height: 35px;
+  margin: 0;
+  padding: 0px;
+  margin-right: 0%;
+}
+.status-buttons {
+
+  margin-bottom: 30px;
+}
+
+
 /* Comment Section*/
 
 .comment_view {
@@ -83,7 +93,6 @@ button {
 }
 
 #delete_comment_button {
-
   background-color: white;
   border-width: 1px;
   border-radius: 4px;
@@ -92,10 +101,9 @@ button {
 }
 
 #delete_comment_button:active {
-
-background-color: gray;
+  background-color: gray;
 }
-#delete_comment_button:hover {
 
-opacity: 0.2;
+#delete_comment_button:hover {
+  opacity: 0.2;
 }

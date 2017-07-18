@@ -26,7 +26,7 @@ $logged = $_SESSION['username'];
 
       $id = $_POST['view'];
 
-      $sql = "SELECT `id`,`title`,`message`,`priority`,`category`,`reported_by`,`date` ";
+      $sql = "SELECT `id`,`title`,`message`,`priority`,`category`,`reported_by`,`status`,`date` ";
       $sql .= "FROM bugs ";
       $sql .= "WHERE id = '$id' ";
 
@@ -34,14 +34,15 @@ $logged = $_SESSION['username'];
 
       while ($row = $result->fetch_assoc()) {
 
-          $bug_id   =   $row['id'];
-          $title    =   $row['title'];
-          $message  =   $row['message'];
-          $priority =   $row['priority'];
-          $category =   $row['category'];
-          $reported =   $row['reported_by'];
-          $phpdate = strtotime($row['date']);
-          $clean_date = date('m-d-Y', $phpdate);
+          $bug_id          =   $row['id'];
+          $title           =   $row['title'];
+          $message         =   $row['message'];
+          $priority        =   $row['priority'];
+          $category        =   $row['category'];
+          $reported        =   $row['reported_by'];
+          $status_original =   $row['status'];
+          $phpdate         =   strtotime($row['date']);
+          $clean_date      =   date('m-d-Y', $phpdate);
 
       }
 
@@ -65,7 +66,7 @@ $logged = $_SESSION['username'];
              // Logs the deleted bug
              mysqli_query($delete_view->connect(), $sql_log);
              // Successful redirect
-             header("Location: ../modules/bug_review.php?bug_view=1");
+             header("Location: ../modules/bug_review.php?deletebug=1");
 
 
 
@@ -80,8 +81,8 @@ $logged = $_SESSION['username'];
     <form action="../lib/view_process.php" method="POST">
       <div class="container-fluid">
          <p id="larger">Bug ID: <?php echo $bug_id; ?></p>
-         <input type="text" id="hiddenInput" name="id" value='<?php echo $id; ?>'; />
          <p>Reported By: <?php echo $reported; ?></p>
+         <input type="text" id="hiddenInput" name="id" value='<?php echo $id; ?>'; />
              <label for="title">Title:</label>
              <input type="text" name="title" id="title" class="form-control" value="<?php echo $title; ?>" />
              <label for="select_box_priority">Priority: </label>
@@ -104,6 +105,15 @@ $logged = $_SESSION['username'];
                    <option value="Customization">Customization</option>
                    <option value="Other">Other</option>
                  </select><br />
+                 <label for="status">Status: <?php echo $status_original; ?></label><br />
+                 <div class="btn-group">
+                     <div class="status-buttons" id="status">
+                       <button type="submit" class="btn btn-success" name="status" value="open">Open <span class="glyphicon glyphicon-upload"></span></button>
+                       <button type="submit" class="btn btn-success" name="status" value="In Review">In Review <span class="glyphicon glyphicon-inbox"></span></button>
+                       <button type="submit" class="btn btn-success" name="status" value="More Info Needed">More Info Needed <span class="glyphicon glyphicon-refresh"></span></button>
+                       <button type="submit" class="btn btn-danger" name="status" value="Invalid">Invalid</button>
+                     </div>
+                </div><br />
                 <label for="message">Message: </label>
               <p id="date_display"><b>Date Reported: </b> <i><?php echo $clean_date; ?></i></p>
              <textarea class="form-control" id="message" name="message" rows="7"><?php echo $message; ?></textarea><br />
@@ -118,7 +128,7 @@ $logged = $_SESSION['username'];
           </div>
           <div class="comment_view">
               <textarea class="form-control" id="comment" name="comment" rows="5"></textarea><br />
-              <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment" disabled="disabled">Add Comment </button>
+              <button type="submit" class="btn btn-warning" name="add_comment" id="add_comment">Add Comment </button>
               <button type="button" class="btn btn-warning" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
@@ -126,13 +136,6 @@ $logged = $_SESSION['username'];
     </body>
     <script type='text/javascript' src='../js/forms.js'></script>
   </html>
-   <script>
- $(document).ready(function() {
-
-$('#hiddenInput').hide();
-
- });
- </script>
  <?php
 
  $sql_fetch_comments  = "SELECT `comment_id`,`comment`, `comment_by`, `date` ";

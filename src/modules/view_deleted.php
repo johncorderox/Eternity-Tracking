@@ -1,10 +1,25 @@
+
 <?php
-require 'module_header.php';
-require ('../lib/connect.php');
+require '../header.php';
+require '../lib/functions.php';
+
 ?>
+<ul class="nav nav-tabs">
+   <li><a href="main.php">Home</a></li>
+   <li><a href="bug_review.php">Bug Review</a></li>
+   <li class="active"><a href="view_deleted.php">Deleted Bugs</a></li>
+   <li><a href="">User Accounts</a></li>
+   <li><a href="#">Advanced Search</a></li>
+   <li><a href="account.php">Account Settings</a></li>
+   <li><a href="../logout.php">Logout</a></li>
+</ul>
+  <div class="delete-count">
+    <p id="del-bugs">Deleted Bugs: <?php
+    $view_deleted = new Functions();
+    $view_deleted ->num_of_items(2); ?></p>
+  </div><br />
+
 <?php
-
-
 class viewDeleted {
 
   public $undelete_icon        = "<span class=\"glyphicon glyphicon-refresh\"></span>";
@@ -25,7 +40,7 @@ class viewDeleted {
         $result = mysqli_query($view_deleted->connect(), $this->sql_view_deleted);
         $result_count = $result->num_rows;
 
-            echo "<table class=\"table table-hover\">";
+            echo "<table class=\"table table-hover\" id=\"bug_table\">";
             echo "<thead> <tr> <tbody>";
             echo "<tr><th>ID: </th><th>Title</th><th>Status</th><th>Delete Date</th><th>Deleted By</th><th>Actions</th>";
             echo "</thead><tbody>";
@@ -115,6 +130,8 @@ if (isset($_POST['destroy'])) {
 
 
 ?>
+
+
 <script type='text/javascript' src='../js/notification.js'></script>
 <?php
 

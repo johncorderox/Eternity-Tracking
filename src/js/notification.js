@@ -4,6 +4,9 @@
 //
 // @args Triggers for output. var = num
 
+
+'use strict';
+
 function display_input_message(n) {
   switch (n) {
     case 0:
@@ -137,7 +140,7 @@ function display_input_message(n) {
       });
       break;
     case 8:
-      $.bootstrapGrowl("Password Changed Successfully to the DB", {
+      $.bootstrapGrowl("Password Changed Successfully.", {
         ele: 'body',
         type: 'success',
         align: 'right',
@@ -153,7 +156,7 @@ function display_input_message(n) {
       break;
 
     case 9:
-      $.bootstrapGrowl("Email Updated Sucessfully to the DB", {
+      $.bootstrapGrowl("Email Updated Successfully", {
         ele: 'body',
         type: 'success',
         align: 'right',
@@ -169,7 +172,7 @@ function display_input_message(n) {
       break;
 
     case 10:
-      $.bootstrapGrowl("Account Request Sucessfully Sent!", {
+      $.bootstrapGrowl("Bug Details Saved Successfully!", {
         ele: 'body',
         type: 'success',
         align: 'right',
@@ -217,51 +220,118 @@ function display_input_message(n) {
       });
       break;
 
-      case 13:
-        $.bootstrapGrowl("Bug has been undeleted!", {
-          ele: 'body',
-          type: 'success',
-          align: 'right',
-          offset: {
-            from: 'top',
-            amount: 30
-          },
-          width: 450,
-          delay: 3000,
-          allow_dismiss: true,
-          stackup_spacing: 10
-        });
-        break;
+    case 13:
+      $.bootstrapGrowl("Bug has been undeleted!", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
-        case 14:
-          $.bootstrapGrowl("Bug has been permanently deleted from the DB", {
-            ele: 'body',
-            type: 'success',
-            align: 'right',
-            offset: {
-              from: 'top',
-              amount: 50
-            },
-            width: 450,
-            delay: 3000,
-            allow_dismiss: true,
-            stackup_spacing: 10
-          });
+    case 14:
+      $.bootstrapGrowl("Bug has been permanently deleted from the DB", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 50
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
 
-          $.bootstrapGrowl("All comments associated have also been removed", {
-            ele: 'body',
-            type: 'info',
-            align: 'right',
-            offset: {
-              from: 'top',
-              amount: 80
-            },
-            width: 450,
-            delay: 3500,
-            allow_dismiss: true,
-            stackup_spacing: 10
-          });
-          break;
+      $.bootstrapGrowl("All comments associated have also been removed", {
+        ele: 'body',
+        type: 'info',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 80
+        },
+        width: 450,
+        delay: 3500,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+
+
+    case 15:
+      $.bootstrapGrowl("Marked Bug Status As Open.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+
+    case 16:
+      $.bootstrapGrowl("Marked Bug Status As In Review.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+
+
+    case 17:
+      $.bootstrapGrowl("Marked Bug Status As More Info Needed.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+
+
+    case 18:
+      $.bootstrapGrowl("Marked Bug Status As Invalid.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
 
 

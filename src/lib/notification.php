@@ -48,7 +48,7 @@
       if (isset($_GET['savebug']) && $_GET['savebug']=='1') {
 
         echo '<script type="text/javascript">
-              display_input_message(0);
+              display_input_message(10);
               </script>';
 
       }
@@ -72,6 +72,38 @@
 
         echo '<script type="text/javascript">
               display_input_message(12);
+              </script>';
+
+      }
+
+      if (isset($_GET['status']) && $_GET['status']=='1') {
+
+        echo '<script type="text/javascript">
+              display_input_message(15);
+              </script>';
+
+      }
+
+      if (isset($_GET['status']) && $_GET['status']=='2') {
+
+        echo '<script type="text/javascript">
+              display_input_message(16);
+              </script>';
+
+      }
+
+      if (isset($_GET['status']) && $_GET['status']=='3') {
+
+        echo '<script type="text/javascript">
+              display_input_message(17);
+              </script>';
+
+      }
+
+      if (isset($_GET['status']) && $_GET['status']=='4') {
+
+        echo '<script type="text/javascript">
+              display_input_message(18);
               </script>';
 
       }

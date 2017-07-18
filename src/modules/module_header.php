@@ -6,6 +6,6 @@
     <script src="../bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script>
   <link href="../css/view.css" rel="stylesheet" />
   <div class="header-name">
-  <a href="main.php"><h3>Eternity Tracking</h3></a>
+  <a href="bug_review.php"><h3>Eternity Tracking</h3></a>
     </div><br />
 </head>

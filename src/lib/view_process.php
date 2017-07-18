@@ -19,7 +19,7 @@ $ip       = $_SERVER['REMOTE_ADDR'];
 
 if (isset($_POST['cancel'])) {
 
-  header("Location: ../modules/main.php");
+  header("Location: ../modules/bug_review.php");
 }
 
 
@@ -31,7 +31,7 @@ if (isset($_POST['save'])) {
       $sql = "UPDATE bugs SET title = '$title', category = '$category', priority = '$priority', message = '$message' WHERE id = '$id' ";
 
       mysqli_query($view_process->connect(), $sql);
-      header("Location: ../modules/main.php?savebug=1");
+      header("Location: ../modules/bug_review.php?savebug=1");
 
 
 }
@@ -54,7 +54,7 @@ if (isset($_POST['delete'])) {
           // Logs the deleted bug
           mysqli_query($view_process->connect(), $sql_log);
           // Successful redirect
-          header("Location: ../modules/main.php?deletebug=1");
+          header("Location: ../modules/bug_review.php?deletebug=1");
 
 
 }
@@ -65,7 +65,7 @@ if (isset($_POST['add_comment'])) {
 
     if($comment == "") {
 
-      header("Location: ../modules/main.php");
+      header("Location: ../modules/bug_review.php?successcomment=1");
 
     }
 
@@ -75,7 +75,7 @@ if (isset($_POST['add_comment'])) {
      $result = mysqli_query($view_process->connect(), $sql_insert);
      if ($result) {
 
-        header("Location: ../modules/main.php?successcomment=1");
+        header("Location: ../modules/main.php?bug_review=1");
 
    }
 }
@@ -91,9 +91,41 @@ if (isset($_POST['delete_comment'])) {
 
   if ($result) {
 
-      header("Location: ../modules/main.php?deletecomment=1");
+      header("Location: ../modules/main.php?bug_review=1");
+      mysqli_close($view_process->connect());
 
   }
+
+}
+
+if (isset($_POST['status'])) {
+
+  $status = $_POST['status'];
+
+  // open, review, more info, Invalid
+
+    if ($status == 'open') {
+
+      $end_var = '?status=1';
+
+    } else if ($status == 'In Review') {
+
+      $end_var = '?status=2';
+
+    } else if($status == 'More Info Needed') {
+
+      $end_var = '?status=3';
+
+    } else if($status = 'Invalid') {
+
+      $end_var = '?status=4';
+    }
+
+  $sql_change_status  = "UPDATE `bugs` SET `status` = '$status' WHERE `id` = '$id' ";
+
+  mysqli_query($view_process->connect(), $sql_change_status) or die(mysqli_error($view_process->connect()));
+  header("Location: ../modules/bug_review.php".$end_var);
+
 
 }
  ?>
