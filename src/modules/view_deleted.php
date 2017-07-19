@@ -2,19 +2,25 @@
 <?php
 require '../header.php';
 require '../lib/functions.php';
+require '../lib/notification.php';
 
 ?>
 <ul class="nav nav-tabs">
    <li><a href="main.php">Home</a></li>
    <li><a href="bug_review.php">Bug Review</a></li>
    <li class="active"><a href="view_deleted.php">Deleted Bugs</a></li>
-   <li><a href="">User Accounts</a></li>
+   <li><a href="users.php">User Accounts</a></li>
    <li><a href="#">Advanced Search</a></li>
    <li><a href="account.php">Account Settings</a></li>
    <li><a href="../logout.php">Logout</a></li>
 </ul>
+<div class="delete-buttons">
+  <form action="view_deleted.php" method="POST">
+    <button type="submit" class="btn btn-danger btn-md" name="delete_all">Delete All</button>
+  </form>
+</div>
   <div class="delete-count">
-    <p id="del-bugs">Deleted Bugs: <?php
+    <p id="del-bugs"><span class="glyphicon glyphicon-trash"></span> Deleted Bugs: <?php
     $view_deleted = new Functions();
     $view_deleted ->num_of_items(2); ?></p>
   </div><br />
@@ -88,6 +94,20 @@ class viewDeleted {
 
         }
 
+        public function delete_all() {
+
+          $sql_delete_all = "TRUNCATE `deleted_bugs`";
+          $delete_all     = new Connect();
+
+          $result = mysqli_query($delete_all->connect(), $sql_delete_all);
+
+          if ($result) {
+
+            header("Location:view_deleted.php?deleteall=1");
+            mysqli_close($delete_all->connect());
+          }
+        }
+
         public function destroy() {
 
           $this->id = $_POST['destroy'];
@@ -109,9 +129,11 @@ class viewDeleted {
 
     }
 
-    $view = new viewDeleted();
+    $view              = new viewDeleted();
+    $view_notification = new Notification();
 
     $view->view_deleted_bugs();
+    $view_notification->notifications();
 
 if (isset($_POST['undelete'])) {
 
@@ -128,25 +150,11 @@ if (isset($_POST['destroy'])) {
 
 }
 
+if (isset($_POST['delete_all'])) {
+
+  $view->delete_all();
+}
+
 
 ?>
-
-
 <script type='text/javascript' src='../js/notification.js'></script>
-<?php
-
-if (isset($_GET['undelete']) && $_GET['undelete'] == 1) {
-
-  echo '<script type="text/javascript">
-        display_input_message(13);
-        </script>';
-}
-
-if (isset($_GET['destroy']) && $_GET['destroy'] == 1) {
-
-  echo '<script type="text/javascript">
-        display_input_message(14);
-        </script>';
-}
-
-?>

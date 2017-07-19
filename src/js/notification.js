@@ -333,6 +333,22 @@ function display_input_message(n) {
       });
       break;
 
+    case 19:
+      $.bootstrapGrowl("All Deleted Bugs Have Been Removed.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+
 
 
     default:

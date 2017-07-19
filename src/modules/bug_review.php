@@ -245,22 +245,6 @@
 
      }
 
-     class Search {
-
-       public $search;
-       public $result_count;
-       public static $errorMessage;
-
-       public function __construct() {
-
-         $this->search = trims($_POST['search']);
-       }
-
-
-
-
-  }
-
 
      if (isset($_POST['add_main'])) {
 
@@ -288,6 +272,18 @@
       }
 
 
+//Generates bug id for review button.
+
+  $review = new Connect();
+
+  $sql_review = "SELECT `id` FROM `bugs` ORDER BY `id` ASC LIMIT 1";
+  $result     = mysqli_query($review->connect(), $sql_review);
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $review_id_bug = $row['id'];
+  }
+
  ?>
  <html>
  <body>
@@ -295,7 +291,7 @@
       <li><a href="main.php">Home</a></li>
       <li class="active"><a href="bug_review.php">Bug Review</a></li>
       <li><a href="view_deleted.php">Deleted Bugs</a></li>
-      <li><a href="">User Accounts</a></li>
+      <li><a href="users.php">User Accounts</a></li>
       <li><a href="#">Advanced Search</a></li>
       <li><a href="account.php">Account Settings</a></li>
       <li><a href="../logout.php">Logout</a></li>
@@ -303,9 +299,12 @@
      <div class="review-buttons">
        <button class="btn btn-primary" onclick="reveal(2)">Add Bug <span class="glyphicon glyphicon-plus"></span></button>
        <button class="btn btn-primary" onclick="reveal(3)">Delete Bug <span class="glyphicon glyphicon-trash"></span></button>
+       <form action="view.php" method="POST">
+        <button type="submit" class="btn btn-success" value="<?php echo $review_id_bug; ?>" name="view">Start Review</button>
+       </form>
      </div>
      <div class="bug-count">
-       <p id="num-bugs">Bug Queue: <?php
+       <p id="num-bugs"><span class="glyphicon glyphicon-briefcase"></span> Bug Queue: <?php
        $bug = new Functions();
        $bug->num_of_items(0); ?></p>
      </div><br />

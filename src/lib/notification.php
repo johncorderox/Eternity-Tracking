@@ -108,6 +108,28 @@
 
       }
 
+      if (isset($_GET['deleteall']) && $_GET['deleteall']=='1') {
+
+        echo '<script type="text/javascript">
+              display_input_message(19);
+              </script>';
+
+      }
+
+      if (isset($_GET['undelete']) && $_GET['undelete'] == 1) {
+
+        echo '<script type="text/javascript">
+              display_input_message(13);
+              </script>';
+      }
+
+      if (isset($_GET['destroy']) && $_GET['destroy'] == 1) {
+
+        echo '<script type="text/javascript">
+              display_input_message(14);
+              </script>';
+      }
+
     }
 
 

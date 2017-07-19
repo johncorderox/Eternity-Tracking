@@ -20,7 +20,7 @@
      <li class="active"><a href="main.php">Home</a></li>
      <li><a href="bug_review.php">Bug Review</a></li>
      <li><a href="view_deleted.php">Deleted Bugs</a></li>
-     <li><a href="">User Accounts</a></li>
+     <li><a href="users.php">User Accounts</a></li>
      <li><a href="#">Advanced Search</a></li>
      <li><a href="account.php">Account Settings</a></li>
      <li><a href="../logout.php">Logout</a></li>

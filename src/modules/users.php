@@ -2,7 +2,7 @@
 require ("../header.php");
 require ("../config/config.php");
 require ("../lib/secure.php");
-require ("../tables/users.php");
+require ("../lib/connect.php");
 
 
 Class RemoveUser {
@@ -108,6 +108,40 @@ Class RemoveUser {
 }
 
 
+  class UserList {
+
+    public $sql_users = "SELECT * from `users` ";
+
+
+    public function displayUsers() {
+
+        $user_list = new Connect();
+
+        $result = mysqli_query($user_list->connect(), $this->sql_users);
+
+
+            echo "<div class=\"table table-bordered\">";
+            echo "<table><tr><th>ID</th><th>Username</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>".$row["account_id"]."</td><td>".$row["username"]."</td></tr>";
+            echo "</div>";
+
+        }
+
+
+     }
+
+    private function displaySqlInfo() {
+
+      echo "The following is the CURRENT sql to display bugs: ";
+      echo $this->sql_users;
+
+    }
+
+
+  }
+
+
 
 
 if(isset($_POST['cancel'])) {
@@ -123,6 +157,15 @@ if (isset($_POST['submit_remove'])) {
 }
 
 ?>
+<ul class="nav nav-tabs">
+ <li><a href="main.php">Home</a></li>
+ <li><a href="bug_review.php">Bug Review</a></li>
+ <li><a href="view_deleted.php">Deleted Bugs</a></li>
+ <li class="active"><a href="users.php">User Accounts</a></li>
+ <li><a href="#">Advanced Search</a></li>
+ <li><a href="account.php">Account Settings</a></li>
+ <li><a href="../logout.php">Logout</a></li>
+</ul>
 <div class="removeuserform">
   <form action="remove_user_main.php" method="POST">
     <p id="larger">
@@ -150,12 +193,9 @@ if (isset($_POST['submit_remove'])) {
     <button type="submit" name="cancel">Cancel</button>
   </form>
 </div>
-<?php
-
-  $display = new UserList();
-  $display->displayUsers();
-
- ?>
+  <?php $display_users = new UserList();
+        $display_users->displayUsers();
+        ?>
 </body>
 <script type='text/javascript' src='..js/forms.js'></script>
 </html>

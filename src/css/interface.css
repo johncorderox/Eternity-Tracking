@@ -27,6 +27,12 @@ select {
   background-color: white;
 }
 
+form {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
+
 
 .main-buttons button {
   height: 40px;
@@ -272,7 +278,7 @@ li:active {
   cursor: pointer;
 }
 
-.review-buttons {
+.review-buttons, .delete-buttons {
 
   margin-left: 20px;
   margin-top: 30px;
