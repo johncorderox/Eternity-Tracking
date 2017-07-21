@@ -62,11 +62,18 @@ form {
   float: left;
 }
 
-.addform, .deleteform {
+.addform, .deleteform, .removeuserform {
 
   margin-top: 80px;
   width: 500px;
   margin-left: 25px;
+}
+
+.removeuserform {
+
+  float: left;
+  display: inline;
+  margin-top: 80px;
 }
 
 .center {
@@ -144,7 +151,11 @@ input[type="text"], input[type="password"], input[type="email"] {
   width: 300px;
 }
 
+#user-table {
 
+  float: right;
+  display: inline;
+}
 .leftside-info {
   width: 300px;
 }

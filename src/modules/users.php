@@ -120,16 +120,19 @@ Class RemoveUser {
         $result = mysqli_query($user_list->connect(), $this->sql_users);
 
 
-            echo "<div class=\"table table-bordered\">";
-            echo "<table><tr><th>ID</th><th>Username</th></tr>";
-            while ($row = $result->fetch_assoc()) {
+        echo "<table class=\"table table-hover\" id=\"user-table\">";
+        echo "<tr><th>ID: </th><th>Username</th>";
+        echo "</thead><tbody>";
+        while($row = $result->fetch_assoc()) {
+
+
             echo "<tr><td>".$row["account_id"]."</td><td>".$row["username"]."</td></tr>";
-            echo "</div>";
 
-        }
+          }
+          echo "</tbody></table></form>";
 
 
-     }
+      }
 
     private function displaySqlInfo() {
 
@@ -197,20 +200,5 @@ if (isset($_POST['submit_remove'])) {
         $display_users->displayUsers();
         ?>
 </body>
-<script type='text/javascript' src='..js/forms.js'></script>
+<script type='text/javascript' src='../js/forms.js'></script>
 </html>
-<script>
-$(document).ready(function() {
-
-  $('.ui-main-button-group').hide("fast");
-  $('.removeuserform').show();
-
-  $('table').css("width", "35%");
-
-
-  $('#radio_default').prop("checked", true);
-
-  hideLogs();
-
-});
-</script>

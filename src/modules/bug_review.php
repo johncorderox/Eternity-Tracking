@@ -18,7 +18,7 @@
             $result = mysqli_query($display_connect->connect(), $this->sql);
 
 
-            echo "<table class=\"table table-hover\" id=\"bug_table\">";
+            echo "<table class=\"table table-hover\">";
             echo "<thead> <tr> <tbody>";
             echo "<tr><th>ID: </th><th>Date</th><th>Title</th><th>Priority</th><th>Status</th><th>Actions</th>";
             echo "</thead><tbody>";

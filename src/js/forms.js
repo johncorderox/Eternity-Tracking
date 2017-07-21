@@ -5,7 +5,10 @@ $(document).ready(function() {
   var message        = $('#message').val();
   var comment_button = $('#add_comment');
 
+  $('#user-table').css("width", "35%");
 
+
+  $('#radio_default').prop("checked", true);
 
 
 
