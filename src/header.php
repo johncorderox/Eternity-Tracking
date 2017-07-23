@@ -2,8 +2,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-  <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="../bower_components/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+  <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/interface.css" rel="stylesheet" />
   <title>Eternity Tracking</title>
   <div class="header-name">

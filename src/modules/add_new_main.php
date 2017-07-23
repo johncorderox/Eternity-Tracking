@@ -164,25 +164,7 @@ class NewUser {
 ?>
 <html>
 <body>
-<div class="newuserform">
-  <form action="add_new_main.php" method="POST">
-      <p id="larger">
-        Please enter desired Username and Password.</p>
-      <br />
-      <p>
-          Username and Password must be longer than 8 characters.<br />
-          Password must not exceed <?php echo $config['$MaxPasswordLength']; ?> characters.<br />
-          Email field must be in standard email format: abcdefg@email.com<br />
-      <br />
-      </p>
-    <?php echo '<p>' . NewUser::$errorMessage .'</p>'; ?>
-    <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
-    <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
-    <input type="email" id="email_new" name ="email" placeholder="Email *"/><br />
-    <button type="submit" name="submit_newuser" id="add-button">Submit</button>
-    <button type="submit" name="cancel">Cancel</button>
-  </form>
-</div>
+
 </body>
 </html>
 <script>

@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-  var message        = $('#message').val();
+  var message = $('#message').val();
   var comment_button = $('#add_comment');
 
   $('#user-table').css("width", "35%");
@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 
 
-  $('.login-logs, .deleteform, #hiddenInput').hide();
+  $('.login-logs, .deleteform, #hiddenInput, .removeuserform, .newuserform').hide();
 
 
   $('.comment_view, .addform').hide();
@@ -70,7 +70,7 @@ function reveal(x) {
 
     case 2:
       $('.addform').show();
-      $('.deleteform, #bug_table, .searchform').hide();
+      $('.deleteform, table, .searchform').hide();
       break;
 
     case 3:
@@ -78,14 +78,14 @@ function reveal(x) {
       $(' .addform, .searchform').hide();
       break;
 
-  //  case 4:
-    //  $('.searchform').show();
+      //  case 4:
+      //  $('.searchform').show();
       //break;
 
     case 5:
 
       $('.addform').hide();
-      $('#bug_table').show();
+      $('table').show();
       break;
 
     case 6:
@@ -94,6 +94,15 @@ function reveal(x) {
 
       break;
 
+    case 7:
+
+      $('.newuserform').toggle();
+      break;
+
+    case 8:
+
+      $('.newuserform').hide();
+      break;
 
 
     default:

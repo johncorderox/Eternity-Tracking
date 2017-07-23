@@ -4,6 +4,7 @@
   require('../config/config.php');
   require('../lib/functions.php');
   require('../lib/notification.php');
+  require("../header.php");
 
   $main              = new Functions();
   $main_connect      = new Connect();
@@ -13,15 +14,13 @@
 ?>
 
 <html lang="en">
-<?php  include("../header.php"); ?>
-
   <body>
     <ul class="nav nav-tabs">
      <li class="active"><a href="main.php">Home</a></li>
      <li><a href="bug_review.php">Bug Review</a></li>
      <li><a href="view_deleted.php">Deleted Bugs</a></li>
      <li><a href="users.php">User Accounts</a></li>
-     <li><a href="#">Advanced Search</a></li>
+     <li><a href="search.php">Advanced Search</a></li>
      <li><a href="account.php">Account Settings</a></li>
      <li><a href="../logout.php">Logout</a></li>
     </ul>

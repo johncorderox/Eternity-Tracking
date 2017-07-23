@@ -19,7 +19,7 @@
 
 
             echo "<table class=\"table table-hover\">";
-            echo "<thead> <tr> <tbody>";
+            echo "<thead><tr><tbody>";
             echo "<tr><th>ID: </th><th>Date</th><th>Title</th><th>Priority</th><th>Status</th><th>Actions</th>";
             echo "</thead><tbody>";
             while($row = $result->fetch_assoc()) {
@@ -292,7 +292,7 @@
       <li class="active"><a href="bug_review.php">Bug Review</a></li>
       <li><a href="view_deleted.php">Deleted Bugs</a></li>
       <li><a href="users.php">User Accounts</a></li>
-      <li><a href="#">Advanced Search</a></li>
+      <li><a href="search.php">Advanced Search</a></li>
       <li><a href="account.php">Account Settings</a></li>
       <li><a href="../logout.php">Logout</a></li>
    </ul>

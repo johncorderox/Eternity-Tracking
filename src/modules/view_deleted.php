@@ -5,28 +5,31 @@ require '../lib/functions.php';
 require '../lib/notification.php';
 
 ?>
-<ul class="nav nav-tabs">
-   <li><a href="main.php">Home</a></li>
-   <li><a href="bug_review.php">Bug Review</a></li>
-   <li class="active"><a href="view_deleted.php">Deleted Bugs</a></li>
-   <li><a href="users.php">User Accounts</a></li>
-   <li><a href="#">Advanced Search</a></li>
-   <li><a href="account.php">Account Settings</a></li>
-   <li><a href="../logout.php">Logout</a></li>
-</ul>
-<div class="delete-buttons">
-  <form action="view_deleted.php" method="POST">
-    <button type="submit" class="btn btn-danger btn-md" name="delete_all">Delete All</button>
-  </form>
-</div>
-  <div class="delete-count">
-    <p id="del-bugs"><span class="glyphicon glyphicon-trash"></span> Deleted Bugs: <?php
-    $view_deleted = new Functions();
-    $view_deleted ->num_of_items(2); ?></p>
-  </div><br />
+<body>
+  <ul class="nav nav-tabs">
+     <li><a href="main.php">Home</a></li>
+     <li><a href="bug_review.php">Bug Review</a></li>
+     <li class="active"><a href="view_deleted.php">Deleted Bugs</a></li>
+     <li><a href="users.php">User Accounts</a></li>
+     <li><a href="search.php">Advanced Search</a></li>
+     <li><a href="account.php">Account Settings</a></li>
+     <li><a href="../logout.php">Logout</a></li>
+  </ul>
+  <div class="delete-buttons">
+    <form action="view_deleted.php" method="POST">
+      <button type="submit" class="btn btn-danger btn-md" name="delete_all">Delete All</button>
+    </form>
+  </div>
+    <div class="delete-count">
+      <p id="del-bugs"><span class="glyphicon glyphicon-trash"></span> Deleted Bugs: <?php
+      $view_deleted = new Functions();
+      $view_deleted ->num_of_items(2); ?></p>
+    </div><br />
+</body>
 <script type='text/javascript' src='../js/notification.js'></script>
+
 <?php
-class viewDeleted {
+class viewDeleted extends Functions {
 
   public $undelete_icon        = "<span class=\"glyphicon glyphicon-refresh\"></span>";
   public $sql_view_deleted     = "SELECT id, title, status, delete_date, deleted_by FROM deleted_bugs WHERE status = 'closed'";
@@ -53,7 +56,7 @@ class viewDeleted {
             while($row = $result->fetch_assoc()) {
 
 
-                echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["status"]."</td><td>".$row["delete_date"]."</td><td>";
+                echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["status"]."</td><td>".$this->cleanDate($row['delete_date'])."</td><td>";
                 echo $row["deleted_by"]."</td>";
                 echo "<form action=\"view_deleted.php\" method=\"POST\">";
                 echo "<td><div class=\"btn-group\">

@@ -62,14 +62,14 @@ form {
   float: left;
 }
 
-.addform, .deleteform, .removeuserform {
+.addform, .deleteform, .removeuserform, .newuserform   {
 
   margin-top: 80px;
   width: 500px;
   margin-left: 25px;
 }
 
-.removeuserform {
+.removeuserform, .newuserform{
 
   float: left;
   display: inline;
@@ -154,6 +154,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 
   float: right;
   display: inline;
+  margin-top: -70px;
 }
 .leftside-info {
   width: 300px;
@@ -304,7 +305,7 @@ li:active {
     margin-bottom: 15px;
 }
 
-.user-count {
+.user-count, .users-button-menu {
 
   margin-top: 15px;
   margin-left: 25px;
