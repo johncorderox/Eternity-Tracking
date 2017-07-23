@@ -29,6 +29,14 @@
 
       }
 
+      if (isset($_GET['logout']) && $_GET['logout']=='1') {
+
+        echo '<script type="text/javascript">
+              display_input_message(3);
+              </script>';
+
+      }
+
       if (isset($_GET['removeuser']) && $_GET['removeuser']=='1') {
 
         echo '<script type="text/javascript">

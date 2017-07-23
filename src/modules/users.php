@@ -2,7 +2,8 @@
 require ("../header.php");
 require ("../config/config.php");
 require ("../lib/secure.php");
-require ("../lib/connect.php");
+require('../lib/notification.php');
+require('../lib/functions.php');
 
 
 Class RemoveUser {
@@ -12,6 +13,7 @@ Class RemoveUser {
   private $ip;
   private $user;
 
+  public static $errorMessage;
 
     public function __construct() {
 
@@ -47,12 +49,12 @@ Class RemoveUser {
 
           if (mysqli_num_rows($result) == 1) {
 
-              echo "Only 1 account left. Cannot delete";
+              RemoveUser::$errorMessage = "Only 1 account left. Cannot delete";
               mysqli_close($user_count->connect());
 
           } else if (mysqli_num_rows($result) <= 0 ) {
 
-            echo "There are 0 accounts in the system. Error.";
+            RemoveUser::$errorMessage = "There are 0 accounts in the system. Error.";
             mysqli_close($user_count->connect());
 
           } else {
@@ -64,7 +66,7 @@ Class RemoveUser {
 
         } else {
 
-          echo "You did not meet the requirements.";
+          RemoveUser::$errorMessage = "You did not meet the requirements.";
         }
 
     }
@@ -90,7 +92,7 @@ Class RemoveUser {
           mysqli_query($remove_user->connect(), $remove_user_log);
 
           mysqli_close($remove_user->connect());
-          header("Location: main.php?removeuser=1");
+          header("Location: users.php?removeuser=1");
 
 
         } else {
@@ -108,7 +110,7 @@ Class RemoveUser {
 }
 
 
-  class UserList {
+class UserList {
 
     public $sql_users = "SELECT * from `users` ";
 
@@ -145,13 +147,6 @@ Class RemoveUser {
   }
 
 
-
-
-if(isset($_POST['cancel'])) {
-
-  header("Location: main.php");
-}
-
 if (isset($_POST['submit_remove'])) {
 
   $remove_user = new RemoveUser();
@@ -169,16 +164,21 @@ if (isset($_POST['submit_remove'])) {
  <li><a href="account.php">Account Settings</a></li>
  <li><a href="../logout.php">Logout</a></li>
 </ul>
+<div class="user-count">
+  <p id="user-count"><span class="glyphicon glyphicon-user"></span> Accounts: <?php
+  $u = new Functions();
+  $u->num_of_items(1); ?></p>
+</div><br />
 <div class="removeuserform">
-  <form action="remove_user_main.php" method="POST">
+  <form action="users.php" method="POST">
     <p id="larger">
       Enter Username ID:
     </p>
     <p>
       Removing users removes all privledges and access to report bugs for <?php echo $config['$company_name'];; ?>.<br />
       Please make sure you really want to remove the user before submitting.
-    </p>
-
+    </p><br />
+    <?php echo '<p>' . RemoveUser::$errorMessage .'</p>'; ?>
     <input type="text" id="remove_id" name ="delete_user" placeholder="ID #: "/><br />
       <div class="radio">
         <label><input type="radio" name="option_radio" value="No Longer Needed" id="radio_default">No Longer Needed</label>
@@ -191,14 +191,19 @@ if (isset($_POST['submit_remove'])) {
       </div>
       <div class="radio">
         <label><input type="radio" name="option_radio" value="Other">Other</label>
-      </div>
-    <button type="submit" name="submit_remove" id="add-button">Submit</button>
-    <button type="submit" name="cancel">Cancel</button>
+      </div><br />
+    <button type="submit" name="submit_remove" class="btn btn-primary">Submit</button>
   </form>
 </div>
-  <?php $display_users = new UserList();
-        $display_users->displayUsers();
-        ?>
 </body>
 <script type='text/javascript' src='../js/forms.js'></script>
+<script type='text/javascript' src='../js/notification.js'></script>
 </html>
+<?php
+      $display_users       = new UserList();
+      $users_notification  = new Notification();
+
+      $display_users->displayUsers();
+      $users_notification->notifications();
+
+      ?>

@@ -73,7 +73,7 @@ form {
 
   float: left;
   display: inline;
-  margin-top: 80px;
+  margin-top: 0px;
 }
 
 .center {
@@ -87,7 +87,7 @@ form {
   margin: auto;
 }
 
-#e-button {
+#e-button, #login-button {
 
   padding: 10px;
   width: 100px;
@@ -114,11 +114,10 @@ form {
   margin-left: 5px;
 }
 
-#num-bugs, #del-bugs {
+#num-bugs, #del-bugs, #user-count {
 
   font-size: 23px;
 }
-
 
 
 input {
@@ -303,6 +302,12 @@ li:active {
     margin-top: 30px;
     margin-right: 30px;
     margin-bottom: 15px;
+}
+
+.user-count {
+
+  margin-top: 15px;
+  margin-left: 25px;
 }
 
 

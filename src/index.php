@@ -2,6 +2,7 @@
 
 include_once("lib/functions.php");
 include_once("lib/secure.php");
+require     ('lib/notification.php');
 
 session_start();
 
@@ -140,22 +141,9 @@ if (isset($_POST['submit'])) {
   <script type='text/javascript' src='js/view.js'></script>
   <script type='text/javascript' src='js/notification.js'></script>
 </html>
-
 <?php
 
-  if (isset($_GET['logout']) && $_GET['logout'] == '1') {
+      $index  = new Notification();
+      $index->notifications();
 
-    echo '<script type="text/javascript">
-          display_input_message(3);
-          </script>';
-  }
-
-  if (isset($_GET['request']) && $_GET['request'] == '1') {
-
-    echo '<script type="text/javascript">
-          display_input_message(10);
-          </script>';
-  }
-
-
- ?>
+      ?>

@@ -24,7 +24,7 @@ require '../lib/notification.php';
     $view_deleted = new Functions();
     $view_deleted ->num_of_items(2); ?></p>
   </div><br />
-
+<script type='text/javascript' src='../js/notification.js'></script>
 <?php
 class viewDeleted {
 
@@ -75,7 +75,7 @@ class viewDeleted {
           $this->undelete_sql .= "SELECT `id`, `title`, `message`, `priority`, `category`, `status`, `deleted_by`, `delete_date` FROM deleted_bugs ";
           $this->undelete_sql .= "WHERE `id` = '$this->id' ";
 
-          $this->sql_delete_update  = "UPDATE status, reported_by, date SET `status` = 'open', reported_by = 'System', date = NOW() WHERE id = '$this->id' ";
+          $this->sql_delete_update  = "UPDATE bugs SET `status` = 'open', reported_by = 'System', date = NOW() WHERE id = '$this->id' ";
 
           $this->sql_delete_final = "DELETE FROM deleted_bugs WHERE id = '$this->id' ";
 
@@ -157,4 +157,3 @@ if (isset($_POST['delete_all'])) {
 
 
 ?>
-<script type='text/javascript' src='../js/notification.js'></script>
