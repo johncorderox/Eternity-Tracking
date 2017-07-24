@@ -97,12 +97,19 @@ function reveal(x) {
     case 7:
 
       $('.newuserform').toggle();
+      $('.removeuserform').hide();
       break;
 
     case 8:
 
       $('.newuserform').hide();
       break;
+
+      case 9:
+
+        $('.removeuserform').toggle();
+        $('.newuserform').hide();
+        break;
 
 
     default:

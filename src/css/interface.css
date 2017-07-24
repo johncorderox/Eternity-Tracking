@@ -61,8 +61,19 @@ form {
 
   float: left;
 }
+.bug-review-search {
 
-.addform, .deleteform, .removeuserform, .newuserform   {
+  margin-bottom: 12px;
+    float: right;
+    margin-right: -200px;
+
+}
+.bug-review-search button {
+
+  height: 34px;
+}
+
+.addform, .deleteform, .removeuserform, .newuserform, .bug-review-search  {
 
   margin-top: 80px;
   width: 500px;
@@ -188,9 +199,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   font-weight: 400;
 }
 
-.list-group .list-group-item {
-  cursor: default;
-}
 
 a {
   color: inherit;
@@ -208,85 +216,28 @@ a:visited {
   text-decoration: none;
 }
 
-#danger-dark {
-  color: #a94344;
-  height: 11px;
-}
-
-#submit_button_2 {
-  margin-top: 10px;
-}
-
-.account_settings {
-  border-radius: 8px;
-  width: 60%;
-  height: 70%;
-  float: right;
-  margin-right: 15px;
-}
-
-.main-info li {
-  display: inline;
-  margin-left: 13%;
-  cursor: pointer;
-}
 
 li:active {
   opacity: 1;
 }
 
-.changePassword {
-  margin-top: 40px;
-}
 
-.request-container {
-  margin-left: 50px;
-}
-
-#small_input, #small_input2 {
-  width: 200px;
-}
-
-#small_input2 {
-  margin-left: 25px;
-}
-
-#request {
+#forgot-password-link {
   float: right;
   cursor: pointer;
   color: #347bb2;
 }
 
-#request:hover {
+#forgot-password-link:hover {
   text-decoration: underline;
 }
 
-#request:active {
+#forgot-password-link:active {
   opacity: 0.2;
 }
 
 .glyphicon-list, .glyphicon-cog, .glyphicon-inbox {
   margin-right: 10px;
-}
-
-.request-container textarea {
-  width: 500px;
-}
-
-.account_requests_view {
-  text-align: center;
-}
-
-.account_requests_view button {
-  height: 40px;
-}
-
-.main-info a:nth-child(6) {
-  cursor: pointer;
-}
-
-.main-info a:nth-child(5) {
-  cursor: pointer;
 }
 
 .review-buttons, .delete-buttons {
@@ -329,7 +280,7 @@ th {
   .center, .header-name {
     text-align: center;
   }
-  .leftside-info, .header-name {
+ .header-name {
     width: 100%;
     text-align: center;
   }
@@ -352,19 +303,5 @@ th {
     text-align: center;
   }
 
-  .requirements {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 300;
-    float: none;
-  }
-  .requirements li {
-    list-style-type: none;
-  }
-  #add-button {
-    margin-top: 40px;
-  }
-  .welcome_notes {
-    text-align: center;
-  }
+
 }

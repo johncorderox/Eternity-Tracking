@@ -4,7 +4,74 @@ require('../lib/functions.php');
 require ("../lib/secure.php");
 
 
+ class Search extends Functions{
+
+   private $bug_id;
+   private $bug_title;
+   private $bug_message;
+   public static $search_result;
+
+   public function __construct() {
+
+     $this->bug_id      = trims($_POST['bug_id']);
+     $this->bug_title   = trims($_POST['bug_title']);
+     $this->bug_message = trims($_POST['bug_message']);
+
+
+   }
+
+   public function search_bugs() {
+
+     if (empty($this->bug_id) && empty($this->title) && empty($this->message)) {
+
+      // $this->search_result = 0;
+
+
+    } else {
+
+            $search_bugs_connect = new Connect();
+
+            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_id);
+            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_title);
+            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_message);
+
+              $sql_search_bugs  = "SELECT * from bugs WHERE `id` LIKE '%".$this->bug_id."%' ";
+              $sql_search_bugs .= "OR `title` LIKE '%".$this->bug_title."%'";
+              $sql_search_bugs .= "OR `message` LIKE '%".$this->bug_message."%'";
+
+              $result = $search_bugs_connect->connect()->query($search_bugs_connect);
+
+              $this->search_result = $result->num_rows;
+
+              echo "<table class=\"table table-bordered\">";
+              echo "<thead><tr><tbody>";
+              echo "<tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th><th>Status</th><th>Reported By</th><th>Date</th>";
+              echo "</thead><tbody>";
+              while($row = $result->fetch_assoc()) {
+
+
+                  echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["message"]."</td><td>".$row["priority"]."</td>";
+                  echo "<td>".$row["category"]."</td><td>".$row["status"]."</td><td>".$row["reported_by"]."</td><td>".$this->cleanDate($row['date'])."</td></tr>";
+
+                }
+                echo "</tbody></table>";
+
+
+        }
+
+   }
+
+}
+
+if (isset($_POST['search_bugs'])) {
+
+  $search_bugs = new Search();
+
+  $search_bugs->search_bugs();
+}
+
 ?>
+
 <body>
   <ul class="nav nav-tabs">
      <li><a href="main.php">Home</a></li>
@@ -47,74 +114,4 @@ require ("../lib/secure.php");
       </div>
     </div>
 
-
-
 </body>
- <?php
-
-
- class Search extends Functions{
-
-   private $bug_id;
-   private $bug_title;
-   private $bug_message;
-   public  $search_result;
-
-   public function __construct() {
-
-
-
-
-   }
-
-   public function search_bugs() {
-
-     if (empty($this->bug_id) && empty($this->title) && empty($this->message)) {
-
-       $this->search_result = 0;
-
-
-    } else {
-
-            $search_bugs_connect = new Connect();
-
-            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_id);
-            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_title);
-            mysqli_escape_string($search_bugs_connect->connect(), $this->bug_message);
-
-              $sql_search_bugs  = "SELECT * from bugs WHERE `id` LIKE '%".$this->bug_id."%' ";
-              $sql_search_bugs .= "OR `title` LIKE '%".$this->bug_title."%'";
-              $sql_search_bugs .= "OR `message` LIKE '%".$this->bug_message."%'";
-
-              $result = mysqli_query($search_bugs_connect->connect(), $sql_search_bugs);
-
-              $this->search_result = $result->num_rows;
-
-              echo "<table class=\"table table-bordered\">";
-              echo "<thead><tr><tbody>";
-              echo "<tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th><th>Status</th><th>Reported By</th><th>Date</th>";
-              echo "</thead><tbody>";
-              while($row = $result->fetch_assoc()) {
-
-
-                  echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["message"]."</td><td>".$row["priority"]."</td>";
-                  echo "<td>".$row["category"]."</td><td>".$row["status"]."</td><td>".$row["reported_by"]."</td><td>".$this->cleanDate($row['date'])."</td></tr>";
-
-                }
-                echo "</tbody></table>";
-
-
-        }
-
-   }
-
-}
-
-if (isset($_POST['search_bugs'])) {
-
-  $search_bugs = new Search();
-
-  $search_bugs->search_bugs();
-}
-
-?>

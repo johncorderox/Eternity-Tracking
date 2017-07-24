@@ -132,7 +132,7 @@ if (isset($_POST['submit'])) {
      <form action="index.php" method="POST">
      <input type="text" placeholder="Username *" name="username" id="username" class="error-input" autofocus><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />
-     <a href="request.php"<p id="request">Request Account?</p></a>
+     <a href="request.php"<p id="forgot-password-link">Forgot Password?</p></a>
      <button id="login-button" name="submit">Login</button><br />
    </form>
 </div>

@@ -128,7 +128,7 @@ class NewUser {
 
                     mysqli_close($add_new_final->connect());
 
-                    header("Location: main.php?newuser=1");
+                    header("Location: users.php?newuser=1");
                     exit();
 
 
@@ -289,6 +289,8 @@ class UserList {
   }
 
 
+
+
 if (isset($_POST['submit_remove'])) {
 
   $remove_user = new RemoveUser();
@@ -308,7 +310,6 @@ if(isset($_POST['submit_newuser'])) {
  <li><a href="bug_review.php">Bug Review</a></li>
  <li><a href="view_deleted.php">Deleted Bugs</a></li>
  <li class="active"><a href="users.php">User Accounts</a></li>
- <li><a href="search.php">Advanced Search</a></li>
  <li><a href="account.php">Account Settings</a></li>
  <li><a href="../logout.php">Logout</a></li>
 </ul>
@@ -319,11 +320,11 @@ if(isset($_POST['submit_newuser'])) {
   </div>
   <div class="users-button-menu">
     <button type="button" class="btn btn-default" onclick="reveal(7)">Add New User</button>
-    <button type="button" class="btn btn-default">Remove User</button>
+    <button type="button" class="btn btn-default" onclick="reveal(9)">Remove User</button>
   </div>
   <br />
   <div class="newuserform">
-    <form action="add_new_main.php" method="POST">
+    <form action="users.php" method="POST">
         <p id="larger">
           Please enter desired Username and Password.</p>
         <br />
@@ -334,9 +335,9 @@ if(isset($_POST['submit_newuser'])) {
         <br />
         </p>
       <?php echo '<p>' . NewUser::$errorMessage .'</p>'; ?>
-      <input type="text" id="user_new" name ="username" placeholder="Username *"/><br />
-      <input type="password" id="pass_new" name ="password" placeholder="Password *"/><br />
-      <input type="email" id="email_new" name ="email" placeholder="Email *"/><br />
+      <input type="text" name ="username" placeholder="Username *"/><br />
+      <input type="password" name ="password" placeholder="Password *"/><br />
+      <input type="email" name ="email" placeholder="Email *"/><br />
       <button type="submit" name="submit_newuser" class="btn btn-primary">Submit</button>
       <button type="button" onclick="reveal(8)" class="btn btn-primary">Cancel</button>
     </form>

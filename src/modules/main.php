@@ -20,7 +20,6 @@
      <li><a href="bug_review.php">Bug Review</a></li>
      <li><a href="view_deleted.php">Deleted Bugs</a></li>
      <li><a href="users.php">User Accounts</a></li>
-     <li><a href="search.php">Advanced Search</a></li>
      <li><a href="account.php">Account Settings</a></li>
      <li><a href="../logout.php">Logout</a></li>
     </ul>

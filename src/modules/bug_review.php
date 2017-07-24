@@ -244,6 +244,58 @@
         }
 
      }
+     class Search extends Functions{
+
+       private $search_var;
+
+
+       public function __construct() {
+
+        $this->search_var = trims($_POST['search']);
+
+
+       }
+
+       public function search_bugs() {
+
+         if (empty($this->search_var)) {
+
+          // $this->search_result = 0;
+
+
+        } else {
+
+                $search_bugs_connect = new Connect();
+
+                mysqli_escape_string($search_bugs_connect->connect(), $this->search_var);
+
+
+                  $sql_search_bugs  = "SELECT * from bugs WHERE `title` LIKE '%".$this->search_var."%' ";
+
+                  $result = mysqli_query($search_bugs_connect->connect(), $sql_search_bugs);
+
+                  $this->search_result = $result->num_rows;
+
+                  echo "<table class=\"table table-bordered\">";
+                  echo "<thead><tr><tbody>";
+                  echo "<tr><th>ID: </th><th>Title</th><th>Message</th><th>Priority</th><th>Category</th><th>Status</th><th>Reported By</th><th>Date</th>";
+                  echo "</thead><tbody>";
+                  while($row = $result->fetch_assoc()) {
+
+
+                      echo "<tr><td>".$row["id"]."</td><td>".$row["title"]."</td><td>".$row["message"]."</td><td>".$row["priority"]."</td>";
+                      echo "<td>".$row["category"]."</td><td>".$row["status"]."</td><td>".$row["reported_by"]."</td><td>".$this->cleanDate($row['date'])."</td></tr>";
+
+                    }
+                    echo "</tbody></table>";
+
+
+            }
+
+       }
+
+    }
+
 
 
      if (isset($_POST['add_main'])) {
@@ -261,13 +313,10 @@
 
       }
 
-      if (isset($_POST['submit_search'])) {
+      if (isset($_POST['search'])) {
 
-        if ($_POST['search'] == "" ) {
-
-          Search::$errorMessage = 0;
-
-        }
+        $bug_review_search = new Search();
+        $bug_review_search->search_bugs();
 
       }
 
@@ -292,7 +341,6 @@
       <li class="active"><a href="bug_review.php">Bug Review</a></li>
       <li><a href="view_deleted.php">Deleted Bugs</a></li>
       <li><a href="users.php">User Accounts</a></li>
-      <li><a href="search.php">Advanced Search</a></li>
       <li><a href="account.php">Account Settings</a></li>
       <li><a href="../logout.php">Logout</a></li>
    </ul>
@@ -308,6 +356,18 @@
        $bug = new Functions();
        $bug->num_of_items(0); ?></p>
      </div><br />
+     <form action="bug_review.php" method="POST">
+       <div class="bug-review-search">
+         <div class="input-group">
+           <input type="text" class="form-control" placeholder="Search" name="search">
+           <div class="input-group-btn">
+             <button class="btn btn-default" type="submit">
+               <i class="glyphicon glyphicon-search"></i>
+             </button>
+           </div>
+         </div>
+       </div>
+  </form>
      <div class="addform">
        <form name="add" action="bug_review.php" method="POST">
        <p id="larger"> Please Enter a Title and a Descriptive Message! </p><br />
