@@ -5,11 +5,14 @@ require ("connect.php");
 
 class Functions {
 
-  private $sql_count_bugs     = "SELECT COUNT(*) as total FROM bugs";
-  private $sql_count_accounts = "SELECT COUNT(*) as total FROM users";
-  private $sql_count_deleted  = "SELECT COUNT(*) as total FROM deleted_bugs";
-  private $sql_count_request  = "SELECT COUNT(*) as total FROM requests WHERE request_status = 'open'";
-  private $sql_get_last_bug   = "SELECT title from `bugs` ORDER BY `id` DESC LIMIT 1";
+  private $sql_count_bugs      = "SELECT COUNT(*) as total FROM bugs";
+  private $sql_count_accounts  = "SELECT COUNT(*) as total FROM users";
+  private $sql_count_deleted   = "SELECT COUNT(*) as total FROM deleted_bugs";
+  private $sql_count_request   = "SELECT COUNT(*) as total FROM requests WHERE request_status = 'open'";
+  private $sql_get_last_bug    = "SELECT title from `bugs` ORDER BY `id` DESC LIMIT 1";
+
+  public $view_button_review   = "<span class=\"glyphicon glyphicon-eye-open\"></span>";
+  public $delete_button_review = "<span class=\"glyphicon glyphicon-trash\"></span>";
 
   public function num_of_items($v) {
 
@@ -80,17 +83,55 @@ class Functions {
     }
 
 
-       public function cleanDate($old) {
+     public function cleanDate($old) {
 
-         $phpdate = strtotime($old);
+        $phpdate = strtotime($old);
 
-         $new = date('m-d-Y', $phpdate);
-
-         return $new;
+        $new = date('m-d-Y', $phpdate);
+        return $new;
 
      }
 
- }
+
+     public function displayTable($table_option, $sql) {
+
+         $display_table_connect = new Connect();
+
+         $result = mysqli_query($display_table_connect->connect(), $sql);
+
+         if ($table_option == 0) {
+
+           echo "<table class=\"table table-hover\">";
+           echo "<thead><tr><tbody>";
+           echo "<tr><th>ID: </th><th>Date</th><th>Title</th><th>Priority</th><th>Status</th><th>Actions</th>";
+           echo "</thead><tbody>";
+           while($row = $result->fetch_assoc()) {
+
+
+               echo "<tr><td>".$row["id"]."</td><td>".$this->cleanDate($row['date'])."</td><td>".$row["title"]."</td><td>".$row["priority"]."</td>";
+               echo "<td>".$row["status"]."</td> ";
+               echo "<form action=\"view.php\" method=\"POST\">";
+               echo "<td><div class=\"btn-group\">
+                 <button type\"submit\" class=\"btn btn-primary\" id=\"view_deleted\" name=\"view\" value='".$row['id']."'>View " . $this->view_button_review."</button>
+                 <button type=\"submit\" class=\"btn btn-danger\" id=\"view_deleted\" name=\"delete\" value='".$row['id']."'>Delete " .$this->delete_button_review. "</button>
+                 </td>";
+
+             }
+             echo "</tbody></table></form>";
+
+         }
+
+
+
+
+    }
+
+}
+
+
+
+
+
 
 
 

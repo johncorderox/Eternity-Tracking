@@ -18,6 +18,13 @@ $(document).ready(function() {
   $('.comment_view, .addform').hide();
 
 
+  $('#search-button').on("click", function(){
+
+    $('#review-default-table').toggle();
+
+  });
+
+
 
 
 });

@@ -102,7 +102,6 @@ if (isset($_POST['status'])) {
 
   $status = $_POST['status'];
 
-  // open, review, more info, Invalid
 
     if ($status == 'open') {
 

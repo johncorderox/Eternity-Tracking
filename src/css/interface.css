@@ -125,7 +125,7 @@ form {
   margin-left: 5px;
 }
 
-#num-bugs, #del-bugs, #user-count {
+#num-bugs, #del-bugs, #user-count, #search-count {
 
   font-size: 23px;
 }
