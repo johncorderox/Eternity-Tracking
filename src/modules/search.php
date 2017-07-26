@@ -11,20 +11,18 @@ require("../header.php");
      <li><a href="../logout.php">Logout</a></li>
   </ul>
     <br />
-    <div class="form-group row">
-    <div class="col-xs-2">
-      <label for="ex1">col-xs-2</label>
-      <input class="form-control" id="ex1" type="text">
+    <div class="search-form-second">
+      <form action="search.php" method="POST">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" autofocus>
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" id="search-button">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+   </form>
     </div>
-    <div class="col-xs-3">
-      <label for="ex2">col-xs-3</label>
-      <input class="form-control" id="ex2" type="text">
-    </div>
-    <div class="col-xs-4">
-      <label for="ex3">col-xs-4</label>
-      <input class="form-control" id="ex3" type="text">
-    </div>
-  </div>
 </body>
 <?php
 require('../lib/functions.php');
@@ -34,8 +32,6 @@ require ("../lib/secure.php");
 class Search extends Functions {
 
   private $search_var;
-  public static $search_Count_Result;
-
 
   public function __construct() {
 
@@ -74,6 +70,7 @@ if (isset($_POST['search'])) {
   if ($_POST['search'] == NULL) {
 
     header("Location: bug_review.php");
+
   } else {
 
     $search_bugs = new Search();

@@ -13,14 +13,11 @@ h1, h2, h3, h4, h5, h6 {
 h5 {
   font-size: 25px;
   font-weight: 500;
-
 }
-
 
 h6 {
   font-size: 20px;
   font-weight: 500;
-
 }
 
 select {
@@ -28,11 +25,10 @@ select {
 }
 
 form {
-     display:inline;
-     margin:0px;
-     padding:0px;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
 }
-
 
 .main-buttons button {
   height: 40px;
@@ -40,48 +36,48 @@ form {
   margin-top: 16px;
 }
 
-
 #main_button_view {
-
   display: inline;
 }
 
 .main-logs #view_login_logs_button, .login-logs #view_login_logs_button {
-
   margin-left: 30px;
 }
 
 .main-logs, .login-logs {
-
   width: 80%;
   margin-left: 20px;
 }
 
 .main-logs h5, .login-logs h5 {
-
   float: left;
 }
+
 .bug-review-search {
-
   margin-bottom: 12px;
-    float: right;
-    margin-right: -200px;
-
+  float: right;
+  margin-right: -200px;
 }
-.bug-review-search button {
 
+#search-button {
   height: 34px;
 }
 
-.addform, .deleteform, .removeuserform, .newuserform, .bug-review-search  {
+.search-form-second {
 
+  margin-bottom: 10px;
+  width: 500px;
+  float: right;
+  margin-right: 15px;
+}
+
+.addform, .deleteform, .removeuserform, .newuserform, .bug-review-search {
   margin-top: 80px;
   width: 500px;
   margin-left: 25px;
 }
 
-.removeuserform, .newuserform{
-
+.removeuserform, .newuserform {
   float: left;
   display: inline;
   margin-top: 0px;
@@ -99,7 +95,6 @@ form {
 }
 
 #e-button, #login-button {
-
   padding: 10px;
   width: 100px;
   background-color: white;
@@ -120,16 +115,13 @@ form {
   opacity: 0.2;
 }
 
-
 #larger {
   margin-left: 5px;
 }
 
 #num-bugs, #del-bugs, #user-count, #search-count {
-
   font-size: 23px;
 }
-
 
 input {
   padding: 10px;
@@ -150,8 +142,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   border-bottom: 1px solid black;
 }
 
-
-
 #login-button, #add-button {
   margin-top: 10px;
 }
@@ -162,11 +152,11 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 #user-table {
-
   float: right;
   display: inline;
   margin-top: -70px;
 }
+
 .leftside-info {
   width: 300px;
 }
@@ -199,7 +189,6 @@ input[type="text"], input[type="password"], input[type="email"] {
   font-weight: 400;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
@@ -216,11 +205,9 @@ a:visited {
   text-decoration: none;
 }
 
-
 li:active {
   opacity: 1;
 }
-
 
 #forgot-password-link {
   float: right;
@@ -241,23 +228,20 @@ li:active {
 }
 
 .review-buttons, .delete-buttons {
-
   margin-left: 20px;
   margin-top: 30px;
   float: left;
 }
 
 .bug-count, .delete-count {
-
-    float: right;
-    display: inline;
-    margin-top: 30px;
-    margin-right: 30px;
-    margin-bottom: 15px;
+  float: right;
+  display: inline;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-bottom: 15px;
 }
 
 .user-count, .users-button-menu {
-
   margin-top: 15px;
   margin-left: 25px;
 }
@@ -271,16 +255,13 @@ th {
 }
 
 
-
-
-
 /* Responsive Design */
 
 @media only screen and (max-width: 570px) {
   .center, .header-name {
     text-align: center;
   }
- .header-name {
+  .header-name {
     width: 100%;
     text-align: center;
   }
@@ -302,6 +283,4 @@ th {
     width: 100%;
     text-align: center;
   }
-
-
 }

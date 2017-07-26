@@ -285,7 +285,7 @@
      <form action="search.php" method="POST">
        <div class="bug-review-search">
          <div class="input-group">
-           <input type="text" class="form-control" placeholder="Search" name="search">
+           <input type="text" class="form-control" placeholder="Search" name="search" autofocus>
            <div class="input-group-btn">
              <button class="btn btn-default" type="submit" id="search-button">
                <i class="glyphicon glyphicon-search"></i>
