@@ -98,10 +98,11 @@ class Functions {
          $display_table_connect = new Connect();
 
          $result = mysqli_query($display_table_connect->connect(), $sql);
-         $result_count = $result->num_rows;
-         echo "<h6>" .$result_count." Result(s) found in the Database.</h6>";
 
          if ($table_option == 0) {
+
+           $result_count = $result->num_rows;
+           echo "<h6>" .$result_count." Result(s) found in the Database.</h6>";
 
            echo "<table class=\"table table-hover\">";
            echo "<thead><tr><tbody>";

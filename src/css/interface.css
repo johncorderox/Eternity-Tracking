@@ -142,6 +142,11 @@ input[type="text"], input[type="password"], input[type="email"] {
   border-bottom: 1px solid black;
 }
 
+.account-information-tables {
+
+  width: 500px;
+}
+
 #login-button, #add-button {
   margin-top: 10px;
 }

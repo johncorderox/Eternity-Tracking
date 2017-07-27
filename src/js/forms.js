@@ -66,23 +66,23 @@ function reveal(x) {
 
   switch (x) {
     case 0:
-      $('.login-logs').show();
-      $('.main-logs').hide();
+      $('.login-logs').fadeIn();
+      $('.main-logs').fadeOut();
       break;
 
     case 1:
-      $('.main-logs').show();
-      $('.login-logs').hide();
+      $('.main-logs').fadeIn();
+      $('.login-logs').fadeOut();
       break;
 
     case 2:
       $('.addform').show();
-      $('.deleteform, table, .searchform').hide();
+      $('.deleteform, table, .searchform, .bug-review-search').hide();
       break;
 
     case 3:
       $('.deleteform, #bug_table').show();
-      $(' .addform, .searchform').hide();
+      $(' .addform, .searchform, .bug-review-search').hide();
       break;
 
       //  case 4:
@@ -92,12 +92,13 @@ function reveal(x) {
     case 5:
 
       $('.addform').hide();
-      $('table').show();
+      $('table, .bug-review-search').show();
       break;
 
     case 6:
 
       $('.deleteform').hide();
+      $('.bug-review-search, table').show();
 
       break;
 
