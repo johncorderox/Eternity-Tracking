@@ -162,8 +162,24 @@ input[type="text"], input[type="password"], input[type="email"] {
   margin-top: -70px;
 }
 
+.account-menu-form {
+
+  margin-bottom: 10px;
+}
+
 .leftside-info {
   width: 300px;
+}
+
+.change-password-form, .change-email-form {
+
+  margin-left: 20px;
+}
+
+.change-password-form button, .change-email-form button, .reset-login-count button {
+
+  margin-left: 20px;
+  width: 120px;
 }
 
 .main-information {

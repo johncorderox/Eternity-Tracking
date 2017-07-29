@@ -61,10 +61,7 @@ class Login {
 
 
         $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
-
-        $query_add = "UPDATE `users` ";
-        $query_add .= "SET `account_count` = account_count + 1, `last_ip` = '$this->ip' ";
-        $query_add .= "WHERE username = $this->user";
+         $query_add = "UPDATE `users` SET `account_count` = account_count + 1, `last_ip` = '$this->ip' WHERE username = '$this->user'";
 
         $login_connect = new Connect();
 
@@ -85,7 +82,7 @@ class Login {
             $this->login_log_check($sql_login_success);
 
           }
-
+            mysqli_query($login_connect->connect(), $query_add);
             $_SESSION['username'] = $this->user;
             header("Location: modules/main.php?login=1");
 

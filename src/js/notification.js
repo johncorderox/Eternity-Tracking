@@ -349,6 +349,37 @@ function display_input_message(n) {
       });
       break;
 
+    case 20:
+      $.bootstrapGrowl("There Was An Error Submitting The Request!", {
+        ele: 'body',
+        type: 'danger',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
+      
+    case 21:
+      $.bootstrapGrowl("Your Account Login Count has been reset.", {
+        ele: 'body',
+        type: 'success',
+        align: 'right',
+        offset: {
+          from: 'top',
+          amount: 30
+        },
+        width: 450,
+        delay: 3000,
+        allow_dismiss: true,
+        stackup_spacing: 10
+      });
+      break;
 
 
     default:

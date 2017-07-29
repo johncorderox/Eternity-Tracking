@@ -13,12 +13,13 @@ $(document).ready(function() {
 
 
   $('.login-logs, .deleteform, #hiddenInput, .removeuserform, .newuserform').hide();
+  $('.change-password-form, .change-email-form, .reset-login-count').hide();
 
 
   $('.comment_view, .addform').hide();
 
 
-  $('#search-button').on("click", function(){
+  $('#search-button').on("click", function() {
 
     $('#review-default-table').toggle();
 
@@ -85,9 +86,12 @@ function reveal(x) {
       $(' .addform, .searchform, .bug-review-search').hide();
       break;
 
-      //  case 4:
-      //  $('.searchform').show();
-      //break;
+    case 4:
+      $('.account-information-tables, .account-menu-form').hide();
+      $('.change-password-form').fadeIn();
+
+
+      break;
 
     case 5:
 
@@ -113,11 +117,35 @@ function reveal(x) {
       $('.newuserform').hide();
       break;
 
-      case 9:
+    case 9:
 
-        $('.removeuserform').toggle();
-        $('.newuserform').hide();
-        break;
+      $('.removeuserform').toggle();
+      $('.newuserform').hide();
+      break;
+
+    case 10:
+      $('.account-information-tables, .account-menu-form').fadeIn();
+      $('.change-password-form, .change-email-form, .reset-login-count').hide();
+
+
+      break;
+
+    case 11:
+      $('.change-email-form').fadeIn();
+      $('.account-information-tables, .account-menu-form').hide();
+      break;
+
+    case 12:
+
+    $('.reset-login-count').fadeIn();
+    $('.account-information-tables, .account-menu-form').hide();
+    break;
+
+    case 13:
+
+    $('.change-email-form').hide();
+    $('.account-information-tables, .account-menu-form').fadeIn();
+    break;
 
 
     default:
