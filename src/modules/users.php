@@ -221,6 +221,7 @@ Class RemoveUser {
       $remove_user_copy   = "INSERT INTO deleted_users (account_id, username) SELECT `account_id`,`username` from users WHERE account_id = '$this->id'";
       $remove_user_copy2  = "UPDATE deleted_users SET deleted_reason = '$this->reason', deleted_by = '$this->user' WHERE account_id = '$this->id'";
       $remove_user_log    = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) VALUES ('','RU','$this->user', '$this->id' , NOW(), '$this->ip')";
+      $check_session_id   = "SELECT `account_id` FROM `users` WHERE `username` = '$this->user'";
 
       $remove_user = new Connect();
 
@@ -228,14 +229,23 @@ Class RemoveUser {
 
         if (mysqli_num_rows($result) == 1) {
 
-          mysqli_query($remove_user->connect(), $remove_user_copy);
-          mysqli_query($remove_user->connect(), $remove_user_copy2);
-          mysqli_query($remove_user->connect(), $remove_user_sql);
-          mysqli_query($remove_user->connect(), $remove_user_log);
+          $result_session_id = mysqli_query($remove_user->connect(), $check_session_id);
 
-          mysqli_close($remove_user->connect());
-          header("Location: users.php?removeuser=1");
+          if ($result_session_id == $result) {
 
+            echo "CANNOT remove your own account.";
+
+            } else {
+
+              mysqli_query($remove_user->connect(), $remove_user_copy);
+              mysqli_query($remove_user->connect(), $remove_user_copy2);
+              mysqli_query($remove_user->connect(), $remove_user_sql);
+              mysqli_query($remove_user->connect(), $remove_user_log);
+
+              mysqli_close($remove_user->connect());
+              header("Location: users.php?removeuser=1");
+
+            }
 
         } else {
 
@@ -243,11 +253,7 @@ Class RemoveUser {
           echo "No ID was found!";
         }
 
-
-
     }
-
-
 
 }
 

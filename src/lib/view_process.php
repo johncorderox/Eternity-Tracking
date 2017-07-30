@@ -65,7 +65,7 @@ if (isset($_POST['add_comment'])) {
 
     if($comment == "") {
 
-      header("Location: ../modules/bug_review.php?successcomment=1");
+      header("Location: ../modules/bug_review.php");
 
     }
 
@@ -75,7 +75,7 @@ if (isset($_POST['add_comment'])) {
      $result = mysqli_query($view_process->connect(), $sql_insert);
      if ($result) {
 
-        header("Location: ../modules/main.php?bug_review=1");
+        header("Location: ../modules/bug_review.php?successcomment=1");
 
    }
 }
@@ -91,7 +91,7 @@ if (isset($_POST['delete_comment'])) {
 
   if ($result) {
 
-      header("Location: ../modules/main.php?bug_review=1");
+      header("Location: ../modules/bug_review.php?deletecomment=1");
       mysqli_close($view_process->connect());
 
   }
