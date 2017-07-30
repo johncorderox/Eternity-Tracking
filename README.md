@@ -9,12 +9,12 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 
 ## Features
 - **Login System** - Users have access to Login/Logout via Sessions. 
-- **Bug Review **- The ultimate review system for bug reporting.
+- **Bug Review ** - The ultimate review system for bug reporting.
 - **Logging System** - Logs login logs and bug related logs for the CP.
 - **User Accounts** - Adding/Removing Users.
 - **Comments** - Users can interact and add/delete comments on each bug. 
 - **Account Settings** - Password Changes, Email changes, Reset Login Counts, View Bug Stats.
-- **Deleted Bugs**- Users can undelete/destroy bugs from the system.
+- **Deleted Bugs** - Users can undelete/destroy bugs from the system.
 
 
 ## Requirements
@@ -42,7 +42,7 @@ Locate the Connect Class and update the values with your host information.<br>
 
 You may also use the `config.php` file to adjust some changes to your project management tool.
 
-``php
+```php
 
 $config = array(
 
