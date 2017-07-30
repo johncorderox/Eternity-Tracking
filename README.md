@@ -9,7 +9,7 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 
 ## Features
 - **Login System** - Users have access to Login/Logout via Sessions. 
-- **Bug Review ** - The ultimate review system for bug reporting.
+- **Bug Review** - The ultimate review system for bug reporting.
 - **Logging System** - Logs login logs and bug related logs for the CP.
 - **User Accounts** - Adding/Removing Users.
 - **Comments** - Users can interact and add/delete comments on each bug. 
