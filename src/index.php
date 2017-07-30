@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
      <form action="index.php" method="POST">
      <input type="text" placeholder="Username *" name="username" id="username" class="error-input" autofocus><br />
      <input type="password" placeholder="Password *" name="password" id="password" /><br />
-     <a onclick="showPassword()"<p id="forgot-password-link">Show Password</p></a>
+     <a onclick="showPassword()" <p id="show-password-link">Show Password <span class="glyphicon glyphicon-eye-open"></span></p></a>
      <button id="login-button" name="submit">Login</button><br />
    </form>
 </div>

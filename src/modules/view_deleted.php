@@ -13,6 +13,7 @@ require '../lib/notification.php';
      <li><a href="users.php">User Accounts</a></li>
      <li><a href="account.php">Account Settings</a></li>
      <li><a href="../logout.php">Logout</a></li>
+     <li id="welcome-name"><a href="account.php">Welcome, <?php echo $_SESSION['username'];?>!</a></li>
   </ul>
   <div class="delete-buttons">
     <form action="view_deleted.php" method="POST">

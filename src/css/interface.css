@@ -64,7 +64,6 @@ form {
 }
 
 .search-form-second {
-
   margin-bottom: 10px;
   width: 500px;
   float: right;
@@ -133,6 +132,14 @@ input[type="text"], input[type="password"], input[type="email"] {
   margin-bottom: 15px;
 }
 
+#welcome-name {
+
+  font-weight: bold;
+  float: right;
+  cursor: default;
+}
+
+
 .modern-input {
   font-size: 20px;
   padding: 10px;
@@ -143,7 +150,6 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .account-information-tables {
-
   width: 500px;
 }
 
@@ -163,7 +169,6 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .account-menu-form {
-
   margin-bottom: 10px;
 }
 
@@ -172,12 +177,10 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .change-password-form, .change-email-form {
-
   margin-left: 20px;
 }
 
 .change-password-form button, .change-email-form button, .reset-login-count button {
-
   margin-left: 20px;
   width: 120px;
 }
@@ -230,17 +233,17 @@ li:active {
   opacity: 1;
 }
 
-#forgot-password-link {
+#show-password-link {
   float: right;
   cursor: pointer;
   color: #347bb2;
 }
 
-#forgot-password-link:hover {
+#show-password-link:hover {
   text-decoration: underline;
 }
 
-#forgot-password-link:active {
+#show-password-link:active {
   opacity: 0.2;
 }
 

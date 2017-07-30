@@ -312,6 +312,7 @@ if(isset($_POST['submit_newuser'])) {
  <li class="active"><a href="users.php">User Accounts</a></li>
  <li><a href="account.php">Account Settings</a></li>
  <li><a href="../logout.php">Logout</a></li>
+ <li id="welcome-name"><a href="account.php">Welcome, <?php echo $_SESSION['username'];?>!</a></li>
 </ul>
   <div class="user-count">
     <p id="user-count"><span class="glyphicon glyphicon-user"></span> Accounts: <?php

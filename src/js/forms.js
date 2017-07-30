@@ -36,11 +36,11 @@ function showPassword() {
   if ($("#password").attr("type") == "password") {
 
     $("#password").attr("type", "text");
-    $('.center a').text("Hide Password");
+    $('.center a').html("Hide Password" + "<span class=\"glyphicon glyphicon-eye-close\"></span>");
 
   } else {
     $("#password").attr("type", "password");
-    $('.center a').text("Show Password");
+    $('.center a').html("Show Password <span class=\"glyphicon glyphicon-eye-open\"></span>");
 
   }
 }

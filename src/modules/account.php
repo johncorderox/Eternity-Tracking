@@ -30,6 +30,7 @@
    <li><a href="users.php">User Accounts</a></li>
    <li class="active"><a href="account.php">Account Settings</a></li>
    <li><a href="../logout.php">Logout</a></li>
+   <li id="welcome-name"><a href="account.php">Welcome, <?php echo $_SESSION['username'];?>!</a></li>
   </ul>
   <div class="panel panel-info">
 <div class="panel-heading"><h6>Account Settings</h6></div>
