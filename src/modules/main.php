@@ -10,9 +10,7 @@
   $main_connect      = new Connect();
   $main_notification = new Notification();
 
-
 ?>
-
 <html lang="en">
   <body>
     <ul class="nav nav-tabs">
@@ -46,36 +44,11 @@
         </div><br />
       </div>
     </div>
-
-
-
-    <?php require ('../logs/logs.php'); ?>
-
-    <!-- module under backend
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="welcome_notes">
-            <p>
-              Welcome! <br />
-              You are currently logged in as: <a href="account.php"><u><?php echo $logged; ?></u></a>
-              <?php $main->getLastBug() ?>
-            </p>
-            </div>
-          </div>
-      </div>
-        <form action="search.php" method="POST">
-          <input type="text" name="search" placeholder="Search Database" autofocus/>
-          <button type="submit" name="submit_search" id="add-button">Submit</button>
-        </form>
-        <hr />
-        </div>
-      </div> -->
+    <script type='text/javascript' src='../js/notification.js'></script>
+    <script type='text/javascript' src='../js/forms.js'></script>
   </body>
-  <script type='text/javascript' src='../js/notification.js'></script>
-  <script type='text/javascript' src='../js/forms.js'></script>
 
-</html>
 <?php
-$main_notification->notifications();
+require ('../logs/logs.php');
+  $main_notification->notifications();
  ?>
