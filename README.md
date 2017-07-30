@@ -8,12 +8,13 @@ A PHP based tracking system that allows small teams to organize, add, delete, an
 <a href="https://ibb.co/eM9x5F"><img src="https://preview.ibb.co/doYPkF/2na6105_jpg.png" alt="2na6105_jpg" border="0"></a><br /<br /><br></p>
 
 ## Features
-- **Login System** - Contains styles to demonstrate Hover. Not required in your projects
-- **Account Requests** - Allows outside users to request access
-- **Logging System** - Captures and stores actions inside the CP into the DB for reference
-- **Comments** - Comment and review bugs for in depth analysis
-- **Account Settings** - Password Changes, Email changes
-- **Deleted Bug Review - Allows users to see deleted bugs, destroy and undelete
+- **Login System** - Users have access to Login/Logout via Sessions. 
+- **Bug Review **- The ultimate review system for bug reporting.
+- **Logging System** - Logs login logs and bug related logs for the CP.
+- **User Accounts** - Adding/Removing Users.
+- **Comments** - Users can interact and add/delete comments on each bug. 
+- **Account Settings** - Password Changes, Email changes, Reset Login Counts, View Bug Stats.
+- **Deleted Bugs**- Users can undelete/destroy bugs from the system.
 
 
 ## Requirements
@@ -24,15 +25,35 @@ MySQL 5+<br>
 ## Installation
 
 
-Run the `database.sql ` file and make sure the admin insert has ran.<br>
-Locate the Config file and update the values with your host information.<br>
+Run the `database.sql ` file and make sure the admin insert query has ran.<br>
+Locate the Connect Class and update the values with your host information.<br>
 
 
 ```php
 
-$servername = 'YourHost';
-$username = 'YourUsername';
-$password = 'YourPassword';
-$database = 'tracking';
+      public $servername = 'localhost';
+      public $username   = 'root';
+      public $password   = '';
+      public $database   = 'tracking';
+
+```
+
+## Configuration 
+
+You may also use the `config.php` file to adjust some changes to your project management tool.
+
+``php
+
+$config = array(
+
+  '$company_name'                   => 'Eternity LLC',  // Company Name for main module
+
+  '$MinPasswordLength'              => 8,              // Password Length variable
+  '$MaxPasswordLength'              => 32,             // Max Password Legnth. DO NOT INCREASE WITHOUT CONSULTING THE SQL TABLE
+  '$allowMultiEmail'                => FALSE,          // Register new accounts with the same emails.
+  '$allowLoginLog'                  => TRUE,          // Logs login for success and fail
+
+
+);
 
 ```
