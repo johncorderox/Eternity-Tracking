@@ -31,7 +31,19 @@ $(document).ready(function() {
 });
 
 
+function showPassword() {
 
+  if ($("#password").attr("type") == "password") {
+
+    $("#password").attr("type", "text");
+    $('.center a').text("Hide Password");
+
+  } else {
+    $("#password").attr("type", "password");
+    $('.center a').text("Show Password");
+
+  }
+}
 
 
 
@@ -137,15 +149,15 @@ function reveal(x) {
 
     case 12:
 
-    $('.reset-login-count').fadeIn();
-    $('.account-information-tables, .account-menu-form').hide();
-    break;
+      $('.reset-login-count').fadeIn();
+      $('.account-information-tables, .account-menu-form').hide();
+      break;
 
     case 13:
 
-    $('.change-email-form').hide();
-    $('.account-information-tables, .account-menu-form').fadeIn();
-    break;
+      $('.change-email-form').hide();
+      $('.account-information-tables, .account-menu-form').fadeIn();
+      break;
 
 
     default:

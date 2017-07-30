@@ -49,11 +49,6 @@
     <li class="list-group-item"><b>Last Login IP Address:</b> <?php echo $ip; ?></li>
     <li class="list-group-item"><b>Bugs Reported:</b> <?php echo $account_functions->getReported(1); ?></li>
     <li class="list-group-item"><b>Bugs Deleted:</b> <?php echo $account_functions->getReported(2); ?></li>
-    <li class="list-group-item">
-      <form action="account.php" method="POST">
-        <button type="submit" name="delete_account" class="btn btn-danger">Delete My Account</button>
-      </form>
-    </li>
   </ul>
 </div>
 <div class="change-password-form">
@@ -194,42 +189,6 @@ if (isset($_POST['submit_newpassword'])) {
           </script>';
 
   }
-
-  if (isset($_POST['delete_account'])) {
-
-    $user_to_delete = $_SESSION['username'];
-
-    $sql_delete_user  = "SELECT `username` ";
-    $sql_delete_user .= "FROM users ";
-    $sql_delete_user .= "WHERE username = '$user_to_delete' ";
-
-    $sql_user_check  = "SELECT * FROM users ";
-
-    $result = mysqli_query($account_connect->connect(), $sql_user_check);
-
-    if($result->num_rows <= 1) {
-
-      echo "Cannot delete when 1 account is left!";
-      echo '<script type="text/javascript">
-            display_input_message(20);
-            </script>';
-    } else {
-
-        $sql  = "DELETE * FROM users ";
-        $sql .= "WHERE username = '$user_to_delete' ";
-
-        $result_delete = mysqli_query($account_connect->connect(), $sql);
-
-        if ($result_delete) {
-
-          header("Location: index.php");
-
-        }
-
-    }
-
-  }
-
 
 $account_functions = new Functions();
  ?>
