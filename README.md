@@ -5,7 +5,7 @@
 <a align="center" href="https://eternity-tracking.000webhostapp.com/Eternity-Tracking/Eternity-Tracking/src/index.php">Demo</a>
 <br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within a system. Includes Account management and web application security. An easy-to-install program that allows developers to build off of.<br>
-<a href="https://ibb.co/eM9x5F"><img src="https://preview.ibb.co/doYPkF/2na6105_jpg.png" alt="2na6105_jpg" border="0"></a><br /<br /><br></p>
+<a href="https://gifyu.com/image/zHW2"><img src="https://gifyu.com/images/K9dvO5Mb0u.gif" alt="K9dvO5Mb0u.gif" border="0" /></a><br /<br /><br></p>
 
 ## Features
 - **Login System** - Users have access to Login/Logout via Sessions. 
@@ -49,7 +49,7 @@ $config = array(
   '$company_name'                   => 'Eternity LLC',  // Company Name for main module
 
   '$MinPasswordLength'              => 8,              // Password Length variable
-  '$MaxPasswordLength'              => 32,             // Max Password Legnth. DO NOT INCREASE WITHOUT CONSULTING THE SQL TABLE
+  '$MaxPasswordLength'              => 32,             // Max Password Legnth.
   '$allowMultiEmail'                => FALSE,          // Register new accounts with the same emails.
   '$allowLoginLog'                  => TRUE,          // Logs login for success and fail
 
