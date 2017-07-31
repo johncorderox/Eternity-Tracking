@@ -1,7 +1,7 @@
 -- Create MySQL Database --
 --
 --
--- No need to run, just create Manually. -- 
+-- No need to run, just create Manually. --
 CREATE DATABASE tracking;
 
 -- Create MySQL Table
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `logs` (
 
 `action_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 `action` ENUM('A','D','AU','RU','CP','CE','RC','DA'),
-`log_user` varchar(255) NOT NULL,4
+`log_user` varchar(255) NOT NULL,
 `action_value` varchar(255) NOT NULL,
 `date` datetime NOT NULL,
 `ip` varchar(100) NOT NULL default '0',
