@@ -24,6 +24,7 @@ MySQL 5+<br>
 
 ## Installation
 
+You can download the project using git clone ```https://github.com/johncorderox/Eternity-Tracking.git``` or via release pages to download specific versions.
 
 Run the `database.sql ` file and make sure the admin insert query has ran.<br>
 Locate the Connect Class and update the values with your host information.<br>
