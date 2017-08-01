@@ -23,10 +23,6 @@
 
 class Logs extends Functions{
 
-  private $action_log_limit = 10;
-  private $login_log_limit = 10;
-
-
   public function display() {
 
     $log_connect = new Connect();

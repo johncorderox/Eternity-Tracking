@@ -47,7 +47,6 @@ class viewDeleted extends Functions {
         $view_deleted = new Connect();
 
         $result = mysqli_query($view_deleted->connect(), $this->sql_view_deleted);
-        $result_count = $result->num_rows;
 
             echo "<table class=\"table table-hover\" id=\"bug_table\">";
             echo "<thead> <tr> <tbody>";

@@ -1,10 +1,8 @@
 <?php
-
+session_start();
 include_once("lib/functions.php");
 include_once("lib/secure.php");
 require     ('lib/notification.php');
-
-session_start();
 
 
 class Login {
@@ -70,7 +68,6 @@ class Login {
 
         $result = mysqli_query($login_connect->connect(), $query);
 
-        $num = mysqli_num_rows($result);
         if(mysqli_num_rows($result) == 1) {
 
           if($config['$allowLoginLog'] == TRUE) {

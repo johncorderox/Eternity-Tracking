@@ -129,7 +129,7 @@ class NewUser {
                     mysqli_close($add_new_final->connect());
 
                     header("Location: users.php?newuser=1");
-                    exit();
+
 
 
                 }
@@ -235,7 +235,7 @@ Class RemoveUser {
 
               mysqli_close($remove_user->connect());
               header("Location: users.php?removeuser=1");
-      
+
 
         } else {
 
@@ -273,13 +273,6 @@ class UserList {
 
 
       }
-
-    private function displaySqlInfo() {
-
-      echo "The following is the CURRENT sql to display bugs: ";
-      echo $this->sql_users;
-
-    }
 
 
   }

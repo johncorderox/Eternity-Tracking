@@ -44,13 +44,6 @@
 
     }
 
-    public function setSqlAddBugCustom($t, $m, $p, $c) {
-
-      $this->sql_add  = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
-      $this->sql_add = "VALUES ('$this->t','$this->m', '$this->p', '$this->c', '$this->logged', NOW() )";
-
-
-    }
 
     public function setAddBugLog() {
 

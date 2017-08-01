@@ -50,7 +50,7 @@ class Connect {
 
             if($this->connect) {
 
-            echo  "The connection to ". $this->$servername . "was successful!";
+            echo  "The connection to ". $this->servername . "was successful!";
 
             } else {
 
