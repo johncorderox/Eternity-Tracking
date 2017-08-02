@@ -6,7 +6,7 @@
 <br>
 <strong>A modern and productive bug tracker for completing tasks.</strong><br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within the system. An easy-to-install program that allows developers to build off of.<br>
-<a href="https://gifyu.com/image/zHW2"><img src="https://gifyu.com/images/K9dvO5Mb0u.gif" alt="K9dvO5Mb0u.gif" border="0" /></a><br /></p><br>
+<a href="https://gifyu.com/image/zHW2"><img src="https://gifyu.com/images/K9dvO5Mb0u.gif" alt="K9dvO5Mb0u.gif" border="0" /></a><br />
 
 
 ## Features
