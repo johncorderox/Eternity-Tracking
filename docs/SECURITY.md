@@ -3,7 +3,7 @@
 ## trims
 Operation: Secures form inputs from various SQL Injections/attacks.
 
-Within the system, there are numerous places that utilize the built in <b>trims</b>function.
+Within the system, there are numerous places that utilize the built in <b>trims</b> function.<br>
 Usage:
 ```php
 
@@ -15,10 +15,10 @@ trims($_POST['yourVariable']);
 ```
 
 Trims utilizing the following form handling procedures:
-<li>trim</li> - Removes Whitespaces
-<li>stripslahses</li> - Removes Backslashes
-<li>htmlspecialcharacters</li> - Converts to HTML Entities
-<li>striptags</li> - Removes PHP/HTML Tags
+<li>trim - Removes Whitespaces</li>
+<li>stripslahses - Removes Backslashes</li>
+<li>htmlspecialcharacters - Converts to HTML Entities</li>
+<li>striptags - Removes PHP/HTML Tags</li>
 
 ## email_clean
 
