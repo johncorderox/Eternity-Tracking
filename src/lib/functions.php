@@ -16,23 +16,23 @@ class Functions {
 
   public function num_of_items($v) {
 
-    $c = new Connect();
+    $count_c = new Connect();
 
     if ($v == '0') {
 
-      $result = mysqli_query($c->connect(), $this->sql_count_bugs);
+      $result = mysqli_query($count_c->connect(), $this->sql_count_bugs);
 
     } else if ($v == '1') {
 
-      $result = mysqli_query($c->connect(), $this->sql_count_accounts);
+      $result = mysqli_query($count_c->connect(), $this->sql_count_accounts);
 
     } else if ($v == '2') {
 
-      $result = mysqli_query($c->connect(), $this->sql_count_deleted);
+      $result = mysqli_query($count_c->connect(), $this->sql_count_deleted);
 
     } else if ($v == '3') {
 
-      $result = mysqli_query($c->connect(), $this->sql_count_request);
+      $result = mysqli_query($count_c->connect(), $this->sql_count_request);
 
     }
 
@@ -43,8 +43,8 @@ class Functions {
 
   public function getLastBug() {
 
-    $g = new Connect();
-    $result = mysqli_query($g->connect(), $this->sql_get_last_bug);
+    $get_last_c = new Connect();
+    $result = mysqli_query($get_last_c->connect(), $this->sql_get_last_bug);
 
       if (mysqli_num_rows($result) != 1) {
 
@@ -60,20 +60,20 @@ class Functions {
 
     public function getReported($x) {
 
-      $gr = new Connect();
+      $get_reported_c = new Connect();
 
-      if ($gr->connect() && $x == 1) {
+      if ($get_reported_c->connect() && $x == 1) {
 
         $sql_get_r = "SELECT COUNT(*) as total FROM bugs WHERE reported_by = '{$_SESSION['username']}'";
-        $result = mysqli_query($gr->connect(), $sql_get_r);
+        $result = mysqli_query($get_reported_c->connect(), $sql_get_r);
         $number = mysqli_fetch_assoc($result);
 
         echo '( '.$number['total'].' )';
 
-      } else if ($gr->connect() && $x == 2) {
+      } else if ($get_reported_c->connect() && $x == 2) {
 
         $sql_get_r = "SELECT COUNT(*) as total FROM deleted_bugs WHERE deleted_by = '{$_SESSION['username']}'";
-        $result = mysqli_query($gr->connect(), $sql_get_r);
+        $result = mysqli_query($get_reported_c->connect(), $sql_get_r);
         $number = mysqli_fetch_assoc($result);
 
         echo '( '.$number['total'].' )';
