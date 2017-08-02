@@ -1,11 +1,13 @@
 
-# Eternity Tracking<br>
-[![GitHub release](https://img.shields.io/github/release/johncorderox/Eternity-Tracking.svg)]()
-[![GitHub commits](https://img.shields.io/github/commits-since/johncorderox/Eternity-Tracking/v.2.0.svg)]()
+<h1 align="center">Eternity Tracking</h1>
+<center><p>
+<img src="https://img.shields.io/github/release/johncorderox/Eternity-Tracking.svg">
+<img src="https://img.shields.io/github/commits-since/johncorderox/Eternity-Tracking/v.2.0.svg">
 <br>
 <b>A modern and productive bug tracker for completing tasks.</b><br>
 A PHP based tracking system that allows small teams to organize, add, delete, and maintain bugs within the system. An easy-to-install program that allows developers to build off of.<br>
-<a href="https://gifyu.com/image/zHW2"><img src="https://gifyu.com/images/K9dvO5Mb0u.gif" alt="K9dvO5Mb0u.gif" border="0" /></a><br /<br /><br>
+<a href="https://gifyu.com/image/zHW2"><img src="https://gifyu.com/images/K9dvO5Mb0u.gif" alt="K9dvO5Mb0u.gif" border="0" /></a><br /><br>
+</center>
 
 ## Features
 - **Login System** - Users have access to Login/Logout via Sessions. 
