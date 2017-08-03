@@ -23,78 +23,88 @@
 
 ?>
 <body>
-  <ul class="nav nav-tabs">
-   <li><a href="main.php">Home</a></li>
-   <li><a href="bug_review.php">Bug Review</a></li>
-   <li><a href="view_deleted.php">Deleted Bugs</a></li>
-   <li><a href="users.php">User Accounts</a></li>
-   <li class="active"><a href="account.php">Account Settings</a></li>
-   <li><a href="../logout.php">Logout</a></li>
-   <li id="welcome-name"><a href="account.php">Welcome, <?php echo $_SESSION['username'];?>!</a></li>
-  </ul>
-  <div class="panel panel-info">
-<div class="panel-heading"><h6>Account Settings</h6></div>
-</div>
-<div class="account-menu-form">
-  <div class="btn-group btn-group-justified">
-    <a onclick="reveal(4)" class="btn btn-default">Change Password</a>
-    <a onclick="reveal(11)" class="btn btn-default">Change Email</a>
-    <a onclick="reveal(12)" class="btn btn-default">Reset Account Count</a>
-  </div>
-</div>
-<div class="account-information-tables">
-  <ul class="list-group">
-    <li class="list-group-item"><b>Account Username:</b> <?php echo $logged; ?></li>
-    <li class="list-group-item"><b>Email:</b> <?php echo $email; ?></li>
-    <li class="list-group-item"><b>Account Login Count:</b> <?php echo $account_count; ?></li>
-    <li class="list-group-item"><b>Last Login IP Address:</b> <?php echo $ip; ?></li>
-    <li class="list-group-item"><b>Bugs Reported:</b> <?php echo $account_functions->getReported(1); ?></li>
-    <li class="list-group-item"><b>Bugs Deleted:</b> <?php echo $account_functions->getReported(2); ?></li>
-  </ul>
-</div>
-<div class="change-password-form">
-  <form action="account.php" method="POST">
-    <p>
-      Enter your password.
-    </p>
-    <input type="password" name="password" /><br />
-    <p>
-      Enter your new password.
-    </p>
-    <input type="password" name="password_new1" /><br />
-    <p>
-      Confirm your new password.
-    </p>
-    <input type="password" name="password_new2" /><br />
-    <button type="submit" name="submit_newpassword" class="btn btn-primary">Submit</button>
-    <button type="button" name="cancel" class="btn btn-primary" onclick="reveal(10)">Cancel</button>
-  </div>
-  </form>
-  <div class="change-email-form">
-    <form action="account.php" method="POST">
-      <p id="larger">
-        Your Email is currently: <?php echo $email; ?>
-      </p><br />
-      <p>
-        Enter your desired new email.
-      </p>
-      <input type="email" name="new_email" /><br />
-      <button type="submit" name="submit_newemail" class="btn btn-primary">Submit</button>
-      <button type="button" class="btn btn-primary" onclick="reveal(13)">Cancel</button>
-    </form>
-  </div>
-  <div class="reset-login-count">
-    <p id="larger">
-       Your current login count is: <?php echo $account_count; ?>
-    </p><br />
-    <p>
-      Click submit to reset your Login Count to 0.
-    </p>
-    <form action="account.php" method="POST">
-    <button type="submit" name="submit_count" class="btn btn-primary">Submit</button>
-    <button type="submit" name="cancel" class="btn btn-primary">Cancel</button>
-  </form>
-  </div>
+ <div class="account-container">
+   <ul class="nav nav-tabs">
+    <li><a href="main.php">Home</a></li>
+    <li><a href="bug_review.php">Bug Review</a></li>
+    <li><a href="view_deleted.php">Deleted Bugs</a></li>
+    <li><a href="users.php">User Accounts</a></li>
+    <li class="active"><a href="account.php">Account Settings</a></li>
+    <li><a href="../logout.php">Logout</a></li>
+    <li id="welcome-name"><a href="account.php">Welcome, <?php echo $_SESSION['username'];?>!</a></li>
+   </ul>
+   <div class="panel panel-info">
+ <div class="panel-heading"><h6>Account Settings</h6></div>
+ </div>
+ <div class="account-menu-form">
+   <div class="btn-group btn-group-justified">
+     <a onclick="reveal(4)" class="btn btn-default">Change Password</a>
+     <a onclick="reveal(11)" class="btn btn-default">Change Email</a>
+     <a onclick="reveal(12)" class="btn btn-default">Reset Account Count</a>
+     <a onclick="reveal(14)" class="btn btn-danger">Delete My Account</a>
+   </div>
+ </div>
+ <div class="account-information-tables">
+   <ul class="list-group">
+     <li class="list-group-item"><b>Account Username:</b> <?php echo $logged; ?></li>
+     <li class="list-group-item"><b>Email:</b> <?php echo $email; ?></li>
+     <li class="list-group-item"><b>Account Login Count:</b> <?php echo $account_count; ?></li>
+     <li class="list-group-item"><b>Last Login IP Address:</b> <?php echo $ip; ?></li>
+     <li class="list-group-item"><b>Bugs Reported:</b> <?php echo $account_functions->getReported(1); ?></li>
+     <li class="list-group-item"><b>Bugs Deleted:</b> <?php echo $account_functions->getReported(2); ?></li>
+   </ul>
+ </div>
+ <div class="change-password-form">
+   <form action="account.php" method="POST">
+     <p>
+       Enter your password.
+     </p>
+     <input type="password" name="password" /><br />
+     <p>
+       Enter your new password.
+     </p>
+     <input type="password" name="password_new1" /><br />
+     <p>
+       Confirm your new password.
+     </p>
+     <input type="password" name="password_new2" /><br />
+     <button type="submit" name="submit_newpassword" class="btn btn-primary">Submit</button>
+     <button type="button" name="cancel" class="btn btn-primary" onclick="reveal(10)">Cancel</button>
+   </div>
+   </form>
+   <div class="change-email-form">
+     <form action="account.php" method="POST">
+       <p id="larger">
+         Your Email is currently: <?php echo $email; ?>
+       </p><br />
+       <p>
+         Enter your desired new email.
+       </p>
+       <input type="email" name="new_email" /><br />
+       <button type="submit" name="submit_newemail" class="btn btn-primary">Submit</button>
+       <button type="button" class="btn btn-primary" onclick="reveal(13)">Cancel</button>
+     </form>
+   </div>
+   <div class="reset-login-count">
+     <p id="larger">
+        Your current login count is: <?php echo $account_count; ?>
+     </p><br />
+     <p>
+       Click submit to reset your Login Count to 0.
+     </p>
+     <form action="account.php" method="POST">
+     <button type="submit" name="submit_count" class="btn btn-primary">Submit</button>
+     <button type="submit" name="cancel" class="btn btn-primary">Cancel</button>
+   </form>
+   </div>
+ </div>
+ <div class="delete-account-form">
+   <h1>Enter your E-mail to Delete Your Account:</h1><br />
+   <form action="account.php" method="POST">
+     <input type="text" name="delete_account_email"/><br />
+     <button type="submit">Delete</button>
+   </form>
+ </div>
   <script type='text/javascript' src='../js/notification.js'></script>
   <script type='text/javascript' src='../js/forms.js'></script>
 </body>

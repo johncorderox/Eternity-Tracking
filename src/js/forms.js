@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
   $('.login-logs, .deleteform, #hiddenInput, .removeuserform, .newuserform').hide();
-  $('.change-password-form, .change-email-form, .reset-login-count').hide();
+  $('.change-password-form, .change-email-form, .reset-login-count, .delete-account-form').hide();
 
 
   $('.comment_view, .addform').hide();
@@ -66,8 +66,6 @@ function showComments(a) {
       duration: 300
     });
 
-
-
   }
 
 
@@ -101,8 +99,6 @@ function reveal(x) {
     case 4:
       $('.account-information-tables, .account-menu-form').hide();
       $('.change-password-form').fadeIn();
-
-
       break;
 
     case 5:
@@ -136,13 +132,13 @@ function reveal(x) {
       break;
 
     case 10:
+
       $('.account-information-tables, .account-menu-form').fadeIn();
       $('.change-password-form, .change-email-form, .reset-login-count').hide();
-
-
       break;
 
     case 11:
+
       $('.change-email-form').fadeIn();
       $('.account-information-tables, .account-menu-form').hide();
       break;
@@ -157,6 +153,12 @@ function reveal(x) {
 
       $('.change-email-form').hide();
       $('.account-information-tables, .account-menu-form').fadeIn();
+      break;
+
+    case 14:
+
+      $('.delete-account-form').fadeIn();
+      $('.account-container').hide();
       break;
 
 
