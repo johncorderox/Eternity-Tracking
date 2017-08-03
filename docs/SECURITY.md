@@ -30,5 +30,6 @@ Usage:
   $your_Email = "ete(rnity).trac///kin/(g)@admin/.c/om";
 
   email_clean($your_Email);
+  echo $your_Email; // eternitytracking@admin.com
 
 ```
