@@ -162,10 +162,9 @@ input[type="text"], input[type="password"], input[type="email"] {
   width: 300px;
 }
 
-#user-table {
-  float: right;
-  display: inline;
-  margin-top: -70px;
+.delete-account-form {
+
+  margin-left: 30px;
 }
 
 .account-menu-form {

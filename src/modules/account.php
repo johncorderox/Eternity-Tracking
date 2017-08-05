@@ -99,10 +99,11 @@
    </div>
  </div>
  <div class="delete-account-form">
-   <h1>Enter your E-mail to Delete Your Account:</h1><br />
+   <hr />
+   <p id="larger">Enter your E-mail to Delete Your Account:</p><br />
    <form action="account.php" method="POST">
      <input type="text" name="delete_account_email"/><br />
-     <button type="submit">Delete</button>
+     <button type="submit" class="btn-btn-danger" name="submit_delete">Delete</button>
    </form>
  </div>
   <script type='text/javascript' src='../js/notification.js'></script>
@@ -198,6 +199,41 @@ if (isset($_POST['submit_newpassword'])) {
     echo '<script type="text/javascript">
           display_input_message(21);
           </script>';
+
+  }
+
+  if(isset($_POST['submit_delete'])) {
+
+    $email_input = trims($_POST['delete_account_email']);
+    $email_input = mysqli_escape_string($account_connect->connect(), $email_input);
+
+    $sql_email_verify = "SELECT username FROM users WHERE email = '$email_input' ";
+
+    $result = mysqli_query($account_connect->connect(), $sql_email_verify);
+    $row = mysqli_fetch_row($result);
+
+    $current_User = $_SESSION['username'];
+
+    if ($row[0] == $current_User) {
+
+      $sql_delete_account = "DELETE FROM users WHERE username = '$current_User' ";
+
+      $result = mysqli_query($account_connect->connect(), $sql_delete_account);
+
+        if ($result) {
+
+          mysqli_close($account_connect->connect());
+          header("Location: ../index.php?deleteaccount=1");
+
+        }
+
+    } else {
+
+      echo '<script type="text/javascript">
+            display_input_message(21);
+            </script>';
+    }
+
 
   }
 

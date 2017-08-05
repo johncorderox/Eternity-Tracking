@@ -261,12 +261,12 @@ class UserList {
 
 
         echo "<table class=\"table table-hover\" id=\"user-table\">";
-        echo "<tr><th>ID: </th><th>Username</th>";
+        echo "<tr><th>ID: </th><th>Username</th><th>Email</th>";
         echo "</thead><tbody>";
         while($row = $result->fetch_assoc()) {
 
 
-            echo "<tr><td>".$row["account_id"]."</td><td>".$row["username"]."</td></tr>";
+            echo "<tr><td>".$row["account_id"]."</td><td>".$row["username"]."</td><td>".$row["email"]."</td></tr>";
 
           }
           echo "</tbody></table></form>";

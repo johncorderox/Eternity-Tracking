@@ -138,6 +138,13 @@
               </script>';
       }
 
+      if (isset($_GET['deleteaccount']) && $_GET['deleteaccount'] == 1) {
+
+        echo '<script type="text/javascript">
+              display_input_message(22);
+              </script>';
+      }
+
    }
 
 }

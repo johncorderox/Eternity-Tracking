@@ -364,7 +364,7 @@ function display_input_message(n) {
         stackup_spacing: 10
       });
       break;
-      
+
     case 21:
       $.bootstrapGrowl("Your Account Login Count has been reset.", {
         ele: 'body',
@@ -381,6 +381,21 @@ function display_input_message(n) {
       });
       break;
 
+      case 22:
+        $.bootstrapGrowl("Your Account Has Been Deleted. Goodbye!", {
+          ele: 'body',
+          type: 'success',
+          align: 'right',
+          offset: {
+            from: 'top',
+            amount: 30
+          },
+          width: 450,
+          delay: 3000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+        });
+        break;
 
     default:
       console.log("Error in display input func. Check args");
