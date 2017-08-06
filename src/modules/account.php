@@ -103,7 +103,7 @@
    <p id="larger">Enter your E-mail to Delete Your Account:</p><br />
    <form action="account.php" method="POST">
      <input type="text" name="delete_account_email"/><br />
-     <button type="submit" class="btn-btn-danger" name="submit_delete">Delete</button>
+     <button type="submit" class="btn btn-danger" name="submit_delete">Delete</button>
    </form>
  </div>
   <script type='text/javascript' src='../js/notification.js'></script>
