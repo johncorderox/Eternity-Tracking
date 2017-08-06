@@ -1,6 +1,7 @@
 ## Important Developer Files
 
 -Files with the bold decoration is what the open source developers need to tend to.
+-Run both ``` main.sql ``` and ```logs.sql ```
 
 ```php
 
@@ -12,7 +13,7 @@
        |  \config
        |        
        |        |
-       |       <b>config.php</b>
+       |       **config.php**
        |        |
        |
        |  \modules
@@ -24,7 +25,7 @@
                 |
                  bug_review.php
                 |
-                <b>main.php<b>
+                **main.php**
                 |
                  module_header.php
                 |
@@ -40,14 +41,8 @@
         | \sql
 
               |
-              <b>main.sql</b>
+              **main.sql**
               |
-              <b>logs.sql</b>
-
-
-
-
-
-
+              **logs.sql**
 
 ```
