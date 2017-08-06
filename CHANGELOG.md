@@ -1,5 +1,8 @@
 <h1>Eternity-Tracking Changelog</h1>
 
+## V.2.1
+<li>Users can delete their own account<br>
+
 ## V.2.0
 <li>New Design <br>
 <li>OOP PHP Backend <br>
