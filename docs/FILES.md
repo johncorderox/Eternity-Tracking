@@ -1,6 +1,6 @@
 ## Important Developer Files
 
--Files with the bold decoration is what the open source developers need to tend to.
+-Files with the bold decoration is what the open source developers need to tend to.<br>
 -Run both ``` main.sql ``` and ```logs.sql ```
 
 ```php
@@ -13,7 +13,7 @@
        |  \config
        |        
        |        |
-       |       **config.php**
+       |       config.php
        |        |
        |
        |  \modules
@@ -41,8 +41,16 @@
         | \sql
 
               |
-              **main.sql**
+              main.sql
               |
-              **logs.sql**
+              logs.sql
+       |
+        bower.json
+       |
+        CHANGELOG.md
+       |
+        LICENSE.md
+       |
+        README.md
 
 ```
