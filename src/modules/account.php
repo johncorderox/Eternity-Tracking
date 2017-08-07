@@ -230,7 +230,7 @@ if (isset($_POST['submit_newpassword'])) {
     } else {
 
       echo '<script type="text/javascript">
-            display_input_message(21);
+            display_input_message(20);
             </script>';
     }
 
