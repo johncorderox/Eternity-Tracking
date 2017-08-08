@@ -25,7 +25,7 @@
                 |
                  bug_review.php
                 |
-                **main.php**
+                 main.php
                 |
                  module_header.php
                 |
