@@ -4,7 +4,7 @@
   require('../config/config.php');
   require('../lib/functions.php');
   require('../lib/notification.php');
-  require("../header.php");
+  require('../header.php');
 
   $main              = new Functions();
   $main_connect      = new Connect();
