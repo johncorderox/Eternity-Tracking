@@ -2,6 +2,7 @@
 
 ## V.2.1
 <li>Users can delete their own account<br>
+<li>SQL files have been separated</li>
 
 ## V.2.0
 <li>New Design <br>
