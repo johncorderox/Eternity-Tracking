@@ -2,7 +2,8 @@
 
 ## V.2.1
 <li>Users can delete their own account<br>
-<li>SQL files have been separated</li>
+<li>SQL files have been separated</li><br>
+<li>Refactoring on ```notification.js``` </li><br>
 
 ## V.2.0
 <li>New Design <br>
