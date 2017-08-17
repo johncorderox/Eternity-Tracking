@@ -3,7 +3,8 @@
 ## V.2.1
 <li>Users can delete their own account<br>
 <li>SQL files have been separated</li><br>
-<li>Refactoring on ```notification.js``` </li><br>
+<li>Refactoring on notifications </li><br>
+<li>Activity UML added</li><br>
 
 ## V.2.0
 <li>New Design <br>
