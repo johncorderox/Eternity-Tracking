@@ -74,14 +74,6 @@
 
        }
 
-       public function setSqlAddBugDefault() {
-
-         $this->sql_add  = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
-         $this->sql_add .= "VALUES ('$this->title','$this->message', '$this->priority', '$this->category', '$this->logged', NOW() )";
-
-
-       }
-
        public function setSqlAddBugCustom($t, $m, $p, $c) {
 
          $this->sql_add  = "INSERT INTO bugs (title, message, priority, category, reported_by, date) ";
