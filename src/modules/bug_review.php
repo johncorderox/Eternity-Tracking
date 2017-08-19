@@ -82,15 +82,6 @@
 
        }
 
-       public function setAddBugLog() {
-
-         $this->sql_add_log  = "INSERT INTO logs (`action_id`, `action`, `log_user`, `action_value`, `date`, `ip`) ";
-         $this->sql_add_log .=" VALUES ('','A','$this->logged', '$this->title', NOW(), '$this->ip')";
-
-
-       }
-
-
        public function addBug() {
 
          $add_bug_connect = new Connect();
