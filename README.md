@@ -61,7 +61,7 @@ $config = array(
 
 ```
 ## License 
-Eternity Tracing is currently under the Apache License 2.0 and you can find out more about it <a href="https://github.com/johncorderox/Eternity-Tracking/blob/master/LICENSE">here</a>
+Eternity Tracking is currently under the Apache License 2.0 and you can find out more about it <a href="https://github.com/johncorderox/Eternity-Tracking/blob/master/LICENSE">here</a>
 
 ## About the Author
 
