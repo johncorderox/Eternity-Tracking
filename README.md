@@ -66,4 +66,4 @@ Eternity Tracing is currently under the Apache License 2.0 and you can find out 
 ## About the Author
 
 I am a Software Developer based in Los Angeles and you can <a href="https://www.twitter.com/johncorderox">tweet <a>me if you'd like.<br>
-I take all suggestions, comments and compliments! 
+
