@@ -24,7 +24,6 @@ class Login {
 
       public function getIP() {
 
-
         return $this->ip;
       }
 
@@ -47,7 +46,6 @@ class Login {
           $logcheck = new Connect();
 
           mysqli_query($logcheck->connect(), $query);
-
 
         }
 
