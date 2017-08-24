@@ -29,7 +29,6 @@ require("../header.php");
 require('../lib/functions.php');
 require ("../lib/secure.php");
 
-
 class Search extends Functions {
 
   private $search_var;
@@ -38,27 +37,23 @@ class Search extends Functions {
 
    $this->search_var = trims($_POST['search']);
 
-
   }
 
   public function search_bugs() {
 
     if (empty($this->search_var)) {
 
-
    } else {
 
            $search_bugs_connect = new Connect();
            $search_table        = new Functions();
-
+          
            mysqli_escape_string($search_bugs_connect->connect(), $this->search_var);
-
 
              $sql_search_bugs  = "SELECT * from bugs WHERE `title` LIKE '%".$this->search_var."%' ";
 
              $search_table = new Functions();
              $search_table->displayTable(0,$sql_search_bugs);
-
 
        }
 
@@ -72,15 +67,14 @@ if (isset($_POST['search'])) {
 
     header("Location: bug_review.php");
 
-  } else {
+    } else {
 
-    $search_bugs = new Search();
+      $search_bugs = new Search();
 
-    $search_bugs->search_bugs();
+      $search_bugs->search_bugs();
 
-  }
+    }
 
-
-}
+ }
 
 ?>
