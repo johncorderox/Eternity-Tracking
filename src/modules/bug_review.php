@@ -24,7 +24,6 @@
             echo "</thead><tbody>";
             while($row = $result->fetch_assoc()) {
 
-
                 echo "<tr><td>".$row["id"]."</td><td>".$this->cleanDate($row['date'])."</td><td>".$row["title"]."</td><td>".$row["priority"]."</td>";
                 echo "<td>".$row["status"]."</td> ";
                 echo "<form action=\"view.php\" method=\"POST\">";
@@ -36,9 +35,7 @@
               }
               echo "</tbody></table></form>";
 
-
           }
-
 
      }
 
@@ -48,12 +45,10 @@
        private $message;
        private $priority;
        private $category;
-
        private $sql_add;
        private $sql_add_log;
 
        public static $error_message;
-
 
        public function __construct() {
 
@@ -113,18 +108,13 @@
 
              header("location: bug_review.php?successbug=1");
 
-
-
            }
-
-
 
        }
 
+    }
 
-     }
-
-     class DeleteBug {
+ class DeleteBug {
 
        private $deleteId;
        private $ip;
@@ -141,18 +131,15 @@
 
        }
 
-
        public function setDeleteId ($d) {
 
          $this->deleteId = $d;
-
 
        }
 
        public function getDeleteId() {
 
          return $this->deleteId;
-
 
        }
 
@@ -171,7 +158,6 @@
 
              DeleteBug::$errorMessage = "ID: " . $this->deleteId . " could not be found.";
            }
-
 
        }
 
@@ -203,7 +189,6 @@
            if (empty($this->deleteId)) {
 
                 return DeleteBug::$errorMessage = "You did not enter anything to be deleted!";
-
 
            } else {
 
