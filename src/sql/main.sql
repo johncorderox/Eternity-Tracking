@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `deleted_users` (
 -- ADMIN / GUEST
 -- password is password for both accounts
 INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES
-(NULL, 'admin', md5('password'), 'a@a.com', '0', '0');
+(NULL, 'admin', md5('password'), 'a@email.com', '0', '0');
 
 INSERT INTO `users` (`account_id`, `username`, `password`, `email`, `account_count`, `last_ip`) VALUES
-(NULL, 'guest', md5('password'), 'g@a.com', '0', '0');
+(NULL, 'guest', md5('password'), 'guest@email.com', '0', '0');
 
 
 CREATE TABLE IF NOT EXISTS `users` (
