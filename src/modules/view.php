@@ -128,7 +128,7 @@ $logged = $_SESSION['username'];
           </div>
           <div class="comment_view">
               <textarea class="form-control" id="comment" name="comment" rows="5"></textarea><br />
-              <button type="submit" class="btn btn-default" name="add_comment" id="add_comment">Add Comment </button>
+              <button type="button" class="btn btn-default" name="add_comment" id="add_comment" onclick="ajax_add_comment()">Add Comment </button>
               <button type="button" class="btn btn-default" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>

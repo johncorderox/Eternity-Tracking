@@ -128,6 +128,7 @@ if (isset($_POST['submit'])) {
      <button id="login-button" name="submit">Login</button><br />
    </form>
 </div>
+
 </body>
 
   <script type='text/javascript' src='js/view.js'></script>
