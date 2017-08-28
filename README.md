@@ -1,6 +1,7 @@
 
 <h1 align="center">Eternity Tracking</h1>
 <p align="center">
+<img src="https://img.shields.io/github/issues-closed-raw/johncorderox/Eternity-Tracking.svg">
 <img src="https://img.shields.io/github/release/johncorderox/Eternity-Tracking.svg">
 <img src="https://img.shields.io/github/commits-since/johncorderox/Eternity-Tracking/v.2.0.svg">
 <br>
