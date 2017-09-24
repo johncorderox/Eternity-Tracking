@@ -121,15 +121,15 @@ $logged = $_SESSION['username'];
               <button type="submit" class="btn btn-primary" name="save" id="save">Save  <span class="glyphicon glyphicon-check"></span></button>
               <button type="submit" class="btn btn-primary" name="delete" id="delete"> Delete  <span class="glyphicon glyphicon-trash"></span></button>
               <button type="submit" class="btn btn-primary" name="cancel" id="cancel"> Cancel </button>
-                <button type="button" class="btn btn-info" onClick="showComments(1)" id="add_comment2">Comment <span class="glyphicon glyphicon-edit"></span></button>
+                <button type="submit" class="btn btn-info" onClick="showComments(1)" id="add_comment2">Comment <span class="glyphicon glyphicon-edit"></span></button>
               </div>
              </div>
           </div>
           </div>
           <div class="comment_view">
               <textarea class="form-control" id="comment" name="comment" rows="5"></textarea><br />
-              <button type="button" class="btn btn-default" name="add_comment" id="add_comment" onclick="ajax_add_comment()">Add Comment </button>
-              <button type="button" class="btn btn-default" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+              <button type="submit" class="btn btn-default" name="add_comment" id="add_comment" onclick="ajax_add_comment()">Add Comment </button>
+              <button type="submit" class="btn btn-default" onClick="showComments(0)"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
             </form>
           </div>
       </div>

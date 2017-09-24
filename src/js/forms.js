@@ -28,28 +28,6 @@ $(document).ready(function() {
 
 });
 
-function ajax_add_comment() {
-
-  var comment_box = $('#comment').val();
-  if (!comment_box || comment_box === NULL) {
-
-    alert("Comments cannot be blank!");
-    return;
-
-  }  else {
-
-      xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-
-        if (this.readystate == 4 && this.status == 200) {
-
-          
-        }
-      }
-  }
-
-}
-
 function showPassword() {
 
   if ($("#password").attr("type") == "password") {
