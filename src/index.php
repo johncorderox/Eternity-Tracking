@@ -39,10 +39,15 @@ class Login {
 
       }
 
+<<<<<<< HEAD
       public function login_log_check($query) {
+=======
+        if ($allowLogLogin == TRUE) {
+>>>>>>> backend-dev
 
         if ($query) {
 
+<<<<<<< HEAD
           $logcheck = new Connect();
 
           mysqli_query($logcheck->connect(), $query);
@@ -55,6 +60,20 @@ class Login {
 
         include ('config/config.php');
 
+=======
+          $connect->query($sql_login_success);
+          $_SESSION['username'] = $username_l;
+          header("Location: modules/main.php?login=1");
+        }
+
+
+
+
+
+    } else {
+
+            if ($allowLogLogin == TRUE) {
+>>>>>>> backend-dev
 
         $query = "SELECT username, password FROM users WHERE username = '$this->user' and password ='$this->pass'";
          $query_add = "UPDATE `users` SET `account_count` = account_count + 1, `last_ip` = '$this->ip' WHERE username = '$this->user'";

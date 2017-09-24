@@ -2,8 +2,17 @@
 
 require ("connect.php");
 
+<<<<<<< HEAD
 
 class Functions {
+=======
+  $nb = new Connect();
+  $nb->query();
+  $sql = "SELECT COUNT(*) as total FROM bugs";
+  $result = mysqli_query($connect, $sql);
+  $number = mysqli_fetch_assoc($result);
+  echo '( '.$number['total'].' )';
+>>>>>>> backend-dev
 
   private $sql_count_bugs      = "SELECT COUNT(*) as total FROM bugs";
   private $sql_count_accounts  = "SELECT COUNT(*) as total FROM users";

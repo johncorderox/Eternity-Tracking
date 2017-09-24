@@ -12,7 +12,9 @@
   <a href="../modules/main.php"><h3>Eternity Tracking</h3></a>
     </div><br />
 </head>
+
 <?php
+
 ob_start();
 session_start();
 
