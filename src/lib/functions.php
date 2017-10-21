@@ -2,7 +2,6 @@
 
 require ("connect.php");
 
-<<<<<<< HEAD
 
 class Functions {
 =======
